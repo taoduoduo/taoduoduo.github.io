@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>声音与触觉的利用 | 从设计到实现 | 手把手教你做android开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="声音与触觉的利用之前我们对设计的讨论都是几种在视觉基础之上的。但除了视觉，我们人还拥有听觉、嗅觉、触觉、味觉等感知大自然的能力。
+现在由于技术的限制，嗅觉和味觉在移动设备领域的使用还无法派上用场，但是听觉和触觉正在扩大对我们使用的影响。
+声音的影响最经典的听觉案例有2个，和大家分享一下。
+一个是当年诺基亚的开机铃声，我想使用过诺基亚手机的同学每当听到这个声音一定会想到它那经典的台词，科技与人为本，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="声音与触觉的利用">
+<meta property="og:url" content="https://taoduoduo.github.io/book.github.io/2016/12/13/2_设计原理/7_声音与触觉的利用/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="声音与触觉的利用之前我们对设计的讨论都是几种在视觉基础之上的。但除了视觉，我们人还拥有听觉、嗅觉、触觉、味觉等感知大自然的能力。
+现在由于技术的限制，嗅觉和味觉在移动设备领域的使用还无法派上用场，但是听觉和触觉正在扩大对我们使用的影响。
+声音的影响最经典的听觉案例有2个，和大家分享一下。
+一个是当年诺基亚的开机铃声，我想使用过诺基亚手机的同学每当听到这个声音一定会想到它那经典的台词，科技与人为本，">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/nokia_poweron_logo.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/iphone_device.jpg">
+<meta property="og:updated_time" content="2017-02-01T15:47:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="声音与触觉的利用">
+<meta name="twitter:description" content="声音与触觉的利用之前我们对设计的讨论都是几种在视觉基础之上的。但除了视觉，我们人还拥有听觉、嗅觉、触觉、味觉等感知大自然的能力。
+现在由于技术的限制，嗅觉和味觉在移动设备领域的使用还无法派上用场，但是听觉和触觉正在扩大对我们使用的影响。
+声音的影响最经典的听觉案例有2个，和大家分享一下。
+一个是当年诺基亚的开机铃声，我想使用过诺基亚手机的同学每当听到这个声音一定会想到它那经典的台词，科技与人为本，">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/nokia_poweron_logo.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/book.github.io/favicon.ico">
+    <link rel="stylesheet" href="/book.github.io/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/book.github.io/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/book.github.io/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/book.github.io/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/book.github.io/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/book.github.io/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                目录
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">声音与触觉的利用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">声音与触觉的利用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-12-13T06:26:44.000Z" itemprop="datePublished" class="page-time">
+  2016-12-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#声音与触觉的利用"><span class="post-toc-text">声音与触觉的利用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#声音的影响"><span class="post-toc-text">声音的影响</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#触觉的作用"><span class="post-toc-text">触觉的作用</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-2_设计原理/7_声音与触觉的利用"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">声音与触觉的利用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016年12月13日 14:26" datetime="2016-12-13T06:26:44.000Z"  itemprop="datePublished">2016-12-13</time>
+
+            
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="声音与触觉的利用"><a href="#声音与触觉的利用" class="headerlink" title="声音与触觉的利用"></a>声音与触觉的利用</h1><p>之前我们对设计的讨论都是几种在视觉基础之上的。但除了视觉，我们人还拥有听觉、嗅觉、触觉、味觉等感知大自然的能力。</p>
+<p>现在由于技术的限制，嗅觉和味觉在移动设备领域的使用还无法派上用场，但是听觉和触觉正在扩大对我们使用的影响。</p>
+<h2 id="声音的影响"><a href="#声音的影响" class="headerlink" title="声音的影响"></a>声音的影响</h2><p>最经典的听觉案例有2个，和大家分享一下。</p>
+<p>一个是当年诺基亚的开机铃声，我想使用过诺基亚手机的同学每当听到这个声音一定会想到它那经典的台词，科技与人为本，然后就是两只手紧握的图案。这个例子正是通过声音，将用户和手机联系在一起。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/nokia_poweron_logo.png" alt="nokia_poweron_logo-wc200" title="">
+                </div>
+                <div class="image-caption">nokia_poweron_logo-wc200</div>
+            </figure>
+<p>还有一个就是iPhone的手机铃声，<br>走在大街上，如果听到这个铃声，很多iPhone用户都会不自觉的去摸一下自己的手机。这个声音改变了用户的行为模式，即使知道可能不是自己的手机在响，但总会下意识去摸一下自己的手机。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/iphone_device.jpg" alt="iphone_device-wc600" title="">
+                </div>
+                <div class="image-caption">iphone_device-wc600</div>
+            </figure>
+<p>与手机铃声不同，短信声音就显得非常短小精干，让你知道短信的存在，也不会太打扰你正在做的事情。</p>
+<p>照相的声音、屏幕锁定的声音、键盘打字时的声音…… 每个声音都有它想传达的意境。</p>
+<h2 id="触觉的作用"><a href="#触觉的作用" class="headerlink" title="触觉的作用"></a>触觉的作用</h2><p>触觉能带给用户更好的反馈体验。</p>
+<p>当我们不方便开启铃声的时候，震动反馈就能告诉用户有电话来了、有消息需要查收。</p>
+<p>苹果公司开发出的感知压力的屏幕，也给界面交互提供了更多的选择。手机通过感知用户按压屏幕时的不同力度，给用户提供不一样的操作响应。</p>
+<p>我们可以设想一下这样一个将来会出现的使用场景：用户通过点击屏幕输入文字的时候，屏幕能感受到压力，并根据压力的不同，在被点击的区域产生响应的震动。这样就可以模拟用户打字的力反馈，给用户带来更好使用体验。</p>
+<hr>
+<p>对于我们设计师或者开发者来讲，声音和触觉的设计就不属于我们讨论的内容了，它们涉及到另外一个专业的领域。我们还是把精力集中到视觉和功能上的旅程吧。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-01T15:47:58.000Z" itemprop="dateUpdated">2017年2月1日 23:47</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="https://taoduoduo.github.io/book.github.io">
+            <img src="/book.github.io/img/avatar.jpg" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://taoduoduo.github.io/book.github.io/2016/12/13/2_设计原理/7_声音与触觉的利用/&title=《声音与触觉的利用》 — 从设计到实现&pic=https://taoduoduo.github.io/book.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://taoduoduo.github.io/book.github.io/2016/12/13/2_设计原理/7_声音与触觉的利用/&title=《声音与触觉的利用》 — 从设计到实现&source=my description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/book.github.io/2016/12/13/2_设计原理/8_设计的组件与常用模式/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">组件与常用模式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/book.github.io/2016/12/13/2_设计原理/6_动画效果/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">动画效果</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/book.github.io/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/book.github.io/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://taoduoduo.github.io/book.github.io/2016/12/13/2_设计原理/7_声音与触觉的利用/&title=《声音与触觉的利用》 — 从设计到实现&pic=https://taoduoduo.github.io/book.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://taoduoduo.github.io/book.github.io/2016/12/13/2_设计原理/7_声音与触觉的利用/&title=《声音与触觉的利用》 — 从设计到实现&source=my description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADH0lEQVR42u3aQW7jQAwEwPz/09nrBkHsblIG7FHpZMiCNDUXguz5+oqv7/+u5JnfV/7O3/eT93y94sLGxsb+EHay3MdLTN6ZLPfxd5M1FFuPjY2NfRz78bJycILPNzrZoMdP/nkfGxsb+/bsWQFr24/HJWq1TmxsbOwbs1vGZqEtCRsbG/vO7HahLXXWQsw28eJZGjY2Nvbbs/NU9P1/vyTfxsbGxn5j9nd55QUjCXT32zq7sLGxsU9ibyLbttnYBLTXRs7Y2NjYJ7FnpaItPJsmZxYPPBkkYWNjYx/EztuJ2ch+c1inLX51MICNjY19BDuPV5P7CWP2xfY4zpOyio2NjX0cu/1MWwtmh2/a1iXZuNXuYmNjY78lux3ozwpGUsDaNqbdsj8bEmxsbOyD2HnhmTUt+Rio3Y48nHiSb2NjY2N/ILsNetsmIS8qm2i5fgYbGxv7IHZbBi5oAMoWaBMDPFknNjY29hHstoTk4/58iTPGpkHCxsbGPok9i3Vn+DYYmEUC+b/Y2NjY57ET5GqIE1xtIbz4EA82Njb2B7LzofwMkDcMm1YkD5WxsbGx78beH7hpW5r9+4d5CDY2NvaHs2cxwKyFmIXHVx27/HH4EhsbG/s49myolGxcO3LKS+nwGBA2Njb2Qew8BN3EwG0R2kQI2NjY2Nib5baHddqYIfm3/jo2Njb2Qez8+EveMLSty2zr2+gXGxsb+zx2O5p/RfPQHu6ZvR8bGxv7DuyWmoQHmyHUpqzW4yRsbGzsD2e3BSY/vrO/n0e5+bZiY2Njn8eeDetn+H0AMIucf9zBxsbGPpS9H8TvB0CbAVYxqMLGxsY+lN1eeVtyVZDclrEL6jY2Njb2G7P3x27aliD/St78FCeS8kVgY2Njfwh7VqhmpFnDMGuK6qgAGxsb+8PZedHKW4i2TF410sLGxsa+M3tTGOrR/KgpmvUR9d/Y2NjYN2BfFejmBS9vjfIVYmNjY9+Z3UYLSTHLy1VbFC9uRbCxsbHfmD1bdPvkLCR4vDX5UR5sbGzsU9ntgCbfoHyz2q+3yFW+jY2Njf2+7H+GNz7a3w4HggAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/book.github.io/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/book.github.io/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/book.github.io/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
