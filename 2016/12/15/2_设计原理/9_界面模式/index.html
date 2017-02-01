@@ -13,7 +13,7 @@
     
     
     
-    <title>No title | 从设计到实现 | 手把手教你做android开发</title>
+    <title>界面模式 | 从设计到实现 | 手把手教你做android开发</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -23,24 +23,24 @@
     <meta name="description" content="界面模式Material Design的基础组件我们已经大体了解过了，现在我们看看Material Design在结合这些不同组件的过程中，有哪些套路，也就是有哪些常用的界面设计模式。了解了这些模式，可以帮助设计者们做出合乎开发者实现的方案。
 设计的套路有很多，列表-list 分页-tab 网格-Grid 侧边栏  下拉刷新等等。这里只列出几个常见的，更多的方式请参考设计规范，以及其他各种优秀应用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="No title">
+<meta property="og:title" content="界面模式">
 <meta property="og:url" content="https://taoduoduo.github.io/book.github.io/2016/12/15/2_设计原理/9_界面模式/index.html">
 <meta property="og:site_name" content="从设计到实现">
 <meta property="og:description" content="界面模式Material Design的基础组件我们已经大体了解过了，现在我们看看Material Design在结合这些不同组件的过程中，有哪些套路，也就是有哪些常用的界面设计模式。了解了这些模式，可以帮助设计者们做出合乎开发者实现的方案。
 设计的套路有很多，列表-list 分页-tab 网格-Grid 侧边栏  下拉刷新等等。这里只列出几个常见的，更多的方式请参考设计规范，以及其他各种优秀应用">
-<meta property="og:image" content="https://taoduoduo.github.io/book.github.io/media/slider_drawer_example.png">
-<meta property="og:image" content="https://taoduoduo.github.io/book.github.io/media/bottom_button_patten.gif">
-<meta property="og:image" content="https://taoduoduo.github.io/book.github.io/media/tabs_patten.png">
-<meta property="og:image" content="https://taoduoduo.github.io/book.github.io/media/navigational-transitions_parent-to-child_patten.gif">
-<meta property="og:image" content="https://taoduoduo.github.io/book.github.io/media/raised_btn_effect.gif">
-<meta property="og:image" content="https://taoduoduo.github.io/book.github.io/media/slibing_patten.gif">
-<meta property="og:image" content="https://taoduoduo.github.io/book.github.io/media/appbar_scroll_toolbar.gif">
-<meta property="og:updated_time" content="2016-12-19T08:11:19.000Z">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/slider_drawer_example.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/bottom_button_patten.gif">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/tabs_patten.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/navigational-transitions_parent-to-child_patten.gif">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/raised_btn_effect.gif">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/slibing_patten.gif">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/appbar_scroll_toolbar.gif">
+<meta property="og:updated_time" content="2017-02-01T15:55:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="No title">
+<meta name="twitter:title" content="界面模式">
 <meta name="twitter:description" content="界面模式Material Design的基础组件我们已经大体了解过了，现在我们看看Material Design在结合这些不同组件的过程中，有哪些套路，也就是有哪些常用的界面设计模式。了解了这些模式，可以帮助设计者们做出合乎开发者实现的方案。
 设计的套路有很多，列表-list 分页-tab 网格-Grid 侧边栏  下拉刷新等等。这里只列出几个常见的，更多的方式请参考设计规范，以及其他各种优秀应用">
-<meta name="twitter:image" content="https://taoduoduo.github.io/book.github.io/media/slider_drawer_example.png">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/slider_drawer_example.png">
     
         <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
     
@@ -103,7 +103,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis"></div>
+        <div class="flex-col header-title ellipsis">界面模式</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -125,7 +125,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title"></h1>
+        <h1 class="title">界面模式</h1>
         <h5 class="subtitle">
             
                 <time datetime="2016-12-15T06:21:11.000Z" itemprop="datePublished" class="page-time">
@@ -155,7 +155,7 @@
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title"></h1>
+        <h1 class="post-card-title">界面模式</h1>
         <div class="post-meta">
             <time class="post-time" title="2016年12月15日 14:21" datetime="2016-12-15T06:21:11.000Z"  itemprop="datePublished">2016-12-15</time>
 
@@ -172,7 +172,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="media/slider_drawer_example.png" alt="slider_drawer_example-wc300" title="">
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/slider_drawer_example.png" alt="slider_drawer_example-wc300" title="">
                 </div>
                 <div class="image-caption">slider_drawer_example-wc300</div>
             </figure>
@@ -181,7 +181,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="media/bottom_button_patten.gif" alt="bottom_button_patten-wc300" title="">
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/bottom_button_patten.gif" alt="bottom_button_patten-wc300" title="">
                 </div>
                 <div class="image-caption">bottom_button_patten-wc300</div>
             </figure>
@@ -191,7 +191,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="media/tabs_patten.png" alt="tabs_patten-wc300" title="">
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/tabs_patten.png" alt="tabs_patten-wc300" title="">
                 </div>
                 <div class="image-caption">tabs_patten-wc300</div>
             </figure>
@@ -203,14 +203,14 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="media/navigational-transitions_parent-to-child_patten.gif" alt="navigational-transitions_parent-to-child_patten-wc600" title="">
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/navigational-transitions_parent-to-child_patten.gif" alt="navigational-transitions_parent-to-child_patten-wc600" title="">
                 </div>
                 <div class="image-caption">navigational-transitions_parent-to-child_patten-wc600</div>
             </figure>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="media/raised_btn_effect.gif" alt="raised_btn_effect-wc300" title="">
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/raised_btn_effect.gif" alt="raised_btn_effect-wc300" title="">
                 </div>
                 <div class="image-caption">raised_btn_effect-wc300</div>
             </figure>
@@ -219,7 +219,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="media/slibing_patten.gif" alt="slibing_patten-wc300" title="">
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/slibing_patten.gif" alt="slibing_patten-wc300" title="">
                 </div>
                 <div class="image-caption">slibing_patten-wc300</div>
             </figure>
@@ -227,7 +227,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="media/appbar_scroll_toolbar.gif" alt="appbar_scroll_toolbar-wc300" title="">
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/appbar_scroll_toolbar.gif" alt="appbar_scroll_toolbar-wc300" title="">
                 </div>
                 <div class="image-caption">appbar_scroll_toolbar-wc300</div>
             </figure>
@@ -238,7 +238,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2016-12-19T08:11:19.000Z" itemprop="dateUpdated">2016年12月19日 16:11</time>
+    最后更新时间：<time datetime="2017-02-01T15:55:35.000Z" itemprop="dateUpdated">2017年2月1日 23:55</time>
 </span><br>
 
 
@@ -269,7 +269,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://taoduoduo.github.io/book.github.io/2016/12/15/2_设计原理/9_界面模式/&title=从设计到实现&pic=https://taoduoduo.github.io/book.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://taoduoduo.github.io/book.github.io/2016/12/15/2_设计原理/9_界面模式/&title=《界面模式》 — 从设计到实现&pic=https://taoduoduo.github.io/book.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -279,7 +279,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://taoduoduo.github.io/book.github.io/2016/12/15/2_设计原理/9_界面模式/&title=从设计到实现&source=my description" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://taoduoduo.github.io/book.github.io/2016/12/15/2_设计原理/9_界面模式/&title=《界面模式》 — 从设计到实现&source=my description" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -322,24 +322,6 @@
 
 
     
-
-<div class="comments" id="comments">
-    <div class="ds-thread" data-thread-key="2_设计原理/9_界面模式" data-title="" data-url="https://taoduoduo.github.io/book.github.io/2016/12/15/2_设计原理/9_界面模式/"></div>
-</div>
-<script>
-lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
-
-var duoshuoQuery = {short_name:'ysblog', theme: 'none'};
-lazyScripts.push('/book.github.io/js/embed.min.js?v=1.4.7');
-
-
-</script>
-
-
-
-
-
-
 
 </article>
 
@@ -394,7 +376,7 @@ lazyScripts.push('/book.github.io/js/embed.min.js?v=1.4.7');
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://taoduoduo.github.io/book.github.io/2016/12/15/2_设计原理/9_界面模式/&title=《No title》 — 从设计到实现&pic=https://taoduoduo.github.io/book.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://taoduoduo.github.io/book.github.io/2016/12/15/2_设计原理/9_界面模式/&title=《界面模式》 — 从设计到实现&pic=https://taoduoduo.github.io/book.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -404,7 +386,7 @@ lazyScripts.push('/book.github.io/js/embed.min.js?v=1.4.7');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://taoduoduo.github.io/book.github.io/2016/12/15/2_设计原理/9_界面模式/&title=《No title》 — 从设计到实现&source=my description" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://taoduoduo.github.io/book.github.io/2016/12/15/2_设计原理/9_界面模式/&title=《界面模式》 — 从设计到实现&source=my description" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

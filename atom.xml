@@ -1775,11 +1775,11 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>界面模式</title>
     <link href="https://taoduoduo.github.io/book.github.io/2016/12/15/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/9_%E7%95%8C%E9%9D%A2%E6%A8%A1%E5%BC%8F/"/>
     <id>https://taoduoduo.github.io/book.github.io/2016/12/15/2_设计原理/9_界面模式/</id>
     <published>2016-12-15T06:21:11.000Z</published>
-    <updated>2016-12-19T08:11:19.000Z</updated>
+    <updated>2017-02-01T15:55:35.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="界面模式"><a href="#界面模式" class="headerlink" title="界面模式"></a>界面模式</h1><p><code>Material Design</code>的基础组件我们已经大体了解过了，现在我们看看<code>Material Design</code>在结合这些不同组件的过程中，有哪些套路，也就是有哪些常用的界面设计模式。了解了这些模式，可以帮助设计者们做出合乎开发者实现的方案。</p>
 <p>设计的套路有很多，<code>列表-list</code> <code>分页-tab</code> <code>网格-Grid</code> <code>侧边栏</code>  <code>下拉刷新</code>等等。这里只列出几个常见的，更多的方式请参考<a href="https://material.google.com/" target="_blank" rel="external">设计规范</a>，以及其他各种优秀应用的精巧设计。</p>
@@ -1789,7 +1789,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="media/slider_drawer_example.png" alt="slider_drawer_example-wc300" title="">
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/slider_drawer_example.png" alt="slider_drawer_example-wc300" title="">
                 </div>
                 <div class="image-caption">slider_drawer_example-wc300</div>
             </figure>
@@ -1798,7 +1798,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="media/bottom_button_patten.gif" alt="bottom_button_patten-wc300" title="">
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/bottom_button_patten.gif" alt="bottom_button_patten-wc300" title="">
                 </div>
                 <div class="image-caption">bottom_button_patten-wc300</div>
             </figure>
@@ -1808,7 +1808,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="media/tabs_patten.png" alt="tabs_patten-wc300" title="">
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/tabs_patten.png" alt="tabs_patten-wc300" title="">
                 </div>
                 <div class="image-caption">tabs_patten-wc300</div>
             </figure>
@@ -1820,14 +1820,14 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="media/navigational-transitions_parent-to-child_patten.gif" alt="navigational-transitions_parent-to-child_patten-wc600" title="">
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/navigational-transitions_parent-to-child_patten.gif" alt="navigational-transitions_parent-to-child_patten-wc600" title="">
                 </div>
                 <div class="image-caption">navigational-transitions_parent-to-child_patten-wc600</div>
             </figure>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="media/raised_btn_effect.gif" alt="raised_btn_effect-wc300" title="">
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/raised_btn_effect.gif" alt="raised_btn_effect-wc300" title="">
                 </div>
                 <div class="image-caption">raised_btn_effect-wc300</div>
             </figure>
@@ -1836,7 +1836,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="media/slibing_patten.gif" alt="slibing_patten-wc300" title="">
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/slibing_patten.gif" alt="slibing_patten-wc300" title="">
                 </div>
                 <div class="image-caption">slibing_patten-wc300</div>
             </figure>
@@ -1844,7 +1844,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="media/appbar_scroll_toolbar.gif" alt="appbar_scroll_toolbar-wc300" title="">
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/appbar_scroll_toolbar.gif" alt="appbar_scroll_toolbar-wc300" title="">
                 </div>
                 <div class="image-caption">appbar_scroll_toolbar-wc300</div>
             </figure>
