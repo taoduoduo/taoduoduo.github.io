@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>从设计到实现</title>
   <subtitle>手把手教你做android开发</subtitle>
-  <link href="/atom.xml" rel="self"/>
+  <link href="/book.github.io/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://taoduoduo.github.io/book.github.io/"/>
   <updated>2017-02-01T00:23:32.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://taoduoduo.github.io/book.github.io/</id>
   
   <author>
     <name>安豆</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2017/02/01/hello-world/"/>
-    <id>http://yoursite.com/2017/02/01/hello-world/</id>
+    <link href="https://taoduoduo.github.io/book.github.io/2017/02/01/hello-world/"/>
+    <id>https://taoduoduo.github.io/book.github.io/2017/02/01/hello-world/</id>
     <published>2017-02-01T00:23:32.000Z</published>
     <updated>2017-02-01T00:23:32.000Z</updated>
     
