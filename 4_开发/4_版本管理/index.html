@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>4 版本管理 | 从设计到实现 | 手把手教你做android开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="版本管理前面已经提到了，非常有必要对开发的代码进行管理。那么进行版本管理到底什么时候使用呢？
+我总结了使用版本管理的主要场景，有以下3种：
+
+对于个人开发者，版本管理能记录开发的变迁。它记录了所有文档的修改记录，就好比玩游戏时，我们都会时刻存档，就怕哪一次不小心，控制的角色挂了；假如不存档，出了问题，必须得从新开始。
+ 如果使用了版本管理，就可以随时保存文档修改的进度。一旦文档任何时候出现了问题，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4 版本管理">
+<meta property="og:url" content="https://taoduoduo.github.io/book.github.io/4_开发/4_版本管理/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="版本管理前面已经提到了，非常有必要对开发的代码进行管理。那么进行版本管理到底什么时候使用呢？
+我总结了使用版本管理的主要场景，有以下3种：
+
+对于个人开发者，版本管理能记录开发的变迁。它记录了所有文档的修改记录，就好比玩游戏时，我们都会时刻存档，就怕哪一次不小心，控制的角色挂了；假如不存档，出了问题，必须得从新开始。
+ 如果使用了版本管理，就可以随时保存文档修改的进度。一旦文档任何时候出现了问题，">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/version_rollback.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/modify_different_lines.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/modify_same_lines.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/make_dev_branch.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/git_repository.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/git_location.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/git_commit_push.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/modify_same_lines.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/git_branch_tag.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/github_website.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_integrate_github.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_%20integrate_github2.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/github_repository.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_share_project_to_github1.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_share_project_to_github2.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_share_project_to_github_result1.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_share_project_to_github_result2.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_version_control_window.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_main_activity_modify_for_git_demo.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_main_activity_modify_list.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_main_activity_commit1.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_main_activity_commit2.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_main_activity_commit3.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_main_activity_commit_result1.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_main_activity_commit_result2.png">
+<meta property="og:updated_time" content="2017-02-02T08:45:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="4 版本管理">
+<meta name="twitter:description" content="版本管理前面已经提到了，非常有必要对开发的代码进行管理。那么进行版本管理到底什么时候使用呢？
+我总结了使用版本管理的主要场景，有以下3种：
+
+对于个人开发者，版本管理能记录开发的变迁。它记录了所有文档的修改记录，就好比玩游戏时，我们都会时刻存档，就怕哪一次不小心，控制的角色挂了；假如不存档，出了问题，必须得从新开始。
+ 如果使用了版本管理，就可以随时保存文档修改的进度。一旦文档任何时候出现了问题，">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/version_rollback.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/book.github.io/favicon.ico">
+    <link rel="stylesheet" href="/book.github.io/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/book.github.io/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/book.github.io/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/book.github.io/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/book.github.io/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                目录
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">4 版本管理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">4 版本管理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-20T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-01-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/book.github.io/categories/第4章/">第4章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#版本管理"><span class="post-toc-text">版本管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#管理的工具"><span class="post-toc-text">管理的工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Github的使用"><span class="post-toc-text">Github的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Github的注册"><span class="post-toc-text">Github的注册</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Android-Studio的配置"><span class="post-toc-text">Android Studio的配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Android-Studio的Git管理"><span class="post-toc-text">Android Studio的Git管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#提交与推送入库"><span class="post-toc-text">提交与推送入库</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#其他"><span class="post-toc-text">其他</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-4_开发/4_版本管理"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">4 版本管理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年01月20日 9:00" datetime="2017-01-20T01:00:00.000Z"  itemprop="datePublished">2017-01-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/book.github.io/categories/第4章/">第4章</a></li></ul>
+
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h1><p>前面已经提到了，非常有必要对开发的代码进行管理。那么进行版本管理到底什么时候使用呢？</p>
+<p>我总结了使用版本管理的主要场景，有以下3种：</p>
+<ol>
+<li><p>对于个人开发者，版本管理能记录开发的变迁。它记录了所有文档的修改记录，就好比玩游戏时，我们都会时刻存档，就怕哪一次不小心，控制的角色挂了；假如不存档，出了问题，必须得从新开始。</p>
+<p> 如果使用了版本管理，就可以随时保存文档修改的进度。一旦文档任何时候出现了问题，或者希望快速还原到之前某个特定的状态，都可以很容易的切换过去。省去了程序员不少麻烦，毕竟谁也记不清哪年哪月哪日我添加了一段什么代码，目的是什么，而正是这段代码引起了bug，搞得我现在大脑崩溃。</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/version_rollback.png" width="200" alt=" version_rollback"></div>
+</li>
+<li><p>当多个程序员开发同一个项目的时候，版本管理工具能很好的协调彼此的工作，让大家开发的代码不会冲突、互相干扰，即使出现了问题，也能很快找到原因。</p>
+<p> 比如<code>程序员A</code>在他的开发代码中修改了<code>work.java</code>中第15行的内容，同时<code>程序员B</code>在他的开发代码中修改了<code>work.java</code>中第20行的内容。两人把修改提交保存的时候，版本管理工具，会把两人的修改合并起来。</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/modify_different_lines.png" width="300" alt=" modify_different_lines"></div>
+
+<p> 如果<code>程序员A</code>在他的开发代码中修改了<code>work.java</code>中第15行的内容，同时<code>程序员B</code>在他的开发代码中也修改了<code>work.java</code>中第15行的内容。两人把修改的内容提交保存的时候，版本管理工具，会发现两人的修改冲突，告诉<code>A</code>和<code>B</code>，让他们两协商解决问题。</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/modify_same_lines.png" width="300" alt=" modify_same_lines"></div>
+</li>
+<li><p>文档的修改积累到一定程度，比如说完成了设计的所有内容，就可以设置一个大的节点。后继的开发可以分成两支：一支继续添加新的功能；一支修复现有程序的bug。</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/make_dev_branch.png" width="300" alt=" make_dev_branch"></div>
+
+</li>
+</ol>
+<h2 id="管理的工具"><a href="#管理的工具" class="headerlink" title="管理的工具"></a>管理的工具</h2><p>为了满足前面提到使用场景，在软件开发的不同历史阶段，出现了不同的版本管理工具：从<code>CVS</code>，到<code>SVN</code>，再到现在使用最广泛的<code>Git</code>。</p>
+<p>早期的版本控制软件存在的各种缺点，都被后来的代替者解决了。在安卓的开发中，基本上都在使用<code>Git</code>作为版本控制工具。</p>
+<p><code>Git</code>是<code>Linux</code>之父Linus Torvalds亲自开发的工具，有着高效的管理能力。它最为基本的运作思路大致如下：</p>
+<ol>
+<li><p>仓库<code>Repository</code>是一个<code>Git项目</code>的容器，里面存放着文档（包括代码）、以及各个文档的历史修改信息；</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/git_repository.png" width="200" alt=" git_repository"></div>
+</li>
+<li><p>仓库<code>Repository</code>可以存在于网络端，也可以存在于本地电脑当中；</p>
+</li>
+<li><p>仓库有两种获取的方式，一个是clone网络端已有的；一个是在本地电脑上自行创建，再通过网络提供给别人访问；</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/git_location.png" width="250" alt=" git_location"></div>
+</li>
+<li><p>假如对本地的仓库内容进行了修改，要保存修改进度的时候，</p>
+<ol>
+<li>要先将这些修改放到stage当中，</li>
+<li>然后提交-<code>commit</code>到本地的仓库中，此时会产生一个全局唯一识别码-<code>Commit ID</code>，就像<code>f27af79</code>；</li>
+<li>将<code>commit</code>后的内容推送<code>push</code>到网络端，而这个<code>Commit ID</code>就代表你这次提交的唯一标记；</li>
+<li><p>假如推送的时候，自己修改的代码和仓库中的代码出现了冲突<code>Conflit</code>（因为修改了同一处的代码导致），那么推送者就需要查看代码、找到修改这段代码的提交者商量修改方案，解决冲突；</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/git_commit_push.png" width="300" alt=" git_commit_push"></div>
+</li>
+</ol>
+</li>
+<li><p>其他开发者假如clone了这个仓库，就能看到<code>Commit</code>后的各种修改，并通过拉取<code>pull</code>的操作从网络端把更新同步到自己本地的代码当中；</p>
+</li>
+<li><p>假如同步代码的过程中，自己的代码和别人的修改发生了冲突<code>Conflit</code>，那么拉取者就需要查看代码、找到修改这段代码的提交者商量修改方案，解决冲突；</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/modify_same_lines.png" width="300" alt=" modify_same_lines"></div>
+
+</li>
+</ol>
+<p>除此之外，Git还拥有软件工程方面的实用技巧，例如创建开发分支<code>Branch</code>，给代码打标签<code>Tag</code>。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/git_branch_tag.png" width="300" alt=" git_branch_tag"></div>
+
+<p><em>更加详细的内容，可以参考<a href="https://git-scm.com/" target="_blank" rel="external">这里</a>。里面还列举出了各个平台下可以选择的<a href="https://git-scm.com/downloads/guis" target="_blank" rel="external">图形化工具</a>。</em></p>
+<h2 id="Github的使用"><a href="#Github的使用" class="headerlink" title="Github的使用"></a>Github的使用</h2><p><a href="https://github.com/" target="_blank" rel="external">Github</a>几乎是全世界程序员都知道的项目托管平台，我们可以把代码放在这个平台上。整个项目的托管就是基于<code>Git</code>的原理实现的。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/github_website.png" width="400" alt=" github_website"></div>
+
+<p>Github在<code>Git</code>管理中充当着网络端的功能，扮演中心服务器的角色，让我们可以随时更新代码、提交代码，分享代码。</p>
+<p>而<code>Android Studio</code>具有对Github平台的原生支持，让我们在开发的时候能够无缝的加入对软件版本控制的管理功能。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_integrate_github.png" width="350" alt=" as_integrate_github"></div><br><div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_%20integrate_github2.png" width="400" alt=" as_ integrate_github2"></div>
+
+<h3 id="Github的注册"><a href="#Github的注册" class="headerlink" title="Github的注册"></a>Github的注册</h3><p>打开Github的官网，按照指示很容易的注册一个账号。</p>
+<p>登陆账号后，可以看到你现在具有的仓库-<code>Repository</code>，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/github_repository.png" width="250" alt=" github_repository"></div>
+
+<p>我之前已经创建过几个免费仓库了，所以列表里会将它们呈现出来。如果是新注册的账号，这里应该是空的。</p>
+<h3 id="Android-Studio的配置"><a href="#Android-Studio的配置" class="headerlink" title="Android Studio的配置"></a>Android Studio的配置</h3><p>现在我们来把之前创建的<code>天气预报</code>工程，托管到Github上：</p>
+<ol>
+<li>启动<code>工具栏</code>的<code>VCS -&gt; Import into Version Control -&gt; Share Project on Github</code>；</li>
+<li>在弹出的窗口中，根据提示输入Github上的账户名和密码；</li>
+<li>输入项目的名称<code>WeatherApp</code>和项目描述，选择<code>Share</code>； <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_share_project_to_github1.png" width="400" alt=" as_share_project_to_github1"></div></li>
+<li>确认要添加到管理中的文件（代码、配置、资源等文件），并给这次提交添加描述信息； <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_share_project_to_github2.png" width="300" alt=" as_share_project_to_github2"></div>
+
+</li>
+</ol>
+<p>刷新Github上的个人主页，可以看到新添加的项目仓库<code>WeatherApp</code>已经出现在那里了，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_share_project_to_github_result1.png" width="250" alt=" as_share_project_to_github_result1"></div>
+
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_share_project_to_github_result2.png" width="400" alt=" as_share_project_to_github_result2"></div>
+
+<p>此时看看<code>Android Studio</code>的<code>Version Control窗口</code>，就能看到当前的代码管理情况，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_version_control_window.png" width="500" alt=" as_version_control_window"></div>
+
+
+<h3 id="Android-Studio的Git管理"><a href="#Android-Studio的Git管理" class="headerlink" title="Android Studio的Git管理"></a>Android Studio的Git管理</h3><h4 id="提交与推送入库"><a href="#提交与推送入库" class="headerlink" title="提交与推送入库"></a>提交与推送入库</h4><p>Git版本管理有很多用法，这里我们先介绍两个最常使用的功能<code>commit</code>与<code>push</code>。</p>
+<p>假如我们修改了<code>WeatherApp</code>的<code>MainActivity.java</code>，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_main_activity_modify_for_git_demo.png" width="400" alt=" as_main_activity_modify_for_git_demo"></div>
+
+<p><code>LocalChanges选项卡</code>会将当前发生了变化的、被版本管理记录的文件列出来，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_main_activity_modify_list.png" width="500" alt=" as_main_activity_modify_list"></div>
+
+<p>点击提交<code>commit</code>按钮，会将修改过的文件放入stage状态，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_main_activity_commit1.png" width="100" alt=" as_main_activity_commit1"></div>
+
+<p>并展示当前要提交<code>commit</code>文件的状态，让我们再次确认，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_main_activity_commit2.png" width="500" alt=" as_main_activity_commit2"></div>
+
+<p>检查无误后，选择提交并推送入库-<code>Commit and Push</code>，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_main_activity_commit3.png" width="200" alt=" as_main_activity_commit3"></div>
+
+<p>假如没有冲突发生，就能看到提交成功，版本控制增加新的节点，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_main_activity_commit_result1.png" width="400" alt=" as_main_activity_commit_result1"></div>
+
+<p>Github上项目对应的代码页，也会更新，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_main_activity_commit_result2.png" width="500" alt=" as_main_activity_commit_result2"></div>
+
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p><code>Android Studio</code>还提供了创建分支<code>Branch</code>、创建标签<code>Tag</code>、以及在不同节点上来回切换的功能，这里就不详细描述了。</p>
+<p>因为这些内容如果没有实际的例子，讲起来会很枯燥。我会在开发的过程中根据需要穿插进响应的内容，这样大家理解起来就会非常的方便了。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-02T08:45:54.000Z" itemprop="dateUpdated">2017年2月2日 16:45</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="https://taoduoduo.github.io/book.github.io">
+            <img src="/book.github.io/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://taoduoduo.github.io/book.github.io/4_开发/4_版本管理/&title=《4 版本管理》 — 从设计到实现&pic=https://taoduoduo.github.io/book.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://taoduoduo.github.io/book.github.io/4_开发/4_版本管理/&title=《4 版本管理》 — 从设计到实现&source=my description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/book.github.io/4_开发/3_应用的创建与部署/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">3 应用的创建与部署</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/book.github.io/4_开发/5_资源的导入/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">5 资源的导入</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/book.github.io/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/book.github.io/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://taoduoduo.github.io/book.github.io/4_开发/4_版本管理/&title=《4 版本管理》 — 从设计到实现&pic=https://taoduoduo.github.io/book.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://taoduoduo.github.io/book.github.io/4_开发/4_版本管理/&title=《4 版本管理》 — 从设计到实现&source=my description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACr0lEQVR42u3aQZIaQQwEQP//0/bVERswVVI3yyE5EcMaOucwkkv68yd+/f3x+v968m9fvU++8+ffHH7h4eHhrY/+6iffX2+R7fe/v/7yJHh4eHjXeO0DPT/o+1uQfNv79w8WPDw8vK/htc3xrJwk58HDw8P7fl4SGeRHyT/Fw8PD+zZeEkbkGWnSNOdH/1DWgoeHh9dlAsN29rfeX5nv4eHh4a2n6vsQdnY9b9kfTouHh4d3gdcuTrVN7WyxYBP74uHh4d3mtatOmyBgVnJmAQQeHh7ePV67/JR/dR4Ht8j8Uzw8PLwbvJbR3oJ8SNbGFtHtw8PDw7vAa6OBWfHYF4zDkz08PDy8BW8TnrZxwGxRYFaK8PDw8D7De/+wzgGbdjmPg6PreHh4eBd4s2Wm2UN/37IPm288PDy8o7w2bN3Huzca94eSgIeHh3eUl7eqLaZt09tik/8KHh4e3lnefhw1WwjIH+h5gx79XwEPDw9vzZsdpT3cjFGvUiV/iYeHh3eI1643JdFq3hbP4oYi2sDDw8M7ytvEtbMVq7wIzT59GUbg4eHhXeC1jewmhshvQf6KKh4eHh7eUV77WM+D4Lz87Kf/Rd3Dw8PDu8abLQS0R58tFjycHw8PD+8CL4ke8uLRlpDZIteBlBoPDw/vKG826MrD3/zQM1ixv4CHh4e35rUN64yxiX3b0RoeHh7eZ3jt2L5ti2fDtuEADA8PD++DqwN5GLEJFNoS0p4HDw8P7wZv9thtW+R8gWA2EjtQYPDw8PBKXhsu5A/0dmlgXxjq1QE8PDy8Be9ezUlC3nbYVozN8PDw8L6GN1vGSpYPNksGDyk1Hh4e3i/xkkdz3i7PxmzFjcPDw8O7xtsPtNr4YFM8rsS4eHh4eBcGYJsfyyPaYeu839jCw8PDe+b9A8x4sYaQc7zRAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/book.github.io/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/book.github.io/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/book.github.io/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

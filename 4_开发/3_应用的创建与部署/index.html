@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>3 应用的创建与部署 | 从设计到实现 | 手把手教你做android开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="应用的创建与部署现在我们开始创建一个全新的项目工程-天气预报，并在编译后让它运行到真实的设备上。
+
+
+创建应用工程运行Android Studio，
+
+启动Android Studio，选择Start a new Android Projcet；
+
+在Application name栏，为应用取个名字为WeatherApp；
+
+在Company Domain栏，按照网址的形式填上anddle.co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3 应用的创建与部署">
+<meta property="og:url" content="https://taoduoduo.github.io/book.github.io/4_开发/3_应用的创建与部署/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="应用的创建与部署现在我们开始创建一个全新的项目工程-天气预报，并在编译后让它运行到真实的设备上。
+
+
+创建应用工程运行Android Studio，
+
+启动Android Studio，选择Start a new Android Projcet；
+
+在Application name栏，为应用取个名字为WeatherApp；
+
+在Company Domain栏，按照网址的形式填上anddle.co">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/deploy_app_to_device.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_as_project_config.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_as_project_sdk_select.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/android_version.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_as_project_activity.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_as_project_activity_settings.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_as_project_complete.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_layout.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_project_browser.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_project_browse_project.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_project_browse_android.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_ui_wgisws.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_ui_device_screen.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_dark_theme.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_dark_theme_demo.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/debug_mode_on1.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/debug_mode_on2.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/ADB_config1.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/ADB_config2.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/ADB_config3.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_connect_device_suc.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_deploy_app.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_deploy_select_device.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/as_deploy_suc.png">
+<meta property="og:updated_time" content="2017-02-02T08:45:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="3 应用的创建与部署">
+<meta name="twitter:description" content="应用的创建与部署现在我们开始创建一个全新的项目工程-天气预报，并在编译后让它运行到真实的设备上。
+
+
+创建应用工程运行Android Studio，
+
+启动Android Studio，选择Start a new Android Projcet；
+
+在Application name栏，为应用取个名字为WeatherApp；
+
+在Company Domain栏，按照网址的形式填上anddle.co">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/deploy_app_to_device.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/book.github.io/favicon.ico">
+    <link rel="stylesheet" href="/book.github.io/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/book.github.io/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/book.github.io/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/book.github.io/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/book.github.io/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                目录
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">3 应用的创建与部署</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">3 应用的创建与部署</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-19T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-01-19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/book.github.io/categories/第4章/">第4章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#应用的创建与部署"><span class="post-toc-text">应用的创建与部署</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建应用工程"><span class="post-toc-text">创建应用工程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AS界面初步"><span class="post-toc-text">AS界面初步</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#工程目录"><span class="post-toc-text">工程目录</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Project浏览方式"><span class="post-toc-text">Project浏览方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Android浏览方式"><span class="post-toc-text">Android浏览方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#UI所见即所得"><span class="post-toc-text">UI所见即所得</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#暗黑主题"><span class="post-toc-text">暗黑主题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他"><span class="post-toc-text">其他</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#部署应用"><span class="post-toc-text">部署应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设置"><span class="post-toc-text">设置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#部署"><span class="post-toc-text">部署</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-4_开发/3_应用的创建与部署"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">3 应用的创建与部署</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年01月19日 9:00" datetime="2017-01-19T01:00:00.000Z"  itemprop="datePublished">2017-01-19</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/book.github.io/categories/第4章/">第4章</a></li></ul>
+
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="应用的创建与部署"><a href="#应用的创建与部署" class="headerlink" title="应用的创建与部署"></a>应用的创建与部署</h1><p>现在我们开始创建一个全新的项目工程-<code>天气预报</code>，并在编译后让它运行到真实的设备上。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/deploy_app_to_device.png" width="300" alt=" deploy_app_to_device"></div>
+
+<h2 id="创建应用工程"><a href="#创建应用工程" class="headerlink" title="创建应用工程"></a>创建应用工程</h2><p>运行<code>Android Studio</code>，</p>
+<ol>
+<li><p>启动Android Studio，选择<code>Start a new Android Projcet</code>；</p>
+</li>
+<li><p>在<code>Application name</code>栏，为应用取个名字为<code>WeatherApp</code>；</p>
+</li>
+<li>在<code>Company Domain</code>栏，按照网址的形式填上<code>anddle.com</code>－－当然，你也可以根据自己的喜好填上别的域名；</li>
+<li><p>在<code>Project location</code>栏，填写应用存放的位置，可以选择任意你希望存放项目工程的目录。</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_as_project_config.png" width="500" alt=" create_as_project_config"></div>
+</li>
+<li><p>在下一步中，勾选上<code>Phone and Tablet</code>；</p>
+</li>
+<li><p><code>Minimum SDK</code>的选择，要与调试设备的安卓版本尽量一致，我们这里至少要是<code>Android 5.0</code>以上，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_as_project_sdk_select.png" width="500" alt=" create_as_project_sdk_select"></div>
+
+<p> <em>*手机版本与API等级的对应关系如下：</em></p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/android_version.png" width="600" alt=" android_version"></div>
+</li>
+<li><p><code>下一步</code>后，选择<code>Empty Activity</code>，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_as_project_activity.png" width="500" alt=" create_as_project_activity"></div>
+</li>
+<li><p>选择<code>下一步</code>后，开始设置<code>Activity</code>相关的信息；</p>
+<ol>
+<li>在<code>Activity Name</code>栏，Activity采用默认的名字<code>MainActivity</code>；</li>
+<li>在<code>Layout Name</code>栏，layout文件也采用默认的名字<code>activity_main</code>；</li>
+<li><p>勾选上<code>Backwards Compatiblility</code>；</p>
+<p><div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_as_project_activity_settings.png" width="400" alt=" create_as_project_activity_settings"></div><br><code>Activity</code>代表一个应用的主界面；而<code>Activity</code>具体长什么样子，就是靠布局文件<code>Layout</code>来指定的，二者是互相关联的关系。</p>
+<p><code>Activity</code>与<code>Layout</code>将在后面做详细的介绍。</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>选择<code>完成</code>后，工程也就创建完成，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_as_project_complete.png" width="500" alt=" create_as_project_complete"></div>
+
+<p><em>*因为Android Studio是第一次创建项目工程，因此需要连接网络下载一些组件，需要多等待一些时间。一旦下载成功，以后创建工程就不会花费这些时间了。</em></p>
+<h2 id="AS界面初步"><a href="#AS界面初步" class="headerlink" title="AS界面初步"></a>AS界面初步</h2><p>Android studio是Google为Android应用开发提供的一个强大的集成开发环境（IDE），有着非常多的帮助开发者进行开发的工具。</p>
+<p>虽然Android应用也可以使用Eclipse开发，但是Android Studio将是Google未来唯一长期支持的开发工具。</p>
+<p>Android Studio启动并打开工程后它的默认布局大体如下：</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_layout.png" width="700" alt=" as_layout"></div>
+
+<p>这些布局并不是一成不变的，我们可以通过拖动它们，调整它们的位置和大小，可以隐藏一些区域，在需要这些区域的时候再显示它们。</p>
+<h3 id="工程目录"><a href="#工程目录" class="headerlink" title="工程目录"></a>工程目录</h3><p>浏览当前的项目工程是最经常遇到的，<code>Android Studio</code>提供了多种对项目查看的方式，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_project_browser.png" width="300" alt=" as_project_browse"></div>
+
+<p>它们从不同的角度来展示一个工程的方方面面。大家可以切换看看，不同的效果。</p>
+<h4 id="Project浏览方式"><a href="#Project浏览方式" class="headerlink" title="Project浏览方式"></a>Project浏览方式</h4><p>当选择<code>Project浏览方式</code>的时候，它就像资源管理器的树形结构展开。所以当你希望看看磁盘上实实在在存在的关于这个项目的文件夹和目录的时候，就可以使用<code>Projcect浏览方式</code>，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_project_browse_project.png" width="200" alt=" as_project_browse_project"></div>
+
+<ol>
+<li><p>app文件夹：这是工程产生后，<code>Android Studio</code>自动创建的<code>module</code>所在文件夹。</p>
+<p><em><code>Module</code>是<code>Android Studio</code>工程中的一个功能单位。我们应用程序的源码和资源文件就放在这个<code>module</code>当中。</em></p>
+<p>目前来说，我们需要使用到并修改到的内容，都在这个文件夹里面。其它的可以暂时不管。</p>
+</li>
+<li><p>src文件夹里面有三个子文件夹：<code>androidTest</code>、<code>test</code>和<code>main</code>。<code>androidTest</code>和<code>test</code>从名字就知道，里面放的是和测试我们程序相关的内容。目前我们将重点放到介绍开发上，测试的内容以后再讲。</p>
+<p><code>main</code>文件夹分了<code>java</code>和<code>res</code>两支，<code>java</code>存放的是<code>java源代码</code>，<code>res</code>存放的是<code>资源文件</code>。</p>
+<p><code>main</code>文件夹下面的<code>AndroidManifest.xml</code>文件是当前安卓应用自己的配置文件，我们将在开发过程当中重点详细的介绍。</p>
+</li>
+</ol>
+<h4 id="Android浏览方式"><a href="#Android浏览方式" class="headerlink" title="Android浏览方式"></a>Android浏览方式</h4><p>这是安卓安卓程序的逻辑功能划分的浏览方式，将配置文件（<code>manifest文件</code>）、代码（<code>java文件</code>）、资源（图片、字符串、布局文件等等）分类存放，显得非常整洁，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_project_browse_android.png" width="250" alt=" as_project_browse_android"></div>
+
+<p>刚开始，我们就使用<code>Project</code>和<code>Android</code>两种浏览方式吧。随着经验的增加，会逐步发现其他浏览模式的方便之处。</p>
+<h3 id="UI所见即所得"><a href="#UI所见即所得" class="headerlink" title="UI所见即所得"></a>UI所见即所得</h3><p>通过<code>Android浏览方式</code>，打开<code>res -&gt; layout-&gt; activity_main.xml</code>，会出现对应的设备上的预览效果，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_ui_wgisws.png" width="600" alt=" as_ui_wgisws"></div>
+
+<p>当选择不同的预览设备时，预览界面会根据不同的设备做相应的变化。这个功能在做多尺寸设备的界面布局设计时非常有用。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_ui_device_screen.png" width="250" alt=" as_ui_device_screen"></div>
+
+<h3 id="暗黑主题"><a href="#暗黑主题" class="headerlink" title="暗黑主题"></a>暗黑主题</h3><p>在<code>Android Studio</code>中，还有一个我们程序员非常喜欢使用的暗黑主题，</p>
+<ol>
+<li>启动<code>设置</code>，选择<code>Appearance -&gt; Theme</code>;</li>
+<li><code>Theme</code>切换成<code>Darcula</code>就可以了;</li>
+</ol>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_dark_theme.png" width="400" alt=" as_dark_theme"></div>
+
+<p>是不是很酷呢？</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_dark_theme_demo.png" width="500" alt=" as_dark_theme_demo"></div>
+
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p><code>Android Studio</code>还有很多实用的功能，比如资源引用的实时预览、代码自动补完、代码版本管理、各种快捷按键方式。很多内容需要大家自己去揣摩。</p>
+<p>在后继的开发当中，我将会穿插人更多实用的特性介绍。</p>
+<h2 id="部署应用"><a href="#部署应用" class="headerlink" title="部署应用"></a>部署应用</h2><p>项目创建成功后，我们需要把它生编译成Apk，然后部署到设备上运行。</p>
+<p>这需要手机和电脑两方面的配合。</p>
+<h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><p>要进行真实设备上的调试，需要修改手机上的原始设置。</p>
+<p>默认情况下，设备端的调试模式是被关闭的，我们需要在设备的设置中，将这个功能打开。虽然各种品牌的手机不同，但是它们的设置菜单中都会有一个开发者选项。</p>
+<p>我们首先要找到<code>开发者选项</code>。在<code>Google Nexus</code>设备上这个选项是被隐藏的，</p>
+<ol>
+<li>需要进入到<code>设置-&gt;关于手机</code>；</li>
+<li>连续点击“版本号”，将隐藏的开发者模式打开，</li>
+</ol>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/debug_mode_on1.png" width="250" alt=" debug_mode_on1"></div>
+
+<p>启用<code>开发者模式</code>后，打开“USB调试”功能，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/debug_mode_on2.png" width="250" alt=" debug_mode_on2"></div>
+
+<p>之后将手机和电脑用USB数据线连接起来。</p>
+<p>如果连接的是MacOS系统，手机就能直接被识别了；如果这是在Windows系统中，还要为连接上的设备安装ADB驱动。</p>
+<ol>
+<li><p>在“我的电脑”上点鼠标右键，选择“管理”，打开设备管理器，可以看到没有安装驱动的设备，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/ADB_config1.png" width="400" alt=" ADB_config1"></div>
+</li>
+<li><p>为它更新驱动，选择“浏览计算机查找”，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/ADB_config2.png" width="400" alt=" ADB_config2"></div>
+</li>
+<li><p>驱动存放在Android SDK所在目录的<code>extras\google\usb_driver</code>下面，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/ADB_config3.png" width="400" alt=" ADB_config3"></div>
+</li>
+<li><p>点击确定后，驱动很快就安装成功了.</p>
+</li>
+</ol>
+<p>此时我们点击Android Studio的Android Monitor窗口，就能看到这个连接上的设备了，这个窗口还输出了手机端打印的运行信息。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_connect_device_suc.png" width="500" alt=" as_connect_device_suc"></div>
+
+
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>现在开始部署应用到设备上运行，</p>
+<ol>
+<li><p>点击<code>工具栏</code>上方<code>绿色的小三角</code>或者<code>虫子背景的绿色小三角</code>，程序就开始编译并准备部署到我们的设备上了，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_deploy_app.png" width="200" alt=" as_deploy_app"></div>
+
+<p><code>绿色的小三角</code>的含义是：以非调试状态运行程序；<br><code>虫子背景的绿色小三角</code>的含义是：以调试状态运行程序；</p>
+</li>
+<li><p>让我选择要部署的设备，我们在选定的设备上双击，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_deploy_select_device.png" width="300" alt=" as_deploy_select_device"></div></li>
+<li><p>此时可以在设备上看到，我们的应用程序运行起来了。</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/as_deploy_suc.png" width="250" alt=" as_deploy_suc"></div>
+
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-02T08:45:54.000Z" itemprop="dateUpdated">2017年2月2日 16:45</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="https://taoduoduo.github.io/book.github.io">
+            <img src="/book.github.io/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://taoduoduo.github.io/book.github.io/4_开发/3_应用的创建与部署/&title=《3 应用的创建与部署》 — 从设计到实现&pic=https://taoduoduo.github.io/book.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://taoduoduo.github.io/book.github.io/4_开发/3_应用的创建与部署/&title=《3 应用的创建与部署》 — 从设计到实现&source=my description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/book.github.io/4_开发/2_开发环境搭建/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2 开发环境搭建</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/book.github.io/4_开发/4_版本管理/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">4 版本管理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/book.github.io/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/book.github.io/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://taoduoduo.github.io/book.github.io/4_开发/3_应用的创建与部署/&title=《3 应用的创建与部署》 — 从设计到实现&pic=https://taoduoduo.github.io/book.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://taoduoduo.github.io/book.github.io/4_开发/3_应用的创建与部署/&title=《3 应用的创建与部署》 — 从设计到实现&source=my description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACp0lEQVR42u3aMW7DMAwFUN//0unaxc4nKbYenqdASGU9BZBYktcVP59fT2/8eeRuhueRYw8eHh7eYOl3r0w+V7+Zb+LdbM9rxsPDw9vmJdPli+h9f7Ktt+N4eHh4L+DlmASZjD+z8fDw8N7Mez7iNxIcf3ox4OHh4RV5yUFcffIjPgnf13MteHh4eDEvP8Tf83mlvoeHh4c3rqrnoW1e3JoE3OXV4uHh4S3weq0Dk5EkyM4bFKKUBB4eHt5RXs44VQCbNASUtwMPDw9vjZeXuD6Dp5ra6G3uqIKHh4eHV8sVXMeO4+KmTFLGeRCPh4eHd4p36sg+Vf7vNYHdgvHw8PAWePnSJ4X8U4mJ5nrw8PDwFniTP84D5eTCqAbchf8V8PDw8JZ51TREnlDIN3cS6OPh4eHt8arB9KQlK284ONV6hYeHh7fBm6dZ81A7T8jmq4o2Ag8PD2+BNwmUJ2Ww6rZWE814eHh4e7w8/O29uFfKyn8TPDw8vP/iVRMK1WVVL5JeAH3bWYaHh4d3iNcD5Knb5PKojheSyHh4eHgLvDyp2rtCqjPnG11oPsDDw8M7ystLUzm4WuCvsguNWXh4eHgLvEmaYH4BVOdvJo7x8PDwFnhJINtrFOgF5RtpDjw8PLyzvLzY38NPwuVq6evq3Rt4eHh4LV6y9Gr5at7A2kt2fEnm4uHh4R3l9ZqcqundarIjD/3x8PDwtnmTozkpleUbkackkrfj4eHh7fGqx27yynLI2wLnJTc8PDy8DV71Mug1CuQFtsnFMGq6wsPDwyvyqq1UvVA4nzm/x76UzfDw8PBew+uFv/lsk+JcoXUADw8P78951aU8L+5sSwEeHh7eNq+ajOg1VPXem1wqXy4GPDw8vKO8ScdWj5FfGL0NxcPDw1vj/QC+ZbZzsK/EUAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/book.github.io/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/book.github.io/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/book.github.io/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>2 开发环境搭建 | 从设计到实现 | 手把手教你做android开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="开发环境搭建开发安卓应用可以在Window系统 MacOS系统 Linux系统上进行。但并不是说打开一个写字板就可以了，它还需要编译器等开发工具的配合。所以在正式开发之前，需要搭建开发的环境，我们需要给开发平台（Window系统 MacOS系统 Linux系统）安装上：
+
+JDK（Java Development kit）：Java开发工具包，因为安卓使用java开发，而且安卓应用开发的其它部分工">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2 开发环境搭建">
+<meta property="og:url" content="https://taoduoduo.github.io/book.github.io/4_开发/2_开发环境搭建/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="开发环境搭建开发安卓应用可以在Window系统 MacOS系统 Linux系统上进行。但并不是说打开一个写字板就可以了，它还需要编译器等开发工具的配合。所以在正式开发之前，需要搭建开发的环境，我们需要给开发平台（Window系统 MacOS系统 Linux系统）安装上：
+
+JDK（Java Development kit）：Java开发工具包，因为安卓使用java开发，而且安卓应用开发的其它部分工">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/jdk_download.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/android_studio_download_list.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/android_studio_sdk_mamager.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/sdk_manager.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/sdk_manager_tools.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/sdk_manager_sdk.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/sdk_manager_extra.png">
+<meta property="og:updated_time" content="2017-02-02T08:45:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2 开发环境搭建">
+<meta name="twitter:description" content="开发环境搭建开发安卓应用可以在Window系统 MacOS系统 Linux系统上进行。但并不是说打开一个写字板就可以了，它还需要编译器等开发工具的配合。所以在正式开发之前，需要搭建开发的环境，我们需要给开发平台（Window系统 MacOS系统 Linux系统）安装上：
+
+JDK（Java Development kit）：Java开发工具包，因为安卓使用java开发，而且安卓应用开发的其它部分工">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/jdk_download.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/book.github.io/favicon.ico">
+    <link rel="stylesheet" href="/book.github.io/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/book.github.io/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/book.github.io/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/book.github.io/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/book.github.io/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                目录
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2 开发环境搭建</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2 开发环境搭建</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-18T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-01-18
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/book.github.io/categories/第4章/">第4章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#开发环境搭建"><span class="post-toc-text">开发环境搭建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装JDK"><span class="post-toc-text">安装JDK</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Windows验证"><span class="post-toc-text">Windows验证</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MacOS验证"><span class="post-toc-text">MacOS验证</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装Android-Studio"><span class="post-toc-text">安装Android Studio</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装Android-SDK"><span class="post-toc-text">安装Android SDK</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-4_开发/2_开发环境搭建"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2 开发环境搭建</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年01月18日 9:00" datetime="2017-01-18T01:00:00.000Z"  itemprop="datePublished">2017-01-18</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/book.github.io/categories/第4章/">第4章</a></li></ul>
+
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="开发环境搭建"><a href="#开发环境搭建" class="headerlink" title="开发环境搭建"></a>开发环境搭建</h1><p>开发安卓应用可以在<code>Window系统</code> <code>MacOS系统</code> <code>Linux系统</code>上进行。但并不是说打开一个写字板就可以了，它还需要编译器等开发工具的配合。所以在正式开发之前，需要搭建开发的环境，我们需要给开发平台（<code>Window系统</code> <code>MacOS系统</code> <code>Linux系统</code>）安装上：</p>
+<ol>
+<li>JDK（Java Development kit）：Java开发工具包，因为安卓使用java开发，而且安卓应用开发的其它部分工具也依赖于java开发环境，所以必须安装JDK；</li>
+<li>Android SDK（Android Development kit）：谷歌提供的安卓应用开发工具包。</li>
+<li>Android Studio：谷歌提供的安卓开发环境。</li>
+</ol>
+<p>不同的平台搭建开发环境的过程几乎相同。我将介绍如何在<code>Windows系统</code> <code>MacOS系统</code>上进行开发环境的搭建。</p>
+<h2 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h2><p>JDK可以通过<a href="http://http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">官方网站</a>下载。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/jdk_download.png" width="500" alt=" jdk_download"></div>
+
+<p><em>下载时，请根据操作系统的种类和位数进行选择。</em></p>
+<hr>
+<p>下载到本地后，双击安装包进行安装。</p>
+<p><em>如果使用MacOS系统，可以安装<code>XCode</code>。<code>XCode</code>在安装过程中，已经完成了对<code>JDK</code>的安装。所以使用MacOS开发会显得非常的方便：只需要安装一个<code>XCode</code>，其他很多开发工具就都有了（其他程序的开发环境也是类似）。所以我强烈的推荐你，今后有了资金，一定要选Macbook。</em></p>
+<p>验证<code>JDK</code>安装是否成功的方式，在不同平台下稍有不同。</p>
+<h3 id="Windows验证"><a href="#Windows验证" class="headerlink" title="Windows验证"></a>Windows验证</h3><p>安装完成后，</p>
+<ol>
+<li>通过<code>Win+R</code>启动Windows操作系统的<code>运行</code>面板；</li>
+<li>在面板中输入<code>cmd</code>，启动命令行窗口；</li>
+<li>在命令行窗口中，输入<code>java -version</code>;</li>
+</ol>
+<p>如果此时能看到类似以下的内容，就说明JDK安装成功了。</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function">C:\<span class="title">Users</span>\<span class="title">XXX</span>&gt;<span class="title">java</span> -<span class="title">version</span></span></div><div class="line"><span class="title">java</span> <span class="title">version</span> "1.8.0<span class="title">_66</span>" <span class="title">Java</span>(<span class="title">TM</span>) <span class="title">SE</span> <span class="title">Runtime</span> <span class="title">Environment</span> (<span class="title">build</span> 1.8.0<span class="title">_66</span>-<span class="title">b18</span>)</div><div class="line"><span class="title">Java</span> <span class="title">HotSpot</span>(<span class="title">TM</span>) 64-<span class="title">Bit</span> <span class="title">Server</span> <span class="title">VM</span> (<span class="title">build</span> 25.66-<span class="title">b18</span>, <span class="title">mixed</span> <span class="title">mode</span>)</div></pre></td></tr></table></figure>
+<h3 id="MacOS验证"><a href="#MacOS验证" class="headerlink" title="MacOS验证"></a>MacOS验证</h3><p>安装完成后，</p>
+<ol>
+<li>启动<code>terminal</code>命令行窗口；</li>
+<li>在窗口中输入<code>java -version</code>；</li>
+</ol>
+<p>如果此时能看到类似以下的内容，就说明JDK安装成功了。<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">GymdeMacBook-Pro-<span class="number">7</span>:~ Gym$ java -version</div><div class="line">java version "<span class="number">1</span>.<span class="number">8</span>.<span class="number">0</span>_65"</div><div class="line">Java(TM) SE Runtime Environment (build <span class="number">1</span>.<span class="number">8</span>.<span class="number">0</span>_65-b17)</div><div class="line">Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">25</span>.<span class="number">65</span>-b01, mixed <span class="built_in">mode</span>)</div></pre></td></tr></table></figure></p>
+<h2 id="安装Android-Studio"><a href="#安装Android-Studio" class="headerlink" title="安装Android Studio"></a>安装Android Studio</h2><p>感谢<a href="https://developer.android.google.cn/studio/index.html" target="_blank" rel="external">Google中文开发网站</a>的上线，让我们可以很方便的下载到<code>Android Studio</code>，以及它集成的<code>Android SDK</code>了。</p>
+<p>针对不同的平台，<a href="http://developer.android.com/develop/index.html" target="_blank" rel="external">官方网站</a>提供了不同的下载包，</p>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>Android Studio 安装包</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows</td>
+<td><a href="https://dl.google.com/dl/android/studio/install/2.2.3.0/android-studio-bundle-145.3537739-windows.exe" target="_blank" rel="external">android-studio-bundle-145.3537739-windows.exe</a></td>
+</tr>
+<tr>
+<td>MacOS</td>
+<td><a href="https://dl.google.com/dl/android/studio/install/2.2.3.0/android-studio-ide-145.3537739-mac.dmg" target="_blank" rel="external">android-studio-ide-145.3537739-mac.dmg</a></td>
+</tr>
+<tr>
+<td>Linux</td>
+<td><a href="https://dl.google.com/dl/android/studio/ide-zips/2.2.3.0/android-studio-ide-145.3537739-linux.zip" target="_blank" rel="external">android-studio-ide-145.3537739-linux.zip</a></td>
+</tr>
+</tbody>
+</table>
+<p>下载完成后，双击安装包进行安装。</p>
+<p>注意：</p>
+<ol>
+<li>整个安装过程在官网的<a href="https://developer.android.google.cn/studio/install.html" target="_blank" rel="external">安装指南</a>上，有详细的介绍，大家可以移步此处；</li>
+<li>在Windows系统上搭建开发环境更加方便，谷歌将Android SDK和Android Studio打包在一起提供我们下载；</li>
+</ol>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/android_studio_download_list.png" width="700" alt=" android_studio_download_list"></div>
+
+<h2 id="安装Android-SDK"><a href="#安装Android-SDK" class="headerlink" title="安装Android SDK"></a>安装Android SDK</h2><p>从现在开始各个平台下的<code>Android Studio</code>操作都几乎完全一样了。</p>
+<p>对于<code>Windows系统</code>，因为安装包已经集成了<code>Android SDK</code>，所以不用再去单独下载了。对于没有集成<code>Android SDK</code>的<code>Android Studio</code>还有后续的工作要做。</p>
+<p>启动<code>Android Studio</code>之后，会提示我们安装<code>Android SDK</code>。</p>
+<p>也可以通过<code>Android Studio</code>的<code>设置</code>功能，启动<code>设置选项</code>，切换到<code>Android SDK</code>选项卡，将列出当前已经安装或者可以安装的<code>Android SDK组件</code>，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/android_studio_sdk_mamager.png" width="600" alt=" android_studio_sdk_mamager"></div>
+
+<p>选择<code>Launch Standalone SDK Manager</code>，启动<code>SDK manager</code>，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sdk_manager.png" width="400" alt=" sdk_manager"></div>
+
+<p>勾选上，</p>
+<ol>
+<li><p><code>Tools</code>中的<code>Android SDK Tools</code>  <code>Android SDK Platform-tools</code>和<code>Android SDK Build-tools</code>最新版本；</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sdk_manager_tools.png" width="300" alt=" sdk_manager_tools"></div>
+</li>
+<li><p><code>Android X.X.X</code>中的SDK和参考源码，例如，<code>Android 7.1.1</code>的<code>SDK Platform</code>（必选），<code>Sources for Android SDK</code>（可选，便于查看SDK中的源码）；</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sdk_manager_sdk.png" width="300" alt=" sdk_manager_sdk"></div>
+</li>
+<li><p><code>Extras</code>中的<code>Android Support Repository</code>，其他的可以不选；</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sdk_manager_extra.png" width="300" alt=" sdk_manager_extra"></div>
+
+<p> <em>如果是Windows系统，为了避免电脑不能识别连接上的安卓设备，可以多勾选一个<code>USB driver</code>。</em></p>
+</li>
+</ol>
+<p>选择<code>Install packages</code>之后，<code>SDK Manager</code>将自动下载。完成之后，</p>
+<p>整个<code>Android SDK</code>也就安装完毕了。</p>
+<p><em>安卓的中文开发<a href="https://developer.android.google.cn/" target="_blank" rel="external">官网</a>上，有更多的详细的介绍。遇到任何问题，都可以来这里查看官方的文档。</em></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-02T08:45:54.000Z" itemprop="dateUpdated">2017年2月2日 16:45</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="https://taoduoduo.github.io/book.github.io">
+            <img src="/book.github.io/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://taoduoduo.github.io/book.github.io/4_开发/2_开发环境搭建/&title=《2 开发环境搭建》 — 从设计到实现&pic=https://taoduoduo.github.io/book.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://taoduoduo.github.io/book.github.io/4_开发/2_开发环境搭建/&title=《2 开发环境搭建》 — 从设计到实现&source=my description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/book.github.io/4_开发/1_开发产品/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">1 开发产品</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/book.github.io/4_开发/3_应用的创建与部署/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">3 应用的创建与部署</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/book.github.io/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/book.github.io/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://taoduoduo.github.io/book.github.io/4_开发/2_开发环境搭建/&title=《2 开发环境搭建》 — 从设计到实现&pic=https://taoduoduo.github.io/book.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://taoduoduo.github.io/book.github.io/4_开发/2_开发环境搭建/&title=《2 开发环境搭建》 — 从设计到实现&source=my description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACpklEQVR42u3aQY7jMAwEwPn/p2evC+zG001KQTAon4xEiVk6SDTFr6/4+v7n+vvzV+M398+fHL7w8PDw1qEnD8i/TcbPpuY5Zjw8PLzbvFOL+3MQyVPaeH6w4OHh4X0A79WmkiffeWqOh4eH9/t4+bt/EnQycXh4eHifw0uKEUkQyfbQlmiT7edArQUPDw8v5uXL/efcXznfw8PDw1ufqrcLbr4ZzBoC6mjx8PDwri2EbeizB2+mYzbFeHh4ePd4eRH2VNki/+2sAIGHh4d3j5e/6s+QM8BsQxr2GuDh4eGVvLZYkI9JpiNvJthMHx4eHt5ZXvuzUyWG/YZRH4Dh4eHhXWgaeF6OZ0WHPClvSyHP/4OHh4d3j9cWIE4dd7Xl4yRmPDw8vHfyZqXYfShJc0D+ycueCDw8PLy389r7NhVuGw4Ot1jh4eHhLXgz8IaRhL55Lh4eHt4NXv56v6kQ5wl0uzHUnWV4eHh4h3gtbFac3TQ0bDoE8PDw8M7y2gJB/u3mCG3WiPCf8Xh4eHhv5LUv/3nbQb4J7QsleHh4ePd4bRPArFBbt0yVY+rWATw8PLwFr12sk2S3bahqS7rJE/Hw8PBu82YHVM9liCSgupUqbzvAw8PDu8Br0+U8yU4C2owsYsbDw8N7O69Ni+tia3yENptWPDw8vNu8TdH2VKHh1NEaHh4e3m3e7K+TazNN+fVSgYeHh3eU911em1JsOyZpusLDw8N7P2+27LaAWbhtoWS1weDh4eGVvDYhfi5ktMf/7fTVLVx4eHh413jtopwnr0mgydHXrAyNh4eH9wm8HNyGvm8yeJlS4+Hh4X0AL0+j20OyWXG5aLrCw8PDO8SbPXiWfOeHXnmCfqCMi4eHh3fhAKwtTLSMVeq879jCw8PD+5n3B7uLAyfaLTVsAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/book.github.io/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/book.github.io/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/book.github.io/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

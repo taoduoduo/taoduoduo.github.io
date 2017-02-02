@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>1 开发产品 | 从设计到实现 | 手把手教你做android开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="开发产品当开发者拿到设计师提供的原型（静态或者动态）和资源后，也并不是就可以开始写代码了。
+开发阶段通常还会包含以下几个部分：
+1功能验证 -&amp;gt; 设计文档 -&amp;gt; 编写代码 -&amp;gt; 测试 -&amp;gt; 产品发布 -&amp;gt; 产品升级
+在整个开发的过程期间，还需要对各种文档、代码、资源进行管理，引入版本控制的概念。
+功能验证如果产品的功能很复杂，开发者在正式开始编码前，还得做一番功能的验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1 开发产品">
+<meta property="og:url" content="https://taoduoduo.github.io/book.github.io/4_开发/1_开发产品/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="开发产品当开发者拿到设计师提供的原型（静态或者动态）和资源后，也并不是就可以开始写代码了。
+开发阶段通常还会包含以下几个部分：
+1功能验证 -&amp;gt; 设计文档 -&amp;gt; 编写代码 -&amp;gt; 测试 -&amp;gt; 产品发布 -&amp;gt; 产品升级
+在整个开发的过程期间，还需要对各种文档、代码、资源进行管理，引入版本控制的概念。
+功能验证如果产品的功能很复杂，开发者在正式开始编码前，还得做一番功能的验">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/code_design_documents.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/version_back.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/prepare_computer.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/prepare_phone.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/prepare_usb_line.png">
+<meta property="og:updated_time" content="2017-02-02T08:45:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1 开发产品">
+<meta name="twitter:description" content="开发产品当开发者拿到设计师提供的原型（静态或者动态）和资源后，也并不是就可以开始写代码了。
+开发阶段通常还会包含以下几个部分：
+1功能验证 -&amp;gt; 设计文档 -&amp;gt; 编写代码 -&amp;gt; 测试 -&amp;gt; 产品发布 -&amp;gt; 产品升级
+在整个开发的过程期间，还需要对各种文档、代码、资源进行管理，引入版本控制的概念。
+功能验证如果产品的功能很复杂，开发者在正式开始编码前，还得做一番功能的验">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/code_design_documents.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/book.github.io/favicon.ico">
+    <link rel="stylesheet" href="/book.github.io/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/book.github.io/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/book.github.io/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/book.github.io/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/book.github.io/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                目录
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">1 开发产品</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">1 开发产品</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-17T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-01-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/book.github.io/categories/第4章/">第4章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#开发产品"><span class="post-toc-text">开发产品</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#功能验证"><span class="post-toc-text">功能验证</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设计文档"><span class="post-toc-text">设计文档</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#版本控制"><span class="post-toc-text">版本控制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他"><span class="post-toc-text">其他</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-4_开发/1_开发产品"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">1 开发产品</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年01月17日 9:00" datetime="2017-01-17T01:00:00.000Z"  itemprop="datePublished">2017-01-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/book.github.io/categories/第4章/">第4章</a></li></ul>
+
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="开发产品"><a href="#开发产品" class="headerlink" title="开发产品"></a>开发产品</h1><p>当开发者拿到设计师提供的原型（静态或者动态）和资源后，也并不是就可以开始写代码了。</p>
+<p>开发阶段通常还会包含以下几个部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">功能验证 -&gt; 设计文档 -&gt; 编写代码 -&gt; 测试 -&gt; 产品发布 -&gt; 产品升级</div></pre></td></tr></table></figure>
+<p>在整个开发的过程期间，还需要对各种文档、代码、资源进行管理，引入版本控制的概念。</p>
+<h2 id="功能验证"><a href="#功能验证" class="headerlink" title="功能验证"></a>功能验证</h2><p>如果产品的功能很复杂，开发者在正式开始编码前，还得做一番功能的验证。也就是，</p>
+<ol>
+<li>在创意阶段确定功能点的那些验证功能可行性的工作；</li>
+<li>设计师设计的界面逻辑合理性验证；</li>
+</ol>
+<p>设计师的设计要落地，并不是天马行空，而是要和开发者的实际情况匹配才行。</p>
+<p>开发并不是只有编码的工作，这是一个系统的工程，还包括了各种写作设计文档和代码的管理技巧。</p>
+<h2 id="设计文档"><a href="#设计文档" class="headerlink" title="设计文档"></a>设计文档</h2><p>写文档也是开发者重要的工作，你不能保证将来永远自己来维护自己写的代码，所以要把自己的设计思路用文字、图表的形式记录下来，便于后继者能够理解。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/code_design_documents.png" width="100" alt=" code_design_documents"></div>
+
+<p>根据开发阶段的不同，产出文档的内容也不同；而且不同的公司或团队，也有不同的要求。撰写开发文档，是一个很具有弹性的工作，如果身在一个以快为核心价值的小团队（2-3个人），也许就不会把大把的时间花在这上面；如果是一个拥有几十人的大团体，或者是以严谨闻名的日本开发者，一定会把程序设计的方方面面都体现到设计文档当中。</p>
+<p>国内的大多数程序员都是思维超前的物种，不大会拘泥于每天写文档这样“小节”，对文档的态度大都是能拖就拖，能不写就不写。程序员的精力太宝贵了，总希望把它们投入到更多的新功能的开发当中。所以写文档成了程序员们最头痛的事情了–不是不会，而是没有兴趣。</p>
+<p>要解决这个问题，除了强制要求，似乎也没有特别有效的办法:(</p>
+<p>在开发我们的<code>天气预报</code>时，我简化了文档方面的要求，没有使用专业的设计文档。大家可以将本文就作为<code>天气预报</code>的设计文档-因为只要把这篇文档从头到尾看一遍，你就一定能设计出这个应用-这也正是各种设计文档存在的终极意义。</p>
+<h2 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h2><p>和写小说一样，内容可能会经历反复的修改，一段代码加入之前，程序运行的很好，但是加入之后却发生了意外，不得不回到修改前的状态。退回到以前的状态，通常会非常的繁琐，程序员必须的记住每一个修改的细节。</p>
+<p>如果采用了版本控制的技术，退回到之前的修改将是一件非常容易的事情，只需要一个按键即可。除了代码、任何文档的修改都可以用版本控制软件来管理。例如我现在正在敲下这篇文档以及这一系列文档将组合成的书，都是在版本控制软件-<code>Git</code>的帮助下完成了。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/version_back.png" width="100" alt=" version_back"></div>
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>测试、产品发布、升级看起来比较简单，但都是一门可以很深入的学问，我们将为它们开辟单独的大章节来讲述。</p>
+<p>进行安卓软件开发我们还需要准备3样东西，</p>
+<ol>
+<li><p>一台安装了<code>Windows系统</code>或者<code>MacOS系统</code>的电脑（<code>Linux系统</code>也可以，不过我在后面的章节中不会单独的讲如何搭建<code>Linux系统</code>下的开发环境）；</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/prepare_computer.png" width="100" alt=" prepare_compute"></div>
+</li>
+<li><p>一台安卓5.0及其以上的手机设备：我们这里的安卓开发是基于<code>Material Design</code>的，而它是在安卓5.0的系统上推出的。所以对安卓系统提出了版本上的要求。目前市场上绝大多数的主流手机已经过渡到了安卓5.0之上了。如果你的设备还很古老，是不是可以考虑稍微与时俱进一点了呢？</p>
+<p> 我将使用一台标准的安卓设备<code>Google Nexus 5</code>作为调试用的真机。</p>
+<p> 开发程序的时候也可以使用模拟器来代替真机。不过我到建议能用真机是最合适的，运行速度快、对电脑的配置也没有要求，更能够省去使用模拟器可能遇到的各种状况。</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/prepare_phone.png" width="100" alt=" prepare_phone"></div>
+</li>
+<li><p>一根连接手机与开发电脑的数据线：数据线通常使用的是<code>micro USB</code>接口，它几乎成了安卓手机的标配。不过越来越多的手机开始引入了<code>USB type-C</code>接口了。这根数据线都不需要单独去购买。买手机的时候，商家会把这样的数据线作为标配提供的。</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/prepare_usb_line.png" width="100" alt=" prepare_usb_line"></div>
+
+
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-02T08:45:54.000Z" itemprop="dateUpdated">2017年2月2日 16:45</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="https://taoduoduo.github.io/book.github.io">
+            <img src="/book.github.io/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://taoduoduo.github.io/book.github.io/4_开发/1_开发产品/&title=《1 开发产品》 — 从设计到实现&pic=https://taoduoduo.github.io/book.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://taoduoduo.github.io/book.github.io/4_开发/1_开发产品/&title=《1 开发产品》 — 从设计到实现&source=my description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/book.github.io/3_产品原型/5_资源的创建/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">5 资源的创建</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/book.github.io/4_开发/2_开发环境搭建/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2 开发环境搭建</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/book.github.io/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/book.github.io/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://taoduoduo.github.io/book.github.io/4_开发/1_开发产品/&title=《1 开发产品》 — 从设计到实现&pic=https://taoduoduo.github.io/book.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://taoduoduo.github.io/book.github.io/4_开发/1_开发产品/&title=《1 开发产品》 — 从设计到实现&source=my description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACr0lEQVR42u3aQXIiMRAEQP//0+x1DwtUdUuYjcg5OQwzo9RBaqr18xNfjydXftff/3n2zNd3JW8cXnh4eHiHhp4MJXnya1hCTabm6djw8PDwrvHawSWkZFnPN4BkDHh4eHjfzMu3k5bRbjN4eHh4/xfvdWmePD//FA8PD+/beO0Sn8cBbeiQUw9nLXh4eHgxbx/Ifv7vK/09PDw8vHVXvY0Y2hh31k4rRouHh4d3ayGMFty2XG4BZ5+Dh4eHd483a9In1HZZb9lR/IGHh4d3gZcMYtO4SuLaZKCzkeDh4eHd4OWHAJIyN/lmXpq3DbB/3IuHh4d3gXfqBfmW0G4Yxzp7eHh4eId4+ZYw+87s8MF+K8LDw8P7DC/52d9+81QykD8fDw8P7zZvdqRp/8pNU60NgvHw8PDO8pLSNokkZoeoZu20ugGGh4eHd5TXNpnygCD/dBZe5G/Bw8PDO8u7EcK2a/L+18CbGBcPDw/vKG9feR578fquOszFw8PDW/CilPdQ26xteiVbyJvx4OHh4R3ltRHqvgSfbUL5p1EYgYeHh7fgbTaG/DVtkDE7VhUlLnh4eHhr3nA+gqlpDyIkm00boODh4eHd4OVh6Klto4052mnFw8PD+zxv0+LaRBuzTaWNlfHw8PBuN8CKIjWemtfPPHX8a1j14+Hh4Y14bSNqFte2wcSstYaHh4f3GV5+BGozBXXwOgpz8fDw8G7wHuXVls7tIt5O0JutBQ8PD+8Cb7Ps5htJXkznBwI2oQkeHh7entfGr+0ivp++9rhAHUbg4eHhjXizYrdtjM0OB+RHtfDw8PC+mZdsAG1cuz9k8LSkxsPDw/tVXrt858XxY3RFh67w8PDwLvBOHbRqi+82wsjjXTw8PLx7vNkP/lnx3ca+Rem8P7GFh4eH9573BxqJc6i0w+FIAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/book.github.io/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/book.github.io/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/book.github.io/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>5 资源的导入 | 从设计到实现 | 手把手教你做android开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="资源的导入在前面讲解产品原型设计的章节中，我们已经创建出了各种开发时需要使用的各种图标了，包括应用图标、系统图标等等。
+图标导入现在，我们先把开发过程中要使用到的图片资源添加到Android Studio工程目录当中。
+
+将Sketch创建的静态高保真原型中的图标，根据导出的尺寸，将它们分类整理到对应的文件夹当中，
+ | 文件夹 | 图片放大倍数 | | — | :-: | | mipmap-md">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5 资源的导入">
+<meta property="og:url" content="https://taoduoduo.github.io/book.github.io/4_开发/5_资源的导入/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="资源的导入在前面讲解产品原型设计的章节中，我们已经创建出了各种开发时需要使用的各种图标了，包括应用图标、系统图标等等。
+图标导入现在，我们先把开发过程中要使用到的图片资源添加到Android Studio工程目录当中。
+
+将Sketch创建的静态高保真原型中的图标，根据导出的尺寸，将它们分类整理到对应的文件夹当中，
+ | 文件夹 | 图片放大倍数 | | — | :-: | | mipmap-md">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/import_icons.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/app_icon_changed.png">
+<meta property="og:updated_time" content="2017-02-02T08:45:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="5 资源的导入">
+<meta name="twitter:description" content="资源的导入在前面讲解产品原型设计的章节中，我们已经创建出了各种开发时需要使用的各种图标了，包括应用图标、系统图标等等。
+图标导入现在，我们先把开发过程中要使用到的图片资源添加到Android Studio工程目录当中。
+
+将Sketch创建的静态高保真原型中的图标，根据导出的尺寸，将它们分类整理到对应的文件夹当中，
+ | 文件夹 | 图片放大倍数 | | — | :-: | | mipmap-md">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/import_icons.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/book.github.io/favicon.ico">
+    <link rel="stylesheet" href="/book.github.io/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/book.github.io/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/book.github.io/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/book.github.io/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/book.github.io/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                目录
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">5 资源的导入</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">5 资源的导入</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-21T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-01-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/book.github.io/categories/第4章/">第4章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#资源的导入"><span class="post-toc-text">资源的导入</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图标导入"><span class="post-toc-text">图标导入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图片的使用"><span class="post-toc-text">图片的使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#资源的条件命名法"><span class="post-toc-text">资源的条件命名法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图片的优化"><span class="post-toc-text">图片的优化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#屏幕密度选择性匹配"><span class="post-toc-text">屏幕密度选择性匹配</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#矢量图标"><span class="post-toc-text">矢量图标</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-4_开发/5_资源的导入"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">5 资源的导入</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年01月21日 9:00" datetime="2017-01-21T01:00:00.000Z"  itemprop="datePublished">2017-01-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/book.github.io/categories/第4章/">第4章</a></li></ul>
+
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="资源的导入"><a href="#资源的导入" class="headerlink" title="资源的导入"></a>资源的导入</h1><p>在前面讲解产品原型设计的章节中，我们已经创建出了各种开发时需要使用的各种图标了，包括应用图标、系统图标等等。</p>
+<h2 id="图标导入"><a href="#图标导入" class="headerlink" title="图标导入"></a>图标导入</h2><p>现在，我们先把开发过程中要使用到的图片资源添加到<code>Android Studio</code>工程目录当中。</p>
+<ol>
+<li><p>将<code>Sketch</code>创建的静态高保真原型中的图标，根据导出的尺寸，将它们分类整理到对应的文件夹当中，</p>
+<p> | 文件夹 | 图片放大倍数 |<br> | — | :-: |<br> | mipmap-mdpi  | x 1 |<br> | mipmap-hdpi | x 1.5 |<br> | mipmap-xhdpi | x 2 |<br> | mipmap-xxhdpi | x 3 |<br> | mipmap-xxxhdpi | x 4 |</p>
+</li>
+<li><p>打开<code>天气预报</code>所在的<code>Android Studio</code>的工程文件夹-<code>app -&gt; src -&gt; main -&gt; res</code>，将图片替换到对应的<code>mipmap</code>目录当中；</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/import_icons.png" width="400" alt=" import_icons"></div>
+</li>
+<li><p>重新部署应用到设备上，桌面上的<code>天气预报</code>应用图标，已经从以前的安卓机器人，变成了新的图标了，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/app_icon_changed.png" width="200" alt=" app_icon_changed"></div>
+
+
+</li>
+</ol>
+<h2 id="图片的使用"><a href="#图片的使用" class="headerlink" title="图片的使用"></a>图片的使用</h2><p>对于那些导入的图片资源，<code>Android Studio</code>会做进一步处理，自动生成一个<code>R.java</code>文件，文件中给每一张图片生成一个对应的<code>id</code>值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">R</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">mipmap</span> </span>&#123;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_air_quality=<span class="number">0x7f030000</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_cloudy_l=<span class="number">0x7f030001</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_cloudy_s=<span class="number">0x7f030002</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_fog_l=<span class="number">0x7f030003</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_fog_s=<span class="number">0x7f030004</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_humidity_level=<span class="number">0x7f030005</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_launcher=<span class="number">0x7f030006</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_rainy_l=<span class="number">0x7f030007</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_rainy_s=<span class="number">0x7f030008</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_snow_l=<span class="number">0x7f030009</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_snow_s=<span class="number">0x7f03000a</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_sport_level=<span class="number">0x7f03000b</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_sunny_cloudy_l=<span class="number">0x7f03000c</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_sunny_cloudy_s=<span class="number">0x7f03000d</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_sunny_l=<span class="number">0x7f03000e</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_sunny_s=<span class="number">0x7f03000f</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_ultraviolet_level=<span class="number">0x7f030010</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_wind_direction=<span class="number">0x7f030011</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ic_wind_level=<span class="number">0x7f030012</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当我们要使用对应资源的时候，直接使用<code>java代码</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> id = R.mipmap.ic_launcher;</div></pre></td></tr></table></figure>
+<p>就可以了。</p>
+<p>通过这种方式，完成了<code>资源</code>到<code>代码</code>的转换。</p>
+<h2 id="资源的条件命名法"><a href="#资源的条件命名法" class="headerlink" title="资源的条件命名法"></a>资源的条件命名法</h2><p>图片资源文件夹的命名方式很有特点，在主名字之后，使用<code>-</code>间隔了一些扩展名字。例如，</p>
+<p><code>mipmap-hdpi mipmap-xhdpi</code></p>
+<p>目录名用“－”增加了限制条件。也就是给目录里资源的使用增加了约束。</p>
+<p>这里用<code>mipmap-hdpi</code>文件夹举例说明：如果当前的设备属于<code>hdpi</code>类型的屏幕，那么在使用图片的时候，系统优先使用其中的图片。</p>
+<p>除了上面的目录结构，有时你还会看到如下的目录形式：</p>
+<ol>
+<li><code>mipmap-hdpi</code>：给属于<code>hdpi</code>的设备使用;</li>
+<li><code>values-zh</code>：给当前语言是中文的系统使用;</li>
+<li><code>layout-land</code>：给处于横屏状态的系统使用;</li>
+</ol>
+<h2 id="图片的优化"><a href="#图片的优化" class="headerlink" title="图片的优化"></a>图片的优化</h2><h3 id="屏幕密度选择性匹配"><a href="#屏幕密度选择性匹配" class="headerlink" title="屏幕密度选择性匹配"></a>屏幕密度选择性匹配</h3><p>并不是说一定要为所有的屏幕密度做对应图片尺寸的匹配，因为如果做全部匹配会让程序的体积快速增大。</p>
+<p>大多数时候，我们会选择先做高清晰度的尺寸，例如<code>xxhdpi</code>。其他屏幕密度的设备需要使用资源时，就会把<code>xxhdpi</code>中的资源，做适度的缩放，以达到匹配的效果。</p>
+<p>？？？配图说明不是所有都做匹配</p>
+<p>对于个别系统缩放也达不到显示要求的图片，才做针对不同屏幕密度的配套图片。</p>
+<p><em>我们的<code>天气预报</code>把所有尺寸的屏幕密度都做了适配。</em></p>
+<h3 id="矢量图标"><a href="#矢量图标" class="headerlink" title="矢量图标"></a>矢量图标</h3><p>另外，对于很多系统图标，我们也可以不使用<code>png</code>图片，而采用矢量图，让安卓系统绘制图标。这样一来，程序的体积可以跟小，显示效果也更为出众。</p>
+<p>不过大家初次接触安卓开发，为了减少不必要的枝节，我就隐去了这部分内容，将来再和大家详细的讲述。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-02T08:45:54.000Z" itemprop="dateUpdated">2017年2月2日 16:45</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="https://taoduoduo.github.io/book.github.io">
+            <img src="/book.github.io/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://taoduoduo.github.io/book.github.io/4_开发/5_资源的导入/&title=《5 资源的导入》 — 从设计到实现&pic=https://taoduoduo.github.io/book.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://taoduoduo.github.io/book.github.io/4_开发/5_资源的导入/&title=《5 资源的导入》 — 从设计到实现&source=my description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/book.github.io/4_开发/4_版本管理/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">4 版本管理</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/book.github.io/4_开发/6_界面的整体布局/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">6 界面的整体布局</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/book.github.io/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/book.github.io/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://taoduoduo.github.io/book.github.io/4_开发/5_资源的导入/&title=《5 资源的导入》 — 从设计到实现&pic=https://taoduoduo.github.io/book.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://taoduoduo.github.io/book.github.io/4_开发/5_资源的导入/&title=《5 资源的导入》 — 从设计到实现&source=my description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvUlEQVR42u3a204kMQwEUP7/p2elfUXNVNkJF+n0E4IhndNI7VD2x0d8vf5fyWeePvn5+1+v+Xm1ZA/DCw8PD2+09afr89JPG8157Wee9vP1nvHw8PBu8+5tKHnFP20uX+Hx+3h4eHg/ystfzTNAUq7w8PDw/hZv8wjy38oLDx4eHt7P8pIXcRu8zkpIEuNeyVrw8PDwutWKBthv+Ppifw8PDw9v0VVvC8YmkthEw4/3xcPDw7vAy285G41qH1MekRQFAw8PD+8oL99c8hLPY9mzgwiPv4uHh4d3gbc55s6Oy/vwt27U4eHh4R3ltWNVbXloS0g7fBD93fDw8PC+hZePNLVDAMkdjw144eHh4X0Lr31xt8FrssV8EuDN3fHw8PAu8DZ9s7YktOtswmU8PDy8e7w8Qk1uuQkUNo2xx/KAh4eHd40XHUnjmKAdIMjHBfLmHB4eHt5tXnsgziPXfLttFBLdFw8PD+8beW1Q2w4TvEZXW1rw8PDw7vHaV/MszG0fwaaphoeHh3ePN4PNhgDaYHfWunszeoWHh4e35rUH3/3Buo0wkr/PowIPDw/vAq+NZfNYIQ8dZnFG0cDDw8PDu8BrD6yzEYH2p+0AwfBQjoeHh1fy2oZTGwckAUS7fh1G4OHh4R3lJbHsgeGno4f4treFh4eHd4M3O3Hnt589uM2wwoF/KPDw8PBGrfek4TRrmL3KKy8Gb+oeHh4e3lHecLApLgybgGNV0vDw8PCO8mYv6NkYVovJD9NvZsrw8PDwjvLakCKPIfbjCO3Xw6ErPDw8vBHvVACxHyloV4uKCh4eHt413qwY5DFr2+zfxBB4eHh4v43XtsE2IcKsSHzkS+Dh4eFd5rXgPTs5QA/7e3h4eHhrXhsZJC2uNnRoH0p0BMfDw8O7wGsbYAlp9iqfDTEc6PLh4eHhpbx/FEOcccwb4NIAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/book.github.io/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/book.github.io/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/book.github.io/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

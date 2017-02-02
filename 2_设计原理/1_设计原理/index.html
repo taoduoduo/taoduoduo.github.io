@@ -55,7 +55,7 @@
 <meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/material_never_through.gif">
 <meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/material_sizechange.gif">
 <meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/material_never_fold.gif">
-<meta property="og:updated_time" content="2017-02-02T00:37:26.000Z">
+<meta property="og:updated_time" content="2017-02-02T08:45:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="1 设计原理">
 <meta name="twitter:description" content="设计原理设计是一门让人感觉很抽象的艺术。设计需要从两个方面来考虑问题：
@@ -153,7 +153,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/book.github.io/categories/第二章-设计原理/">第二章 设计原理</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/book.github.io/categories/第2章/">第2章</a></li></ul>
 
             
         </h5>
@@ -182,7 +182,7 @@
             <time class="post-time" title="2017年01月03日 9:00" datetime="2017-01-03T01:00:00.000Z"  itemprop="datePublished">2017-01-03</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/book.github.io/categories/第二章-设计原理/">第二章 设计原理</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/book.github.io/categories/第2章/">第2章</a></li></ul>
 
 
 
@@ -201,10 +201,11 @@
 <p>在<code>Material Design</code>提出以前，安卓系统当中存在过两种不同的设计风格，每种风格都有<code>暗Dark</code> 和<code>亮Light</code>两种表现形式。例如，</p>
 <ol>
 <li><p>安卓系统最早问世的时候，界面风格是这样的，</p>
-<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/old_theme.png" alt="old_theme-wc600"></p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/old_theme.png" width="600" alt=" old_theme"></div>
 </li>
 <li><p>后来在经历到安卓3.0点时候，设计了Holo主题，</p>
-<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/holo_theme.png" alt="holo_theme-wc600"></p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/holo_theme.png" width="600" alt=" holo_theme"></div>
+
 </li>
 </ol>
 <p>需要注意的是，当时这两种风格只能被称作安卓应用的主题，还没有上升到<code>设计语言</code>的高度。因此当时的应用，交互界面被设计的千奇百怪，拿着安卓手机，打开不同的应用（除了Google原生的应用），感觉很不协调。例如应用A的<code>新建</code>按钮放在左上角，而应用B的<code>新建</code>按钮又放在右下角，虽然可以这样设计，但是用户的使用体验不一致。</p>
@@ -216,70 +217,48 @@
 </ol>
 <p>为了与<code>Material Design</code>配合，从安卓5.0开始，Google中安卓系统当中增加了<code>Material</code>主题。因此系统当中形成了原始主题、Holo主题、Material主题三者并存的状态。</p>
 <p>从安卓5.0开始，Google强烈建议大家按照<code>Material Design</code>进行开发了。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/matiaral_theme.png" alt="matiaral_theme-wc600" title="">
-                </div>
-                <div class="image-caption">matiaral_theme-wc600</div>
-            </figure>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/matiaral_theme.png" width="600" alt=" matiaral_theme"></div>
+
 <p><em>当然这个规范也只是个建议，开发者实在不去使用，Google也没有办法</em></p>
 <p>为了让<code>Material Design</code>的设计规范能容易的被程序开发者实现，Google在开发工具上也给出了相应的支持，从界面布局的设计到控件的使用，都提供了全套的支持。我们讲在后面程序开发的部分，对这些技术支持进行详细的介绍。</p>
 <h2 id="Material-Design的理念"><a href="#Material-Design的理念" class="headerlink" title="Material Design的理念"></a>Material Design的理念</h2><p>在<code>Material Design</code>存在以前，我们已经经历过了<code>拟物设计</code>。最早的iOS系统就是<code>拟物设计</code>典型的代表。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/original_design.jpeg" alt="original_design-wc400" title="">
-                </div>
-                <div class="image-caption">original_design-wc400</div>
-            </figure>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/original_design.jpeg" width="400" alt=" original_design"></div>
+
 <p>后来出现了<code>扁平化设计</code>，将以前立体的设计都拍扁，平摊在屏幕之上。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/flat_design.jpg" alt="flat_design-wc500" title="">
-                </div>
-                <div class="image-caption">flat_design-wc500</div>
-            </figure>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/flat_design.jpg" width="500" alt=" flat_design"></div>
+
+
 <p>后来Google为了保持<code>扁平化设计</code>简洁，增加交互的立体感，提出了<code>Material Design</code>。</p>
 <p><code>Material Design</code>是基于<code>印刷品</code>的理念来设计的。真实世界中，我们依靠阅读获取大量知识，Google将我们的屏幕想象成印刷着各种内容的载体。书是一页一页的，对应着屏幕上呈现内容的每一个区域，每个内容区域就是一种<code>材质</code>。它们就像一张张纸片，通过纸片摆放的位置、纸片间的运动，展示应用中不同的功能。</p>
 <p>例如，通过两张<code>纸片</code>通过阴影的效果，反应了它们在3D空间中的位置关系，</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_relations.gif" alt="material_relations" title="">
-                </div>
-                <div class="image-caption">material_relations</div>
-            </figure>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_relations.gif" width="500" alt=" material_relations"></div>
+
 <p>对位于不同层次的一张纸片来说，它的移动不会影响到另外层次的纸片。</p>
 <p>因此可以想见，采用<code>Material Design</code>的应用，界面的层次感应该是呈堆叠状的，</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_stack.png" alt="material_stack-wc400" title="">
-                </div>
-                <div class="image-caption">material_stack-wc400</div>
-            </figure>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_stack.png" width="400" alt=" material_stack"></div>
+
 <p>因此我们说<code>MaterialDesign</code>将<code>扁平化</code>与<code>位置关系</code>结合了起来。</p>
 <p>Google给<code>Material</code>-纸片定义了一些基本的特点：</p>
 <ol>
 <li><p>每一张纸片的厚度都是1个单位（就是1dp，dp的概念我们将在后面详细介绍）；</p>
-<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_thick_1dp.png" alt="material_thick_1dp-wc300"></p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_thick_1dp.png" width="300" alt=" material_thick_1dp"></div>
 </li>
 <li><p>纸片之间都有z轴方向上的位置关系，有阴影效果；</p>
-<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_relations.gif" alt="material_relations-wc600"></p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_relations.gif" width="600" alt=" material_relations"></div>
 </li>
 <li><p>纸片上显示的内容是直接印在纸片上的，没有厚度，内容显示的区域限定在这张纸片之上；</p>
-<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_surface.gif" alt="material_surface-wc600"></p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_surface.gif" width="600" alt=" material_surface"></div>
 </li>
 <li><p>纸片上下层关系一旦确定就不能变化了，不允许纸片上下移动时的穿透；</p>
-<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_never_through.gif" alt="material_never_through-wc600"></p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_never_through.gif" width="600" alt=" material_never_through"></div>
 </li>
 <li><p>纸片的形状和大小是可以变化的；</p>
-<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_sizechange.gif" alt="material_sizechange-wc400"></p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_sizechange.gif" width="400" alt=" material_sizechange"></div>
 </li>
 <li><p>纸片不能被折叠</p>
-<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_never_fold.gif" alt="material_never_fold-wc400"></p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_never_fold.gif" width="400" alt=" material_never_fold"></div>
+
+
 </li>
 </ol>
 <h2 id="设计的秘诀"><a href="#设计的秘诀" class="headerlink" title="设计的秘诀"></a>设计的秘诀</h2><p>当设计师拿到框线图之后，就需要使用<code>Material Design</code>的设计语言来改造。所以，对于刚接触设计的我们来讲，要首先要学习的就是<code>Material Design</code>的种种套路。</p>
@@ -306,7 +285,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-02-02T00:37:26.000Z" itemprop="dateUpdated">2017年2月2日 8:37</time>
+    最后更新时间：<time datetime="2017-02-02T08:45:54.000Z" itemprop="dateUpdated">2017年2月2日 16:45</time>
 </span><br>
 
 
@@ -372,7 +351,7 @@
     <div class="waves-block waves-effect prev">
       <a href="/book.github.io/1_创意/2_功能/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">2 功能的确定</h4>
+        <h4 class="title">2 功能</h4>
       </a>
     </div>
   
