@@ -5,7 +5,7 @@
   <link href="/book.github.io/atom.xml" rel="self"/>
   
   <link href="https://taoduoduo.github.io/book.github.io/"/>
-  <updated>2017-02-01T16:06:44.000Z</updated>
+  <updated>2017-02-02T00:39:18.000Z</updated>
   <id>https://taoduoduo.github.io/book.github.io/</id>
   
   <author>
@@ -16,134 +16,290 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>1 创意</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2017/01/31/1_%E5%88%9B%E6%84%8F/1_%E5%88%9B%E6%84%8F/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2017/01/31/1_创意/1_创意/</id>
-    <published>2017-01-31T14:44:01.000Z</published>
-    <updated>2017-02-01T16:06:44.000Z</updated>
+    <title>5 资源的创建</title>
+    <link href="https://taoduoduo.github.io/book.github.io/2017/01/16/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/5_%E8%B5%84%E6%BA%90%E7%9A%84%E5%88%9B%E5%BB%BA/"/>
+    <id>https://taoduoduo.github.io/book.github.io/2017/01/16/3_产品原型/5_资源的创建/</id>
+    <published>2017-01-16T01:00:00.000Z</published>
+    <updated>2017-02-02T00:39:18.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="创意"><a href="#创意" class="headerlink" title="创意"></a>创意</h1><p>我们总会羡慕、崇拜那些创造出了伟大产品的人。提到乔布斯，大家一定会竖起大拇指，他创造出了革命性的ipod、macbook、iphone、ipad等等极具创意、使用方便、同时又设计优雅的产品。</p>
-<p>对于从事软件行业的人来讲，最有成就感的事情莫过于开发出一款让人交口称赞的应用软件了。</p>
-<h2 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h2><p>好的产品要有好的创意，人对创造产品的创意来自于哪里呢？</p>
-<p>我觉得产品的创意来源于三个方面：</p>
-<ul>
-<li><p>最直接的创意来源于自己的实际需要。比如，曾经有位程序员想写一部小说，他尝试了市面上很多文字编辑器，觉得都不能满足自己的需要，于是就自己开发了一款。最后，他原打算要写的书没有了下文，但是却创造出了Mac系统上非常经典的应用-<a href="https://ulyssesapp.com" target="_blank" rel="external"><code>Ulysses</code></a>，成为了很多作家的创作利器。<code>Ulysses</code>将写作爱好者的写作体验带入了天堂。</p>
-<p>  <img src="http://7xrwhw.com1.z0.glb.clouddn.com/ulysses_logo.png" alt="ulysses_logo-wc150"></p>
-</li>
-<li><p>更多的创意来源于对现有生活的归纳总结。用智能手机听音乐，几乎是每个使用者的刚性需求，所以开发一款音乐播放器的灵感就很容易跑进我们的大脑。</p>
-<p>  <img src="http://7xrwhw.com1.z0.glb.clouddn.com/music_ui.jpeg" alt="music_ui-wc200"></p>
-</li>
-<li><p>还有的创意来源于对现有产品的差异化。例如音乐播放器这样的刚需应用有很多，QQ音乐、阿里音乐，虾米音乐，酷狗音乐，安卓系统自带的音乐播放器等等。不过网易云音乐在众多的音乐播放器中脱引而出，依靠的正是它对其他类似应用差异化的挖掘–基于音乐的社交模式。</p>
-<p>  <img src="http://7xrwhw.com1.z0.glb.clouddn.com/netease_music_logo.png" alt="netease_music_logo-wc150"></p>
-</li>
-</ul>
-<h2 id="标准"><a href="#标准" class="headerlink" title="标准"></a>标准</h2><p>好的创意是什么？我的理解是：</p>
-<ul>
-<li>实实在在的解决了一个问题，至少它能让我们觉得方便了我们的工作或者生活。</li>
-<li>它的解决方法很简单，不需要复杂的操作，也许简单的让人意想不到。</li>
-<li>产品的外观设计的深入人心，一看到它就有使用的欲望。</li>
-</ul>
-<h2 id="记录工具"><a href="#记录工具" class="headerlink" title="记录工具"></a>记录工具</h2><p>创意宝贵，可能我们一转眼就把它忘记了，所以我们要能随时将它们记录下来，</p>
-<ul>
-<li><p>最传统的方式就是笔和纸，好记性比不过烂笔头，随时带着一个小本子和笔，一旦有了产品的灵感，就把它记录下来。</p>
-<p>  <img src="http://7xrwhw.com1.z0.glb.clouddn.com/note_and_pen.png" alt="note_and_pen-wc200"></p>
-<p>  iPad和apple pencil也是一对极好的搭档，用电子的方式做记录能便于我们做后继的整理。iPad上有很多好用的笔记类App，例如我正在使用的Notablitiy。</p>
-<p>  <img src="http://7xrwhw.com1.z0.glb.clouddn.com/notability_logo.png" alt="notability_logo-wc150"></p>
-</li>
-<li><p>手机是我们形影不离的帮手，你可以用手机中的记事本，记录下自己的想法。如果还觉得麻烦，可以通过录音，把它们保留下来。</p>
-<p>  <img src="http://7xrwhw.com1.z0.glb.clouddn.com/note_and_recorder.png" alt="note_and_recorde-wc200"></p>
-</li>
-</ul>
-<p>有了创意，我们下一步就需要将它们整理起来，看看它们实现的可行性。</p>
-<h2 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h2><p>创意怎么来，我是不能帮助大家的，这只能靠大家各自的能力、经验、体验和运气了。<br>我只能帮助大家如何从众多的创意中选择一个适合自己的。</p>
-<p>并不是所有的创意都有让你去实现的价值。也许你有一个很好的创意，但是要花费很大的经济成本，那对你个人来说是有很大风险的，你不得不放弃。也许你有另外一个创意，但是也许别人已经在做了，只是你不知道而已，今后撞车的可能性很大。所以我们需要将它们筛选一遍，选择最适合的一个。</p>
-<p>怎么选择呢？</p>
-<p>我想选择的标准很多，主要还是看你的目的是什么，你为了实现这个创意，愿意付出多大的代价：</p>
-<ul>
-<li>为实现创意投入的资金是多少；</li>
-<li>为实现创意投入的精力是多少；</li>
-<li>实现创意的目的是为了自己的个人爱好，还是说为了靠它养家糊口；</li>
-</ul>
-<p>当我们面对众多诱惑需要进行选择的时候，你可以把要选择的对象横向铺开，像我们网上购物时比较商品一样，列出它们各自具备的优点和缺点，比较它们各自的异同，找出你最偏向的那个。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/goods_compare.png" alt="goods_compare-wc500" title="">
-                </div>
-                <div class="image-caption">goods_compare-wc500</div>
-            </figure>
-<h2 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h2><p>这本书将把理论和实践结合在一起，所以我需要一个合适的创意做为我们后面讲解的例子。</p>
-<p>首先明确我的目标。这个例子不能太复杂，门槛太高，会吓走很多人；但是也不能过于傻瓜，要涵盖一定的知识点，否则读完以后脑袋中还是空空如也。</p>
-<p>计算器、视频播放器、记事本、音乐播放器、天气预报，都是一些经常可能用到的小应用。它们开发起来都不太困难，只是类型不同。</p>
-<p>对于没有进行过安卓开发的你来说，也许根本就不知道是否困难，至少要亲自做一次之后才能知道。这里我就自己的经历来说，它们的实现还是很简单的，大家不必惊慌。</p>
-<p>然后将这些项目在脑中进行横向对比后，给他们的各个项目点按照难易程度从1到5打分:</p>
+    <content type="html"><![CDATA[<h1 id="资源的创建"><a href="#资源的创建" class="headerlink" title="资源的创建"></a>资源的创建</h1><p>界面原型已经设计完成了。不过离最后交付给开发人员开发还差一步：产品中使用的图片还没有准备好呢？</p>
+<p>设计师除了产品原型还要交付哪些资源呢？开发者最关心的资源就是应用中会使用到的各种图标资源和配色方案。</p>
+<p>在<code>天气预报</code>应用当中，我们已经确定好了界面的主要颜色，</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">项目</th>
-<th style="text-align:center">计算器</th>
-<th style="text-align:center">音乐播放器</th>
-<th style="text-align:center">记事本</th>
-<th style="text-align:center">视频播放器</th>
-<th style="text-align:center">天气预报</th>
+<th>颜色项目</th>
+<th>颜色名称</th>
+<th>颜色RGB值</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">体现安卓设计</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">4</td>
+<td>Primary Color</td>
+<td>Indigo 500</td>
+<td>#3F51B5</td>
 </tr>
 <tr>
-<td style="text-align:center">技术简单</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">4</td>
+<td>Primary Dark Color</td>
+<td>Indigo 700</td>
+<td>#303F9F</td>
 </tr>
 <tr>
-<td style="text-align:center">界面布局简单</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">4</td>
-</tr>
-<tr>
-<td style="text-align:center">合计得分</td>
-<td style="text-align:center">11</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">7</td>
-<td style="text-align:center">7</td>
-<td style="text-align:center">12</td>
+<td>Accent Color</td>
+<td>Amber 500</td>
+<td>#FFC107</td>
 </tr>
 </tbody>
 </table>
-<p>上面所列出的项目和得分都是非常主观的，项目是根据开发者的目标来制定，而得分完全根据开发者个人的偏好和经验。所以要做到评估准确，最好的办法就是多做项目，增加自己的经验值。</p>
-<p>通过上面的评比，我决定选择<code>天气预报</code>来做为本书讲解的范例。</p>
+<p>现在就剩下各种图标了。这些图标包括了，</p>
+<ol>
+<li><p>系统图标：显示<code>更多信息</code>时使用到的，</p>
+<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_system_icon.png" alt="create_system_icon-wc300"></p>
+</li>
+<li><p>天气图标：包括使用到的<code>小图标</code>，</p>
+<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_weather_icon_small.png" alt="create_weather_icon_small-wc300"></p>
+<p> 使用到的<code>大图标</code>，</p>
+<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_weather_icon_large.png" alt="create_weather_icon_large-wc300"></p>
+</li>
+<li><p>应用图标：应用的主图标，放在启动界面使用的图标，</p>
+<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_icon.png" alt="weather_app_icon-wc200"></p>
+</li>
+</ol>
+<h2 id="图标的尺寸"><a href="#图标的尺寸" class="headerlink" title="图标的尺寸"></a>图标的尺寸</h2><p>不同使用场景的图标，尺寸是不同，前面的章节中我们已经讲述了<code>系统图标</code> <code>应用图标</code>的标准尺寸。</p>
+<p>根据屏幕像素密度的不同，需要设计对应大小的图标。这样一来，就能够确保在特定类型的密度屏幕上，图标能够显示的清晰。</p>
+<table>
+<thead>
+<tr>
+<th>像素密度类型</th>
+<th>像素密度大小</th>
+<th>与Baseline比值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>mdpi</td>
+<td>160</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>hdpi</td>
+<td>240</td>
+<td>1.5</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>xhdpi</td>
+<td>320</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>xxhpi</td>
+<td>480</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>xxxhpi</td>
+<td>640</td>
+<td>4</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>安卓使用<code>dpi</code>为160的数值作为一个基准－－<code>baseline</code>。</em></p>
+<p>为了达到最优秀的显示效果，我们最理想的情况下是为每个不同的屏幕类型设计对应的图标。不过实际情况中却并不一定需要对应每个尺寸，因为</p>
+<ol>
+<li><p>如果涉及的图标很多，各种类型的图标都做全部的配套设计一定会增加应用的体积；</p>
+</li>
+<li><p>假如缺少某个屏幕类型（例如mdpi）的图标a时，系统会去寻找a对应的高分辨率图标A，把A转化成合适的尺寸（a与A都是同一个图标的不同尺寸版本，a尺寸小，A尺寸大）。这里唯一的代价是：在使用图标时，系统需要自动做额外的尺寸转化；</p>
+</li>
+</ol>
+<h2 id="系统图标"><a href="#系统图标" class="headerlink" title="系统图标"></a>系统图标</h2><p>系统图标的大小是24dp*24dp，对于<code>mdpi</code>的屏幕，我们就需要截取24px*24px大小的图标。</p>
+<h3 id="Sketch导出"><a href="#Sketch导出" class="headerlink" title="Sketch导出"></a>Sketch导出</h3><p>如果使用<code>Sketch</code>开发出了静态原型，那么从里面<code>抓取</code>系统图标就非常的方便了，</p>
+<ol>
+<li>点击<code>工具栏</code>上的<code>insert -&gt; S</code>（或者按快捷键S），</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_slice_system_icon.png" alt="sketch_slice_system_icon-wc200" title="">
+                </div>
+                <div class="image-caption">sketch_slice_system_icon-wc200</div>
+            </figure>
+<ol>
+<li><p>用<code>小刀</code>在要截取图标的位置切片，并将切出的片子，重新命名成<code>ic_wind_level</code>,</p>
+<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_slice_system_icon_settings1.png" alt="sketch_slice_system_icon_settings1-wc600"></p>
+<p> 可以看到右上方的<code>尺寸栏</code>显示的是24/*24的大小，<code>设置区域</code>下方的截取效果图也呈现了出来。</p>
+</li>
+</ol>
+<p>接下来就是导出图片了，</p>
+<ol>
+<li><p>选中<code>ic_wind_level</code>，点击<code>Export</code>旁的按钮，以此添加<code>1x 2x 3x 1.5x 4x</code>，给要导出的图片设置导出后的放大倍率。<code>1x</code>表示<code>1:1</code>导出，<code>2x</code>表示放大2倍导出，</p>
+<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_slice_system_icon_settings2.png" alt="sketch_slice_system_icon_settings2-wc250"></p>
+<p> 导出的格式都设置成<code>PNG</code>格式的图片。这种图片是安卓系统标准支持的图片格式，能够携带透明的信息。</p>
+</li>
+<li><p>不要勾选背景颜色，让整个图片除了图案以外，都呈透明的状态；选择<code>Export ic_wind_level</code>，<br> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_slice_system_icon_settings3.png" alt="sketch_slice_system_icon_settings3-wc250"></p>
+</li>
+</ol>
+<p>导出结果如下，</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_slice_system_icon_export.png" alt="sketch_slice_system_icon_export" title="">
+                </div>
+                <div class="image-caption">sketch_slice_system_icon_export</div>
+            </figure>
+<table>
+<thead>
+<tr>
+<th>像素密度类型</th>
+<th>与Baseline比值</th>
+<th>实际像素</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>mdpi</td>
+<td>1</td>
+<td>24px</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>hdpi</td>
+<td>1.5</td>
+<td>36px</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>xhdpi</td>
+<td>2</td>
+<td>48px</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>xxhpi</td>
+<td>3</td>
+<td>72px</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>xxxhpi</td>
+<td>4</td>
+<td>96px</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>其他图标的导出和产生这个图标的方式类似。</p>
+<h3 id="第三方工具导出"><a href="#第三方工具导出" class="headerlink" title="第三方工具导出"></a>第三方工具导出</h3><p>如果不使用<code>Sketch</code>也可以通过其他工具生成图标。例如<a href="http://romannurik.github.io/AndroidAssetStudio/" target="_blank" rel="external"><code>Android Studio Asset</code></a>的<code>Generic icons</code>功能。</p>
+<ol>
+<li>通过<code>IMAGE</code>方式，将事先准备好的<code>风力.svg</code>矢量图，加载到工具当中；</li>
+<li><code>Size</code>选择<code>20dp</code>，<code>Padding</code>选择<code>2dp</code>，这样最后的图标就是<code>24pd*24dp</code>的了；</li>
+<li><code>Color</code>选择成黑色，透明度为<code>54%</code>；</li>
+<li>点击<code>DOWNLOAD .ZIP</code>;</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/asset_studio_create_system_icon.png" alt="asset_studio_create_system_icon-wc400" title="">
+                </div>
+                <div class="image-caption">asset_studio_create_system_icon-wc400</div>
+            </figure>
+<p>下载解压后，得到了对应的图标资源，</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/asset_studio_download_result.png" alt="asset_studio_download_result-wc500" title="">
+                </div>
+                <div class="image-caption">asset_studio_download_result-wc500</div>
+            </figure>
+<p>其他图标的产生和产生这个图标的方式类似。</p>
+<h2 id="天气图标"><a href="#天气图标" class="headerlink" title="天气图标"></a>天气图标</h2><p><code>天气图标</code>的导出与系统图标的导出几乎完全一样，只是尺寸和颜色稍有不同。</p>
+<p>在导出的时候要注意<code>天气图标</code>有两种不同的大小，一种使用到<code>Weather details</code>上面，显示大的天气图标；另一种使用到<code>forcast</code>当中，显示小的天气图标。</p>
+<table>
+<thead>
+<tr>
+<th>图标类型</th>
+<th>宽度</th>
+<th>高度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>大图标</td>
+<td>120dp</td>
+<td>100dp</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>小图标</td>
+<td>30dp</td>
+<td>30dp</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>两种图标都可以通过<code>Sketch</code>切图得到，也可以通过<code>Android Asset Studio</code>来生成。</p>
+<h2 id="应用图标"><a href="#应用图标" class="headerlink" title="应用图标"></a>应用图标</h2><p>应用图标也可以通过<code>Sketch</code>创建，不过我这里就简化了这方面的设计，直接使用<a href="http://romannurik.github.io/AndroidAssetStudio" target="_blank" rel="external">Android Asset Studio</a>的<code>Launcher icons</code>，创建应用图标，</p>
+<ol>
+<li>通过<code>IMAGE</code>方式，将事先准备好的<code>应用启动图标.svg</code>矢量图，加载到工具当中；</li>
+<li><code>Padding</code>选择<code>45%</code>，调整到合适的比例就行；</li>
+<li><code>Color</code>选择成白色，透明度为<code>100%</code>；</li>
+<li><code>Shape</code>选择成<code>SQUARE</code>正方形；</li>
+<li><code>Background</code>选择成<code>Primary Color</code>-<code>#3F51B5</code></li>
+<li>点击<code>DOWNLOAD .ZIP</code>;</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/asset_studio_create_app_icon.png" alt="asset_studio_create_app_icon-wc500" title="">
+                </div>
+                <div class="image-caption">asset_studio_create_app_icon-wc500</div>
+            </figure>
+<p>下载解压后，得到了对应的图标资源，</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/asset_studio_create_app_icon_download_result.png" alt="asset_studio_create_app_icon_download_result" title="">
+                </div>
+                <div class="image-caption">asset_studio_create_app_icon_download_result</div>
+            </figure>
+<hr>
+<p>至此，图片资源的导出就完成了。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;创意&quot;&gt;&lt;a href=&quot;#创意&quot; class=&quot;headerlink&quot; title=&quot;创意&quot;&gt;&lt;/a&gt;创意&lt;/h1&gt;&lt;p&gt;我们总会羡慕、崇拜那些创造出了伟大产品的人。提到乔布斯，大家一定会竖起大拇指，他创造出了革命性的ipod、macbook、iphone、ip
+      &lt;h1 id=&quot;资源的创建&quot;&gt;&lt;a href=&quot;#资源的创建&quot; class=&quot;headerlink&quot; title=&quot;资源的创建&quot;&gt;&lt;/a&gt;资源的创建&lt;/h1&gt;&lt;p&gt;界面原型已经设计完成了。不过离最后交付给开发人员开发还差一步：产品中使用的图片还没有准备好呢？&lt;/p&gt;
+&lt;p&gt;设计师
     
     </summary>
     
-      <category term="第一章 创意" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%88%9B%E6%84%8F/"/>
+      <category term="第三章 产品原型" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/"/>
     
     
   </entry>
   
   <entry>
     <title>4 动态原型设计</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2017/01/12/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/4_%E5%8A%A8%E6%80%81%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2017/01/12/3_产品原型/4_动态原型设计/</id>
-    <published>2017-01-12T08:45:38.000Z</published>
-    <updated>2017-02-01T16:08:05.000Z</updated>
+    <link href="https://taoduoduo.github.io/book.github.io/2017/01/15/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/4_%E5%8A%A8%E6%80%81%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
+    <id>https://taoduoduo.github.io/book.github.io/2017/01/15/3_产品原型/4_动态原型设计/</id>
+    <published>2017-01-15T01:00:00.000Z</published>
+    <updated>2017-02-02T00:39:11.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="动态原型设计"><a href="#动态原型设计" class="headerlink" title="动态原型设计"></a>动态原型设计</h1><p>动态的可交互原型产品，是产品经理和界面设计师向开发人员阐释自己设计的最高效工具。</p>
 <figure class="image-bubble">
@@ -473,437 +629,11 @@
   </entry>
   
   <entry>
-    <title>5 资源的创建</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2017/01/12/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/5_%E8%B5%84%E6%BA%90%E7%9A%84%E5%88%9B%E5%BB%BA/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2017/01/12/3_产品原型/5_资源的创建/</id>
-    <published>2017-01-12T08:19:02.000Z</published>
-    <updated>2017-02-01T16:08:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="资源的创建"><a href="#资源的创建" class="headerlink" title="资源的创建"></a>资源的创建</h1><p>界面原型已经设计完成了。不过离最后交付给开发人员开发还差一步：产品中使用的图片还没有准备好呢？</p>
-<p>设计师除了产品原型还要交付哪些资源呢？开发者最关心的资源就是应用中会使用到的各种图标资源和配色方案。</p>
-<p>在<code>天气预报</code>应用当中，我们已经确定好了界面的主要颜色，</p>
-<table>
-<thead>
-<tr>
-<th>颜色项目</th>
-<th>颜色名称</th>
-<th>颜色RGB值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Primary Color</td>
-<td>Indigo 500</td>
-<td>#3F51B5</td>
-</tr>
-<tr>
-<td>Primary Dark Color</td>
-<td>Indigo 700</td>
-<td>#303F9F</td>
-</tr>
-<tr>
-<td>Accent Color</td>
-<td>Amber 500</td>
-<td>#FFC107</td>
-</tr>
-</tbody>
-</table>
-<p>现在就剩下各种图标了。这些图标包括了，</p>
-<ol>
-<li><p>系统图标：显示<code>更多信息</code>时使用到的，</p>
-<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_system_icon.png" alt="create_system_icon-wc300"></p>
-</li>
-<li><p>天气图标：包括使用到的<code>小图标</code>，</p>
-<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_weather_icon_small.png" alt="create_weather_icon_small-wc300"></p>
-<p> 使用到的<code>大图标</code>，</p>
-<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_weather_icon_large.png" alt="create_weather_icon_large-wc300"></p>
-</li>
-<li><p>应用图标：应用的主图标，放在启动界面使用的图标，</p>
-<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_icon.png" alt="weather_app_icon-wc200"></p>
-</li>
-</ol>
-<h2 id="图标的尺寸"><a href="#图标的尺寸" class="headerlink" title="图标的尺寸"></a>图标的尺寸</h2><p>不同使用场景的图标，尺寸是不同，前面的章节中我们已经讲述了<code>系统图标</code> <code>应用图标</code>的标准尺寸。</p>
-<p>根据屏幕像素密度的不同，需要设计对应大小的图标。这样一来，就能够确保在特定类型的密度屏幕上，图标能够显示的清晰。</p>
-<table>
-<thead>
-<tr>
-<th>像素密度类型</th>
-<th>像素密度大小</th>
-<th>与Baseline比值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td>mdpi</td>
-<td>160</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>hdpi</td>
-<td>240</td>
-<td>1.5</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>xhdpi</td>
-<td>320</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>xxhpi</td>
-<td>480</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>xxxhpi</td>
-<td>640</td>
-<td>4</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><em>安卓使用<code>dpi</code>为160的数值作为一个基准－－<code>baseline</code>。</em></p>
-<p>为了达到最优秀的显示效果，我们最理想的情况下是为每个不同的屏幕类型设计对应的图标。不过实际情况中却并不一定需要对应每个尺寸，因为</p>
-<ol>
-<li><p>如果涉及的图标很多，各种类型的图标都做全部的配套设计一定会增加应用的体积；</p>
-</li>
-<li><p>假如缺少某个屏幕类型（例如mdpi）的图标a时，系统会去寻找a对应的高分辨率图标A，把A转化成合适的尺寸（a与A都是同一个图标的不同尺寸版本，a尺寸小，A尺寸大）。这里唯一的代价是：在使用图标时，系统需要自动做额外的尺寸转化；</p>
-</li>
-</ol>
-<h2 id="系统图标"><a href="#系统图标" class="headerlink" title="系统图标"></a>系统图标</h2><p>系统图标的大小是24dp*24dp，对于<code>mdpi</code>的屏幕，我们就需要截取24px*24px大小的图标。</p>
-<h3 id="Sketch导出"><a href="#Sketch导出" class="headerlink" title="Sketch导出"></a>Sketch导出</h3><p>如果使用<code>Sketch</code>开发出了静态原型，那么从里面<code>抓取</code>系统图标就非常的方便了，</p>
-<ol>
-<li>点击<code>工具栏</code>上的<code>insert -&gt; S</code>（或者按快捷键S），</li>
-</ol>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_slice_system_icon.png" alt="sketch_slice_system_icon-wc200" title="">
-                </div>
-                <div class="image-caption">sketch_slice_system_icon-wc200</div>
-            </figure>
-<ol>
-<li><p>用<code>小刀</code>在要截取图标的位置切片，并将切出的片子，重新命名成<code>ic_wind_level</code>,</p>
-<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_slice_system_icon_settings1.png" alt="sketch_slice_system_icon_settings1-wc600"></p>
-<p> 可以看到右上方的<code>尺寸栏</code>显示的是24/*24的大小，<code>设置区域</code>下方的截取效果图也呈现了出来。</p>
-</li>
-</ol>
-<p>接下来就是导出图片了，</p>
-<ol>
-<li><p>选中<code>ic_wind_level</code>，点击<code>Export</code>旁的按钮，以此添加<code>1x 2x 3x 1.5x 4x</code>，给要导出的图片设置导出后的放大倍率。<code>1x</code>表示<code>1:1</code>导出，<code>2x</code>表示放大2倍导出，</p>
-<p> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_slice_system_icon_settings2.png" alt="sketch_slice_system_icon_settings2-wc250"></p>
-<p> 导出的格式都设置成<code>PNG</code>格式的图片。这种图片是安卓系统标准支持的图片格式，能够携带透明的信息。</p>
-</li>
-<li><p>不要勾选背景颜色，让整个图片除了图案以外，都呈透明的状态；选择<code>Export ic_wind_level</code>，<br> <img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_slice_system_icon_settings3.png" alt="sketch_slice_system_icon_settings3-wc250"></p>
-</li>
-</ol>
-<p>导出结果如下，</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_slice_system_icon_export.png" alt="sketch_slice_system_icon_export" title="">
-                </div>
-                <div class="image-caption">sketch_slice_system_icon_export</div>
-            </figure>
-<table>
-<thead>
-<tr>
-<th>像素密度类型</th>
-<th>与Baseline比值</th>
-<th>实际像素</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td>mdpi</td>
-<td>1</td>
-<td>24px</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>hdpi</td>
-<td>1.5</td>
-<td>36px</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>xhdpi</td>
-<td>2</td>
-<td>48px</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>xxhpi</td>
-<td>3</td>
-<td>72px</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>xxxhpi</td>
-<td>4</td>
-<td>96px</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>其他图标的导出和产生这个图标的方式类似。</p>
-<h3 id="第三方工具导出"><a href="#第三方工具导出" class="headerlink" title="第三方工具导出"></a>第三方工具导出</h3><p>如果不使用<code>Sketch</code>也可以通过其他工具生成图标。例如<a href="http://romannurik.github.io/AndroidAssetStudio/" target="_blank" rel="external"><code>Android Studio Asset</code></a>的<code>Generic icons</code>功能。</p>
-<ol>
-<li>通过<code>IMAGE</code>方式，将事先准备好的<code>风力.svg</code>矢量图，加载到工具当中；</li>
-<li><code>Size</code>选择<code>20dp</code>，<code>Padding</code>选择<code>2dp</code>，这样最后的图标就是<code>24pd*24dp</code>的了；</li>
-<li><code>Color</code>选择成黑色，透明度为<code>54%</code>；</li>
-<li>点击<code>DOWNLOAD .ZIP</code>;</li>
-</ol>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/asset_studio_create_system_icon.png" alt="asset_studio_create_system_icon-wc400" title="">
-                </div>
-                <div class="image-caption">asset_studio_create_system_icon-wc400</div>
-            </figure>
-<p>下载解压后，得到了对应的图标资源，</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/asset_studio_download_result.png" alt="asset_studio_download_result-wc500" title="">
-                </div>
-                <div class="image-caption">asset_studio_download_result-wc500</div>
-            </figure>
-<p>其他图标的产生和产生这个图标的方式类似。</p>
-<h2 id="天气图标"><a href="#天气图标" class="headerlink" title="天气图标"></a>天气图标</h2><p><code>天气图标</code>的导出与系统图标的导出几乎完全一样，只是尺寸和颜色稍有不同。</p>
-<p>在导出的时候要注意<code>天气图标</code>有两种不同的大小，一种使用到<code>Weather details</code>上面，显示大的天气图标；另一种使用到<code>forcast</code>当中，显示小的天气图标。</p>
-<table>
-<thead>
-<tr>
-<th>图标类型</th>
-<th>宽度</th>
-<th>高度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td>大图标</td>
-<td>120dp</td>
-<td>100dp</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>小图标</td>
-<td>30dp</td>
-<td>30dp</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>两种图标都可以通过<code>Sketch</code>切图得到，也可以通过<code>Android Asset Studio</code>来生成。</p>
-<h2 id="应用图标"><a href="#应用图标" class="headerlink" title="应用图标"></a>应用图标</h2><p>应用图标也可以通过<code>Sketch</code>创建，不过我这里就简化了这方面的设计，直接使用<a href="http://romannurik.github.io/AndroidAssetStudio" target="_blank" rel="external">Android Asset Studio</a>的<code>Launcher icons</code>，创建应用图标，</p>
-<ol>
-<li>通过<code>IMAGE</code>方式，将事先准备好的<code>应用启动图标.svg</code>矢量图，加载到工具当中；</li>
-<li><code>Padding</code>选择<code>45%</code>，调整到合适的比例就行；</li>
-<li><code>Color</code>选择成白色，透明度为<code>100%</code>；</li>
-<li><code>Shape</code>选择成<code>SQUARE</code>正方形；</li>
-<li><code>Background</code>选择成<code>Primary Color</code>-<code>#3F51B5</code></li>
-<li>点击<code>DOWNLOAD .ZIP</code>;</li>
-</ol>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/asset_studio_create_app_icon.png" alt="asset_studio_create_app_icon-wc500" title="">
-                </div>
-                <div class="image-caption">asset_studio_create_app_icon-wc500</div>
-            </figure>
-<p>下载解压后，得到了对应的图标资源，</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/asset_studio_create_app_icon_download_result.png" alt="asset_studio_create_app_icon_download_result" title="">
-                </div>
-                <div class="image-caption">asset_studio_create_app_icon_download_result</div>
-            </figure>
-<hr>
-<p>至此，图片资源的导出就完成了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;资源的创建&quot;&gt;&lt;a href=&quot;#资源的创建&quot; class=&quot;headerlink&quot; title=&quot;资源的创建&quot;&gt;&lt;/a&gt;资源的创建&lt;/h1&gt;&lt;p&gt;界面原型已经设计完成了。不过离最后交付给开发人员开发还差一步：产品中使用的图片还没有准备好呢？&lt;/p&gt;
-&lt;p&gt;设计师
-    
-    </summary>
-    
-      <category term="第三章 产品原型" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2 前期准备</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2017/01/10/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/2_%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2017/01/10/3_产品原型/2_前期准备/</id>
-    <published>2017-01-10T00:13:48.000Z</published>
-    <updated>2017-02-01T16:07:55.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><p>设计师首先在头脑中、草稿中勾勒出静态效果图，</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_weather_app_static_effect_complete.png" alt="sketch_weather_app_static_effect_complete-wc250" title="">
-                </div>
-                <div class="image-caption">sketch_weather_app_static_effect_complete-wc250</div>
-            </figure>
-<p>之后就需要收集制作时需要的各种素材、确定界面的配色方案。</p>
-<h2 id="收集素材"><a href="#收集素材" class="headerlink" title="收集素材"></a>收集素材</h2><p>界面中需要使用各种天气图标：晴天、雨天、大雾、下雪、下雨、多云等等；还有天气信息中的风力、风向等等。</p>
-<p>我们可以使用<code>Sketch</code>工具进行完全的从无到有的自由创作，也可以适用现有的素材，减少设计的工作量。</p>
-<p>这里并不打算讲如何<code>画出</code>一个完美的图形，我想作为一名设计师，这点基本的艺术功底应该还是有的。因此我决定去之前介绍过的<code>资源池</code>-<code>[iconfont](http://www.iconfont.cn/)</code>网站寻找合适的图标。</p>
-<ol>
-<li>输入各种图标的关键字，就能看到各种图标，例如<code>多云</code>，</li>
-</ol>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/cloudy_icon_search_result.png" alt="cloudy_icon_search_result-wc350" title="">
-                </div>
-                <div class="image-caption">cloudy_icon_search_result-wc350</div>
-            </figure>
-<ol>
-<li>点击希望的图标，准备下载，</li>
-</ol>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/cloudy_icon_download1.png" alt="cloudy_icon_download1-wc350" title="">
-                </div>
-                <div class="image-caption">cloudy_icon_download1-wc350</div>
-            </figure>
-<ol>
-<li>可以选择图标的颜色、尺寸和下载的图标格式。这里我们选择<code>SVG下载</code>，也就是下载矢量图标（矢量图我们将在后一小节相信介绍）。至于颜色和尺寸就都无所谓了，因为后面我们使用的时候都会做出调整的。</li>
-</ol>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/cloudy_icon_download2.png" alt="cloudy_icon_download2-wc550" title="">
-                </div>
-                <div class="image-caption">cloudy_icon_download2-wc550</div>
-            </figure>
-<p>以此方法，我们接着下载完成所有设计中需要使用到的图标，它们包括：风力、风向、湿度、空气质量、运动、紫外线、晴天、雨天、多云、多云间晴、雾、雪。</p>
-<p>如果你的时间很宝贵不想把精力放到挨个下载上，那么我这里为你提供了打包好的所有可用素材，快去<a href="">下载</a>吧。</p>
-<h2 id="矢量图"><a href="#矢量图" class="headerlink" title="矢量图"></a>矢量图</h2><p><code>矢量图</code>是设计当中经常使用到的图片类型。当设计师放大图片的时候，<code>矢量图</code>会跟着放大，但是图形的线条并不会变的模糊出现锯齿的形状。所以这是设计师的最爱。因此在前面下载矢量图标的时候，我说不用在意图标的尺寸，就是这个道理。</p>
-<p>矢量图通常用在手动制图当中，占用的磁盘空间很小，它其实就是一个对笔划进行描述的文本文件，用文本编辑器打开的话，可以看到他的文本内容，例如，</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" standalone="no"?&gt;<span class="meta">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span><span class="tag">&lt;<span class="name">svg</span> <span class="attr">t</span>=<span class="string">"1484009234652"</span> <span class="attr">class</span>=<span class="string">"icon"</span> <span class="attr">style</span>=<span class="string">""</span> <span class="attr">viewBox</span>=<span class="string">"0 0 1204 1024"</span> <span class="attr">version</span>=<span class="string">"1.1"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">p-id</span>=<span class="string">"2794"</span> <span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span> <span class="attr">width</span>=<span class="string">"18.8125"</span> <span class="attr">height</span>=<span class="string">"16"</span>&gt;</span><span class="tag">&lt;<span class="name">defs</span>&gt;</span><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span><span class="tag">&lt;/<span class="name">defs</span>&gt;</span><span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"M882.526316 286.796992q-17.323308 17.323308-42.345865 17.323308t-42.345865-17.323308q-18.285714-18.285714-18.285714-42.827068t18.285714-42.827068l42.345865-42.345865q17.323308-17.323308 42.345865-17.323308t42.345865 17.323308q18.285714 17.323308 18.285714 42.345865t-18.285714 43.308271zM250.225564 611.12782q-3.849624-16.360902-6.255639-33.684211t-2.406015-35.609023q0-61.593985 23.578947-116.451128t64.481203-95.278195 95.278195-64 ......&gt;&lt;/path&gt;&lt;/svg&gt;</span></span></div></pre></td></tr></table></figure>
-<p>这就是矢量图的描述语言。在安卓应用的设计当中，我们也有机会与矢量图进一步的打交道。</p>
-<p><em>安卓应用的图形资源是支持开发者直接使用矢量图形的，安卓5.0开始的tint功能就经常需要和矢量图配合着使用。</em></p>
-<h2 id="配色方案"><a href="#配色方案" class="headerlink" title="配色方案"></a>配色方案</h2><p><code>天气预报</code>的整体配色，我决定从Google提供的<code>Material Design</code>调色板中进行选择。</p>
-<p><code>天气预报</code>讲的是天空的故事，提到天空，第一感觉就是蓝色，因此我决定将配色方案定调成<code>Indigo 500</code>，金色代表太阳，作为与之配合的<code>Accent Color</code>。</p>
-<p>打开配色方案的工具网站<a href="https://www.materialpalette.com/" target="_blank" rel="external">material palette</a>，选择对应的颜色，</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_color_solution.png" alt="weather_app_color_solution-wc750" title="">
-                </div>
-                <div class="image-caption">weather_app_color_solution-wc750</div>
-            </figure>
-<p>我们就得到了下面对应的颜色值，</p>
-<table>
-<thead>
-<tr>
-<th>颜色项目</th>
-<th>颜色名称</th>
-<th>颜色RGB值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Primary Color</td>
-<td>Indigo 500</td>
-<td>#3F51B5</td>
-</tr>
-<tr>
-<td>Primary Dark Color</td>
-<td>Indigo 700</td>
-<td>#303F9F</td>
-</tr>
-<tr>
-<td>Accent Color</td>
-<td>Amber 500</td>
-<td>#FFC107</td>
-</tr>
-</tbody>
-</table>
-<p>图中的<code>Light Primary Color</code>和<code>Divider Color</code>我们这里暂时用不到。</p>
-<p>图中的<code>Primary Text</code>和<code>Secondary Text</code> 就是我们前面提到的文字颜色。亮色背景下，这里看到的颜色分别是<code>#212121</code>和<code>#757575</code>。准确的讲，它们应该是：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">使用的场景</th>
-<th style="text-align:center">透明度</th>
-<th style="text-align:center">颜色</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Primary text</td>
-<td style="text-align:center">87%</td>
-<td style="text-align:center">#000000</td>
-</tr>
-<tr>
-<td style="text-align:center">Secondary text</td>
-<td style="text-align:center">54%</td>
-<td style="text-align:center">#000000</td>
-</tr>
-</tbody>
-</table>
-<p>假如背景是白色，那么这个透明度的黑色在去除了alpha值以后，就分别对应<code>#212121</code>和<code>#757575</code>了。</p>
-<p>图标的颜色应该是：</p>
-<table>
-<thead>
-<tr>
-<th>颜色透明度</th>
-<th>颜色</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>54%</td>
-<td>#000000</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前期准备&quot;&gt;&lt;a href=&quot;#前期准备&quot; class=&quot;headerlink&quot; title=&quot;前期准备&quot;&gt;&lt;/a&gt;前期准备&lt;/h1&gt;&lt;p&gt;设计师首先在头脑中、草稿中勾勒出静态效果图，&lt;/p&gt;
-&lt;figure class=&quot;image-bubble&quot;&gt;
-     
-    
-    </summary>
-    
-      <category term="第三章 产品原型" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>3 静态原型设计</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2017/01/09/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/3_%E9%9D%99%E6%80%81%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2017/01/09/3_产品原型/3_静态原型设计/</id>
-    <published>2017-01-09T08:03:45.000Z</published>
-    <updated>2017-02-01T16:07:59.000Z</updated>
+    <link href="https://taoduoduo.github.io/book.github.io/2017/01/14/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/3_%E9%9D%99%E6%80%81%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
+    <id>https://taoduoduo.github.io/book.github.io/2017/01/14/3_产品原型/3_静态原型设计/</id>
+    <published>2017-01-14T01:00:00.000Z</published>
+    <updated>2017-02-02T00:39:04.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="静态原型设计"><a href="#静态原型设计" class="headerlink" title="静态原型设计"></a>静态原型设计</h1><p>对于静态原型的设计，我们使用<code>Sketch</code>。</p>
 <p>启动<code>Sketch</code>后，我们将看到类似如下的界面，</p>
@@ -1707,11 +1437,158 @@
   </entry>
   
   <entry>
+    <title>2 前期准备</title>
+    <link href="https://taoduoduo.github.io/book.github.io/2017/01/13/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/2_%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87/"/>
+    <id>https://taoduoduo.github.io/book.github.io/2017/01/13/3_产品原型/2_前期准备/</id>
+    <published>2017-01-13T01:00:00.000Z</published>
+    <updated>2017-02-02T00:38:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><p>设计师首先在头脑中、草稿中勾勒出静态效果图，</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_weather_app_static_effect_complete.png" alt="sketch_weather_app_static_effect_complete-wc250" title="">
+                </div>
+                <div class="image-caption">sketch_weather_app_static_effect_complete-wc250</div>
+            </figure>
+<p>之后就需要收集制作时需要的各种素材、确定界面的配色方案。</p>
+<h2 id="收集素材"><a href="#收集素材" class="headerlink" title="收集素材"></a>收集素材</h2><p>界面中需要使用各种天气图标：晴天、雨天、大雾、下雪、下雨、多云等等；还有天气信息中的风力、风向等等。</p>
+<p>我们可以使用<code>Sketch</code>工具进行完全的从无到有的自由创作，也可以适用现有的素材，减少设计的工作量。</p>
+<p>这里并不打算讲如何<code>画出</code>一个完美的图形，我想作为一名设计师，这点基本的艺术功底应该还是有的。因此我决定去之前介绍过的<code>资源池</code>-<code>[iconfont](http://www.iconfont.cn/)</code>网站寻找合适的图标。</p>
+<ol>
+<li>输入各种图标的关键字，就能看到各种图标，例如<code>多云</code>，</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/cloudy_icon_search_result.png" alt="cloudy_icon_search_result-wc350" title="">
+                </div>
+                <div class="image-caption">cloudy_icon_search_result-wc350</div>
+            </figure>
+<ol>
+<li>点击希望的图标，准备下载，</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/cloudy_icon_download1.png" alt="cloudy_icon_download1-wc350" title="">
+                </div>
+                <div class="image-caption">cloudy_icon_download1-wc350</div>
+            </figure>
+<ol>
+<li>可以选择图标的颜色、尺寸和下载的图标格式。这里我们选择<code>SVG下载</code>，也就是下载矢量图标（矢量图我们将在后一小节相信介绍）。至于颜色和尺寸就都无所谓了，因为后面我们使用的时候都会做出调整的。</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/cloudy_icon_download2.png" alt="cloudy_icon_download2-wc550" title="">
+                </div>
+                <div class="image-caption">cloudy_icon_download2-wc550</div>
+            </figure>
+<p>以此方法，我们接着下载完成所有设计中需要使用到的图标，它们包括：风力、风向、湿度、空气质量、运动、紫外线、晴天、雨天、多云、多云间晴、雾、雪。</p>
+<p>如果你的时间很宝贵不想把精力放到挨个下载上，那么我这里为你提供了打包好的所有可用素材，快去<a href="">下载</a>吧。</p>
+<h2 id="矢量图"><a href="#矢量图" class="headerlink" title="矢量图"></a>矢量图</h2><p><code>矢量图</code>是设计当中经常使用到的图片类型。当设计师放大图片的时候，<code>矢量图</code>会跟着放大，但是图形的线条并不会变的模糊出现锯齿的形状。所以这是设计师的最爱。因此在前面下载矢量图标的时候，我说不用在意图标的尺寸，就是这个道理。</p>
+<p>矢量图通常用在手动制图当中，占用的磁盘空间很小，它其实就是一个对笔划进行描述的文本文件，用文本编辑器打开的话，可以看到他的文本内容，例如，</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" standalone="no"?&gt;<span class="meta">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span><span class="tag">&lt;<span class="name">svg</span> <span class="attr">t</span>=<span class="string">"1484009234652"</span> <span class="attr">class</span>=<span class="string">"icon"</span> <span class="attr">style</span>=<span class="string">""</span> <span class="attr">viewBox</span>=<span class="string">"0 0 1204 1024"</span> <span class="attr">version</span>=<span class="string">"1.1"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">p-id</span>=<span class="string">"2794"</span> <span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span> <span class="attr">width</span>=<span class="string">"18.8125"</span> <span class="attr">height</span>=<span class="string">"16"</span>&gt;</span><span class="tag">&lt;<span class="name">defs</span>&gt;</span><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span><span class="tag">&lt;/<span class="name">defs</span>&gt;</span><span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"M882.526316 286.796992q-17.323308 17.323308-42.345865 17.323308t-42.345865-17.323308q-18.285714-18.285714-18.285714-42.827068t18.285714-42.827068l42.345865-42.345865q17.323308-17.323308 42.345865-17.323308t42.345865 17.323308q18.285714 17.323308 18.285714 42.345865t-18.285714 43.308271zM250.225564 611.12782q-3.849624-16.360902-6.255639-33.684211t-2.406015-35.609023q0-61.593985 23.578947-116.451128t64.481203-95.278195 95.278195-64 ......&gt;&lt;/path&gt;&lt;/svg&gt;</span></span></div></pre></td></tr></table></figure>
+<p>这就是矢量图的描述语言。在安卓应用的设计当中，我们也有机会与矢量图进一步的打交道。</p>
+<p><em>安卓应用的图形资源是支持开发者直接使用矢量图形的，安卓5.0开始的tint功能就经常需要和矢量图配合着使用。</em></p>
+<h2 id="配色方案"><a href="#配色方案" class="headerlink" title="配色方案"></a>配色方案</h2><p><code>天气预报</code>的整体配色，我决定从Google提供的<code>Material Design</code>调色板中进行选择。</p>
+<p><code>天气预报</code>讲的是天空的故事，提到天空，第一感觉就是蓝色，因此我决定将配色方案定调成<code>Indigo 500</code>，金色代表太阳，作为与之配合的<code>Accent Color</code>。</p>
+<p>打开配色方案的工具网站<a href="https://www.materialpalette.com/" target="_blank" rel="external">material palette</a>，选择对应的颜色，</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_color_solution.png" alt="weather_app_color_solution-wc750" title="">
+                </div>
+                <div class="image-caption">weather_app_color_solution-wc750</div>
+            </figure>
+<p>我们就得到了下面对应的颜色值，</p>
+<table>
+<thead>
+<tr>
+<th>颜色项目</th>
+<th>颜色名称</th>
+<th>颜色RGB值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primary Color</td>
+<td>Indigo 500</td>
+<td>#3F51B5</td>
+</tr>
+<tr>
+<td>Primary Dark Color</td>
+<td>Indigo 700</td>
+<td>#303F9F</td>
+</tr>
+<tr>
+<td>Accent Color</td>
+<td>Amber 500</td>
+<td>#FFC107</td>
+</tr>
+</tbody>
+</table>
+<p>图中的<code>Light Primary Color</code>和<code>Divider Color</code>我们这里暂时用不到。</p>
+<p>图中的<code>Primary Text</code>和<code>Secondary Text</code> 就是我们前面提到的文字颜色。亮色背景下，这里看到的颜色分别是<code>#212121</code>和<code>#757575</code>。准确的讲，它们应该是：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">使用的场景</th>
+<th style="text-align:center">透明度</th>
+<th style="text-align:center">颜色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Primary text</td>
+<td style="text-align:center">87%</td>
+<td style="text-align:center">#000000</td>
+</tr>
+<tr>
+<td style="text-align:center">Secondary text</td>
+<td style="text-align:center">54%</td>
+<td style="text-align:center">#000000</td>
+</tr>
+</tbody>
+</table>
+<p>假如背景是白色，那么这个透明度的黑色在去除了alpha值以后，就分别对应<code>#212121</code>和<code>#757575</code>了。</p>
+<p>图标的颜色应该是：</p>
+<table>
+<thead>
+<tr>
+<th>颜色透明度</th>
+<th>颜色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>54%</td>
+<td>#000000</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前期准备&quot;&gt;&lt;a href=&quot;#前期准备&quot; class=&quot;headerlink&quot; title=&quot;前期准备&quot;&gt;&lt;/a&gt;前期准备&lt;/h1&gt;&lt;p&gt;设计师首先在头脑中、草稿中勾勒出静态效果图，&lt;/p&gt;
+&lt;figure class=&quot;image-bubble&quot;&gt;
+     
+    
+    </summary>
+    
+      <category term="第三章 产品原型" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>1 原型设计</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2017/01/05/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/1_%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2017/01/05/3_产品原型/1_原型设计/</id>
-    <published>2017-01-05T12:39:47.000Z</published>
-    <updated>2017-02-01T16:07:49.000Z</updated>
+    <link href="https://taoduoduo.github.io/book.github.io/2017/01/12/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/1_%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
+    <id>https://taoduoduo.github.io/book.github.io/2017/01/12/3_产品原型/1_原型设计/</id>
+    <published>2017-01-12T01:00:00.000Z</published>
+    <updated>2017-02-02T00:38:48.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="原型设计"><a href="#原型设计" class="headerlink" title="原型设计"></a>原型设计</h1><p>通过前面几个章节，我们已经掌握了安卓系统<code>Material Design</code>设计的大致原则。接下来，我们开始尝试将这些原则和方式运用到实际的项目当中。</p>
 <h2 id="效果图与交互原型"><a href="#效果图与交互原型" class="headerlink" title="效果图与交互原型"></a>效果图与交互原型</h2><p>产品原型的设计又可以分成两个阶段，</p>
@@ -1788,10 +1665,10 @@
   
   <entry>
     <title>9 界面模式</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2016/12/15/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/9_%E7%95%8C%E9%9D%A2%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2016/12/15/2_设计原理/9_界面模式/</id>
-    <published>2016-12-15T06:21:11.000Z</published>
-    <updated>2017-02-01T16:07:39.000Z</updated>
+    <link href="https://taoduoduo.github.io/book.github.io/2017/01/11/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/9_%E7%95%8C%E9%9D%A2%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://taoduoduo.github.io/book.github.io/2017/01/11/2_设计原理/9_界面模式/</id>
+    <published>2017-01-11T01:00:00.000Z</published>
+    <updated>2017-02-02T00:38:36.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="界面模式"><a href="#界面模式" class="headerlink" title="界面模式"></a>界面模式</h1><p><code>Material Design</code>的基础组件我们已经大体了解过了，现在我们看看<code>Material Design</code>在结合这些不同组件的过程中，有哪些套路，也就是有哪些常用的界面设计模式。了解了这些模式，可以帮助设计者们做出合乎开发者实现的方案。</p>
 <p>设计的套路有很多，<code>列表-list</code> <code>分页-tab</code> <code>网格-Grid</code> <code>侧边栏</code>  <code>下拉刷新</code>等等。这里只列出几个常见的，更多的方式请参考<a href="https://material.google.com/" target="_blank" rel="external">设计规范</a>，以及其他各种优秀应用的精巧设计。</p>
@@ -1875,10 +1752,10 @@
   
   <entry>
     <title>8 组件与常用模式</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2016/12/13/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/8_%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%BB%84%E4%BB%B6%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2016/12/13/2_设计原理/8_设计的组件与常用模式/</id>
-    <published>2016-12-13T07:05:23.000Z</published>
-    <updated>2017-02-01T16:07:34.000Z</updated>
+    <link href="https://taoduoduo.github.io/book.github.io/2017/01/10/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/8_%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%BB%84%E4%BB%B6%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://taoduoduo.github.io/book.github.io/2017/01/10/2_设计原理/8_设计的组件与常用模式/</id>
+    <published>2017-01-10T01:00:00.000Z</published>
+    <updated>2017-02-02T00:38:25.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="组件与常用模式"><a href="#组件与常用模式" class="headerlink" title="组件与常用模式"></a>组件与常用模式</h1><p>前面已经比较全面的介绍了<code>Material Design</code>相关的设计哲学、设计原理和方法论。这一章开始，我们将看看这些原理是如何在安卓系统当中得到实践的。</p>
 <p>一个应用并不是完全从什么都没有来组建的，至少会有一匹一匹的砖嘛。而在界面设计当中，这些能够拿过来就使用的砖块就是控件。</p>
@@ -2292,10 +2169,10 @@
   
   <entry>
     <title>7 声音与触觉的利用</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2016/12/13/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/7_%E5%A3%B0%E9%9F%B3%E4%B8%8E%E8%A7%A6%E8%A7%89%E7%9A%84%E5%88%A9%E7%94%A8/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2016/12/13/2_设计原理/7_声音与触觉的利用/</id>
-    <published>2016-12-13T06:26:44.000Z</published>
-    <updated>2017-02-01T16:07:28.000Z</updated>
+    <link href="https://taoduoduo.github.io/book.github.io/2017/01/09/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/7_%E5%A3%B0%E9%9F%B3%E4%B8%8E%E8%A7%A6%E8%A7%89%E7%9A%84%E5%88%A9%E7%94%A8/"/>
+    <id>https://taoduoduo.github.io/book.github.io/2017/01/09/2_设计原理/7_声音与触觉的利用/</id>
+    <published>2017-01-09T01:00:00.000Z</published>
+    <updated>2017-02-02T00:38:17.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="声音与触觉的利用"><a href="#声音与触觉的利用" class="headerlink" title="声音与触觉的利用"></a>声音与触觉的利用</h1><p>之前我们对设计的讨论都是几种在视觉基础之上的。但除了视觉，我们人还拥有听觉、嗅觉、触觉、味觉等感知大自然的能力。</p>
 <p>现在由于技术的限制，嗅觉和味觉在移动设备领域的使用还无法派上用场，但是听觉和触觉正在扩大对我们使用的影响。</p>
@@ -2339,10 +2216,10 @@
   
   <entry>
     <title>6 动画效果</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2016/12/13/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/6_%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2016/12/13/2_设计原理/6_动画效果/</id>
-    <published>2016-12-13T04:30:19.000Z</published>
-    <updated>2017-02-01T16:07:22.000Z</updated>
+    <link href="https://taoduoduo.github.io/book.github.io/2017/01/08/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/6_%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/"/>
+    <id>https://taoduoduo.github.io/book.github.io/2017/01/08/2_设计原理/6_动画效果/</id>
+    <published>2017-01-08T01:00:00.000Z</published>
+    <updated>2017-02-02T00:38:09.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="动画效果"><a href="#动画效果" class="headerlink" title="动画效果"></a>动画效果</h1><p>运动的物体总是能最有效的吸引住人类的注意力。在界面设计的领域，也是一样，当你希望用户的注意力从一个点转移到另一点，在这两点之间设计一个迁移的动画是在合适不过的了。</p>
 <p>动画基本上可以分成以下几类：</p>
@@ -2461,10 +2338,10 @@
   
   <entry>
     <title>5 图标的使用</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2016/12/12/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/5_%E5%9B%BE%E6%A0%87%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2016/12/12/2_设计原理/5_图标的使用/</id>
-    <published>2016-12-12T07:49:28.000Z</published>
-    <updated>2017-02-01T16:07:15.000Z</updated>
+    <link href="https://taoduoduo.github.io/book.github.io/2017/01/07/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/5_%E5%9B%BE%E6%A0%87%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://taoduoduo.github.io/book.github.io/2017/01/07/2_设计原理/5_图标的使用/</id>
+    <published>2017-01-07T01:00:00.000Z</published>
+    <updated>2017-02-02T00:38:01.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="图标的使用"><a href="#图标的使用" class="headerlink" title="图标的使用"></a>图标的使用</h1><p>图标能给人带来最直观的印象，有的时候再多的解释也抵不过一个图标。</p>
 <p>安卓应用的图标分成两类，</p>
@@ -2641,10 +2518,10 @@
   
   <entry>
     <title>4 文字的使用</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2016/12/12/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/4_%E6%96%87%E5%AD%97%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2016/12/12/2_设计原理/4_文字的使用/</id>
-    <published>2016-12-12T02:28:24.000Z</published>
-    <updated>2017-02-01T16:07:10.000Z</updated>
+    <link href="https://taoduoduo.github.io/book.github.io/2017/01/06/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/4_%E6%96%87%E5%AD%97%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://taoduoduo.github.io/book.github.io/2017/01/06/2_设计原理/4_文字的使用/</id>
+    <published>2017-01-06T01:00:00.000Z</published>
+    <updated>2017-02-02T00:37:52.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="文字的使用"><a href="#文字的使用" class="headerlink" title="文字的使用"></a>文字的使用</h1><p>文字是应用当中使用最多的要素。显示一段供用户阅读的文字，程序运行时的信息提示都离不开它。</p>
 <p>文字是内容的实际体现者，因此设计师需要将用户的注意力尽可能的吸引到文字当中。</p>
@@ -2995,10 +2872,10 @@
   
   <entry>
     <title>3 颜色的运用</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2016/12/09/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/3_%E9%A2%9C%E8%89%B2%E7%9A%84%E8%BF%90%E7%94%A8/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2016/12/09/2_设计原理/3_颜色的运用/</id>
-    <published>2016-12-09T07:49:57.000Z</published>
-    <updated>2017-02-01T16:07:04.000Z</updated>
+    <link href="https://taoduoduo.github.io/book.github.io/2017/01/05/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/3_%E9%A2%9C%E8%89%B2%E7%9A%84%E8%BF%90%E7%94%A8/"/>
+    <id>https://taoduoduo.github.io/book.github.io/2017/01/05/2_设计原理/3_颜色的运用/</id>
+    <published>2017-01-05T01:00:00.000Z</published>
+    <updated>2017-02-02T00:37:43.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="颜色的运用"><a href="#颜色的运用" class="headerlink" title="颜色的运用"></a>颜色的运用</h1><p><code>Material Design</code>采用的是扁平化的设计，可以看到一大块一大块区域的颜色。这些颜色大多亮丽引人，整个界面上搭配的颜色也不会太多，基本保持在三种颜色以内。</p>
 <figure class="image-bubble">
@@ -3136,10 +3013,10 @@
   
   <entry>
     <title>2 界面布局</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2016/12/07/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/2_%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2016/12/07/2_设计原理/2_界面布局/</id>
-    <published>2016-12-07T15:38:59.000Z</published>
-    <updated>2017-02-01T16:06:59.000Z</updated>
+    <link href="https://taoduoduo.github.io/book.github.io/2017/01/04/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/2_%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/"/>
+    <id>https://taoduoduo.github.io/book.github.io/2017/01/04/2_设计原理/2_界面布局/</id>
+    <published>2017-01-04T01:00:00.000Z</published>
+    <updated>2017-02-02T00:37:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="界面布局"><a href="#界面布局" class="headerlink" title="界面布局"></a>界面布局</h1><p>布局涉及到应用界面的整体。布局的层次感和逻辑，可以通过阴影来体现。</p>
 <p>举个例子。在一张纸当中，增加一条折痕，一个区域就分成了关联性很强的两个区域，</p>
@@ -3326,10 +3203,10 @@
   
   <entry>
     <title>1 设计原理</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2016/12/07/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/1_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2016/12/07/2_设计原理/1_设计原理/</id>
-    <published>2016-12-07T07:53:09.000Z</published>
-    <updated>2017-02-01T16:06:55.000Z</updated>
+    <link href="https://taoduoduo.github.io/book.github.io/2017/01/03/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/1_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
+    <id>https://taoduoduo.github.io/book.github.io/2017/01/03/2_设计原理/1_设计原理/</id>
+    <published>2017-01-03T01:00:00.000Z</published>
+    <updated>2017-02-02T00:37:26.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="设计原理"><a href="#设计原理" class="headerlink" title="设计原理"></a>设计原理</h1><p>设计是一门让人感觉很抽象的艺术。设计需要从两个方面来考虑问题：</p>
 <ul>
@@ -3459,10 +3336,10 @@
   
   <entry>
     <title>2 功能的确定</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2016/12/06/1_%E5%88%9B%E6%84%8F/2_%E5%8A%9F%E8%83%BD/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2016/12/06/1_创意/2_功能/</id>
-    <published>2016-12-06T07:06:03.000Z</published>
-    <updated>2017-02-01T16:06:49.000Z</updated>
+    <link href="https://taoduoduo.github.io/book.github.io/2017/01/02/1_%E5%88%9B%E6%84%8F/2_%E5%8A%9F%E8%83%BD/"/>
+    <id>https://taoduoduo.github.io/book.github.io/2017/01/02/1_创意/2_功能/</id>
+    <published>2017-01-02T01:00:00.000Z</published>
+    <updated>2017-02-02T00:37:19.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="功能的确定"><a href="#功能的确定" class="headerlink" title="功能的确定"></a>功能的确定</h1><p>产品的功能并不是在确定了产品之后才开始考虑的，功能与创意选择其实是一个“你中有我，我中有你”的关系。为了体现产品设计的阶段性，我才将它单独提出来分析。</p>
 <p>这里讨论的产品功能，是建立在选定了某个基础之上的。比如我们之前选定了<code>天气预报</code>，那么就将产品功能围绕<code>天气预报</code>讨论。</p>
@@ -3779,6 +3656,129 @@
     <summary type="html">
     
       &lt;h1 id=&quot;功能的确定&quot;&gt;&lt;a href=&quot;#功能的确定&quot; class=&quot;headerlink&quot; title=&quot;功能的确定&quot;&gt;&lt;/a&gt;功能的确定&lt;/h1&gt;&lt;p&gt;产品的功能并不是在确定了产品之后才开始考虑的，功能与创意选择其实是一个“你中有我，我中有你”的关系。为了体现产品设计
+    
+    </summary>
+    
+      <category term="第一章 创意" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%88%9B%E6%84%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>1 创意</title>
+    <link href="https://taoduoduo.github.io/book.github.io/2017/01/01/1_%E5%88%9B%E6%84%8F/1_%E5%88%9B%E6%84%8F/"/>
+    <id>https://taoduoduo.github.io/book.github.io/2017/01/01/1_创意/1_创意/</id>
+    <published>2017-01-01T01:00:00.000Z</published>
+    <updated>2017-02-02T00:31:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="创意"><a href="#创意" class="headerlink" title="创意"></a>创意</h1><p>我们总会羡慕、崇拜那些创造出了伟大产品的人。提到乔布斯，大家一定会竖起大拇指，他创造出了革命性的ipod、macbook、iphone、ipad等等极具创意、使用方便、同时又设计优雅的产品。</p>
+<p>对于从事软件行业的人来讲，最有成就感的事情莫过于开发出一款让人交口称赞的应用软件了。</p>
+<h2 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h2><p>好的产品要有好的创意，人对创造产品的创意来自于哪里呢？</p>
+<p>我觉得产品的创意来源于三个方面：</p>
+<ul>
+<li><p>最直接的创意来源于自己的实际需要。比如，曾经有位程序员想写一部小说，他尝试了市面上很多文字编辑器，觉得都不能满足自己的需要，于是就自己开发了一款。最后，他原打算要写的书没有了下文，但是却创造出了Mac系统上非常经典的应用-<a href="https://ulyssesapp.com" target="_blank" rel="external"><code>Ulysses</code></a>，成为了很多作家的创作利器。<code>Ulysses</code>将写作爱好者的写作体验带入了天堂。</p>
+<p>  <img src="http://7xrwhw.com1.z0.glb.clouddn.com/ulysses_logo.png" alt="ulysses_logo-wc150"></p>
+</li>
+<li><p>更多的创意来源于对现有生活的归纳总结。用智能手机听音乐，几乎是每个使用者的刚性需求，所以开发一款音乐播放器的灵感就很容易跑进我们的大脑。</p>
+<p>  <img src="http://7xrwhw.com1.z0.glb.clouddn.com/music_ui.jpeg" alt="music_ui-wc200"></p>
+</li>
+<li><p>还有的创意来源于对现有产品的差异化。例如音乐播放器这样的刚需应用有很多，QQ音乐、阿里音乐，虾米音乐，酷狗音乐，安卓系统自带的音乐播放器等等。不过网易云音乐在众多的音乐播放器中脱引而出，依靠的正是它对其他类似应用差异化的挖掘–基于音乐的社交模式。</p>
+<p>  <img src="http://7xrwhw.com1.z0.glb.clouddn.com/netease_music_logo.png" alt="netease_music_logo-wc150"></p>
+</li>
+</ul>
+<h2 id="标准"><a href="#标准" class="headerlink" title="标准"></a>标准</h2><p>好的创意是什么？我的理解是：</p>
+<ul>
+<li>实实在在的解决了一个问题，至少它能让我们觉得方便了我们的工作或者生活。</li>
+<li>它的解决方法很简单，不需要复杂的操作，也许简单的让人意想不到。</li>
+<li>产品的外观设计的深入人心，一看到它就有使用的欲望。</li>
+</ul>
+<h2 id="记录工具"><a href="#记录工具" class="headerlink" title="记录工具"></a>记录工具</h2><p>创意宝贵，可能我们一转眼就把它忘记了，所以我们要能随时将它们记录下来，</p>
+<ul>
+<li><p>最传统的方式就是笔和纸，好记性比不过烂笔头，随时带着一个小本子和笔，一旦有了产品的灵感，就把它记录下来。</p>
+<p>  <img src="http://7xrwhw.com1.z0.glb.clouddn.com/note_and_pen.png" alt="note_and_pen-wc200"></p>
+<p>  iPad和apple pencil也是一对极好的搭档，用电子的方式做记录能便于我们做后继的整理。iPad上有很多好用的笔记类App，例如我正在使用的Notablitiy。</p>
+<p>  <img src="http://7xrwhw.com1.z0.glb.clouddn.com/notability_logo.png" alt="notability_logo-wc150"></p>
+</li>
+<li><p>手机是我们形影不离的帮手，你可以用手机中的记事本，记录下自己的想法。如果还觉得麻烦，可以通过录音，把它们保留下来。</p>
+<p>  <img src="http://7xrwhw.com1.z0.glb.clouddn.com/note_and_recorder.png" alt="note_and_recorde-wc200"></p>
+</li>
+</ul>
+<p>有了创意，我们下一步就需要将它们整理起来，看看它们实现的可行性。</p>
+<h2 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h2><p>创意怎么来，我是不能帮助大家的，这只能靠大家各自的能力、经验、体验和运气了。<br>我只能帮助大家如何从众多的创意中选择一个适合自己的。</p>
+<p>并不是所有的创意都有让你去实现的价值。也许你有一个很好的创意，但是要花费很大的经济成本，那对你个人来说是有很大风险的，你不得不放弃。也许你有另外一个创意，但是也许别人已经在做了，只是你不知道而已，今后撞车的可能性很大。所以我们需要将它们筛选一遍，选择最适合的一个。</p>
+<p>怎么选择呢？</p>
+<p>我想选择的标准很多，主要还是看你的目的是什么，你为了实现这个创意，愿意付出多大的代价：</p>
+<ul>
+<li>为实现创意投入的资金是多少；</li>
+<li>为实现创意投入的精力是多少；</li>
+<li>实现创意的目的是为了自己的个人爱好，还是说为了靠它养家糊口；</li>
+</ul>
+<p>当我们面对众多诱惑需要进行选择的时候，你可以把要选择的对象横向铺开，像我们网上购物时比较商品一样，列出它们各自具备的优点和缺点，比较它们各自的异同，找出你最偏向的那个。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xrwhw.com1.z0.glb.clouddn.com/goods_compare.png" alt="goods_compare-wc500" title="">
+                </div>
+                <div class="image-caption">goods_compare-wc500</div>
+            </figure>
+<h2 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h2><p>这本书将把理论和实践结合在一起，所以我需要一个合适的创意做为我们后面讲解的例子。</p>
+<p>首先明确我的目标。这个例子不能太复杂，门槛太高，会吓走很多人；但是也不能过于傻瓜，要涵盖一定的知识点，否则读完以后脑袋中还是空空如也。</p>
+<p>计算器、视频播放器、记事本、音乐播放器、天气预报，都是一些经常可能用到的小应用。它们开发起来都不太困难，只是类型不同。</p>
+<p>对于没有进行过安卓开发的你来说，也许根本就不知道是否困难，至少要亲自做一次之后才能知道。这里我就自己的经历来说，它们的实现还是很简单的，大家不必惊慌。</p>
+<p>然后将这些项目在脑中进行横向对比后，给他们的各个项目点按照难易程度从1到5打分:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">项目</th>
+<th style="text-align:center">计算器</th>
+<th style="text-align:center">音乐播放器</th>
+<th style="text-align:center">记事本</th>
+<th style="text-align:center">视频播放器</th>
+<th style="text-align:center">天气预报</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">体现安卓设计</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">技术简单</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">界面布局简单</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">合计得分</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">12</td>
+</tr>
+</tbody>
+</table>
+<p>上面所列出的项目和得分都是非常主观的，项目是根据开发者的目标来制定，而得分完全根据开发者个人的偏好和经验。所以要做到评估准确，最好的办法就是多做项目，增加自己的经验值。</p>
+<p>通过上面的评比，我决定选择<code>天气预报</code>来做为本书讲解的范例。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;创意&quot;&gt;&lt;a href=&quot;#创意&quot; class=&quot;headerlink&quot; title=&quot;创意&quot;&gt;&lt;/a&gt;创意&lt;/h1&gt;&lt;p&gt;我们总会羡慕、崇拜那些创造出了伟大产品的人。提到乔布斯，大家一定会竖起大拇指，他创造出了革命性的ipod、macbook、iphone、ip
     
     </summary>
     
