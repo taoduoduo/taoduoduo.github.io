@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>从设计到实现 | 从设计到实现 | 手把手教你做android应用开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="undefined">
+    <meta name="description" content="手把手教你做android应用开发">
+<meta property="og:type" content="website">
+<meta property="og:title" content="从设计到实现">
+<meta property="og:url" content="https://taoduoduo.github.io/book.github.io/index/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="手把手教你做android应用开发">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/20160905-ukraine-map-1422625.jpg!width600">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/20141028-1.jpg">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/201611-ipad-605420_1920.jpg">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/20160825-stock-photo-125631967.jpg">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/student.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/developer.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/designer.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/product_manager.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/qq_group.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/wechat_subscrib.png">
+<meta property="og:updated_time" content="2017-02-03T04:14:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从设计到实现">
+<meta name="twitter:description" content="手把手教你做android应用开发">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/20160905-ukraine-map-1422625.jpg!width600">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/book.github.io/favicon.ico">
+    <link rel="stylesheet" href="/book.github.io/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/book.github.io/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/book.github.io/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect active">
+              <a href="/book.github.io/index"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/book.github.io/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                目录
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">从设计到实现</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header page-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">从设计到实现</h1>
+        <h5 class="subtitle">
+            
+                手把手教你做android应用开发
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    <article class="page-article fade" itemprop="blogPage">
+        <div class="post-content page-content" id="page-content" itemprop="pageContent">
+            <div class="card">
+<div align="center"><br><div style="width:600px;"><br><h5>展现安卓开发的整个流程</h5><br><img src="http://7xrwhw.com1.z0.glb.clouddn.com/20160905-ukraine-map-1422625.jpg!width600" style="width:600px;" alt=""><br><p>用生动的事例，向你展示了一个应用从创意到设计，再到开发，最后直至发布的全部过程。所有的技术要点贯穿于整个产品流程，让学习不再枯燥单调，让你印象深刻。</p><br></div><br></div>
+
+</div>
+<div class="card">
+<div align="center"><br><div style="width:600px;"><br><h5>图文并貌的生动文档</h5><br><img src="http://7xrwhw.com1.z0.glb.clouddn.com/20141028-1.jpg" style="width:600px;" alt=""><br><p>用通俗的文字结合生动的图片，讲述着产品开发的所有故事。制作了近千张图片和视频动画，目的只是为了让你能更好理解我想传达给你的每一个细节。</p><br></div><br></div>
+
+</div>
+<div class="card">
+<div align="center"><br><div style="width:600px;"><br><h5>一站式获取开发资源</h5><br><img src="http://7xrwhw.com1.z0.glb.clouddn.com/201611-ipad-605420_1920.jpg" style="width:600px;" alt=""><br><p>文中所有使用到设计资源和开发图标，我都全部打包呈现。只要你想学并学好，我将为你做好充分的准备，帮助你迈出关键的第一步。</p><br></div><br></div>
+
+</div>
+<div class="card">
+<div align="center"><br><div style="width:600px;"><br><h5>示例代码的参考</h5><br><img src="http://7xrwhw.com1.z0.glb.clouddn.com/20160825-stock-photo-125631967.jpg" style="width:600px;" alt=""><br><p>除了照着文档从头到尾实现你的第一个安卓应用；也可以通过我托管到Github上的源码进行对比学习。掌握一项代码管理的工程技能，对你的帮助将十分巨大。</p><br></div><br></div>
+
+</div>
+<div class="card">
+<div align="center"><br><h5>适合阅读本系列文章的人群</h5><br></div>
+
+<div class="column-2">
+<div class="card">
+<div align="center"><br><h5>大学生</h5><br><img src="http://7xrwhw.com1.z0.glb.clouddn.com/student.png" style="width:150px;" alt="student"><br><p>大学时光充满了活力、激情与好奇心，不幸的是对技术感兴趣却没有人带路。我保证只要你按照文档中讲到的内容一步一步照着做，一个月的时间定让你脱胎换骨。当其他同学对前路还一片迷茫的时候，你已经来到了充满了新奇与未知的全新领域。</p><br></div>
+
+</div>
+<div class="card">
+<div align="center"><br><h5>开发者</h5><br><img src="http://7xrwhw.com1.z0.glb.clouddn.com/developer.png" style="width:150px;" alt="developer"><br><p>已经有经验的开发者也很适合这系列的文章。它将你的视野从眼前挪开，从设计者的角度看问题。为什么设计师要如此设计？为什么我开发的安卓代码是这个样子？问题的答案都放在本系列文章的各个角落当中。</p><br></div>
+
+</div>
+</div>
+<div class="column-2">
+<div class="card">
+<div align="center"><br><h5>设计师</h5><br><img src="http://7xrwhw.com1.z0.glb.clouddn.com/designer.png" style="width:150px;" alt="designer"><br><p>界面设计师常常苦恼自己设计出来的作品永远停留在概念阶段：要么自己设计的太超前，不接地气；要么自己没有能力去实现它。我保证，设计师把本系列文章做完之后，一定会重新认识一遍设计的工作，将设计的能力延展到实践当中，更好的与别人合作。</p><br></div>
+
+</div>
+<div class="card">
+<div align="center"><br><h5>产品经理</h5><br><img src="http://7xrwhw.com1.z0.glb.clouddn.com/product_manager.png" style="width:150px;" alt=" product_manager"><br><p>优秀的产品经理除了要能提出一款出色产品概念，更需要能将它们变成现实的高瞻远瞩。要与聪明的设计师与开发者打交道，最好能理解他们的所思所想，站在他们的角度去看看产品。了解他们的最好办法，就是通过一个简单的案例，把大家的角色都模拟一遍。</p><br></div>
+
+</div>
+</div>
+</div>
+<div class="card">
+<div align="center"><br><h5>交流方式</h5><br></div>
+
+<div class="column-2">
+<div class="card">
+<div align="center"><br><h5>QQ群：xxxxxx</h5><br><img src="http://7xrwhw.com1.z0.glb.clouddn.com/qq_group.png" style="width:150px;" alt="qq_group"><br><p>我们开通了这个QQ群，希望大家能够通过它互相讨论，在学习上互相帮助，取得更快的进步；也希望借此能得到大家对本系列文章的反馈，得到各位的呵护，让它茁壮成长。</p><br></div>
+
+</div>
+<div class="card">
+<div align="center"><br><h5>订阅号：xxx</h5><br><img src="http://7xrwhw.com1.z0.glb.clouddn.com/wechat_subscrib.png" style="width:150px;" alt="wechat_subscrib"><br><p>我们开通了订阅号，每当有新文章发布之时，可以第一时间推送给大家。也希望喜欢本系列文章的同学们能够借助网络的力量，让更多的人知道它，利用它，学到各种知识。</p><br></div>
+
+</div>
+</div>
+</div>
+<div class="card">
+<div align="center"><br><div style="width:600px;"><br><h5>成书计划</h5><br><p>等到本系列文章全部完成以后，我计划将它整理成书，提供给更多的希望了解安卓应用开发的读者学习和参考。希望大家能多多给予反馈，让它出生的时候尽可能的全面而完善。</p><br></div><br></div>
+
+<div class="timeline">
+<h5 id="2017"><a href="#2017" class="headerlink" title="2017"></a>2017</h5><div class="item">
+<h6 id="6月"><a href="#6月" class="headerlink" title="6月"></a>6月</h6><p>计划<strong>整理文档成书</strong>。</p>
+</div>
+<div class="item">
+<h6 id="5月"><a href="#5月" class="headerlink" title="5月"></a>5月</h6><p>计划发布<strong>软件发布</strong>相关的文章内容。</p>
+</div>
+<div class="item">
+<h6 id="4月"><a href="#4月" class="headerlink" title="4月"></a>4月</h6><p>计划发布<strong>软件测试</strong>相关的文章内容。</p>
+</div>
+<div class="item">
+<h6 id="3月"><a href="#3月" class="headerlink" title="3月"></a>3月</h6><p>计划发布<strong>软件开发</strong>相关的文章内容。</p>
+</div>
+<div class="item">
+<h6 id="2月"><a href="#2月" class="headerlink" title="2月"></a>2月</h6><p>计划发布<strong>设计实践</strong>相关的文章内容。</p>
+</div>
+<div class="item">
+<h6 id="1月"><a href="#1月" class="headerlink" title="1月"></a>1月</h6><p>发布<strong>设计理论</strong>相关的文章内容。</p>
+</div>
+</div>
+</div>
+
+        </div>
+
+        
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        
+
+    </article>
+    
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/book.github.io/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/book.github.io/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://taoduoduo.github.io/book.github.io/index/&title=《从设计到实现》 — 从设计到实现&pic=https://taoduoduo.github.io/book.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://taoduoduo.github.io/book.github.io/index/&title=《从设计到实现》 — 从设计到实现&source=my description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aO3LDMAwFQN//0spMWo3oB5AuRC6rjBxZXBUw8fl84nX9r/uV+/Xxp9dtja8vXhgYGK9lXMN1ZySPqW4r5z1+JwYGxgGMcZDtMZLQnDCSHwAMDAyMJAQn7OSIiYGBgbEq4PY2mi8MDAyMXhJbfVh+cBy/oMW5OAYGxgsZ8w/+3d8/7G9gYGC8hHFNrPFBMEmGk7Ab7QQDA2NrRl64z6NctazWS5U/+XwHBgbGRoz85uoIRd7UzJPVx4CLgYFxAGM+ms1sbiqhxcDAOIDx65R1nMTmgbjZwsTAwHgtI9lELzSvbUZGVUMMDIxNGUlSWkgjA0weRsuJNAYGxqaMPEWsFs56mGqxDwMD4xxGfoybL8/lR8+8JIeBgXECI29MrhrwmmkAfPndwMDA2JSxKvCtHSwrpLUYGBhbM2aakdXyWTUlXjY5goGB8XLGqvJ9zquG12hXGBgYRzJ6pfxeAzL5tDzXhoGBsREjSWWrgTK5N2cUkl4MDIxjGPlX5A2D3khHPoKGgYFxGqNay0ru7SW35UCPgYGxNSMvdc0PUiRtgF5ExcDA2JXRC3bVA1/SZug1Mh8bAxgYGBsxqo9fO1RRHTVb8CoxMDBey+i1JPNAubYyFuXiGBgYmzLywNcLqdVSXXVADQMDA6M38tUr5DXPsxgYGBgTLczeIXIqz8bAwNiUkTcDev+fX8fAwMDoreTo1ntZeTEu/wYMDIyNGH/sX/oIGrcOMwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/book.github.io/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/book.github.io/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/book.github.io/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
