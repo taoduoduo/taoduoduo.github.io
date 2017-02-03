@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>从设计到实现</title>
   <subtitle>手把手教你做android应用开发</subtitle>
-  <link href="/book.github.io/atom.xml" rel="self"/>
+  <link href="/taoduoduo.github.io/atom.xml" rel="self"/>
   
-  <link href="https://taoduoduo.github.io/book.github.io/"/>
+  <link href="https://taoduoduo.github.io/taoduoduo.github.io/"/>
   <updated>2017-02-02T09:58:18.000Z</updated>
-  <id>https://taoduoduo.github.io/book.github.io/</id>
+  <id>https://taoduoduo.github.io/taoduoduo.github.io/</id>
   
   <author>
     <name>安豆</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>6 界面的整体布局</title>
-    <link href="https://taoduoduo.github.io/book.github.io/4_%E5%BC%80%E5%8F%91/6_%E7%95%8C%E9%9D%A2%E7%9A%84%E6%95%B4%E4%BD%93%E5%B8%83%E5%B1%80/"/>
-    <id>https://taoduoduo.github.io/book.github.io/4_开发/6_界面的整体布局/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/4_%E5%BC%80%E5%8F%91/6_%E7%95%8C%E9%9D%A2%E7%9A%84%E6%95%B4%E4%BD%93%E5%B8%83%E5%B1%80/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/4_开发/6_界面的整体布局/</id>
     <published>2017-01-22T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -70,15 +70,15 @@
     
     </summary>
     
-      <category term="第4章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC4%E7%AB%A0/"/>
+      <category term="第4章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC4%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>5 资源的导入</title>
-    <link href="https://taoduoduo.github.io/book.github.io/4_%E5%BC%80%E5%8F%91/5_%E8%B5%84%E6%BA%90%E7%9A%84%E5%AF%BC%E5%85%A5/"/>
-    <id>https://taoduoduo.github.io/book.github.io/4_开发/5_资源的导入/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/4_%E5%BC%80%E5%8F%91/5_%E8%B5%84%E6%BA%90%E7%9A%84%E5%AF%BC%E5%85%A5/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/4_开发/5_资源的导入/</id>
     <published>2017-01-21T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -128,15 +128,15 @@
     
     </summary>
     
-      <category term="第4章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC4%E7%AB%A0/"/>
+      <category term="第4章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC4%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>4 版本管理</title>
-    <link href="https://taoduoduo.github.io/book.github.io/4_%E5%BC%80%E5%8F%91/4_%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
-    <id>https://taoduoduo.github.io/book.github.io/4_开发/4_版本管理/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/4_%E5%BC%80%E5%8F%91/4_%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/4_开发/4_版本管理/</id>
     <published>2017-01-20T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -255,15 +255,15 @@
     
     </summary>
     
-      <category term="第4章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC4%E7%AB%A0/"/>
+      <category term="第4章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC4%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>3 应用的创建与部署</title>
-    <link href="https://taoduoduo.github.io/book.github.io/4_%E5%BC%80%E5%8F%91/3_%E5%BA%94%E7%94%A8%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E9%83%A8%E7%BD%B2/"/>
-    <id>https://taoduoduo.github.io/book.github.io/4_开发/3_应用的创建与部署/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/4_%E5%BC%80%E5%8F%91/3_%E5%BA%94%E7%94%A8%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E9%83%A8%E7%BD%B2/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/4_开发/3_应用的创建与部署/</id>
     <published>2017-01-19T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -406,15 +406,15 @@
     
     </summary>
     
-      <category term="第4章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC4%E7%AB%A0/"/>
+      <category term="第4章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC4%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>2 开发环境搭建</title>
-    <link href="https://taoduoduo.github.io/book.github.io/4_%E5%BC%80%E5%8F%91/2_%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>https://taoduoduo.github.io/book.github.io/4_开发/2_开发环境搭建/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/4_%E5%BC%80%E5%8F%91/2_%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/4_开发/2_开发环境搭建/</id>
     <published>2017-01-18T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -513,15 +513,15 @@
     
     </summary>
     
-      <category term="第4章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC4%E7%AB%A0/"/>
+      <category term="第4章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC4%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>1 开发产品</title>
-    <link href="https://taoduoduo.github.io/book.github.io/4_%E5%BC%80%E5%8F%91/1_%E5%BC%80%E5%8F%91%E4%BA%A7%E5%93%81/"/>
-    <id>https://taoduoduo.github.io/book.github.io/4_开发/1_开发产品/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/4_%E5%BC%80%E5%8F%91/1_%E5%BC%80%E5%8F%91%E4%BA%A7%E5%93%81/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/4_开发/1_开发产品/</id>
     <published>2017-01-17T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -573,15 +573,15 @@
     
     </summary>
     
-      <category term="第4章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC4%E7%AB%A0/"/>
+      <category term="第4章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC4%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>5 资源的创建</title>
-    <link href="https://taoduoduo.github.io/book.github.io/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/5_%E8%B5%84%E6%BA%90%E7%9A%84%E5%88%9B%E5%BB%BA/"/>
-    <id>https://taoduoduo.github.io/book.github.io/3_产品原型/5_资源的创建/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/5_%E8%B5%84%E6%BA%90%E7%9A%84%E5%88%9B%E5%BB%BA/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/3_产品原型/5_资源的创建/</id>
     <published>2017-01-16T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -784,15 +784,15 @@
     
     </summary>
     
-      <category term="第3章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC3%E7%AB%A0/"/>
+      <category term="第3章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC3%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>4 动态原型设计</title>
-    <link href="https://taoduoduo.github.io/book.github.io/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/4_%E5%8A%A8%E6%80%81%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
-    <id>https://taoduoduo.github.io/book.github.io/3_产品原型/4_动态原型设计/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/4_%E5%8A%A8%E6%80%81%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/3_产品原型/4_动态原型设计/</id>
     <published>2017-01-15T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -993,15 +993,15 @@
     
     </summary>
     
-      <category term="第3章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC3%E7%AB%A0/"/>
+      <category term="第3章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC3%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>3 静态原型设计</title>
-    <link href="https://taoduoduo.github.io/book.github.io/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/3_%E9%9D%99%E6%80%81%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
-    <id>https://taoduoduo.github.io/book.github.io/3_产品原型/3_静态原型设计/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/3_%E9%9D%99%E6%80%81%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/3_产品原型/3_静态原型设计/</id>
     <published>2017-01-14T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -1502,15 +1502,15 @@
     
     </summary>
     
-      <category term="第3章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC3%E7%AB%A0/"/>
+      <category term="第3章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC3%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>2 前期准备</title>
-    <link href="https://taoduoduo.github.io/book.github.io/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/2_%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87/"/>
-    <id>https://taoduoduo.github.io/book.github.io/3_产品原型/2_前期准备/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/2_%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/3_产品原型/2_前期准备/</id>
     <published>2017-01-13T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -1623,15 +1623,15 @@
     
     </summary>
     
-      <category term="第3章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC3%E7%AB%A0/"/>
+      <category term="第3章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC3%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>1 原型设计</title>
-    <link href="https://taoduoduo.github.io/book.github.io/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/1_%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
-    <id>https://taoduoduo.github.io/book.github.io/3_产品原型/1_原型设计/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/1_%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/3_产品原型/1_原型设计/</id>
     <published>2017-01-12T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -1688,15 +1688,15 @@
     
     </summary>
     
-      <category term="第3章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC3%E7%AB%A0/"/>
+      <category term="第3章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC3%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>9 界面模式</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/9_%E7%95%8C%E9%9D%A2%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2_设计原理/9_界面模式/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/9_%E7%95%8C%E9%9D%A2%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/2_设计原理/9_界面模式/</id>
     <published>2017-01-11T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -1742,15 +1742,15 @@
     
     </summary>
     
-      <category term="第2章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
+      <category term="第2章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>8 设计的组件与常用模式</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/8_%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%BB%84%E4%BB%B6%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2_设计原理/8_设计的组件与常用模式/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/8_%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%BB%84%E4%BB%B6%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/2_设计原理/8_设计的组件与常用模式/</id>
     <published>2017-01-10T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -2070,15 +2070,15 @@
     
     </summary>
     
-      <category term="第2章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
+      <category term="第2章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>7 声音与触觉的利用</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/7_%E5%A3%B0%E9%9F%B3%E4%B8%8E%E8%A7%A6%E8%A7%89%E7%9A%84%E5%88%A9%E7%94%A8/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2_设计原理/7_声音与触觉的利用/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/7_%E5%A3%B0%E9%9F%B3%E4%B8%8E%E8%A7%A6%E8%A7%89%E7%9A%84%E5%88%A9%E7%94%A8/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/2_设计原理/7_声音与触觉的利用/</id>
     <published>2017-01-09T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -2107,15 +2107,15 @@
     
     </summary>
     
-      <category term="第2章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
+      <category term="第2章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>6 动画效果</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/6_%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2_设计原理/6_动画效果/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/6_%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/2_设计原理/6_动画效果/</id>
     <published>2017-01-08T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -2230,15 +2230,15 @@
     
     </summary>
     
-      <category term="第2章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
+      <category term="第2章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>5 图标的使用</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/5_%E5%9B%BE%E6%A0%87%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2_设计原理/5_图标的使用/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/5_%E5%9B%BE%E6%A0%87%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/2_设计原理/5_图标的使用/</id>
     <published>2017-01-07T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -2387,15 +2387,15 @@
     
     </summary>
     
-      <category term="第2章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
+      <category term="第2章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>4 文字的使用</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/4_%E6%96%87%E5%AD%97%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2_设计原理/4_文字的使用/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/4_%E6%96%87%E5%AD%97%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/2_设计原理/4_文字的使用/</id>
     <published>2017-01-06T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -2709,15 +2709,15 @@
     
     </summary>
     
-      <category term="第2章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
+      <category term="第2章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>3 颜色的运用</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/3_%E9%A2%9C%E8%89%B2%E7%9A%84%E8%BF%90%E7%94%A8/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2_设计原理/3_颜色的运用/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/3_%E9%A2%9C%E8%89%B2%E7%9A%84%E8%BF%90%E7%94%A8/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/2_设计原理/3_颜色的运用/</id>
     <published>2017-01-05T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -2792,15 +2792,15 @@
     
     </summary>
     
-      <category term="第2章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
+      <category term="第2章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>2 界面布局</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/2_%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2_设计原理/2_界面布局/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/2_%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/2_设计原理/2_界面布局/</id>
     <published>2017-01-04T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -2934,15 +2934,15 @@
     
     </summary>
     
-      <category term="第2章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
+      <category term="第2章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>1 设计原理</title>
-    <link href="https://taoduoduo.github.io/book.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/1_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
-    <id>https://taoduoduo.github.io/book.github.io/2_设计原理/1_设计原理/</id>
+    <link href="https://taoduoduo.github.io/taoduoduo.github.io/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/1_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
+    <id>https://taoduoduo.github.io/taoduoduo.github.io/2_设计原理/1_设计原理/</id>
     <published>2017-01-03T01:00:00.000Z</published>
     <updated>2017-02-02T09:58:18.000Z</updated>
     
@@ -3046,7 +3046,7 @@
     
     </summary>
     
-      <category term="第2章" scheme="https://taoduoduo.github.io/book.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
+      <category term="第2章" scheme="https://taoduoduo.github.io/taoduoduo.github.io/categories/%E7%AC%AC2%E7%AB%A0/"/>
     
     
   </entry>
