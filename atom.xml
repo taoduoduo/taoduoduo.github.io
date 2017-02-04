@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://booktest.anddle.com/"/>
-  <updated>2017-02-04T14:54:14.000Z</updated>
+  <updated>2017-02-04T15:04:46.000Z</updated>
   <id>http://booktest.anddle.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/6_%E7%95%8C%E9%9D%A2%E7%9A%84%E6%95%B4%E4%BD%93%E5%B8%83%E5%B1%80/"/>
     <id>http://booktest.anddle.com/4_开发/6_界面的整体布局/</id>
     <published>2017-01-23T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="界面的整体布局"><a href="#界面的整体布局" class="headerlink" title="界面的整体布局"></a>界面的整体布局</h1><p>从这一章节开始，我们终于可以开始使用<code>Android Studio</code>写代码了。</p>
 <p><code>天气预报</code>这个应用虽然功能很简单，但是对于从来没有接触过安卓开发的人来讲，开发完成还是需要很多步骤。为了减小学习的坡度，增加开发的阶段性成就感，我将<code>天气预报</code>分成2个阶段来开发，</p>
@@ -70,7 +70,7 @@
     
     </summary>
     
-      <category term="第4章 开发" scheme="http://booktest.anddle.com/categories/%E7%AC%AC4%E7%AB%A0-%E5%BC%80%E5%8F%91/"/>
+      <category term="第4章-开发" scheme="http://booktest.anddle.com/categories/%E7%AC%AC4%E7%AB%A0-%E5%BC%80%E5%8F%91/"/>
     
     
   </entry>
@@ -80,7 +80,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/5_%E8%B5%84%E6%BA%90%E7%9A%84%E5%AF%BC%E5%85%A5/"/>
     <id>http://booktest.anddle.com/4_开发/5_资源的导入/</id>
     <published>2017-01-22T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="资源的导入"><a href="#资源的导入" class="headerlink" title="资源的导入"></a>资源的导入</h1><p>在前面讲解产品原型设计的章节中，我们已经创建出了各种开发时需要使用的各种图标了，包括应用图标、系统图标等等。</p>
 <h2 id="图标导入"><a href="#图标导入" class="headerlink" title="图标导入"></a>图标导入</h2><p>现在，我们先把开发过程中要使用到的图片资源添加到<code>Android Studio</code>工程目录当中。</p>
@@ -128,7 +128,7 @@
     
     </summary>
     
-      <category term="第4章 开发" scheme="http://booktest.anddle.com/categories/%E7%AC%AC4%E7%AB%A0-%E5%BC%80%E5%8F%91/"/>
+      <category term="第4章-开发" scheme="http://booktest.anddle.com/categories/%E7%AC%AC4%E7%AB%A0-%E5%BC%80%E5%8F%91/"/>
     
     
   </entry>
@@ -138,7 +138,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/4_%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
     <id>http://booktest.anddle.com/4_开发/4_版本管理/</id>
     <published>2017-01-21T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h1><p>前面已经提到了，非常有必要对开发的代码进行管理。那么进行版本管理到底什么时候使用呢？</p>
 <p>我总结了使用版本管理的主要场景，有以下3种：</p>
@@ -255,7 +255,7 @@
     
     </summary>
     
-      <category term="第4章 开发" scheme="http://booktest.anddle.com/categories/%E7%AC%AC4%E7%AB%A0-%E5%BC%80%E5%8F%91/"/>
+      <category term="第4章-开发" scheme="http://booktest.anddle.com/categories/%E7%AC%AC4%E7%AB%A0-%E5%BC%80%E5%8F%91/"/>
     
     
   </entry>
@@ -265,7 +265,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/3_%E5%BA%94%E7%94%A8%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E9%83%A8%E7%BD%B2/"/>
     <id>http://booktest.anddle.com/4_开发/3_应用的创建与部署/</id>
     <published>2017-01-20T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="应用的创建与部署"><a href="#应用的创建与部署" class="headerlink" title="应用的创建与部署"></a>应用的创建与部署</h1><p>现在我们开始创建一个全新的项目工程-<code>天气预报</code>，并在编译后让它运行到真实的设备上。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/deploy_app_to_device.png" width="300" alt=" deploy_app_to_device"></div>
@@ -406,7 +406,7 @@
     
     </summary>
     
-      <category term="第4章 开发" scheme="http://booktest.anddle.com/categories/%E7%AC%AC4%E7%AB%A0-%E5%BC%80%E5%8F%91/"/>
+      <category term="第4章-开发" scheme="http://booktest.anddle.com/categories/%E7%AC%AC4%E7%AB%A0-%E5%BC%80%E5%8F%91/"/>
     
     
   </entry>
@@ -416,7 +416,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/2_%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     <id>http://booktest.anddle.com/4_开发/2_开发环境搭建/</id>
     <published>2017-01-19T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="开发环境搭建"><a href="#开发环境搭建" class="headerlink" title="开发环境搭建"></a>开发环境搭建</h1><p>开发安卓应用可以在<code>Window系统</code> <code>MacOS系统</code> <code>Linux系统</code>上进行。但并不是说打开一个写字板就可以了，它还需要编译器等开发工具的配合。所以在正式开发之前，需要搭建开发的环境，我们需要给开发平台（<code>Window系统</code> <code>MacOS系统</code> <code>Linux系统</code>）安装上：</p>
 <ol>
@@ -513,7 +513,7 @@
     
     </summary>
     
-      <category term="第4章 开发" scheme="http://booktest.anddle.com/categories/%E7%AC%AC4%E7%AB%A0-%E5%BC%80%E5%8F%91/"/>
+      <category term="第4章-开发" scheme="http://booktest.anddle.com/categories/%E7%AC%AC4%E7%AB%A0-%E5%BC%80%E5%8F%91/"/>
     
     
   </entry>
@@ -523,7 +523,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/1_%E5%BC%80%E5%8F%91%E4%BA%A7%E5%93%81/"/>
     <id>http://booktest.anddle.com/4_开发/1_开发产品/</id>
     <published>2017-01-18T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="开发产品"><a href="#开发产品" class="headerlink" title="开发产品"></a>开发产品</h1><p>当开发者拿到设计师提供的原型（静态或者动态）和资源后，也并不是就可以开始写代码了。</p>
 <p>开发阶段通常还会包含以下几个部分：</p>
@@ -573,7 +573,7 @@
     
     </summary>
     
-      <category term="第4章 开发" scheme="http://booktest.anddle.com/categories/%E7%AC%AC4%E7%AB%A0-%E5%BC%80%E5%8F%91/"/>
+      <category term="第4章-开发" scheme="http://booktest.anddle.com/categories/%E7%AC%AC4%E7%AB%A0-%E5%BC%80%E5%8F%91/"/>
     
     
   </entry>
@@ -583,7 +583,7 @@
     <link href="http://booktest.anddle.com/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/5_%E8%B5%84%E6%BA%90%E7%9A%84%E5%88%9B%E5%BB%BA/"/>
     <id>http://booktest.anddle.com/3_产品原型/5_资源的创建/</id>
     <published>2017-01-17T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="资源的创建"><a href="#资源的创建" class="headerlink" title="资源的创建"></a>资源的创建</h1><p>界面原型已经设计完成了。不过离最后交付给开发人员开发还差一步：产品中使用的图片还没有准备好呢？</p>
 <p>设计师除了产品原型还要交付哪些资源呢？开发者最关心的资源就是应用中会使用到的各种图标资源和配色方案。</p>
@@ -803,7 +803,7 @@
     
     </summary>
     
-      <category term="第3章 产品原型" scheme="http://booktest.anddle.com/categories/%E7%AC%AC3%E7%AB%A0-%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/"/>
+      <category term="第3章-产品原型" scheme="http://booktest.anddle.com/categories/%E7%AC%AC3%E7%AB%A0-%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/"/>
     
     
   </entry>
@@ -813,7 +813,7 @@
     <link href="http://booktest.anddle.com/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/4_%E5%8A%A8%E6%80%81%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
     <id>http://booktest.anddle.com/3_产品原型/4_动态原型设计/</id>
     <published>2017-01-16T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="动态原型设计"><a href="#动态原型设计" class="headerlink" title="动态原型设计"></a>动态原型设计</h1><p>动态的可交互原型产品，是产品经理和界面设计师向开发人员阐释自己设计的最高效工具。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/origami_weather_app_complete.gif" width="300" alt=" origami_weather_app_complete"></div>
@@ -1012,7 +1012,7 @@
     
     </summary>
     
-      <category term="第3章 产品原型" scheme="http://booktest.anddle.com/categories/%E7%AC%AC3%E7%AB%A0-%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/"/>
+      <category term="第3章-产品原型" scheme="http://booktest.anddle.com/categories/%E7%AC%AC3%E7%AB%A0-%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/"/>
     
     
   </entry>
@@ -1022,7 +1022,7 @@
     <link href="http://booktest.anddle.com/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/3_%E9%9D%99%E6%80%81%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
     <id>http://booktest.anddle.com/3_产品原型/3_静态原型设计/</id>
     <published>2017-01-15T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="静态原型设计"><a href="#静态原型设计" class="headerlink" title="静态原型设计"></a>静态原型设计</h1><p>对于静态原型的设计，我们使用<code>Sketch</code>。</p>
 <p>启动<code>Sketch</code>后，我们将看到类似如下的界面，</p>
@@ -1625,7 +1625,7 @@
     
     </summary>
     
-      <category term="第3章 产品原型" scheme="http://booktest.anddle.com/categories/%E7%AC%AC3%E7%AB%A0-%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/"/>
+      <category term="第3章-产品原型" scheme="http://booktest.anddle.com/categories/%E7%AC%AC3%E7%AB%A0-%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/"/>
     
     
   </entry>
@@ -1635,7 +1635,7 @@
     <link href="http://booktest.anddle.com/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/2_%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87/"/>
     <id>http://booktest.anddle.com/3_产品原型/2_前期准备/</id>
     <published>2017-01-14T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><p>设计师首先在头脑中、草稿中勾勒出静态效果图，</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_weather_app_static_effect_complete.png" width="250" alt=" sketch_weather_app_static_effect_complete"></div>
@@ -1746,7 +1746,7 @@
     
     </summary>
     
-      <category term="第3章 产品原型" scheme="http://booktest.anddle.com/categories/%E7%AC%AC3%E7%AB%A0-%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/"/>
+      <category term="第3章-产品原型" scheme="http://booktest.anddle.com/categories/%E7%AC%AC3%E7%AB%A0-%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/"/>
     
     
   </entry>
@@ -1756,7 +1756,7 @@
     <link href="http://booktest.anddle.com/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/1_%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
     <id>http://booktest.anddle.com/3_产品原型/1_原型设计/</id>
     <published>2017-01-13T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="原型设计"><a href="#原型设计" class="headerlink" title="原型设计"></a>原型设计</h1><p>通过前面几个章节，我们已经掌握了安卓系统<code>Material Design</code>设计的大致原则。接下来，我们开始尝试将这些原则和方式运用到实际的项目当中。</p>
 <h2 id="效果图与交互原型"><a href="#效果图与交互原型" class="headerlink" title="效果图与交互原型"></a>效果图与交互原型</h2><p>产品原型的设计又可以分成两个阶段，</p>
@@ -1811,7 +1811,7 @@
     
     </summary>
     
-      <category term="第3章 产品原型" scheme="http://booktest.anddle.com/categories/%E7%AC%AC3%E7%AB%A0-%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/"/>
+      <category term="第3章-产品原型" scheme="http://booktest.anddle.com/categories/%E7%AC%AC3%E7%AB%A0-%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/"/>
     
     
   </entry>
@@ -1821,7 +1821,7 @@
     <link href="http://booktest.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/9_%E7%95%8C%E9%9D%A2%E6%A8%A1%E5%BC%8F/"/>
     <id>http://booktest.anddle.com/2_设计原理/9_界面模式/</id>
     <published>2017-01-12T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="界面模式"><a href="#界面模式" class="headerlink" title="界面模式"></a>界面模式</h1><p><code>Material Design</code>的基础组件我们已经大体了解过了，现在我们看看<code>Material Design</code>在结合这些不同组件的过程中，有哪些套路，也就是有哪些常用的界面设计模式。了解了这些模式，可以帮助设计者们做出合乎开发者实现的方案。</p>
 <p>设计的套路有很多，<code>列表-list</code> <code>分页-tab</code> <code>网格-Grid</code> <code>侧边栏</code>  <code>下拉刷新</code>等等。这里只列出几个常见的，更多的方式请参考<a href="https://material.google.com/" target="_blank" rel="external">设计规范</a>，以及其他各种优秀应用的精巧设计。</p>
@@ -1865,7 +1865,7 @@
     
     </summary>
     
-      <category term="第2章 设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
+      <category term="第2章-设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
     
     
   </entry>
@@ -1875,7 +1875,7 @@
     <link href="http://booktest.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/8_%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%BB%84%E4%BB%B6%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F/"/>
     <id>http://booktest.anddle.com/2_设计原理/8_设计的组件与常用模式/</id>
     <published>2017-01-11T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="组件与常用模式"><a href="#组件与常用模式" class="headerlink" title="组件与常用模式"></a>组件与常用模式</h1><p>前面已经比较全面的介绍了<code>Material Design</code>相关的设计哲学、设计原理和方法论。这一章开始，我们将看看这些原理是如何在安卓系统当中得到实践的。</p>
 <p>一个应用并不是完全从什么都没有来组建的，至少会有一匹一匹的砖嘛。而在界面设计当中，这些能够拿过来就使用的砖块就是控件。</p>
@@ -2193,7 +2193,7 @@
     
     </summary>
     
-      <category term="第2章 设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
+      <category term="第2章-设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
     
     
   </entry>
@@ -2203,7 +2203,7 @@
     <link href="http://booktest.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/7_%E5%A3%B0%E9%9F%B3%E4%B8%8E%E8%A7%A6%E8%A7%89%E7%9A%84%E5%88%A9%E7%94%A8/"/>
     <id>http://booktest.anddle.com/2_设计原理/7_声音与触觉的利用/</id>
     <published>2017-01-10T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="声音与触觉的利用"><a href="#声音与触觉的利用" class="headerlink" title="声音与触觉的利用"></a>声音与触觉的利用</h1><p>之前我们对设计的讨论都是几种在视觉基础之上的。但除了视觉，我们人还拥有听觉、嗅觉、触觉、味觉等感知大自然的能力。</p>
 <p>现在由于技术的限制，嗅觉和味觉在移动设备领域的使用还无法派上用场，但是听觉和触觉正在扩大对我们使用的影响。</p>
@@ -2230,7 +2230,7 @@
     
     </summary>
     
-      <category term="第2章 设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
+      <category term="第2章-设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
     
     
   </entry>
@@ -2240,7 +2240,7 @@
     <link href="http://booktest.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/6_%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/"/>
     <id>http://booktest.anddle.com/2_设计原理/6_动画效果/</id>
     <published>2017-01-09T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="动画效果"><a href="#动画效果" class="headerlink" title="动画效果"></a>动画效果</h1><p>运动的物体总是能最有效的吸引住人类的注意力。在界面设计的领域，也是一样，当你希望用户的注意力从一个点转移到另一点，在这两点之间设计一个迁移的动画是在合适不过的了。</p>
 <p>动画基本上可以分成以下几类：</p>
@@ -2354,7 +2354,7 @@
     
     </summary>
     
-      <category term="第2章 设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
+      <category term="第2章-设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
     
     
   </entry>
@@ -2364,7 +2364,7 @@
     <link href="http://booktest.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/5_%E5%9B%BE%E6%A0%87%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://booktest.anddle.com/2_设计原理/5_图标的使用/</id>
     <published>2017-01-08T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="图标的使用"><a href="#图标的使用" class="headerlink" title="图标的使用"></a>图标的使用</h1><p>图标能给人带来最直观的印象，有的时候再多的解释也抵不过一个图标。</p>
 <p>安卓应用的图标分成两类，</p>
@@ -2521,7 +2521,7 @@
     
     </summary>
     
-      <category term="第2章 设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
+      <category term="第2章-设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
     
     
   </entry>
@@ -2531,7 +2531,7 @@
     <link href="http://booktest.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/4_%E6%96%87%E5%AD%97%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://booktest.anddle.com/2_设计原理/4_文字的使用/</id>
     <published>2017-01-07T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="文字的使用"><a href="#文字的使用" class="headerlink" title="文字的使用"></a>文字的使用</h1><p>文字是应用当中使用最多的要素。显示一段供用户阅读的文字，程序运行时的信息提示都离不开它。</p>
 <p>文字是内容的实际体现者，因此设计师需要将用户的注意力尽可能的吸引到文字当中。</p>
@@ -2843,7 +2843,7 @@
     
     </summary>
     
-      <category term="第2章 设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
+      <category term="第2章-设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
     
     
   </entry>
@@ -2853,7 +2853,7 @@
     <link href="http://booktest.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/3_%E9%A2%9C%E8%89%B2%E7%9A%84%E8%BF%90%E7%94%A8/"/>
     <id>http://booktest.anddle.com/2_设计原理/3_颜色的运用/</id>
     <published>2017-01-06T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="颜色的运用"><a href="#颜色的运用" class="headerlink" title="颜色的运用"></a>颜色的运用</h1><p><code>Material Design</code>采用的是扁平化的设计，可以看到一大块一大块区域的颜色。这些颜色大多亮丽引人，整个界面上搭配的颜色也不会太多，基本保持在三种颜色以内。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/pallete_classic_ui.png" width="300" alt=" pallete_classic_ui"></div>
@@ -2926,7 +2926,7 @@
     
     </summary>
     
-      <category term="第2章 设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
+      <category term="第2章-设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
     
     
   </entry>
@@ -2936,7 +2936,7 @@
     <link href="http://booktest.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/2_%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/"/>
     <id>http://booktest.anddle.com/2_设计原理/2_界面布局/</id>
     <published>2017-01-05T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="界面布局"><a href="#界面布局" class="headerlink" title="界面布局"></a>界面布局</h1><p>布局涉及到应用界面的整体。布局的层次感和逻辑，可以通过阴影来体现。</p>
 <p>举个例子。在一张纸当中，增加一条折痕，一个区域就分成了关联性很强的两个区域，</p>
@@ -3060,7 +3060,7 @@
     
     </summary>
     
-      <category term="第2章 设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
+      <category term="第2章-设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
     
     
   </entry>
@@ -3070,7 +3070,7 @@
     <link href="http://booktest.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/1_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
     <id>http://booktest.anddle.com/2_设计原理/1_设计原理/</id>
     <published>2017-01-04T01:00:00.000Z</published>
-    <updated>2017-02-04T14:54:14.000Z</updated>
+    <updated>2017-02-04T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="设计原理"><a href="#设计原理" class="headerlink" title="设计原理"></a>设计原理</h1><p>设计是一门让人感觉很抽象的艺术。设计需要从两个方面来考虑问题：</p>
 <ul>
@@ -3172,7 +3172,7 @@
     
     </summary>
     
-      <category term="第2章 设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
+      <category term="第2章-设计原理" scheme="http://booktest.anddle.com/categories/%E7%AC%AC2%E7%AB%A0-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
     
     
   </entry>
