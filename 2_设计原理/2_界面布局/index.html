@@ -55,7 +55,7 @@
 <meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/material_classic_float_button.png">
 <meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/material_elevation.png">
 <meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/material_elevation_table.png">
-<meta property="og:updated_time" content="2017-02-02T09:58:18.000Z">
+<meta property="og:updated_time" content="2017-02-04T05:58:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2 界面布局">
 <meta name="twitter:description" content="界面布局布局涉及到应用界面的整体。布局的层次感和逻辑，可以通过阴影来体现。
@@ -239,7 +239,7 @@
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/dp_explain1.png" width="400" alt=" dp_explain1"></div>
 
 <p>所以为了解决这个问题，安卓引入了dip的概念－device independed pixel－简称dp。</p>
-<h3 id="dpi的定义"><a href="#dpi的定义" class="headerlink" title="dpi的定义"></a>dpi的定义</h3><p>在近一步介绍<code>dp</code>之前，要先讲讲<code>dpi</code>。<code>dpi</code>叫做屏幕像素密度，就是每英寸有多少个像素点。我们用简单的数学原理$$  dpi = \dfrac{\sqrt{长^2 + 宽^2}}{对角线尺寸} $$就能算出刚才两个屏幕的dpi，一个是<code>440dpi</code>，另一个是<code>184dpi</code>。</p>
+<h3 id="dpi的定义"><a href="#dpi的定义" class="headerlink" title="dpi的定义"></a>dpi的定义</h3><p>在近一步介绍<code>dp</code>之前，要先讲讲<code>dpi</code>。<code>dpi</code>叫做屏幕像素密度，就是每英寸有多少个像素点。我们用简单的数学原理-<code>勾股定理</code>就能算出刚才两个屏幕的dpi，一个是<code>440dpi</code>，另一个是<code>184dpi</code>。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/dp_explain2.png" width="500" alt=" dp_explain2"></div>
 
 <p>注意，<code>dpi</code>与<code>dip(dp)</code>写法很像，千万不要混淆了，前者和<strong>密度</strong>有关，后者与<strong>像素</strong>有关。</p>
@@ -261,32 +261,24 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
 <td>mdpi</td>
 <td>160</td>
 <td>1</td>
-<td></td>
 </tr>
 <tr>
-<td></td>
 <td>hdpi</td>
 <td>240</td>
 <td>1.5</td>
-<td></td>
 </tr>
 <tr>
-<td></td>
 <td>xhdpi</td>
 <td>320</td>
 <td>2</td>
-<td></td>
 </tr>
 <tr>
-<td></td>
 <td>xxhpi</td>
 <td>480</td>
 <td>3</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -296,7 +288,7 @@
 <li>450*800的屏幕应该属于mdpi类型；</li>
 </ol>
 <p>现在的安卓手机几乎都在往高清屏幕发展，所以xhdpi和xxhdpi是最为常见的设备类型。</p>
-<h3 id="dp与px的关系"><a href="#dp与px的关系" class="headerlink" title="dp与px的关系"></a>dp与px的关系</h3><p>安卓引入了<code>dp(dip)</code>的概念之后，实际显示的像素就可以通过下面这个公式计算出来$$  px = dp*\dfrac{dpi}{160} $$</p>
+<h3 id="dp与px的关系"><a href="#dp与px的关系" class="headerlink" title="dp与px的关系"></a>dp与px的关系</h3><p>安卓引入了<code>dp(dip)</code>的概念之后，实际显示的像素就可以通过下面这个公式计算出来 px = dp * dpi / 160。</p>
 <p>相同<code>dp</code>的情况下，密度大的设备，实际像素就占的大，密度小点设备，实际像素就占用小了。因此使用dp这个单位后，按钮在两种不同的屏幕上的实际显示大小，几乎就是一样的了。</p>
 <p>例如刚才两种屏幕。如果我指定按钮的大小为200dp*200dp，那么它们在各自的屏幕上占用的实际像素分别是230px*230px与550px*550px，真实设备上看上去的确差不多。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/dp_explain3.png" width="600" alt=" dp_explain3"></div>
@@ -346,7 +338,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-02-02T09:58:18.000Z" itemprop="dateUpdated">2017年2月2日 17:58</time>
+    最后更新时间：<time datetime="2017-02-04T05:58:34.000Z" itemprop="dateUpdated">2017年2月4日 13:58</time>
 </span><br>
 
 

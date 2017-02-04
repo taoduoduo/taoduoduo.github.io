@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://book.anddle.com/"/>
-  <updated>2017-02-02T09:58:18.000Z</updated>
+  <updated>2017-02-04T05:58:34.000Z</updated>
   <id>http://book.anddle.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://book.anddle.com/4_%E5%BC%80%E5%8F%91/6_%E7%95%8C%E9%9D%A2%E7%9A%84%E6%95%B4%E4%BD%93%E5%B8%83%E5%B1%80/"/>
     <id>http://book.anddle.com/4_开发/6_界面的整体布局/</id>
     <published>2017-01-22T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="界面的整体布局"><a href="#界面的整体布局" class="headerlink" title="界面的整体布局"></a>界面的整体布局</h1><p>从这一章节开始，我们终于可以开始使用<code>Android Studio</code>写代码了。</p>
 <p><code>天气预报</code>这个应用虽然功能很简单，但是对于从来没有接触过安卓开发的人来讲，开发完成还是需要很多步骤。为了减小学习的坡度，增加开发的阶段性成就感，我将<code>天气预报</code>分成2个阶段来开发，</p>
@@ -80,7 +80,7 @@
     <link href="http://book.anddle.com/4_%E5%BC%80%E5%8F%91/5_%E8%B5%84%E6%BA%90%E7%9A%84%E5%AF%BC%E5%85%A5/"/>
     <id>http://book.anddle.com/4_开发/5_资源的导入/</id>
     <published>2017-01-21T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="资源的导入"><a href="#资源的导入" class="headerlink" title="资源的导入"></a>资源的导入</h1><p>在前面讲解产品原型设计的章节中，我们已经创建出了各种开发时需要使用的各种图标了，包括应用图标、系统图标等等。</p>
 <h2 id="图标导入"><a href="#图标导入" class="headerlink" title="图标导入"></a>图标导入</h2><p>现在，我们先把开发过程中要使用到的图片资源添加到<code>Android Studio</code>工程目录当中。</p>
@@ -138,7 +138,7 @@
     <link href="http://book.anddle.com/4_%E5%BC%80%E5%8F%91/4_%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
     <id>http://book.anddle.com/4_开发/4_版本管理/</id>
     <published>2017-01-20T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h1><p>前面已经提到了，非常有必要对开发的代码进行管理。那么进行版本管理到底什么时候使用呢？</p>
 <p>我总结了使用版本管理的主要场景，有以下3种：</p>
@@ -265,7 +265,7 @@
     <link href="http://book.anddle.com/4_%E5%BC%80%E5%8F%91/3_%E5%BA%94%E7%94%A8%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E9%83%A8%E7%BD%B2/"/>
     <id>http://book.anddle.com/4_开发/3_应用的创建与部署/</id>
     <published>2017-01-19T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="应用的创建与部署"><a href="#应用的创建与部署" class="headerlink" title="应用的创建与部署"></a>应用的创建与部署</h1><p>现在我们开始创建一个全新的项目工程-<code>天气预报</code>，并在编译后让它运行到真实的设备上。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/deploy_app_to_device.png" width="300" alt=" deploy_app_to_device"></div>
@@ -416,7 +416,7 @@
     <link href="http://book.anddle.com/4_%E5%BC%80%E5%8F%91/2_%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     <id>http://book.anddle.com/4_开发/2_开发环境搭建/</id>
     <published>2017-01-18T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="开发环境搭建"><a href="#开发环境搭建" class="headerlink" title="开发环境搭建"></a>开发环境搭建</h1><p>开发安卓应用可以在<code>Window系统</code> <code>MacOS系统</code> <code>Linux系统</code>上进行。但并不是说打开一个写字板就可以了，它还需要编译器等开发工具的配合。所以在正式开发之前，需要搭建开发的环境，我们需要给开发平台（<code>Window系统</code> <code>MacOS系统</code> <code>Linux系统</code>）安装上：</p>
 <ol>
@@ -523,7 +523,7 @@
     <link href="http://book.anddle.com/4_%E5%BC%80%E5%8F%91/1_%E5%BC%80%E5%8F%91%E4%BA%A7%E5%93%81/"/>
     <id>http://book.anddle.com/4_开发/1_开发产品/</id>
     <published>2017-01-17T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="开发产品"><a href="#开发产品" class="headerlink" title="开发产品"></a>开发产品</h1><p>当开发者拿到设计师提供的原型（静态或者动态）和资源后，也并不是就可以开始写代码了。</p>
 <p>开发阶段通常还会包含以下几个部分：</p>
@@ -583,7 +583,7 @@
     <link href="http://book.anddle.com/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/5_%E8%B5%84%E6%BA%90%E7%9A%84%E5%88%9B%E5%BB%BA/"/>
     <id>http://book.anddle.com/3_产品原型/5_资源的创建/</id>
     <published>2017-01-16T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="资源的创建"><a href="#资源的创建" class="headerlink" title="资源的创建"></a>资源的创建</h1><p>界面原型已经设计完成了。不过离最后交付给开发人员开发还差一步：产品中使用的图片还没有准备好呢？</p>
 <p>设计师除了产品原型还要交付哪些资源呢？开发者最关心的资源就是应用中会使用到的各种图标资源和配色方案。</p>
@@ -632,7 +632,42 @@
 </ol>
 <h2 id="图标的尺寸"><a href="#图标的尺寸" class="headerlink" title="图标的尺寸"></a>图标的尺寸</h2><p>不同使用场景的图标，尺寸是不同，前面的章节中我们已经讲述了<code>系统图标</code> <code>应用图标</code>的标准尺寸。</p>
 <p>根据屏幕像素密度的不同，需要设计对应大小的图标。这样一来，就能够确保在特定类型的密度屏幕上，图标能够显示的清晰。</p>
-<p>像素密度类型|像素密度大小|与Baseline比值<br>|—|—|—|<br>|mdpi|160|1|<br>|hdpi|240|1.5|<br>|xhdpi|320|2|<br>|xxhpi|480|3|<br>|xxxhpi|640|4|</p>
+<table>
+<thead>
+<tr>
+<th>像素密度类型</th>
+<th>像素密度大小</th>
+<th>与Baseline比值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mdpi</td>
+<td>160</td>
+<td>1</td>
+</tr>
+<tr>
+<td>hdpi</td>
+<td>240</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>xhdpi</td>
+<td>320</td>
+<td>2</td>
+</tr>
+<tr>
+<td>xxhpi</td>
+<td>480</td>
+<td>3</td>
+</tr>
+<tr>
+<td>xxxhpi</td>
+<td>640</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
 <p><em>安卓使用<code>dpi</code>为160的数值作为一个基准－－<code>baseline</code>。</em></p>
 <p>为了达到最优秀的显示效果，我们最理想的情况下是为每个不同的屏幕类型设计对应的图标。不过实际情况中却并不一定需要对应每个尺寸，因为</p>
 <ol>
@@ -644,11 +679,9 @@
 <h2 id="系统图标"><a href="#系统图标" class="headerlink" title="系统图标"></a>系统图标</h2><p>系统图标的大小是24dp*24dp，对于<code>mdpi</code>的屏幕，我们就需要截取24px*24px大小的图标。</p>
 <h3 id="Sketch导出"><a href="#Sketch导出" class="headerlink" title="Sketch导出"></a>Sketch导出</h3><p>如果使用<code>Sketch</code>开发出了静态原型，那么从里面<code>抓取</code>系统图标就非常的方便了，</p>
 <ol>
-<li>点击<code>工具栏</code>上的<code>insert -&gt; S</code>（或者按快捷键S），</li>
-</ol>
-<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_slice_system_icon.png" width="200" alt=" sketch_slice_system_icon"></div>
-
-<ol>
+<li><p>点击<code>工具栏</code>上的<code>insert -&gt; S</code>（或者按快捷键S），</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_slice_system_icon.png" width="200" alt=" sketch_slice_system_icon"></div>
+</li>
 <li><p>用<code>小刀</code>在要截取图标的位置切片，并将切出的片子，重新命名成<code>ic_wind_level</code>,</p>
  <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_slice_system_icon_settings1.png" width="600" alt=" sketch_slice_system_icon_settings1"></div>
 
@@ -680,39 +713,29 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
 <td>mdpi</td>
 <td>1</td>
 <td>24px</td>
-<td></td>
 </tr>
 <tr>
-<td></td>
 <td>hdpi</td>
 <td>1.5</td>
 <td>36px</td>
-<td></td>
 </tr>
 <tr>
-<td></td>
 <td>xhdpi</td>
 <td>2</td>
 <td>48px</td>
-<td></td>
 </tr>
 <tr>
-<td></td>
 <td>xxhpi</td>
 <td>3</td>
 <td>72px</td>
-<td></td>
 </tr>
 <tr>
-<td></td>
 <td>xxxhpi</td>
 <td>4</td>
 <td>96px</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -742,18 +765,14 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
 <td>大图标</td>
 <td>120dp</td>
 <td>100dp</td>
-<td></td>
 </tr>
 <tr>
-<td></td>
 <td>小图标</td>
 <td>30dp</td>
 <td>30dp</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -794,7 +813,7 @@
     <link href="http://book.anddle.com/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/4_%E5%8A%A8%E6%80%81%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
     <id>http://book.anddle.com/3_产品原型/4_动态原型设计/</id>
     <published>2017-01-15T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="动态原型设计"><a href="#动态原型设计" class="headerlink" title="动态原型设计"></a>动态原型设计</h1><p>动态的可交互原型产品，是产品经理和界面设计师向开发人员阐释自己设计的最高效工具。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/origami_weather_app_complete.gif" width="300" alt=" origami_weather_app_complete"></div>
@@ -972,8 +991,8 @@
 
 <h2 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h2><p>这里留下了一个小尾巴：滑动的过程中，状态栏的颜色也是需要变化的，从<code>#3F51B5</code>逐渐变化到<code>#303F9F</code>。</p>
 <p>经过前面的实践，我想大家应该已经知道了实现的要点，那就开始自己尝试着做做吧。</p>
-<p>最后的答案，我会放到<a href="">这里</a>，供大家参考。</p>
 <p>提示：通过<code>Color to HSL patch</code> <code>Transition patch</code>与<code>HSL Color patch</code>的配合，来修改状态栏背景元素的颜色属性。</p>
+<p>整个工程的源文件，我放到了<a href="https://pan.baidu.com/s/1i5sksux" target="_blank" rel="external">这里</a>，供大家参考。</p>
 <h2 id="回顾总结"><a href="#回顾总结" class="headerlink" title="回顾总结"></a>回顾总结</h2><p>通过具体的案例，我们初步了解了<code>Origami Studio</code>的用法，对实现动画的方式也有了概念。</p>
 <p>一切的动画效果都是通过下面几个步骤来实现的，</p>
 <ol>
@@ -1003,19 +1022,15 @@
     <link href="http://book.anddle.com/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/3_%E9%9D%99%E6%80%81%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
     <id>http://book.anddle.com/3_产品原型/3_静态原型设计/</id>
     <published>2017-01-14T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="静态原型设计"><a href="#静态原型设计" class="headerlink" title="静态原型设计"></a>静态原型设计</h1><p>对于静态原型的设计，我们使用<code>Sketch</code>。</p>
 <p>启动<code>Sketch</code>后，我们将看到类似如下的界面，</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_ui_layout_empty.png" width="600" alt=" sketch_ui_layout_empty"></div>
 
-<h2 id="工具栏"><a href="#工具栏" class="headerlink" title="工具栏"></a>工具栏</h2><p>它的顶部是<code>工具栏</code>，<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="media/sketch_ui_layout_toolbar.png" alt="sketch_ui_layout_toolbar" title="">
-                </div>
-                <div class="image-caption">sketch_ui_layout_toolbar</div>
-            </figure></p>
+<h2 id="工具栏"><a href="#工具栏" class="headerlink" title="工具栏"></a>工具栏</h2><p>它的顶部是<code>工具栏</code>，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_ui_layout_toolbar.png" width="600" alt=" sketch_ui_layout_toolbar"></div>
+
 <p>可以通过菜单栏<code>View -&gt; Customize Toolbar...</code>来自定义工具栏。<br>在弹出的窗口中，将下方的图标拖拽到上方的<code>工具栏</code>中就可以了。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_customize_tool_bar.png" width="600" alt=" sketch_customize_tool_bar"></div>
 
@@ -1089,7 +1104,8 @@
 <ol>
 <li>这是一个高度为<code>56dp</code>的矩形区域；</li>
 <li><p>当<code>Appbar</code>收缩时，应用的名字会显示出来，</p>
-<p> | 属性 | 数值 |<br> | — | :-: |<br> | 文字垂直方向上的位置 | 垂直居中 |<br> | 文字左边距 | 16dp |<br> | 文字颜色 | #FFFFFFFF |<br> | 字体 | Noto Sans CJK SC|<br> | 文字大小 | 21sp |<br> | 文字字形 | Medium |</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/3_3_table_toolbar_parameter.png" width="300" alt=" 3_3_table_toolbar_paramete"></div>
+
 <p> <em>注意：这里显示的是中文-<code>Dense</code>类型的文字，所以文字的大小比英文要大1sp。</em></p>
  <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_toolbar_with_title.png" width="300" alt=" sketch_toolbar_with_title"></div>
 
@@ -1136,8 +1152,8 @@
 <p>因为此时并不需要显示位置信息，所以要点击<code>成都</code>组件旁边的<code>眼睛</code>按钮，把内容隐藏起来。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_toolbar_hide_title.png" width="200" alt=" sketch_toolbar_hide_title"></div>
 
-<pre><code>*使用`alt`查看组件的边距是一个常用的技巧，查看的同时，如果移动鼠标到不同的区域，就能看到组件相对于不同区域的边距数值，这让我们在排版的时候非常的方便。*
-</code></pre><p>至此，<code>Toolbar</code>的设置就完成了。</p>
+<p><em>使用<code>alt</code>查看组件的边距是一个常用的技巧，查看的同时，如果移动鼠标到不同的区域，就能看到组件相对于不同区域的边距数值，这让我们在排版的时候非常的方便。</em></p>
+<p>至此，<code>Toolbar</code>的设置就完成了。</p>
 <h2 id="天气详情区域参数设定"><a href="#天气详情区域参数设定" class="headerlink" title="天气详情区域参数设定"></a>天气详情区域参数设定</h2><p>天气详情区域由三个部分组成，</p>
 <ol>
 <li>天气图标；</li>
@@ -1308,10 +1324,11 @@
 <li>这样一来，每日的天气模块就是（360-16-16）/ 5 = 65.6dp，我将它们设定成<code>65dp</code>宽；</li>
 <li>天气的图标的大小设定成30dp的正方形区域（注意，这些图标不算是系统图标，所以它的尺寸不需要参考设计成24dp的系统图标）；</li>
 <li><p>日期的文字，参考<code>Body 2</code>的文字类型：</p>
-<p> | 项目 | 数值 |<br> | :-: | :-: |<br> | 字体 | Noto |<br> | 字形 | Medium |<br> | 大小 | 14sp |<br> | 颜色 | #000000|<br> | 透明度 | 87% |</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/3_3_table_date_font.png" width="150" alt=" 3_3_table_date_font"></div>
 </li>
 <li><p>温度范围的文字，参考<code>Caption</code>的文字类型：</p>
-<p> | 项目 | 数值 |<br> | :-: | :-: |<br> | 字体 | Noto |<br> | 字形 | Regular |<br> | 大小 | 12sp |<br> | 颜色 | #000000|<br> | 透明度 | 54% |</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/3_3_table_temp_font.png" width="150" alt=" 3_3_table_temp_font"></div>
+
 </li>
 </ol>
 <h2 id="创建预报区域"><a href="#创建预报区域" class="headerlink" title="创建预报区域"></a>创建预报区域</h2><p>接下来，我们开始创建预报区域。划定一个360dp*100dp的区域，</p>
@@ -1371,17 +1388,121 @@
 
 <p>列表项的高度在<code>Material Design</code>中，被定义成了<code>48dp</code>；并且整个<code>list</code>的顶部还有<code>8dp</code>的边距。</p>
 <p>列表项由3部分组成，</p>
-<ol>
-<li><p>图标：</p>
-<p> | 项目 | 数值 |<br> | :-: | :-: |<br> | 大小 | 24dp |<br> | 左边距 | 16dp |<br> | 位置 | 垂直居中 |<br> | 颜色 | #000000 |<br> | 透明度 | 54% |</p>
-</li>
-<li><p>项目名称：</p>
-<p> | 项目 | 数值 |<br> | :-: | :-: |<br> | 字体 | Noto |<br> | 字形 | Regular |<br> | 大小 | 16sp |<br> | 颜色 | #000000 |<br> | 透明度 | 87% |<br> | 左边距 | 72dp |<br> | 位置 | 垂直居中 |</p>
-</li>
-<li><p>项目取值（参考）：</p>
-<p> | 项目 | 数值 |<br> | :-: | :-: |<br> | 字体 | Noto |<br> | 字形 | Regular |<br> | 大小 | 14sp |<br> | 颜色 | #000000 |<br> | 透明度 | 54% |<br> | 右边距 | 16dp |<br> | 位置 | 垂直居中 |</p>
-</li>
-</ol>
+<ul>
+<li>图标：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">项目</th>
+<th style="text-align:center">数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">大小</td>
+<td style="text-align:center">24dp</td>
+</tr>
+<tr>
+<td style="text-align:center">左边距</td>
+<td style="text-align:center">16dp</td>
+</tr>
+<tr>
+<td style="text-align:center">位置</td>
+<td style="text-align:center">垂直居中</td>
+</tr>
+<tr>
+<td style="text-align:center">颜色</td>
+<td style="text-align:center">#000000</td>
+</tr>
+<tr>
+<td style="text-align:center">透明度</td>
+<td style="text-align:center">54%</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>项目名称：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">项目</th>
+<th style="text-align:center">数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">字体</td>
+<td style="text-align:center">Noto</td>
+</tr>
+<tr>
+<td style="text-align:center">字形</td>
+<td style="text-align:center">Regular</td>
+</tr>
+<tr>
+<td style="text-align:center">大小</td>
+<td style="text-align:center">16sp</td>
+</tr>
+<tr>
+<td style="text-align:center">颜色</td>
+<td style="text-align:center">#000000</td>
+</tr>
+<tr>
+<td style="text-align:center">透明度</td>
+<td style="text-align:center">87%</td>
+</tr>
+<tr>
+<td style="text-align:center">左边距</td>
+<td style="text-align:center">72dp</td>
+</tr>
+<tr>
+<td style="text-align:center">位置</td>
+<td style="text-align:center">垂直居中</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>项目取值（参考）：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">项目</th>
+<th style="text-align:center">数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">字体</td>
+<td style="text-align:center">Noto</td>
+</tr>
+<tr>
+<td style="text-align:center">字形</td>
+<td style="text-align:center">Regular</td>
+</tr>
+<tr>
+<td style="text-align:center">大小</td>
+<td style="text-align:center">14sp</td>
+</tr>
+<tr>
+<td style="text-align:center">颜色</td>
+<td style="text-align:center">#000000</td>
+</tr>
+<tr>
+<td style="text-align:center">透明度</td>
+<td style="text-align:center">54%</td>
+</tr>
+<tr>
+<td style="text-align:center">右边距</td>
+<td style="text-align:center">16dp</td>
+</tr>
+<tr>
+<td style="text-align:center">位置</td>
+<td style="text-align:center">垂直居中</td>
+</tr>
+</tbody>
+</table>
 <p><em>注意：以上的数据都在<code>Material Design</code>的文档<a href="https://material.io/guidelines/components/lists.html" target="_blank" rel="external">List</a>当中有明确的定义。</em></p>
 <h2 id="添加列表项区域"><a href="#添加列表项区域" class="headerlink" title="添加列表项区域"></a>添加列表项区域</h2><p>创建一个360dp*48dp的矩形区域-<code>row bound</code>，作为第一条数据项使用的空间，</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sletch_list_row_bound_settings.png" width="600" alt=" sletch_list_row_bound_settings"></div>
@@ -1487,12 +1608,14 @@
  <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_fold_toolbar_location.png" width="400" alt=" sketch_fold_toolbar_location"></div>
 </li>
 <li><p>修改状态栏的背景颜色为<code>Primary Dark Color</code>：#303F9F，</p>
-<p> <img src="media/sketch_fold_statusbar_color.png" alt="sketch_fold_statusbar_colo"></p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_fold_statusbar_color.png" width="600" alt=" sketch_fold_statusbar_color"></div>
+
+
 </li>
 </ol>
 <hr>
 <p>至此，使用<code>Sketch</code>进行界面设计的工作就全部完成了。</p>
-<p>文中使用到的完整的<code>Sketch</code>项目工程文件，可以在<a href="">这里</a>下载到。</p>
+<p>文中使用到的完整的<code>Sketch</code>项目工程文件，可以在<a href="https://pan.baidu.com/s/1miBaZvM" target="_blank" rel="external">这里</a>下载到。</p>
 ]]></content>
     
     <summary type="html">
@@ -1512,7 +1635,7 @@
     <link href="http://book.anddle.com/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/2_%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87/"/>
     <id>http://book.anddle.com/3_产品原型/2_前期准备/</id>
     <published>2017-01-13T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><p>设计师首先在头脑中、草稿中勾勒出静态效果图，</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_weather_app_static_effect_complete.png" width="250" alt=" sketch_weather_app_static_effect_complete"></div>
@@ -1520,7 +1643,7 @@
 <p>之后就需要收集制作时需要的各种素材、确定界面的配色方案。</p>
 <h2 id="收集素材"><a href="#收集素材" class="headerlink" title="收集素材"></a>收集素材</h2><p>界面中需要使用各种天气图标：晴天、雨天、大雾、下雪、下雨、多云等等；还有天气信息中的风力、风向等等。</p>
 <p>我们可以使用<code>Sketch</code>工具进行完全的从无到有的自由创作，也可以适用现有的素材，减少设计的工作量。</p>
-<p>这里并不打算讲如何<code>画出</code>一个完美的图形，我想作为一名设计师，这点基本的艺术功底应该还是有的。因此我决定去之前介绍过的<code>资源池</code>-<code>[iconfont](http://www.iconfont.cn/)</code>网站寻找合适的图标。</p>
+<p>这里并不打算讲如何<code>画出</code>一个完美的图形，我想作为一名设计师，这点基本的艺术功底应该还是有的。因此我决定去之前介绍过的<code>资源池</code>-<a href="http://www.iconfont.cn/" target="_blank" rel="external">iconfont</a>网站寻找合适的图标。</p>
 <ol>
 <li>输入各种图标的关键字，就能看到各种图标，例如<code>多云</code>，</li>
 </ol>
@@ -1537,7 +1660,7 @@
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/cloudy_icon_download2.png" width="550" alt=" cloudy_icon_download2"></div>
 
 <p>以此方法，我们接着下载完成所有设计中需要使用到的图标，它们包括：风力、风向、湿度、空气质量、运动、紫外线、晴天、雨天、多云、多云间晴、雾、雪。</p>
-<p>如果你的时间很宝贵不想把精力放到挨个下载上，那么我这里为你提供了打包好的所有可用素材，快去<a href="">下载</a>吧。</p>
+<p>如果你的时间很宝贵不想把精力放到挨个下载上，那么我这里为你提供了打包好的所有可用素材，快去<a href="https://pan.baidu.com/s/1mhGk0as" target="_blank" rel="external">下载</a>吧。</p>
 <h2 id="矢量图"><a href="#矢量图" class="headerlink" title="矢量图"></a>矢量图</h2><p><code>矢量图</code>是设计当中经常使用到的图片类型。当设计师放大图片的时候，<code>矢量图</code>会跟着放大，但是图形的线条并不会变的模糊出现锯齿的形状。所以这是设计师的最爱。因此在前面下载矢量图标的时候，我说不用在意图标的尺寸，就是这个道理。</p>
 <p>矢量图通常用在手动制图当中，占用的磁盘空间很小，它其实就是一个对笔划进行描述的文本文件，用文本编辑器打开的话，可以看到他的文本内容，例如，</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span> <span class="attr">t</span>=<span class="string">"1484009234652"</span> <span class="attr">class</span>=<span class="string">"icon"</span> <span class="attr">style</span>=<span class="string">""</span> <span class="attr">viewBox</span>=<span class="string">"0 0 1204 1024"</span> <span class="attr">version</span>=<span class="string">"1.1"</span> <span class="attr">p-id</span>=<span class="string">"2794"</span> <span class="attr">width</span>=<span class="string">"18.8125"</span> <span class="attr">height</span>=<span class="string">"16"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">defs</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>/&gt;</span><span class="xml"></span></div><div class="line">  <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"M882.526316 286.796992q-17.323308 17.323308-42.345865 17.323308t-42.345865-17.323308q-18.285714-18.285714-18.285714-42.827068t18.285714-42.827068l42.345865-42.345865q17.323308-17.323308</span></span></div><div class="line">  42.345865-17.323308t42.345865 17.323308q18.285714 17.323308 18.285714 42.345865t-18.285714 43.308271zM250.225564 </div><div class="line">611.12782q-3.849624-16.360902-6.255639-33.684211t-2.406015-35.609023q0-61.593985 </div><div class="line">23.578947-116.451128t64.481203-95.278195 95.278195-64"/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -1633,7 +1756,7 @@
     <link href="http://book.anddle.com/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/1_%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
     <id>http://book.anddle.com/3_产品原型/1_原型设计/</id>
     <published>2017-01-12T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="原型设计"><a href="#原型设计" class="headerlink" title="原型设计"></a>原型设计</h1><p>通过前面几个章节，我们已经掌握了安卓系统<code>Material Design</code>设计的大致原则。接下来，我们开始尝试将这些原则和方式运用到实际的项目当中。</p>
 <h2 id="效果图与交互原型"><a href="#效果图与交互原型" class="headerlink" title="效果图与交互原型"></a>效果图与交互原型</h2><p>产品原型的设计又可以分成两个阶段，</p>
@@ -1698,7 +1821,7 @@
     <link href="http://book.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/9_%E7%95%8C%E9%9D%A2%E6%A8%A1%E5%BC%8F/"/>
     <id>http://book.anddle.com/2_设计原理/9_界面模式/</id>
     <published>2017-01-11T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="界面模式"><a href="#界面模式" class="headerlink" title="界面模式"></a>界面模式</h1><p><code>Material Design</code>的基础组件我们已经大体了解过了，现在我们看看<code>Material Design</code>在结合这些不同组件的过程中，有哪些套路，也就是有哪些常用的界面设计模式。了解了这些模式，可以帮助设计者们做出合乎开发者实现的方案。</p>
 <p>设计的套路有很多，<code>列表-list</code> <code>分页-tab</code> <code>网格-Grid</code> <code>侧边栏</code>  <code>下拉刷新</code>等等。这里只列出几个常见的，更多的方式请参考<a href="https://material.google.com/" target="_blank" rel="external">设计规范</a>，以及其他各种优秀应用的精巧设计。</p>
@@ -1707,16 +1830,16 @@
 <p>带侧边栏布局，</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/slider_drawer_example.png" width="300" alt=" slider_drawer_example"></div>
 
-<p>更加具体的规范请参考<a href="https://material.google.com/patterns/navigation-drawer.html" target="_blank" rel="external">这里</a></p>
+<p>更加具体的规范请参考<a href="https://material.google.com/patterns/navigation-drawer.html" target="_blank" rel="external">这里</a>。</p>
 <h2 id="底部导航栏"><a href="#底部导航栏" class="headerlink" title="底部导航栏"></a>底部导航栏</h2><p>通过类似底部导航栏的按钮，让界面切换显示更多的内容。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/bottom_button_patten.gif" width="300" alt=" bottom_button_patten"></div>
 
 <p>这中布局的方式也是苹果iOS的经典布局方式，不知道是Google的原创还是向苹果的致敬。</p>
-<p>更加具体的规范请参考<a href="https://material.google.com/components/bottom-navigation.html" target="_blank" rel="external">这里</a></p>
+<p>更加具体的规范请参考<a href="https://material.google.com/components/bottom-navigation.html" target="_blank" rel="external">这里</a>。</p>
 <h2 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h2><p>与底部导航栏类似，但是是放在界面上方。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/tabs_patten.png" width="300" alt=" tabs_patten"></div>
 
-<p>更加具体的规范请参考<a href="https://material.google.com/components/tabs.html" target="_blank" rel="external">这里</a></p>
+<p>更加具体的规范请参考<a href="https://material.google.com/components/tabs.html" target="_blank" rel="external">这里</a>。</p>
 <h2 id="动态变化"><a href="#动态变化" class="headerlink" title="动态变化"></a>动态变化</h2><p>我个人认为，界面元素和内容的动态变化，是整个<code>Material Design</code>的精髓。它带给了用户极好的视觉体验，是引导用户注意力的最好方法。</p>
 <p>动态是通过<code>过渡动画</code>和<code>滑动效果</code>来实现的。</p>
 <h3 id="过渡动画"><a href="#过渡动画" class="headerlink" title="过渡动画"></a>过渡动画</h3><p>在前面的章节已经介绍过了动画的内容，这里就不重复了。</p>
@@ -1752,7 +1875,7 @@
     <link href="http://book.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/8_%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%BB%84%E4%BB%B6%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F/"/>
     <id>http://book.anddle.com/2_设计原理/8_设计的组件与常用模式/</id>
     <published>2017-01-10T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="组件与常用模式"><a href="#组件与常用模式" class="headerlink" title="组件与常用模式"></a>组件与常用模式</h1><p>前面已经比较全面的介绍了<code>Material Design</code>相关的设计哲学、设计原理和方法论。这一章开始，我们将看看这些原理是如何在安卓系统当中得到实践的。</p>
 <p>一个应用并不是完全从什么都没有来组建的，至少会有一匹一匹的砖嘛。而在界面设计当中，这些能够拿过来就使用的砖块就是控件。</p>
@@ -2080,7 +2203,7 @@
     <link href="http://book.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/7_%E5%A3%B0%E9%9F%B3%E4%B8%8E%E8%A7%A6%E8%A7%89%E7%9A%84%E5%88%A9%E7%94%A8/"/>
     <id>http://book.anddle.com/2_设计原理/7_声音与触觉的利用/</id>
     <published>2017-01-09T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="声音与触觉的利用"><a href="#声音与触觉的利用" class="headerlink" title="声音与触觉的利用"></a>声音与触觉的利用</h1><p>之前我们对设计的讨论都是几种在视觉基础之上的。但除了视觉，我们人还拥有听觉、嗅觉、触觉、味觉等感知大自然的能力。</p>
 <p>现在由于技术的限制，嗅觉和味觉在移动设备领域的使用还无法派上用场，但是听觉和触觉正在扩大对我们使用的影响。</p>
@@ -2117,7 +2240,7 @@
     <link href="http://book.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/6_%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/"/>
     <id>http://book.anddle.com/2_设计原理/6_动画效果/</id>
     <published>2017-01-08T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="动画效果"><a href="#动画效果" class="headerlink" title="动画效果"></a>动画效果</h1><p>运动的物体总是能最有效的吸引住人类的注意力。在界面设计的领域，也是一样，当你希望用户的注意力从一个点转移到另一点，在这两点之间设计一个迁移的动画是在合适不过的了。</p>
 <p>动画基本上可以分成以下几类：</p>
@@ -2164,6 +2287,7 @@
 <li>应用的界面切换：例如屏幕中进入或者退出一个对象物体。</li>
 <li>元素属性的变化：例如屏幕中一个物体的形状发生变化。</li>
 <li>内容的迁移：例如通过屏幕中的局部内容展现更多内容。</li>
+<li>点击的反馈：当用户点击屏幕时，提供视觉上的动态效果。</li>
 </ul>
 <h3 id="界面切换"><a href="#界面切换" class="headerlink" title="界面切换"></a>界面切换</h3><p>界面切换的效果，根据切换的内容不同，速度也有一些变化：</p>
 <ol>
@@ -2240,7 +2364,7 @@
     <link href="http://book.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/5_%E5%9B%BE%E6%A0%87%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://book.anddle.com/2_设计原理/5_图标的使用/</id>
     <published>2017-01-07T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="图标的使用"><a href="#图标的使用" class="headerlink" title="图标的使用"></a>图标的使用</h1><p>图标能给人带来最直观的印象，有的时候再多的解释也抵不过一个图标。</p>
 <p>安卓应用的图标分成两类，</p>
@@ -2264,7 +2388,8 @@
  <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/app_icon_grid_scale.png" width="600" alt=" app_icon_grid_scale"></div>
 </li>
 <li><p>图标可以根据设计线，做成圆角方形、圆形、竖长方形、横长方形。各个形状的区域尺寸分别是：</p>
-<p> | 形状 | 尺寸（高*宽） |<br> | — | — |<br> | 圆角方形 | 152dp*152dp |<br> | 圆形 | 176dp*176dp |<br> | 竖长方形 | 176dp*128dp  |<br> | 横长方形 | 128dp*176dp |</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/2_5_table_app_icon_size.png" width="200" alt=" 2_5_table_app_icon_size"></div>
+
  <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/app_icon_shape.png" width="500" alt=" app_icon_shape"></div>
 
 <p> 需要注意的是：虽然图标的形状不同，但是它们都是被限定在了192dp（缩放后）的正方形方框当中；标注出的尺寸都是放大了4倍以后的尺寸。</p>
@@ -2283,17 +2408,19 @@
 <li><p>颜色：颜色的选择与应用界面颜色的选择一样，要选择能体现应用内容的色调。颜色不宜不多，最好不要超过3个。颜色可以只是放在前景当中，也可以只放在背景当中。</p>
 </li>
 <li><p>tint边沿：tint是一个遮罩，可以把它理解成给图层带上了一顶帽子。这顶帽子可以有自己的颜色和透明度，与它盖住的图层混合，显示出不同的效果。我们会在后面详细讲述tint。tint边沿出现在前景和背景的上边沿。它是有规定的：</p>
-<p> | 项目 | 数值 |<br> | — | — |<br> | 高度 | 1dp |<br> | 透明度 | 20% |<br> | 颜色 | #FFFFFF |</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/2_5_table_system_icon_tint.png" width="150" alt=" 2_5_table_system_icon_tint"></div>
 </li>
 <li><p>阴影边沿：出现在前景和背景的下边沿。它是有规定的：</p>
-<p> | 项目 | 数值 |<br> | — | — |<br> | 高度 | 1dp |<br> | 透明度 | 20% |<br> | 颜色 |参考tint与shade颜色 |</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/2_5_table_system_icon_edge.png" width="200" alt=" 2_5_table_system_icon_edge"></div>
 </li>
 <li><p>阴影：前景在背景上会留下投影，这个投影也是有规定的：</p>
-<p> | 项目 | 数值 |<br> | — | — |<br> | 透明度 | 20% |<br> | X偏移 | 0dp |<br> | Y偏移 | 4dp |<br> | 模糊 | 4dp |<br> | 颜色 | 参考tint与shade颜色 |</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/2_5_table_system_icon_shadow.png" width="200" alt=" 2_5_table_system_icon_shadow"></div>
+
 <p> 前景相对于背景的高度是1dp。</p>
 </li>
 <li><p>光照：图标拥有从左上方45度角照射过来的光源。要注意的是：这个光源仅仅局限在图标的内部。光源的属性如下：</p>
-<p> | 项目 | 数值 |<br> | — | — |<br> | 光源的类型 | 圆形光 |<br> | 角度 | 45度 |<br> | 颜色 | #FFFFFF |<br> | 中点位置 | 33% |</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/2_5_table_system_icon_light.png" width="200" alt=" 2_5_table_system_icon_light"></div>
+
 </li>
 </ol>
 <p>最后我们讲讲前面提到的tint与shade的颜色。<br>tint与shade都是在原来图层的上方添加一个遮罩，让遮罩与图层叠加，产生不同的颜色效果。</p>
@@ -2330,7 +2457,8 @@
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/system_icon_area.png" width="300" alt=" system_icon_area"></div>
 </li>
 <li><p>图标可以根据设计线，做成圆角方形、圆形、竖长方形、横长方形。各个形状的区域尺寸分别是：</p>
-<p> | 形状 | 尺寸（高*宽） |<br> | — | — |<br> | 圆角方形 | 18dp*18dp |<br> | 圆形 | 20dp*20dp |<br> | 竖长方形 | 20dp*16dp  |<br> | 横长方形 | 16dp*20dp |</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/2_5_table_system_icon_size.png" width="200" alt=" 2_5_table_system_icon_size"></div>
+
  <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/system_icon_shape.png" width="400" alt=" system_icon_shape"></div>
 
 <p> 需要注意的是：虽然图标的形状可能不同，但是它们都是被限定在了24dp的正方形的方框当中。</p>
@@ -2355,16 +2483,22 @@
 <p>系统图标的颜色设置也有需要遵循的规则，在亮暗不同的背景下，颜色不同，</p>
 <ul>
 <li><p>在亮背景下，使用黑色：</p>
-<p>  | 图标状态 | 颜色透明度（#000000） |<br>  | — | — |<br>  | 激活 | 54% |<br>  | 未激活 | 26% |</p>
+  <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/2_5_table_system_icon_color_light_theme.png" width="300" alt=" 2_5_table_system_icon_color_light_theme"></div>
+
   <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/system_icon_color_light_bg.png" width="400" alt=" system_icon_color_light_bg"></div>
+
+
 </li>
+</ul>
+<ul>
 <li><p>在暗背景下，使用白色：</p>
-<p>  | 图标状态 | 颜色透明度（#FFFFFF） |<br>  | — | — |<br>  | 激活 | 100% |<br>  | 未激活 | 30% |</p>
+  <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/2_5_table_system_icon_color_dark_theme.png" width="300" alt=" 2_5_table_system_icon_color_dark_theme"></div>
+
   <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/system_icon_color_dark_bg.png" width="400" alt=" system_icon_color_dark_bg"></div>
 
 </li>
 </ul>
-<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p>知道了制作图标的规则，一切就好办了。如果你是设计高手，可以用工具，从无到有，完全自己画一个图标。如果你时间有限、不善此道，那么可以从网上找到很多设计图标的素材。</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>知道了制作图标的规则，一切就好办了。如果你是设计高手，可以用工具，从无到有，完全自己画一个图标。如果你时间有限、不善此道，那么可以从网上找到很多设计图标的素材。</p>
 <p>Google在<a href="https://material.io/icons/" target="_blank" rel="external">官网</a>上放出了很多现成的图标素材，涵盖了很多门类，基本上够我们直接拿过来使用了。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_icon_official_website.png" width="600" alt=" material_icon_official_website"></div>
 
@@ -2397,7 +2531,7 @@
     <link href="http://book.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/4_%E6%96%87%E5%AD%97%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://book.anddle.com/2_设计原理/4_文字的使用/</id>
     <published>2017-01-06T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="文字的使用"><a href="#文字的使用" class="headerlink" title="文字的使用"></a>文字的使用</h1><p>文字是应用当中使用最多的要素。显示一段供用户阅读的文字，程序运行时的信息提示都离不开它。</p>
 <p>文字是内容的实际体现者，因此设计师需要将用户的注意力尽可能的吸引到文字当中。</p>
@@ -2589,7 +2723,7 @@
 <h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><p>为了便于用户阅读，让用户有良好的阅读体验，我们还要考虑文字当中，</p>
 <ul>
 <li><p>行之间的间距。</p>
-<p>  | 显示的位置 | 字体行距 | 字体大小 |<br>  | — | — | — |<br>  | Display 2 | 63sp | 45sp |<br>  | Display 1 | 48sp | 34sp |<br>  | Headline | 34sp | 24sp |<br>  | Subheading | 30sp或26sp | 17sp |<br>  | Body 2 | 26sp | 15sp |<br>  | Body 1 | 23sp | 15sp |</p>
+  <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/2_4_table_text_format.png" width="300" alt=" 2_4_table_text_format"></div>
 </li>
 <li><p>每一行占据的宽度。对于长段的内容，字符控制在60个每行；对于简短的内容，字符控制在30个每行。</p>
 </li>
@@ -2719,7 +2853,7 @@
     <link href="http://book.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/3_%E9%A2%9C%E8%89%B2%E7%9A%84%E8%BF%90%E7%94%A8/"/>
     <id>http://book.anddle.com/2_设计原理/3_颜色的运用/</id>
     <published>2017-01-05T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="颜色的运用"><a href="#颜色的运用" class="headerlink" title="颜色的运用"></a>颜色的运用</h1><p><code>Material Design</code>采用的是扁平化的设计，可以看到一大块一大块区域的颜色。这些颜色大多亮丽引人，整个界面上搭配的颜色也不会太多，基本保持在三种颜色以内。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/pallete_classic_ui.png" width="300" alt=" pallete_classic_ui"></div>
@@ -2802,7 +2936,7 @@
     <link href="http://book.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/2_%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/"/>
     <id>http://book.anddle.com/2_设计原理/2_界面布局/</id>
     <published>2017-01-04T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="界面布局"><a href="#界面布局" class="headerlink" title="界面布局"></a>界面布局</h1><p>布局涉及到应用界面的整体。布局的层次感和逻辑，可以通过阴影来体现。</p>
 <p>举个例子。在一张纸当中，增加一条折痕，一个区域就分成了关联性很强的两个区域，</p>
@@ -2825,7 +2959,7 @@
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/dp_explain1.png" width="400" alt=" dp_explain1"></div>
 
 <p>所以为了解决这个问题，安卓引入了dip的概念－device independed pixel－简称dp。</p>
-<h3 id="dpi的定义"><a href="#dpi的定义" class="headerlink" title="dpi的定义"></a>dpi的定义</h3><p>在近一步介绍<code>dp</code>之前，要先讲讲<code>dpi</code>。<code>dpi</code>叫做屏幕像素密度，就是每英寸有多少个像素点。我们用简单的数学原理$$  dpi = \dfrac{\sqrt{长^2 + 宽^2}}{对角线尺寸} $$就能算出刚才两个屏幕的dpi，一个是<code>440dpi</code>，另一个是<code>184dpi</code>。</p>
+<h3 id="dpi的定义"><a href="#dpi的定义" class="headerlink" title="dpi的定义"></a>dpi的定义</h3><p>在近一步介绍<code>dp</code>之前，要先讲讲<code>dpi</code>。<code>dpi</code>叫做屏幕像素密度，就是每英寸有多少个像素点。我们用简单的数学原理-<code>勾股定理</code>就能算出刚才两个屏幕的dpi，一个是<code>440dpi</code>，另一个是<code>184dpi</code>。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/dp_explain2.png" width="500" alt=" dp_explain2"></div>
 
 <p>注意，<code>dpi</code>与<code>dip(dp)</code>写法很像，千万不要混淆了，前者和<strong>密度</strong>有关，后者与<strong>像素</strong>有关。</p>
@@ -2847,32 +2981,24 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
 <td>mdpi</td>
 <td>160</td>
 <td>1</td>
-<td></td>
 </tr>
 <tr>
-<td></td>
 <td>hdpi</td>
 <td>240</td>
 <td>1.5</td>
-<td></td>
 </tr>
 <tr>
-<td></td>
 <td>xhdpi</td>
 <td>320</td>
 <td>2</td>
-<td></td>
 </tr>
 <tr>
-<td></td>
 <td>xxhpi</td>
 <td>480</td>
 <td>3</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -2882,7 +3008,7 @@
 <li>450*800的屏幕应该属于mdpi类型；</li>
 </ol>
 <p>现在的安卓手机几乎都在往高清屏幕发展，所以xhdpi和xxhdpi是最为常见的设备类型。</p>
-<h3 id="dp与px的关系"><a href="#dp与px的关系" class="headerlink" title="dp与px的关系"></a>dp与px的关系</h3><p>安卓引入了<code>dp(dip)</code>的概念之后，实际显示的像素就可以通过下面这个公式计算出来$$  px = dp*\dfrac{dpi}{160} $$</p>
+<h3 id="dp与px的关系"><a href="#dp与px的关系" class="headerlink" title="dp与px的关系"></a>dp与px的关系</h3><p>安卓引入了<code>dp(dip)</code>的概念之后，实际显示的像素就可以通过下面这个公式计算出来 px = dp * dpi / 160。</p>
 <p>相同<code>dp</code>的情况下，密度大的设备，实际像素就占的大，密度小点设备，实际像素就占用小了。因此使用dp这个单位后，按钮在两种不同的屏幕上的实际显示大小，几乎就是一样的了。</p>
 <p>例如刚才两种屏幕。如果我指定按钮的大小为200dp*200dp，那么它们在各自的屏幕上占用的实际像素分别是230px*230px与550px*550px，真实设备上看上去的确差不多。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/dp_explain3.png" width="600" alt=" dp_explain3"></div>
@@ -2944,7 +3070,7 @@
     <link href="http://book.anddle.com/2_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/1_%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86/"/>
     <id>http://book.anddle.com/2_设计原理/1_设计原理/</id>
     <published>2017-01-03T01:00:00.000Z</published>
-    <updated>2017-02-02T09:58:18.000Z</updated>
+    <updated>2017-02-04T05:58:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="设计原理"><a href="#设计原理" class="headerlink" title="设计原理"></a>设计原理</h1><p>设计是一门让人感觉很抽象的艺术。设计需要从两个方面来考虑问题：</p>
 <ul>
