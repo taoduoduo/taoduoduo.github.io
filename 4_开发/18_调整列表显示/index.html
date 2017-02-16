@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>18 调整列表显示 | 从设计到实现 | 手把手教你做android应用开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="调整列表显示现在界面上列表的异常显示根本原因在于：将ListView放到了NestedScrollView之内。NestedScrollView内部要使用列表的话，必须使用RecyclerView。
+RecyclerView是我们之前提到的Material Design开发支持库中的一个。从它的名字可以看出，它的优点在于提高了数据项刷新、滚动的效率，减小了系统资源的占用。听起来有点抽象是吧，那就记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="18 调整列表显示">
+<meta property="og:url" content="http://booktest.anddle.com/4_开发/18_调整列表显示/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="调整列表显示现在界面上列表的异常显示根本原因在于：将ListView放到了NestedScrollView之内。NestedScrollView内部要使用列表的话，必须使用RecyclerView。
+RecyclerView是我们之前提到的Material Design开发支持库中的一个。从它的名字可以看出，它的优点在于提高了数据项刷新、滚动的效率，减小了系统资源的占用。听起来有点抽象是吧，那就记">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_load_recyclerview_support.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_phase_2_complete.gif">
+<meta property="og:updated_time" content="2017-02-16T08:05:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="18 调整列表显示">
+<meta name="twitter:description" content="调整列表显示现在界面上列表的异常显示根本原因在于：将ListView放到了NestedScrollView之内。NestedScrollView内部要使用列表的话，必须使用RecyclerView。
+RecyclerView是我们之前提到的Material Design开发支持库中的一个。从它的名字可以看出，它的优点在于提高了数据项刷新、滚动的效率，减小了系统资源的占用。听起来有点抽象是吧，那就记">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_load_recyclerview_support.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+          <span class="mail">QQ群：348702074</span><br/>
+          <span class="mail"></span>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                网站首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第1章-创意/"  >
+                <i class="icon icon-lg icon-birthday-cake"></i>
+                第1章 创意
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第2章-设计原理/"  >
+                <i class="icon icon-lg icon-eyedropper"></i>
+                第2章 设计原理
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第3章-产品原型/"  >
+                <i class="icon icon-lg icon-flask"></i>
+                第3章 产品原型
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resources/"  >
+                <i class="icon icon-lg icon-download"></i>
+                资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">18 调整列表显示</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">18 调整列表显示</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-07T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-02-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#调整列表显示"><span class="post-toc-text">调整列表显示</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#替换ListView"><span class="post-toc-text">替换ListView</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重新设计Adapter"><span class="post-toc-text">重新设计Adapter</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用WeatherMoreInfoAdapter"><span class="post-toc-text">使用WeatherMoreInfoAdapter</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最后"><span class="post-toc-text">最后</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-4_开发/18_调整列表显示"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">18 调整列表显示</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月07日 9:00" datetime="2017-02-07T01:00:00.000Z"  itemprop="datePublished">2017-02-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="调整列表显示"><a href="#调整列表显示" class="headerlink" title="调整列表显示"></a>调整列表显示</h1><p>现在界面上列表的<code>异常显示</code>根本原因在于：将<code>ListView</code>放到了<code>NestedScrollView</code>之内。<code>NestedScrollView</code>内部要使用列表的话，必须使用<code>RecyclerView</code>。</p>
+<p><code>RecyclerView</code>是我们之前提到的<code>Material Design</code>开发支持库中的一个。从它的名字可以看出，它的优点在于提高了数据项刷新、滚动的效率，减小了系统资源的占用。听起来有点抽象是吧，那就记住它的效率更高就行了，实现的原理我们就不去深究了。</p>
+<p>使用<code>RecyclerView</code>之前我们要确定它是否已经被加载到了项目中。</p>
+<p>由于之前我们已经添加了<code>设计支持库</code>-<code>compile &#39;com.android.support:design:24.2.1&#39;</code>，所以<code>RecyclerView</code>所使用的<code>com.android.support:recyclerview-v7:24.2.1</code>也已经被自动加载。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_load_recyclerview_support.png" width="250" alt=" weather_app_load_recyclerview_support"></div>
+
+<h2 id="替换ListView"><a href="#替换ListView" class="headerlink" title="替换ListView"></a>替换ListView</h2><p>将<code>activity_main.xml</code>中原来的<code>ListView</code>，用<code>RecyclerView</code>替换，</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.v4.widget.NestedScrollView</span></span></div><div class="line">    <span class="attr">......</span>&gt;</div><div class="line">    </div><div class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">        <span class="attr">......</span>&gt;</div><div class="line">        </div><div class="line">        ......</div><div class="line">    </div><div class="line">        <span class="tag">&lt;<span class="name">View</span></span></div><div class="line">            <span class="attr">......</span>/&gt;</div><div class="line">        </div><div class="line">        <span class="tag">&lt;<span class="name">android.support.v7.widget.RecyclerView</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/weather_more_info_list"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line">        </div><div class="line">        <span class="tag">&lt;/<span class="name">android.support.v7.widget.RecyclerView</span>&gt;</span></div><div class="line">    </div><div class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">android.support.v4.widget.NestedScrollView</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>修改<code>MainActivity.java</code>中关于原来<code>ListView</code>的部分，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScrollingActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> RecyclerView mWeatherMoreInfoListView;</div><div class="line">    ......</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        ......</div><div class="line">        </div><div class="line">        mWeatherMoreInfoListView = (RecyclerView) findViewById(R.id.weather_more_info_list);</div><div class="line">        LinearLayoutManager layoutManager = <span class="keyword">new</span> LinearLayoutManager(MainActivity.<span class="keyword">this</span>);</div><div class="line">        mWeatherMoreInfoListView.setLayoutManager(layoutManager);</div><div class="line">        </div><div class="line">        ......</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    ......</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="重新设计Adapter"><a href="#重新设计Adapter" class="headerlink" title="重新设计Adapter"></a>重新设计Adapter</h2><p>我们将<code>ListView</code>替换成了<code>RecyclerView</code>，那么它们各自对应的<code>Adapter</code>也需要做些调整。<code>RecyclerView</code>需要与继承自<code>RecyclerView.Adapter</code>的<code>Adapter</code>配合使用。定义个<code>WeatherMoreInfoAdapter</code>，</p>
+<ol>
+<li><p>让<code>WeatherMoreInfoAdapter</code>继承自<code>RecyclerView.Adapter</code>，并重写3个必须实现的接口，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeatherMoreInfoAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> RecyclerView.<span class="function">ViewHolder <span class="title">onCreateViewHolder</span><span class="params">(ViewGroup parent, <span class="keyword">int</span> viewType)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(RecyclerView.ViewHolder holder, <span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>增加<code>Adapter</code>的构造函数，让它能保持传入的要显示的数据项，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeatherMoreInfoAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> List&lt;WeatherMoreInfo&gt; mData;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WeatherMoreInfoAdapter</span><span class="params">(List&lt;WeatherMoreInfo&gt; data)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mData = data;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ......</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>getItemCount()</code>要返回当前数据的项数，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeatherMoreInfoAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span> </span>&#123;</div><div class="line"></div><div class="line">    ......</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mData.size();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>RecyclerView</code>之所以能够提高运行效率，最主要的原因是它依靠一个<code>Holder</code>保存了对数据项界面中各个布局的引用，每次更新界面的时候，不需要再去<code>findViewById()</code>了。</p>
+<p> 所以我们要：</p>
+<ol>
+<li><p>定义一个<code>ViewHolder</code>，让它继承自<code>RecyclerView.ViewHolder</code>，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeatherMoreInfoAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    ......</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>将数据项的布局在首次创建的时候保存起来，避免下次重复<code>findViewById()</code>，提高效率，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeatherMoreInfoAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">public</span> ImageView icon;</div><div class="line">        <span class="keyword">public</span> TextView description;</div><div class="line">        <span class="keyword">public</span> TextView value;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ViewHolder</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">            <span class="keyword">super</span>(v);</div><div class="line"></div><div class="line">            <span class="keyword">this</span>.icon = (ImageView) v.findViewById(R.id.weather_more_info_icon);</div><div class="line">            <span class="keyword">this</span>.description = (TextView) v.findViewById(R.id.weather_more_info_description);</div><div class="line">            <span class="keyword">this</span>.value = (TextView) v.findViewById(R.id.weather_more_info_value);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    ......</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>当<code>WeatherMoreInfoAdapter</code>需要创建数据项界面的时候就会自动触发<code>onCreateViewHolder()</code>的调用，获取一个<code>ViewHolder</code>。</p>
+<p> 因此我们需要在这里创建布局界面，并把界面元素缓存到<code>ViewHolder里面</code>，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeatherMoreInfoAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span> </span>&#123;</div><div class="line"></div><div class="line">    ......</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> RecyclerView.<span class="function">ViewHolder <span class="title">onCreateViewHolder</span><span class="params">(ViewGroup parent, <span class="keyword">int</span> viewType)</span> </span>&#123;</div><div class="line">        View v = LayoutInflater.from(parent.getContext())</div><div class="line">            .inflate(R.layout.weather_more_info_item_layout, parent, <span class="keyword">false</span>);</div><div class="line"></div><div class="line">        ViewHolder vh = <span class="keyword">new</span> ViewHolder(v);</div><div class="line">        <span class="keyword">return</span> vh;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>Adapter</code>更新数据是，会触发<code>onBindViewHolder()</code>，让我们更新界面，</p>
+<ol>
+<li>从<code>mData</code>取出要显示的数据；</li>
+<li>将<code>RecyclerView.ViewHolder</code>转换成我们自定义的<code>ViewHolder</code>；</li>
+<li><p>设置数据到界面元素上；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeatherMoreInfoAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span> </span>&#123;</div><div class="line"></div><div class="line">    ......</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(RecyclerView.ViewHolder holder, <span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line"></div><div class="line">        WeatherMoreInfo info = mData.get(position);</div><div class="line">        ViewHolder viewHolder = (ViewHolder) holder;</div><div class="line">        viewHolder.icon.setImageResource(info.typeResId);</div><div class="line">        viewHolder.description.setText(info.description);</div><div class="line">        viewHolder.value.setText(info.value);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<p>至此新的<code>Adapter</code>就设计完成了。</p>
+<h2 id="使用WeatherMoreInfoAdapter"><a href="#使用WeatherMoreInfoAdapter" class="headerlink" title="使用WeatherMoreInfoAdapter"></a>使用WeatherMoreInfoAdapter</h2><p>根据新实现的<code>WeatherMoreInfoAdapter</code>，修改使用它的方法，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScrollingActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> RecyclerView mWeatherMoreInfoListView;</div><div class="line">    ......</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        ......</div><div class="line">        </div><div class="line">        mWeatherMoreInfoList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        WeatherMoreInfoAdapter adapter = <span class="keyword">new</span> WeatherMoreInfoAdapter(mWeatherMoreInfoList);</div><div class="line">        mWeatherMoreInfoListView.setAdapter(adapter);</div><div class="line">        ......</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    ......</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>将程序运行看看，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_phase_2_complete.gif" width="250" alt=" weather_app_phase_2_complete"></div>
+
+<p>我们的天气应用似乎已经开发完成了！！！</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>千万别忘记我在代码中留下的种种<code>bug</code>，我们将在后面的单元-关于测试章节将这些<code>bug</code>都找出来。让它成为真正可用的应用程序。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-16T08:05:46.000Z" itemprop="dateUpdated">2017年2月16日 16:05</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://booktest.anddle.com">
+            <img src="/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/18_调整列表显示/&title=《18 调整列表显示》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/18_调整列表显示/&title=《18 调整列表显示》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/4_开发/17_Appbar动效/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">17 Appbar动效</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/18_调整列表显示/&title=《18 调整列表显示》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/18_调整列表显示/&title=《18 调整列表显示》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACGklEQVR42u3awY4qMQwEQP7/p+edV4ihO4YnkVROaJlNUnMwsZ3HIx7X03j+9vnJRzkm/4uBgbE347od+TP3sPuNfmBdDAyMAxj5VpIn8zmT13c/DwYGBsarZ+63nhzv7kkYGBgYE0ZyvJuEVAwMDIxJErtWJkt4kxeBgYFxAiOvuv//z1/pb2BgYPwU4ypH3tTMn1nbyZ85MTAwtma0pbF8Q+08a6U6DAyMcxhrxbVvnEyTtBYDA+NkRhJYk4J+8jruZ26TZwwMjL0Z7XWHyaFw0hZ9MxsGBsbWjLUD2VrjM2lbrgVxDAyM0xj5Am2obRPX5NuikoeBgfGzjLU0NV9scsQsrmVgYGAcyWgPfG0aPGlCvLwzgoGBsTVj0jjMQ+okAS4KbRgYGAcw1sJr27CclPkwMDAw8uXb0lte1KtTXwwMjK0Zk4Xz61xr4bUN1hgYGLsykkNYW76fXJ7Ik2EMDIxzGG1LYG1D7d/X1sLAwNibkQTZeSk/Pz4m4JdFNwwMjGMY7XbbJkGLXwy4GBgYxzDWSmyTBkAe9DEwME5gXOXI302SBufgN68JAwNja0abcOYhdV7Iyz9jYGCcwGhLad8rt40CLgYGxgGMNvC1RbrFzmqMx8DAwGgPfHnBblLUw8DAwMgn/ezW7y9hvGkPYGBgbM1INpQskIfjvP354VwcAwPjBxlt6rjW+JxcxWh/BjAwMDZi/AMVNhkG6EqSbgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261181710&web_id=1261181710')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>

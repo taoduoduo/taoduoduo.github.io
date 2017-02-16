@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>17 Appbar动效 | 从设计到实现 | 手把手教你做android应用开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Appbar动效之前的改造完成后，Appbar还不能具有滑动的效果。
+要具备联动的滑动功能，还需要做3个地方的修改。
+使用CoordinatorLayoutCoordinatorLayout是Material Design里面，所有滑动渐变效果必用的布局，它能根据内部某个元素滑动的百分比来控制内部另一个元素的属性变化。
+
+
+要实现Appbar随着界面滑动而进行变化，
+
+必须引入Coordinato">
+<meta property="og:type" content="article">
+<meta property="og:title" content="17 Appbar动效">
+<meta property="og:url" content="http://booktest.anddle.com/4_开发/17_Appbar动效/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="Appbar动效之前的改造完成后，Appbar还不能具有滑动的效果。
+要具备联动的滑动功能，还需要做3个地方的修改。
+使用CoordinatorLayoutCoordinatorLayout是Material Design里面，所有滑动渐变效果必用的布局，它能根据内部某个元素滑动的百分比来控制内部另一个元素的属性变化。
+
+
+要实现Appbar随着界面滑动而进行变化，
+
+必须引入Coordinato">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/coordinatorlayout_explain.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_add_CoordinatorLayout.gif">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_add_NestedScrollView.gif">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_add_loction_update.gif">
+<meta property="og:updated_time" content="2017-02-16T08:05:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="17 Appbar动效">
+<meta name="twitter:description" content="Appbar动效之前的改造完成后，Appbar还不能具有滑动的效果。
+要具备联动的滑动功能，还需要做3个地方的修改。
+使用CoordinatorLayoutCoordinatorLayout是Material Design里面，所有滑动渐变效果必用的布局，它能根据内部某个元素滑动的百分比来控制内部另一个元素的属性变化。
+
+
+要实现Appbar随着界面滑动而进行变化，
+
+必须引入Coordinato">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/coordinatorlayout_explain.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+          <span class="mail">QQ群：348702074</span><br/>
+          <span class="mail"></span>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                网站首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第1章-创意/"  >
+                <i class="icon icon-lg icon-birthday-cake"></i>
+                第1章 创意
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第2章-设计原理/"  >
+                <i class="icon icon-lg icon-eyedropper"></i>
+                第2章 设计原理
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第3章-产品原型/"  >
+                <i class="icon icon-lg icon-flask"></i>
+                第3章 产品原型
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resources/"  >
+                <i class="icon icon-lg icon-download"></i>
+                资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">17 Appbar动效</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">17 Appbar动效</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-06T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-02-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Appbar动效"><span class="post-toc-text">Appbar动效</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用CoordinatorLayout"><span class="post-toc-text">使用CoordinatorLayout</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用NestedScrollView"><span class="post-toc-text">使用NestedScrollView</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更新地理位置"><span class="post-toc-text">更新地理位置</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-4_开发/17_Appbar动效"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">17 Appbar动效</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月06日 9:00" datetime="2017-02-06T01:00:00.000Z"  itemprop="datePublished">2017-02-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Appbar动效"><a href="#Appbar动效" class="headerlink" title="Appbar动效"></a>Appbar动效</h1><p>之前的改造完成后，<code>Appbar</code>还不能具有滑动的效果。</p>
+<p>要具备联动的滑动功能，还需要做3个地方的修改。</p>
+<h2 id="使用CoordinatorLayout"><a href="#使用CoordinatorLayout" class="headerlink" title="使用CoordinatorLayout"></a>使用CoordinatorLayout</h2><p><code>CoordinatorLayout</code>是<code>Material Design</code>里面，所有滑动渐变效果必用的布局，它能根据内部某个元素滑动的百分比来控制内部另一个元素的属性变化。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/coordinatorlayout_explain.png" width="200" alt=" coordinatorlayout_explain"></div>
+
+<p>要实现<code>Appbar</code>随着界面滑动而进行变化，</p>
+<ol>
+<li><p>必须引入<code>CoordinatorLayout</code>，使之替换<code>activity_main.xml</code>中，最外层的那个<code>LinearLayout</code>，</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.CoordinatorLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.anddle.weatherapp.MainActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.AppBarLayout</span></span></div><div class="line">    <span class="attr">......</span>&gt;</div><div class="line">    </div><div class="line">    ......</div><div class="line">    </div><div class="line">    <span class="tag">&lt;/<span class="name">android.support.design.widget.AppBarLayout</span>&gt;</span></div><div class="line">    </div><div class="line">    ......</div><div class="line">        </div><div class="line"><span class="tag">&lt;/<span class="name">android.support.design.widget.CoordinatorLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>给<code>CollapsingToolbarLayout</code>，增加<code>app:layout_scrollFlags=&quot;scroll|exitUntilCollapsed&quot;</code>属性，</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.CollapsingToolbarLayout</span></span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">app:layout_scrollFlags</span>=<span class="string">"scroll|exitUntilCollapsed"</span>&gt;</div></pre></td></tr></table></figure>
+<p> 这两个属性说明要让<code>Appbar</code>可以滑动，并且<code>Appbar</code>完全折叠起来后，<code>Toolbar</code>要能够显示出来（假如没有设置<code>exitUntilCollapsed</code>，<code>Toolbar</code>是可以被完全折叠隐藏起来的）。</p>
+</li>
+</ol>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_add_CoordinatorLayout.gif" width="250" alt=" weather_app_add_CoordinatorLayout"></div>
+
+<h2 id="使用NestedScrollView"><a href="#使用NestedScrollView" class="headerlink" title="使用NestedScrollView"></a>使用NestedScrollView</h2><p>使用<code>CoordinatorLayout</code>之后可以看到，整个界面变形了，<code>天气预报区域</code>和<code>更多天气信息区域</code>整体向上移动到了顶部重叠起来。</p>
+<p>这是因为<code>CoordinatorLayout</code>本质上是个<code>FrameLayout</code>，它内部的组件当然会堆叠起来。</p>
+<p>要解决这个问题就要<code>NestedScrollView</code>出场了。它能向<code>LinearLayout</code>一样将组件按照顺序竖直排列。并且与<code>AppBarLayout</code>形成联动。</p>
+<ol>
+<li><p><code>NestedScrollView</code>的内部只能放一个子布局或者控件，所以必须把<code>天气预报区域</code>和<code>更多天气信息区域</code>做成一个整体，放进一个<code>LinearLayout</code>中，</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">   <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">   <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">   <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</div><div class="line"></div><div class="line">   <span class="comment">&lt;!--原有的布局--&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">       <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">       <span class="attr">android:layout_height</span>=<span class="string">"@dimen/forcast_height"</span></div><div class="line">       <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span></div><div class="line">       <span class="attr">android:layout_marginLeft</span>=<span class="string">"@dimen/forcast_margin"</span></div><div class="line">       <span class="attr">android:layout_marginRight</span>=<span class="string">"@dimen/forcast_margin"</span>&gt;</div><div class="line"></div><div class="line">       <span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/forcast_item"</span> <span class="attr">android:id</span>=<span class="string">"@+id/forcast_item1"</span> /&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/forcast_item"</span> <span class="attr">android:id</span>=<span class="string">"@+id/forcast_item2"</span> /&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/forcast_item"</span> <span class="attr">android:id</span>=<span class="string">"@+id/forcast_item3"</span> /&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/forcast_item"</span> <span class="attr">android:id</span>=<span class="string">"@+id/forcast_item4"</span> /&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/forcast_item"</span> <span class="attr">android:id</span>=<span class="string">"@+id/forcast_item5"</span> /&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">View</span></span></div><div class="line">       <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">       <span class="attr">android:layout_height</span>=<span class="string">"@dimen/gap_height"</span></div><div class="line">       <span class="attr">android:background</span>=<span class="string">"#1F000000"</span></div><div class="line">       /&gt;</div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">ListView</span></span></div><div class="line">       <span class="attr">android:id</span>=<span class="string">"@+id/weather_more_info_list"</span></div><div class="line">       <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">       <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line">   <span class="tag">&lt;/<span class="name">ListView</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>将刚创建的<code>LinearLayout</code>放到<code>NestedScrollView</code>中，</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.v4.widget.NestedScrollView</span></span></div><div class="line">   <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">   <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line">        </div><div class="line">   <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">       <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">       <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">       <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</div><div class="line">       </div><div class="line">       ......</div><div class="line">       </div><div class="line">   <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line">        </div><div class="line"><span class="tag">&lt;/<span class="name">android.support.v4.widget.NestedScrollView</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>为<code>NestedScrollView</code>添加属性<code>app:layout_behavior=&quot;@string/appbar_scrolling_view_behavior&quot;</code>，</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.v4.widget.NestedScrollView</span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">app:layout_behavior</span>=<span class="string">"@string/appbar_scrolling_view_behavior"</span>&gt;</div><div class="line">        </div><div class="line">    ......</div><div class="line">        </div><div class="line"><span class="tag">&lt;/<span class="name">android.support.v4.widget.NestedScrollView</span>&gt;</span></div></pre></td></tr></table></figure>
+<p> <code>appbar_scrolling_view_behavior</code>这个值是<code>Android SDK</code>提供的一个现成的取值。我们暂时只要知道这里必须这样使用就好了。要理解它深层次的含义，必须要系统的讲解<code>CoordinatorLayout</code>的设计思路。这个设计思路我会在将来的专题中去讲，现在大家就先记住使用它的结论吧。</p>
+</li>
+</ol>
+<p>运行看看效果，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_add_NestedScrollView.gif" width="250" alt=" weather_app_add_NestedScrollView"></div>
+
+<h2 id="更新地理位置"><a href="#更新地理位置" class="headerlink" title="更新地理位置"></a>更新地理位置</h2><p>使用了<code>设计支持库</code>后，<code>地理位置</code>信息不需要单独的布局文件了。它会作为应用的名称进行展示。</p>
+<p>所以在更新地理位置的时候，我们只需要更新应用的名称就行。</p>
+<ol>
+<li><p>给<code>activity_main.xml</code>中的<code>CollapsingToolbarLayout</code>增加一个<code>id</code>-<code>collapsing_layout</code>，便于我们在<code>java</code>代码中获取到它；</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.CollapsingToolbarLayout</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/collapsing_layout"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">app:layout_scrollFlags</span>=<span class="string">"scroll|exitUntilCollapsed"</span>&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>打开<code>MainActivity.java</code>源码文件，修改<code>updateWeatherDetail()</code>函数，使用<code>CollapsingToolbarLayout</code>的<code>setTitle()</code>方法修改应用的标题；</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">updateWeatherDetail</span><span class="params">(String location, String temperature, String temperatureRange, <span class="keyword">int</span> weatherCode)</span> </span>&#123;</div><div class="line"></div><div class="line">        ......</div><div class="line">        currentTemperatureView.setText(temperature);</div><div class="line">        temperatureRangeView.setText(temperatureRange);</div><div class="line">        </div><div class="line">        CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_layout);</div><div class="line">        collapsingToolbar.setTitle(location);</div><div class="line">        ......</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_add_loction_update.gif" width="250" alt=" weather_app_add_loction_update"></div>
+
+<hr>
+<p>至此，<code>Appbar</code>的滑动效果就完成了。不过大家也能看到，这里引入了一个新的问题：列表内容显示不正确，只有第一项的内容。</p>
+<p>这个问题我们在下一节来解决。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-16T08:05:46.000Z" itemprop="dateUpdated">2017年2月16日 16:05</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://booktest.anddle.com">
+            <img src="/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/17_Appbar动效/&title=《17 Appbar动效》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/17_Appbar动效/&title=《17 Appbar动效》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/4_开发/16_改造Appbar/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">16 改造Appbar</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/4_开发/18_调整列表显示/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">18 调整列表显示</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/17_Appbar动效/&title=《17 Appbar动效》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/17_Appbar动效/&title=《17 Appbar动效》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3azXKDIBgF0Lz/S6frTqK9F7QzwmGVUascFvT74fWKx/tjfF4/ujL2ldcdAwMD47GM9+lInvn88NGVfORzw8DA2IdxtIOd/z66m78zYZy/BwMDA+P8mZydX8HAwMC4asM9D/7aK8ldDAwMjLEQLV+OsQT1llwcAwPjgYy86v7/v2/pb2BgYDyKcVWxvm18zpThvrwTAwNjaUYb9iWBY/u2q96AgYGxMyMpq9WlsZIXzQEDA2NRxlhRfr4NMLYEh3PDwMDYjJFvuMkWnB+kaHm/7mJgYGzDyIO/Ow5b5N/68hsDA2NpRj6JdqOcaYJOHfvAwMBYlNH+cTuhfLMeexIDA2MHRrK9XlsmO59Ke/ACAwNjbUahjItiY1vqWFui+I+BgYHxWEaecObJbbIc8w1ODAyMnRn5NtcW3d4Toz1ehoGBsR4jL2nloWSe3LZh6OFdDAyMpRktJj8kMVj5mzjwgYGBsTYjCeZm2pZJopuT6mgXAwPj4YxE1oaPbcI8EyBiYGDsw8inNbYF56HkYAsBAwNjA8Z9weJMUFgEiBgYGIsyxlqJYy2EdlGSxcLAwNiBkY+Zo2BJAa5Nj2sABgbGwxnzR7LaFHSsSVnk4hgYGIsy2sJ9e6hirDFQLBkGBgZGkEDOpKxtUxMDAwOj/cBYsaxdoD8KeRgYGBswkiR2pj3ZNinbsh0GBsbajKnUcWgh8iDyqtQXAwPjsYwfV2Vgvuv4cfoAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261181710&web_id=1261181710')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>

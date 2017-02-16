@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>7 天气详情的布局 | 从设计到实现 | 手把手教你做android应用开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="天气详情的布局整体布局完成之后，我们开始进行天气详情区域的布局。
+这个区域由天气图标、当前温度、当日温度范围、地理位置等4个元素组成。我们可以选用Android SDK提供的现有控件，完成布局。
+
+
+
+区域名称
+区域高度
+选用控件或布局
+
+
+
+
+天气图标
+100dp
+ImageView
+
+
+当前温度
+文字的字体决定
+TextView
+
+
+当日温度范围
+文字的字体决定
+TextView
+
+
+地理位置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="7 天气详情的布局">
+<meta property="og:url" content="http://booktest.anddle.com/4_开发/7_天气详情的布局/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="天气详情的布局整体布局完成之后，我们开始进行天气详情区域的布局。
+这个区域由天气图标、当前温度、当日温度范围、地理位置等4个元素组成。我们可以选用Android SDK提供的现有控件，完成布局。
+
+
+
+区域名称
+区域高度
+选用控件或布局
+
+
+
+
+天气图标
+100dp
+ImageView
+
+
+当前温度
+文字的字体决定
+TextView
+
+
+当日温度范围
+文字的字体决定
+TextView
+
+
+地理位置">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_layout.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_segments.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_up_segment.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_up_segment_complete.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_weather_icon.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_temp_layout.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_cur_temp_layout.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_range_temp_layout.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_location_layout.png">
+<meta property="og:updated_time" content="2017-02-16T08:05:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="7 天气详情的布局">
+<meta name="twitter:description" content="天气详情的布局整体布局完成之后，我们开始进行天气详情区域的布局。
+这个区域由天气图标、当前温度、当日温度范围、地理位置等4个元素组成。我们可以选用Android SDK提供的现有控件，完成布局。
+
+
+
+区域名称
+区域高度
+选用控件或布局
+
+
+
+
+天气图标
+100dp
+ImageView
+
+
+当前温度
+文字的字体决定
+TextView
+
+
+当日温度范围
+文字的字体决定
+TextView
+
+
+地理位置">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_layout.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+          <span class="mail">QQ群：348702074</span><br/>
+          <span class="mail"></span>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                网站首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第1章-创意/"  >
+                <i class="icon icon-lg icon-birthday-cake"></i>
+                第1章 创意
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第2章-设计原理/"  >
+                <i class="icon icon-lg icon-eyedropper"></i>
+                第2章 设计原理
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第3章-产品原型/"  >
+                <i class="icon icon-lg icon-flask"></i>
+                第3章 产品原型
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resources/"  >
+                <i class="icon icon-lg icon-download"></i>
+                资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">7 天气详情的布局</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">7 天气详情的布局</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-24T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-01-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#天气详情的布局"><span class="post-toc-text">天气详情的布局</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#上下区域的划分"><span class="post-toc-text">上下区域的划分</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#天气图标与当日温度"><span class="post-toc-text">天气图标与当日温度</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加图片"><span class="post-toc-text">添加图片</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加温度"><span class="post-toc-text">添加温度</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#设置当前温度"><span class="post-toc-text">设置当前温度</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#设置温度范围"><span class="post-toc-text">设置温度范围</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加位置信息"><span class="post-toc-text">添加位置信息</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-4_开发/7_天气详情的布局"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">7 天气详情的布局</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年01月24日 9:00" datetime="2017-01-24T01:00:00.000Z"  itemprop="datePublished">2017-01-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="天气详情的布局"><a href="#天气详情的布局" class="headerlink" title="天气详情的布局"></a>天气详情的布局</h1><p>整体布局完成之后，我们开始进行<code>天气详情</code>区域的布局。</p>
+<p>这个区域由天气图标、当前温度、当日温度范围、地理位置等4个元素组成。我们可以选用<code>Android SDK</code>提供的现有控件，完成布局。</p>
+<table>
+<thead>
+<tr>
+<th>区域名称</th>
+<th>区域高度</th>
+<th>选用控件或布局</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>天气图标</td>
+<td>100dp</td>
+<td>ImageView</td>
+</tr>
+<tr>
+<td>当前温度</td>
+<td>文字的字体决定</td>
+<td>TextView</td>
+</tr>
+<tr>
+<td>当日温度范围</td>
+<td>文字的字体决定</td>
+<td>TextView</td>
+</tr>
+<tr>
+<td>地理位置</td>
+<td>文字的字体决定</td>
+<td>TextView</td>
+</tr>
+</tbody>
+</table>
+<p>这些区域的对齐分配，我们可以借助嵌套更多的<code>LinearLayout</code>来完成，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_layout.png" width="400" alt=" weather_app_weather_detail_layout"></div>
+
+
+<h2 id="上下区域的划分"><a href="#上下区域的划分" class="headerlink" title="上下区域的划分"></a>上下区域的划分</h2><p>将天气图标、当前温度、当日温度范围归为上半区域，地理位置归为下半区域，</p>
+<ol>
+<li>使用<code>LinearLayout</code>进行分割;</li>
+<li>给<code>天气详情</code>区域设置<code>Primary Color</code>-<code>#3F51B5</code>作为背景颜色；</li>
+<li>上半区域设置高度<code>android:layout_height</code>为<code>100dp</code>，上边距<code>android:layout_marginTop</code>为<code>24dp</code>；</li>
+<li>下半区域使用所有剩下的空间；</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">   <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">   <span class="attr">android:layout_height</span>=<span class="string">"244dp"</span></div><div class="line">   <span class="attr">android:background</span>=<span class="string">"#3F51B5"</span></div><div class="line">   <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">       <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">       <span class="attr">android:layout_height</span>=<span class="string">"100dp"</span></div><div class="line">       <span class="attr">android:layout_marginTop</span>=<span class="string">"24dp"</span></div><div class="line">       <span class="attr">android:background</span>=<span class="string">"#FFFF0000"</span>&gt;</div><div class="line">   <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">       <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">       <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">       <span class="attr">android:background</span>=<span class="string">"#FF00FF00"</span>&gt;</div><div class="line"></div><div class="line">   <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_segments.png" width="300" alt=" weather_app_weather_detail_segments"></div>
+
+
+<h2 id="天气图标与当日温度"><a href="#天气图标与当日温度" class="headerlink" title="天气图标与当日温度"></a>天气图标与当日温度</h2><p>天气图标与当日温度左右并列，</p>
+<ol>
+<li>为<code>LinearLayout</code>设置<code>horizontal</code>属性，使其内部的布局或控件水平排列，把它的高度修改成<code>wrap_content</code>；</li>
+<li><p>将<code>ImageView</code>放置在左边，宽度设置成<code>150dp</code>，高度设置成<code>wrap_content</code>；</p>
+<p> 同时给<code>ImageView</code>设定一个<code>id</code>-<code>android:id=&quot;@+id/weather_icon&quot;</code>。</p>
+<p> 设定了<code>id</code>，以后再代码中获取它对应的控件就很方便了，只需要像这样，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ImageView im = (ImageView) findViewById(R.id.weather_icon);</div></pre></td></tr></table></figure>
+<p> <code>java</code>源码通过<code>R.id.weather_icon</code>，将布局文件中的<code>ImageView</code>找了出来，转换成了可以通过<code>java</code>代码操作的对象。</p>
+</li>
+<li><p>将另一个<code>LinearLayout</code>放置在右边，宽度设置成<code>150dp</code>，高度设置成<code>100dp</code>；</p>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">  <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">  <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">  <span class="attr">android:layout_marginTop</span>=<span class="string">"24dp"</span></div><div class="line">  <span class="attr">android:background</span>=<span class="string">"#FFFF0000"</span></div><div class="line">  <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span>&gt;</div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">      <span class="attr">android:id</span>=<span class="string">"@+id/weather_icon"</span></div><div class="line">      <span class="attr">android:layout_width</span>=<span class="string">"150dp"</span></div><div class="line">      <span class="attr">android:layout_height</span>=<span class="string">"100dp"</span></div><div class="line">      <span class="attr">android:background</span>=<span class="string">"#FFFFFF00"</span>/&gt;</div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">      <span class="attr">android:layout_width</span>=<span class="string">"150dp"</span></div><div class="line">      <span class="attr">android:layout_height</span>=<span class="string">"100dp"</span></div><div class="line">      <span class="attr">android:background</span>=<span class="string">"#FF0000FF"</span>&gt;</div><div class="line"></div><div class="line">  <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_up_segment.png" width="500" alt=" weather_app_weather_detail_up_segment"></div>
+
+<p>此时布局很紧促，并且没有居中对齐，需要做进一步的设置，</p>
+<ol>
+<li>为<code>LinearLayout</code>设置<code>android:gravity=&quot;center&quot;</code>属性；让它内部的组件都能够居中放置；</li>
+<li>给<code>温度区域</code>设置上<code>20dp</code>的左边距<code>android:layout_marginLeft</code>；</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">  <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">  <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">  <span class="attr">android:layout_marginTop</span>=<span class="string">"24dp"</span></div><div class="line">  <span class="attr">android:background</span>=<span class="string">"#FFFF0000"</span></div><div class="line">  <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span></div><div class="line">  <span class="attr">android:gravity</span>=<span class="string">"center"</span>&gt;</div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">      <span class="attr">android:id</span>=<span class="string">"@+id/weather_icon"</span></div><div class="line">      <span class="attr">android:layout_width</span>=<span class="string">"150dp"</span></div><div class="line">      <span class="attr">android:layout_height</span>=<span class="string">"100dp"</span></div><div class="line">      <span class="attr">android:background</span>=<span class="string">"#FFFFFF00"</span>/&gt;</div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">      <span class="attr">android:layout_width</span>=<span class="string">"150dp"</span></div><div class="line">      <span class="attr">android:layout_height</span>=<span class="string">"100dp"</span></div><div class="line">      <span class="attr">android:background</span>=<span class="string">"#FF0000FF"</span></div><div class="line">      <span class="attr">android:layout_marginLeft</span>=<span class="string">"20dp"</span>&gt;</div><div class="line"></div><div class="line">  <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_up_segment_complete.png" width="500" alt=" weather_app_weather_detail_up_segment_complete"></div>
+
+<h3 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h3><p>将天气图标设置给<code>ImageView</code>，</p>
+<ol>
+<li>添加<code>android:src</code>属性，把图标id-<code>ic_sunny_cloudy_l</code>设置给它；</li>
+<li>添加<code>android:scaleType</code>属性，设置值为<code>center</code>；</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">  <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">  <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">  <span class="attr">android:layout_marginTop</span>=<span class="string">"24dp"</span></div><div class="line">  <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span></div><div class="line">  <span class="attr">android:gravity</span>=<span class="string">"center"</span>&gt;</div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">      <span class="attr">android:id</span>=<span class="string">"@+id/weather_icon"</span></div><div class="line">      <span class="attr">android:layout_width</span>=<span class="string">"150dp"</span></div><div class="line">      <span class="attr">android:layout_height</span>=<span class="string">"100dp"</span></div><div class="line">      <span class="attr">android:src</span>=<span class="string">"@mipmap/ic_sunny_cloudy_l"</span></div><div class="line">      <span class="attr">android:scaleType</span>=<span class="string">"center"</span>/&gt;</div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">      <span class="attr">android:layout_width</span>=<span class="string">"150dp"</span></div><div class="line">      <span class="attr">android:layout_height</span>=<span class="string">"100dp"</span></div><div class="line">      <span class="attr">android:background</span>=<span class="string">"#FF0000FF"</span></div><div class="line">      <span class="attr">android:layout_marginLeft</span>=<span class="string">"20dp"</span>&gt;</div><div class="line"></div><div class="line">  <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_weather_icon.png" width="500" alt=" weather_app_weather_detail_weather_icon"></div>
+
+<h3 id="添加温度"><a href="#添加温度" class="headerlink" title="添加温度"></a>添加温度</h3><p>使用<code>LinearLayout</code>将温度显示分为上下两个部分，显示温度的控件使用<code>TextView</code></p>
+<ol>
+<li>给<code>LinearLayout</code>的<code>orientation</code>设置为<code>horizontal</code>；</li>
+<li>为<code>LinearLayout</code>设置<code>android:gravity=&quot;center_horizontal&quot;</code>属性；让它内部的组件都能够居中放置；</li>
+<li>修改<code>LinearLayout</code>的高度为<code>wrap_content</code>;</li>
+<li>放入2个<code>TextView</code>，用来分别当日温度和温度范围，并分别给它们指定<code>id</code>-<code>current_temperature</code>和<code>temperature_range</code>；</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">  <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">  <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">  <span class="attr">android:layout_marginTop</span>=<span class="string">"24dp"</span></div><div class="line">  <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span></div><div class="line">  <span class="attr">android:gravity</span>=<span class="string">"center"</span>&gt;</div><div class="line"></div><div class="line">  ......</div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">      <span class="attr">android:layout_width</span>=<span class="string">"150dp"</span></div><div class="line">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">      <span class="attr">android:layout_marginLeft</span>=<span class="string">"20dp"</span></div><div class="line">      <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">      <span class="attr">android:gravity</span>=<span class="string">"center_horizontal"</span>&gt;</div><div class="line"></div><div class="line">      <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">          <span class="attr">android:id</span>=<span class="string">"@+id/current_temperature"</span></div><div class="line">          <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">          <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>/&gt;</div><div class="line"></div><div class="line">      <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">          <span class="attr">android:id</span>=<span class="string">"@+id/temperature_range"</span></div><div class="line">          <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">          <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>/&gt;</div><div class="line"></div><div class="line">  <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_temp_layout.png" width="500" alt=" weather_app_weather_detail_temp_layout"></div>
+
+<h4 id="设置当前温度"><a href="#设置当前温度" class="headerlink" title="设置当前温度"></a>设置当前温度</h4><p>给当前温度设置上一个预设的显示内容：</p>
+<ol>
+<li>设置<code>TextView</code>显示的文字内容，<code>android:text=&quot;23°&quot;</code>；</li>
+<li>设置<code>TextView</code>文字的大小，<code>android:textSize=&quot;56sp&quot;</code>；</li>
+<li>设置<code>TextView</code>文字的颜色，<code>android:textColor=&quot;#b3ffffff&quot;</code>；</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">     <span class="attr">android:id</span>=<span class="string">"@+id/current_temperature"</span></div><div class="line">     <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">     <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">     <span class="attr">android:text</span>=<span class="string">"23°"</span></div><div class="line">     <span class="attr">android:textColor</span>=<span class="string">"#b3ffffff"</span></div><div class="line">     <span class="attr">android:textSize</span>=<span class="string">"56sp"</span>/&gt;</div></pre></td></tr></table></figure>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_cur_temp_layout.png" width="300" alt=" weather_app_weather_detail_cur_temp_layout"></div>
+
+<h4 id="设置温度范围"><a href="#设置温度范围" class="headerlink" title="设置温度范围"></a>设置温度范围</h4><p>给温度范围设置上一个预设的显示内容：</p>
+<ol>
+<li>设置<code>TextView</code>显示的文字内容，<code>android:text=&quot;17℃～25℃&quot;</code>；</li>
+<li>设置<code>TextView</code>文字的大小，<code>android:textSize=&quot;24sp&quot;</code>；</li>
+<li>设置<code>TextView</code>文字的颜色，<code>android:textColor=&quot;#ffffffff&quot;</code>；</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">     <span class="attr">android:id</span>=<span class="string">"@+id/temperature_range"</span></div><div class="line">     <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">     <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">     <span class="attr">android:text</span>=<span class="string">"17℃～25℃"</span></div><div class="line">     <span class="attr">android:textColor</span>=<span class="string">"#ffffffff"</span></div><div class="line">     <span class="attr">android:textSize</span>=<span class="string">"24sp"</span>/&gt;</div></pre></td></tr></table></figure>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_range_temp_layout.png" width="300" alt=" weather_app_weather_detail_range_temp_layout"></div>
+
+<h2 id="添加位置信息"><a href="#添加位置信息" class="headerlink" title="添加位置信息"></a>添加位置信息</h2><p>将<code>TextView</code>添加到下部的<code>LinearLayout</code>当中：</p>
+<ol>
+<li>位置为垂直居中，给<code>LinearLayout</code>设置<code>android:gravity=&quot;center_vertical&quot;</code>；</li>
+<li>设置<code>TextView</code>的左边距为<code>24dp</code>；</li>
+<li>设置<code>TextView</code>显示的文字内容，<code>android:text=&quot;成都</code>；</li>
+<li>设置<code>TextView</code>文字的大小，<code>android:textSize=&quot;34sp&quot;</code>；</li>
+<li>设置<code>TextView</code>文字的颜色，<code>android:textColor=&quot;#ffffffff&quot;</code>；</li>
+<li><code>TextView</code>的<code>id</code>设置成<code>location</code></li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">  <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">  <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">  <span class="attr">android:gravity</span>=<span class="string">"center_vertical"</span>&gt;</div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">      <span class="attr">android:id</span>=<span class="string">"@+id/weather_location"</span></div><div class="line">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">      <span class="attr">android:layout_marginLeft</span>=<span class="string">"24dp"</span></div><div class="line">      <span class="attr">android:text</span>=<span class="string">"成都"</span></div><div class="line">      <span class="attr">android:textColor</span>=<span class="string">"#ffffffff"</span></div><div class="line">      <span class="attr">android:textSize</span>=<span class="string">"34sp"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_weather_detail_location_layout.png" width="500" alt=" weather_app_weather_detail_location_layout"></div>
+
+<p><em>这个区域的界面设计只是在<code>第1阶段</code>的实现中会使用到。当进入到<code>第2阶段</code>-使用<code>Material</code>设计规范来实现的时候，是不需要这个布局的，因为安卓系统能自动实现这个信息的显示。</em></p>
+<hr>
+<p>现在，天气详情的布局就全部完成了。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-16T08:05:46.000Z" itemprop="dateUpdated">2017年2月16日 16:05</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://booktest.anddle.com">
+            <img src="/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/7_天气详情的布局/&title=《7 天气详情的布局》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/7_天气详情的布局/&title=《7 天气详情的布局》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/4_开发/6_界面的整体布局/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">6 界面的整体布局</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/4_开发/8_天气预报的布局/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">8 天气预报的布局</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/7_天气详情的布局/&title=《7 天气详情的布局》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/7_天气详情的布局/&title=《7 天气详情的布局》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLklEQVR42u3aOW5jMRAFQN//0nI6gcV5rykb+GQxErSyFDR6+/qKz+ufs37+3TPvvjP5lY8dDAyMxzJey7N+z/o7k8/OXv3h1zEwMC5gJFdZB8okaLZXzIM1BgYGRnv19YXyq2NgYGDsBNz1tfZ5GBgYGLMiNrl00qpbl6O/XotjYGA8kJF33f/+8a/MNzAwMB7FeJUnHxK0Cd9r42BgYJzNyANc3hTLB5w7ARcDA+Mexk7JutXEj9fC1r+LgYFxA6O99Cwoz5Yq6qCMgYFxKGMdQGdJ4U46OEsxMTAwzmbkL++HyE+NJ4tyFwMD4whGUiLmQ4LZgkWbyf5nWwQDA+NQRjKYzJO2/RWKusGHgYFxDSNP12ZB9rPD0R/mGxgYGNcw2nWHJNFsF7/y5l09I8XAwHgsoy0481Sy/TuSdBADA+M2Rt7QnxWc+TJH24arc0wMDIzHMvKRZNu4b0mzv+Zt1xADA+MgxuwqswI1b/rngRgDA+Mexn4BOStl8yFlnSZiYGAcx2hTsXVI3RkttO+JeocYGBgHMdpB4yyNi9a8ZqEcAwPjGkbelG+bcTurFVFpjYGBcShjFljbgJikdzurHhgYGGcz8vPZwrUdcyZJJAYGxtmMvEBt2/dtAroVcDEwMC5gtIFvfzC5s9hRvICBgXElYxYuk0ZeksNiYGBgtMVky04+NUxDMTAwLmDkixRto21nIFqAMTAwjma0pWNb0M5GC7OwjoGBcRzjGwUNf63GnjfHAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261181710&web_id=1261181710')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>13 获取网络数据 | 从设计到实现 | 手把手教你做android应用开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="获取网络数据之前对数据的解析都是建立在假数据之上的，当网络端的开发者把真实数据上线以后，我们就可以通过网络获取真实的数据了。
+正如我们最早的假设前提那样，网络数据是由我构造好了放到自己的服务器上的，里面的内容并不是真实的当日天气，只是便于大家学习如何使用网络访问获取数据。
+我们这个示例的网络地址是：http://book.anddle.com/api/query_weather。
+大家通过浏览器打">
+<meta property="og:type" content="article">
+<meta property="og:title" content="13 获取网络数据">
+<meta property="og:url" content="http://booktest.anddle.com/4_开发/13_获取网络数据/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="获取网络数据之前对数据的解析都是建立在假数据之上的，当网络端的开发者把真实数据上线以后，我们就可以通过网络获取真实的数据了。
+正如我们最早的假设前提那样，网络数据是由我构造好了放到自己的服务器上的，里面的内容并不是真实的当日天气，只是便于大家学习如何使用网络访问获取数据。
+我们这个示例的网络地址是：http://book.anddle.com/api/query_weather。
+大家通过浏览器打">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/no_internet_access_permission.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/androidmanifest_file.png">
+<meta property="og:updated_time" content="2017-02-16T08:05:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="13 获取网络数据">
+<meta name="twitter:description" content="获取网络数据之前对数据的解析都是建立在假数据之上的，当网络端的开发者把真实数据上线以后，我们就可以通过网络获取真实的数据了。
+正如我们最早的假设前提那样，网络数据是由我构造好了放到自己的服务器上的，里面的内容并不是真实的当日天气，只是便于大家学习如何使用网络访问获取数据。
+我们这个示例的网络地址是：http://book.anddle.com/api/query_weather。
+大家通过浏览器打">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/no_internet_access_permission.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+          <span class="mail">QQ群：348702074</span><br/>
+          <span class="mail"></span>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                网站首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第1章-创意/"  >
+                <i class="icon icon-lg icon-birthday-cake"></i>
+                第1章 创意
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第2章-设计原理/"  >
+                <i class="icon icon-lg icon-eyedropper"></i>
+                第2章 设计原理
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第3章-产品原型/"  >
+                <i class="icon icon-lg icon-flask"></i>
+                第3章 产品原型
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resources/"  >
+                <i class="icon icon-lg icon-download"></i>
+                资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">13 获取网络数据</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">13 获取网络数据</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-02T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-02-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#获取网络数据"><span class="post-toc-text">获取网络数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取网络数据的通用方法"><span class="post-toc-text">获取网络数据的通用方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取天气预报数据"><span class="post-toc-text">获取天气预报数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#增加权限"><span class="post-toc-text">增加权限</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他访问网络数据的方式"><span class="post-toc-text">其他访问网络数据的方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#天气API"><span class="post-toc-text">天气API</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-4_开发/13_获取网络数据"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">13 获取网络数据</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月02日 9:00" datetime="2017-02-02T01:00:00.000Z"  itemprop="datePublished">2017-02-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="获取网络数据"><a href="#获取网络数据" class="headerlink" title="获取网络数据"></a>获取网络数据</h1><p>之前对数据的解析都是建立在假数据之上的，当网络端的开发者把真实数据上线以后，我们就可以通过网络获取真实的数据了。</p>
+<p>正如我们最早的假设前提那样，网络数据是由我构造好了放到自己的服务器上的，里面的内容并不是真实的当日天气，只是便于大家学习如何使用网络访问获取数据。</p>
+<p>我们这个示例的网络地址是：<a href="http://book.anddle.com/api/query_weather" target="_blank" rel="external">http://book.anddle.com/api/query_weather</a>。</p>
+<p>大家通过浏览器打开，可以看到它包含的内容与我们之前写死在代码中的内容完全一致。</p>
+<p>很多时候访问网络数据还需要传入访问的参数，就像我们使用<code>java语言</code>中的函数调用一样，同一个接口需要很多的参数。比如，我们这个天气信息的请求，可以携带地理位置的参数，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://book.anddle.com/api/query_weather?location=北京&amp;date=2017-01-01</div></pre></td></tr></table></figure>
+<p>尾部的<code>?</code>表示后面携带的都是参数，<code>location=北京&amp;date=2017-01-01</code>就是携带的参数。</p>
+<ol>
+<li>这些参数成键值对的形式出现，用<code>=</code>分割-<code>location=北京</code> <code>date=2017-01-01</code>；</li>
+<li>参数之间用<code>&amp;</code>分割；</li>
+</ol>
+<p>我们这里很简单，没有提供参数，只需要使用<code>http://book.anddle.com/api/query_weather</code>发出查询请求就可以了。</p>
+<p><em>准确的来讲，我们这里使用的都是<code>http</code>的<code>GET</code>方法获取数据，还有一种<code>POST</code>方法。<code>POST</code>方法不会在链接地址中明确的指出调用的参数是什么，而是会在<code>http</code>协议的报文中携带参数。将调用参数放在报文里会更加的安全，避免别人看到敏感的信息，比如用户名和密码。</em></p>
+<h2 id="获取网络数据的通用方法"><a href="#获取网络数据的通用方法" class="headerlink" title="获取网络数据的通用方法"></a>获取网络数据的通用方法</h2><p>现在的应用几乎都离不开网络访问，<code>Android SDK</code>已经继承了对网络访问的全面支持。</p>
+<p>使用<code>HttpURLConnection</code>，就能获取该链接下的内容，</p>
+<ol>
+<li><p>通过访问地址创建<code>URL</code>，</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">URL url = null;</div><div class="line">try &#123;</div><div class="line">    url = new URL(&quot;http://booktest.anddle.com/api/query_weather&quot;);</div><div class="line">    </div><div class="line">&#125; catch (MalformedURLException e) &#123;</div><div class="line">    e.printStackTrace();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>利用<code>HttpURLConnection</code>的<code>openConnection()</code>连接网络，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();</div><div class="line">    </div><div class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">    e.printStackTrace();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>通过打开的连接获取流接口，并通过流接口读取数据，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">InputStream in = <span class="keyword">null</span>;</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    in = <span class="keyword">new</span> BufferedInputStream(urlConnection.getInputStream());</div><div class="line">    <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">2048</span>];</div><div class="line">    <span class="keyword">int</span> readBytes = <span class="number">0</span>;</div><div class="line">    StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder();</div><div class="line">    <span class="keyword">while</span>((readBytes = in.read(buffer)) &gt; <span class="number">0</span>)&#123;</div><div class="line">        stringBuilder.append(<span class="keyword">new</span> String(buffer, <span class="number">0</span>, readBytes));</div><div class="line">    &#125;</div><div class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">    e.printStackTrace();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>关闭连接，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">urlConnection.disconnect();</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="获取天气预报数据"><a href="#获取天气预报数据" class="headerlink" title="获取天气预报数据"></a>获取天气预报数据</h2><p>使用<code>HttpURLConnection</code>获取天气数据的过程是个需要在工作线程中进行的工作。因此，需要将它放到<code>UpdateTask</code>的<code>doInBackground()</code>方法当中。</p>
+<p>将原有的写死的假数据移除，代替以真实的网络获取数据。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> Void <span class="title">doInBackground</span><span class="params">(Void... params)</span> </span>&#123;</div><div class="line">    Log.d(<span class="string">"TEST"</span>,<span class="string">"UpdateTask doInBackground - ThreadId = "</span> + Thread.currentThread().getId());</div><div class="line">    </div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">    </div><div class="line">        URL url = <span class="keyword">new</span> URL(<span class="string">"http://booktest.anddle.com/api/query_weather"</span>);</div><div class="line">        </div><div class="line">        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();</div><div class="line">        </div><div class="line">        InputStream in = <span class="keyword">new</span> BufferedInputStream(urlConnection.getInputStream());</div><div class="line">        <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">2048</span>];</div><div class="line">        <span class="keyword">int</span> readBytes = <span class="number">0</span>;</div><div class="line">        StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder();</div><div class="line">        <span class="keyword">while</span>((readBytes = in.read(buffer)) &gt; <span class="number">0</span>)&#123;</div><div class="line">        stringBuilder.append(<span class="keyword">new</span> String(buffer, <span class="number">0</span>, readBytes));</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        urlConnection.disconnect();</div><div class="line">        </div><div class="line">        String weatherRes = stringBuilder.toString();</div><div class="line">        </div><div class="line">        ......</div><div class="line">        </div><div class="line">   &#125; <span class="keyword">catch</span> (JSONException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">        Log.d(<span class="string">"TEST"</span>,<span class="string">"fail to parse JSON content"</span>);</div><div class="line">   &#125; <span class="keyword">catch</span> (MalformedURLException e) &#123;</div><div class="line">       e.printStackTrace();</div><div class="line">   &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">       e.printStackTrace();</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">     </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="增加权限"><a href="#增加权限" class="headerlink" title="增加权限"></a>增加权限</h2><p>安卓系统对每个应用程序都有严格的权限控制，如果程序要访问网络，必须明确的告诉用户。</p>
+<p>这是对用户利益的保护，谁也不愿意一个程序在自己不知情的情况下做一些可能会侵犯自己隐私的事情吧。</p>
+<p>如果不添加，那么程序在运行的时候会报这样的错误，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/no_internet_access_permission.png" width="500" alt=" no_internet_access_permission"></div>
+
+
+<p>添加<code>网络访问权限</code>很简单，打开项目工程的<code>AndroidManifest.xml</code>文件，在<code>application</code>标签之前，添加上<code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;</code>，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/androidmanifest_file.png" width="200" alt=" androidmanifest_file"></div>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">package</span>=<span class="string">"com.anddle.weatherapp"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span>/&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">application</span></span></div><div class="line">        <span class="attr">......</span>&gt;</div><div class="line">        ......</div><div class="line">    <span class="tag">&lt;/<span class="name">application</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这时运行程序就不会有问题了。</p>
+<hr>
+<p>至此，<code>天气预报</code>应用的功能就全部实现了。</p>
+<h2 id="其他访问网络数据的方式"><a href="#其他访问网络数据的方式" class="headerlink" title="其他访问网络数据的方式"></a>其他访问网络数据的方式</h2><p>在使用<code>AsyncTask</code>的过程中，我们可以体会到它的好处：将耗时不确定的操作与界面刷新整合在了一起，我们开发者不需要使用原始的<code>Thread</code>，不需要去考虑工作线程与主线程如何配合工作这个细节了。</p>
+<p>那么也许<code>Android SDK</code>还可以提供一个针对网络访问的异步解决方案：</p>
+<ol>
+<li>网络访问在工作线程中（不像<code>AsyncTask</code>提供的是一个通用的耗时操作）；</li>
+<li>界面刷新在主线程中；</li>
+</ol>
+<p>针对上面的需求，出现了一些不错的第三方解决方案，例如<br><code>OKHttp</code> <code>volley</code>等等。它们就像是一个个轮子，我们不需要重新开放这些功能了，直接拿过来用就可以了。</p>
+<p>在这系列的文章中，我们暂时不适用第三方库做开发，先充分的认识下<code>纯正的安卓开发</code>。</p>
+<h2 id="天气API"><a href="#天气API" class="headerlink" title="天气API"></a>天气API</h2><p>为了开发的方便、降低入门的难度，我自己写了一个简单的网络服务提供天气信息。但这并不是真实有效的信息，大家只能用来学习开发使用。</p>
+<p>但是互联网上有很多第三方机构提供了真实可用的天气预报。例如<a href="http://www.thinkpage.cn/" target="_blank" rel="external"><code>心知天气</code></a>。</p>
+<p>它提供了很多天气信息相关的调用接口。</p>
+<p>这些接口和我之前介绍的都很类似，例如查询当前天气的接口：<code>https://api.thinkpage.cn/v3/weather/now.json?key=your_api_key&amp;location=beijing&amp;language=zh-Hans&amp;unit=c</code></p>
+<p>返回的结果如下，</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  "results": [&#123;</div><div class="line">  "location": &#123;</div><div class="line">      "id": "C23NB62W20TF",</div><div class="line">      "name": "西雅图",</div><div class="line">      "country": "US",</div><div class="line">      "timezone": "America/Los_Angeles",</div><div class="line">      "timezone_offset": "-07:00"</div><div class="line">  &#125;,</div><div class="line">  "now": &#123;</div><div class="line">      "text": "多云", //天气现象文字</div><div class="line">      "code": "4", //天气现象代码</div><div class="line">      "temperature": "14", //温度，单位为c摄氏度或f华氏度</div><div class="line">      "feels_like": "14", //体感温度，单位为c摄氏度或f华氏度</div><div class="line">      "pressure": "1018", //气压，单位为mb百帕或in英寸</div><div class="line">      "humidity": "76", //相对湿度，0~100，单位为百分比</div><div class="line">      "visibility": "16.09", //能见度，单位为km公里或mi英里</div><div class="line">      "wind_direction": "西北", //风向文字</div><div class="line">      "wind_direction_degree": "340", //风向角度，范围0~360，0为正北，90为正东，180为正南，270为正西</div><div class="line">      "wind_speed": "8.05", //风速，单位为km/h公里每小时或mph英里每小时</div><div class="line">      "wind_scale": "2", //风力等级，请参考：http://baike.baidu.com/view/465076.htm</div><div class="line">      "clouds": "90", //云量，范围0~100，天空被云覆盖的百分比 #目前不支持中国城市#</div><div class="line">      "dew_point": "-12" //露点温度，请参考：http://baike.baidu.com/view/118348.htm #目前不支持中国城市#</div><div class="line">  &#125;,</div><div class="line">  "last_update": "2015-09-25T22:45:00-07:00" //数据更新时间（该城市的本地时间）</div><div class="line">  &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>关于这一段更为详细的描述请看它的<a href="http://www.thinkpage.cn/doc#now" target="_blank" rel="external">官方文档</a>，对每个参数和返回值都有解释。</p>
+<p>这是一个需要注册或者付费的服务，也是我没有选择使用它来做例子的原因。</p>
+<p>如果大家学习了本文很有兴趣，可以将查询天气信息的接口改成这里真实的服务地址，做成一个实用的应用。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-16T08:05:46.000Z" itemprop="dateUpdated">2017年2月16日 16:05</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://booktest.anddle.com">
+            <img src="/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/13_获取网络数据/&title=《13 获取网络数据》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/13_获取网络数据/&title=《13 获取网络数据》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/4_开发/12_数据的异步更新/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">12 数据的异步更新</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/4_开发/14_界面优化/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">14 界面优化</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/13_获取网络数据/&title=《13 获取网络数据》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/13_获取网络数据/&title=《13 获取网络数据》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3asa7kIAwF0Pf/Pz3bbLFN8u41k5UCh2qkSYCTwjI2Pz/x+Pwzrv69evLqrXaVLwwMDIzXMj63I38mgeXz1+tiYGAcwEi2ch/r7oPmbIvJ3jAwMDDy5K9NB/OAi4GBgTFj3AfNWVKYB3oMDIwzGbMULS/GtUfWB8/iGBgYL2TkVff///uR/gYGBsarGJ9yJAnl/fzf3c/fOTEwMLZmrG+o5bXtzyIZxcDA2JqRFLZWUro81UuOtRgYGKcx8kLYrOjWFtpmh2cMDIwTGPkC+eWwWdlu9uEwMDD2ZiQNyKQclieRbUuy+KwYGBjHMPI0sf0E3wrEl2thYGBsyshL/PcFr1nwbQP65TwYGBhHMtrLrPnz7btJWomBgXECY6X/2W432tZKoQ0DA+MAxqxklncSV65WYGBgYMwuQOT/tslf0UDFwMDYmpGX6WfBNG8A5OCiIYGBgbEFYxZSZ1croiRvVJ7DwMDYm7GeLM4ambMEsUgTMTAwtmPk4bUNpvmcyWeK2gMYGBhbM9qw2P6eNT7rgIuBgbE1Y/1SRbv1Nlj/cnzFwMDYlPEpR3JwLfoPZbi//BAYGBhbM9oDZ1vEXynhzZJIDAyMXRl5kG1hbXFtKeBiYGAcwJhd4coD6/r8vzyJgYGBMQqO7cz5ihgYGBhPHFDzVZJj7ZdTQwwMjJcw2quoTxTx21QSAwPjHEZ7dMybmnnj8+mjLwYGxmsZfwCZ7PoIRs0WdwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261181710&web_id=1261181710')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>

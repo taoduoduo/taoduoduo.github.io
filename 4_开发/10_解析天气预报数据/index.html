@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>10 解析天气预报数据 | 从设计到实现 | 手把手教你做android应用开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="解析天气预报数据界面布局完成以后，就需要设计代码来控制界面上各个元素的逻辑了。
+
+从网络获取天气预报数据；
+解析获取的数据；
+根据解析的结果更新天气预报界面；
+
+天气预报数据依赖于网络端的服务器，不是我们应用开发者自己能决定的。假如应用和网络服务器是两拨人同时在开发，极有可能出现应用端需要获取数据的时候，服务器端还没有准备好数据的情况。
+这种情况怎么办呢？
+我们应用开发者可以自己构造一个假数据，模">
+<meta property="og:type" content="article">
+<meta property="og:title" content="10 解析天气预报数据">
+<meta property="og:url" content="http://booktest.anddle.com/4_开发/10_解析天气预报数据/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="解析天气预报数据界面布局完成以后，就需要设计代码来控制界面上各个元素的逻辑了。
+
+从网络获取天气预报数据；
+解析获取的数据；
+根据解析的结果更新天气预报界面；
+
+天气预报数据依赖于网络端的服务器，不是我们应用开发者自己能决定的。假如应用和网络服务器是两拨人同时在开发，极有可能出现应用端需要获取数据的时候，服务器端还没有准备好数据的情况。
+这种情况怎么办呢？
+我们应用开发者可以自己构造一个假数据，模">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/debug_set_break_point.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/debug_watch_break_point_values.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/debug_watch_break_point_values_more.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/debug_break_point_shortcut.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/debug_log_information.png">
+<meta property="og:updated_time" content="2017-02-16T08:05:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="10 解析天气预报数据">
+<meta name="twitter:description" content="解析天气预报数据界面布局完成以后，就需要设计代码来控制界面上各个元素的逻辑了。
+
+从网络获取天气预报数据；
+解析获取的数据；
+根据解析的结果更新天气预报界面；
+
+天气预报数据依赖于网络端的服务器，不是我们应用开发者自己能决定的。假如应用和网络服务器是两拨人同时在开发，极有可能出现应用端需要获取数据的时候，服务器端还没有准备好数据的情况。
+这种情况怎么办呢？
+我们应用开发者可以自己构造一个假数据，模">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/debug_set_break_point.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+          <span class="mail">QQ群：348702074</span><br/>
+          <span class="mail"></span>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                网站首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第1章-创意/"  >
+                <i class="icon icon-lg icon-birthday-cake"></i>
+                第1章 创意
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第2章-设计原理/"  >
+                <i class="icon icon-lg icon-eyedropper"></i>
+                第2章 设计原理
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第3章-产品原型/"  >
+                <i class="icon icon-lg icon-flask"></i>
+                第3章 产品原型
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resources/"  >
+                <i class="icon icon-lg icon-download"></i>
+                资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">10 解析天气预报数据</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">10 解析天气预报数据</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-27T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-01-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#解析天气预报数据"><span class="post-toc-text">解析天气预报数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据格式"><span class="post-toc-text">数据格式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JSON初步"><span class="post-toc-text">JSON初步</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#天气数据"><span class="post-toc-text">天气数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#天气详情数据"><span class="post-toc-text">天气详情数据</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#天气预报数据"><span class="post-toc-text">天气预报数据</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#更多天气信息"><span class="post-toc-text">更多天气信息</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解析JSON数据"><span class="post-toc-text">解析JSON数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解析天气详情数据"><span class="post-toc-text">解析天气详情数据</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解析天气预报数据-1"><span class="post-toc-text">解析天气预报数据</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解析更多天气数据"><span class="post-toc-text">解析更多天气数据</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于调试"><span class="post-toc-text">关于调试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#断点调试"><span class="post-toc-text">断点调试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Log调试"><span class="post-toc-text">Log调试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#代码中添加Log"><span class="post-toc-text">代码中添加Log</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Log的查看"><span class="post-toc-text">Log的查看</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-4_开发/10_解析天气预报数据"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">10 解析天气预报数据</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年01月27日 9:00" datetime="2017-01-27T01:00:00.000Z"  itemprop="datePublished">2017-01-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="解析天气预报数据"><a href="#解析天气预报数据" class="headerlink" title="解析天气预报数据"></a>解析天气预报数据</h1><p>界面布局完成以后，就需要设计代码来控制界面上各个元素的逻辑了。</p>
+<ol>
+<li>从网络获取天气预报数据；</li>
+<li>解析获取的数据；</li>
+<li>根据解析的结果更新<code>天气预报</code>界面；</li>
+</ol>
+<p>天气预报数据依赖于网络端的服务器，不是我们应用开发者自己能决定的。假如应用和网络服务器是两拨人同时在开发，极有可能出现应用端需要获取数据的时候，服务器端还没有准备好数据的情况。</p>
+<p>这种情况怎么办呢？</p>
+<p>我们应用开发者可以自己<code>构造</code>一个假数据，模拟已经获取到真实数据的情形。当然，这样的假数据从格式到内容要尽量和网络端提供的真实数据一致。两者越是相同，后面使用真实数据时所作的修改就越是容易。</p>
+<p>所以在实际的开发项目中，应用开发者和网络端开发者会拟定一个<code>数据协议</code>，应用开发者看这个<code>协议</code>就知道假数据如何构造了，而不用总是打断网络端开发者的工作。网络端开发者的开发也会严格按照这个<code>协议</code>来执行，不然将来的配合就是鸡同鸭讲。</p>
+<p>这里我们先假设已经获取道了网络上的天气预报数据，看看如何来解析数据，并更新<code>天气预报界面</code>。</p>
+<h2 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h2><p>现在应用端（客户端）与网络端（服务器端）之间的数据交换，通常会使用两种格式的文本内容：<code>XML</code>与<code>JSON</code>。</p>
+<p>比如通过网络获取一个班级学生的信息（假设包含学生的姓名、年龄、性别等3个内容）。</p>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>年龄</th>
+<th>性别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>赵一</td>
+<td>15</td>
+<td>男</td>
+</tr>
+<tr>
+<td>钱二</td>
+<td>14</td>
+<td>女</td>
+</tr>
+<tr>
+<td>孙三</td>
+<td>16</td>
+<td>女</td>
+</tr>
+<tr>
+<td>李四</td>
+<td>12</td>
+<td>男</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>使用<code>XML</code>来传递信息，可能的内容就是：</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">students</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">student</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>赵一<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">age</span>&gt;</span>15<span class="tag">&lt;/<span class="name">age</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">sex</span>&gt;</span>男<span class="tag">&lt;/<span class="name">sex</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">student</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">student</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>钱二<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">age</span>&gt;</span>14<span class="tag">&lt;/<span class="name">age</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">sex</span>&gt;</span>女<span class="tag">&lt;/<span class="name">sex</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">student</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">student</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>孙三<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">age</span>&gt;</span>16<span class="tag">&lt;/<span class="name">age</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">sex</span>&gt;</span>女<span class="tag">&lt;/<span class="name">sex</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">student</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">student</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>李四<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">age</span>&gt;</span>12<span class="tag">&lt;/<span class="name">age</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">sex</span>&gt;</span>男<span class="tag">&lt;/<span class="name">sex</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">student</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">students</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>  每个节点<code>&lt;&gt;</code>代表一个数据。</p>
+</li>
+<li><p>使用<code>JSON</code>来传递信息，可能的内容就是：</p>
+  <figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">"students"</span>:</div><div class="line">	[</div><div class="line">		&#123;</div><div class="line">			<span class="attr">"name"</span>:<span class="string">"赵一"</span>, </div><div class="line">			<span class="attr">"age"</span>:<span class="string">"15"</span>, </div><div class="line">			<span class="attr">"sex"</span>:<span class="string">"男"</span></div><div class="line">		&#125;,</div><div class="line">		&#123;</div><div class="line">			<span class="attr">"name"</span>:<span class="string">"钱二"</span>, </div><div class="line">			<span class="attr">"age"</span>:<span class="string">"14"</span>, </div><div class="line">			<span class="attr">"sex"</span>:<span class="string">"女"</span></div><div class="line">		&#125;,</div><div class="line">		&#123;</div><div class="line">			<span class="attr">"name"</span>:<span class="string">"孙三"</span>, </div><div class="line">			<span class="attr">"age"</span>:<span class="string">"16"</span>, </div><div class="line">			<span class="attr">"sex"</span>:<span class="string">"女"</span></div><div class="line">		&#125;,</div><div class="line">		&#123;</div><div class="line">			<span class="attr">"name"</span>:<span class="string">"李四"</span>, </div><div class="line">			<span class="attr">"age"</span>:<span class="string">"12"</span>, </div><div class="line">			<span class="attr">"sex"</span>:<span class="string">"男"</span></div><div class="line">		&#125;</div><div class="line">	]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>XML</code>与<code>JSON</code>相比，<code>JSON</code>格式的数据占用的空间更小，表达方式更简洁一些。所以<code>JSON</code>似乎更受开发者的欢迎。</p>
+<p>我们这里采用的就是<code>JSON</code>格式的数据。</p>
+<h3 id="JSON初步"><a href="#JSON初步" class="headerlink" title="JSON初步"></a>JSON初步</h3><p><code>JSON</code>格式的理解也很简单。</p>
+<ul>
+<li><p>数据由<code>名称</code>和<code>取值</code>构成，例如<code>&quot;name&quot;:&quot;李四&quot;</code>，</p>
+<ol>
+<li>它们由<code>:</code>分隔开，并且用<code>&quot;</code>括了起来（对于数值型的取值可以不用引号扩起来，但为了简化大家记忆的规则，都还是扩起来吧）；</li>
+<li><p><code>:</code>后面可以跟<code>[]</code>，也可以跟<code>{}</code>；不同的括号，代表数据的不同类型；</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"name":"李四"</div><div class="line">"age":"12"</div><div class="line">"sex":"男"</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>使用<code>{}</code>，表现的是同一个事物的不同项，</p>
+  <figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"name"</span>:<span class="string">"李四"</span></div><div class="line">    <span class="string">"age"</span>:<span class="string">"12"</span></div><div class="line">    <span class="string">"sex"</span>:<span class="string">"男"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>使用<code>[]</code>，表现的是同一类事物，内部会有多个平级的数据项；</p>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">"data":</div><div class="line">	[</div><div class="line">		&#123;</div><div class="line">			"item":"1", </div><div class="line">		&#125;,</div><div class="line">		&#123;</div><div class="line">			"item":"2", </div><div class="line">		&#125;,</div><div class="line">		&#123;</div><div class="line">			"item":"3", </div><div class="line">		&#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="天气数据"><a href="#天气数据" class="headerlink" title="天气数据"></a>天气数据</h3><p>根据之前的功能规划，我们确定了网络数据的格式，拿出一个实实在在的例子感受一下吧：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"error_code"</span>: <span class="string">"0"</span>,</div><div class="line">    <span class="attr">"data"</span>: &#123;</div><div class="line">        <span class="attr">"location"</span>: <span class="string">"成都"</span>,</div><div class="line">        <span class="attr">"temperature"</span>: <span class="string">"23°"</span>,</div><div class="line">        <span class="attr">"temperature_range"</span>: <span class="string">"18℃~23℃"</span>,</div><div class="line">        <span class="attr">"weather_code"</span>: <span class="string">"5"</span>,</div><div class="line">        <span class="attr">"wind_direction"</span>: <span class="string">"东南"</span>,</div><div class="line">        <span class="attr">"wind_level"</span>: <span class="string">"1级"</span>,</div><div class="line">        <span class="attr">"humidity_level"</span>: <span class="string">"30%"</span>,</div><div class="line">        <span class="attr">"air_quality"</span>: <span class="string">"良"</span>,</div><div class="line">        <span class="attr">"sport_level"</span>: <span class="string">"适宜"</span>,</div><div class="line">        <span class="attr">"ultraviolet_ray"</span>: <span class="string">"弱"</span>,</div><div class="line">        <span class="attr">"forcast"</span>: [</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"date"</span>: <span class="string">"明天"</span>,</div><div class="line">                <span class="attr">"temperature_range"</span>: <span class="string">"18℃~23℃"</span>,</div><div class="line">                <span class="attr">"weather_code"</span>: <span class="string">"0"</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"date"</span>: <span class="string">"星期六"</span>,</div><div class="line">                <span class="attr">"temperature_range"</span>: <span class="string">"17℃~21℃"</span>,</div><div class="line">                <span class="attr">"weather_code"</span>: <span class="string">"1"</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"date"</span>: <span class="string">"星期日"</span>,</div><div class="line">                <span class="attr">"temperature_range"</span>: <span class="string">"19℃~24℃"</span>,</div><div class="line">                <span class="attr">"weather_code"</span>: <span class="string">"3"</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"date"</span>: <span class="string">"星期一"</span>,</div><div class="line">                <span class="attr">"temperature_range"</span>: <span class="string">"16℃~22℃"</span>,</div><div class="line">                <span class="attr">"weather_code"</span>: <span class="string">"4"</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"date"</span>: <span class="string">"星期二"</span>,</div><div class="line">                <span class="attr">"temperature_range"</span>: <span class="string">"20℃~26℃"</span>,</div><div class="line">                <span class="attr">"weather_code"</span>: <span class="string">"2"</span></div><div class="line">            &#125;</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以看到整个数据分成了两个大的部分，</p>
+<ul>
+<li><p><code>error_code</code>：网络端服务器返回的错误代码，假如服务器发现自身有问题，可以通过这个字段的数值告诉客户端。客户端收到返回值以后，首先要检查这个字段是否为<code>0</code>。对于<code>非0</code>值，我们就要警惕了，说明<code>data</code>字段的取值也许就是无效的了。</p>
+<p>  不过你也要记住，这个返回的<code>JSON</code>内容，都是应用开发者和网络开发者协商好的，你们也可以不设计<code>error_code</code>这个字段。但是目前大家已经形成了一个不成文的规定，都将这个字段作为<code>JSON</code>数据的标配。</p>
+</li>
+<li><p><code>data</code>：携带我们真正关心的实际数据，所有天气相关的数据都放在这个字段当中。</p>
+</li>
+</ul>
+<p>接下来的分析，我们将集中于<code>data</code>字段。</p>
+<h4 id="天气详情数据"><a href="#天气详情数据" class="headerlink" title="天气详情数据"></a>天气详情数据</h4><p>天气详情数据需要使用到如下内容，</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">"location": "成都",</div><div class="line">"temperature": "23°",</div><div class="line">"temperature_range": "18℃~23℃",</div><div class="line">"weather_code": "5",</div></pre></td></tr></table></figure>
+<p>大部分数据的取值就是我们要显示到界面上的内容，这很简单。例如，</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>取值</th>
+<th>显示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>location</td>
+<td>成都</td>
+<td>成都</td>
+</tr>
+<tr>
+<td>temperature</td>
+<td>23°</td>
+<td>23°</td>
+</tr>
+<tr>
+<td>temperature_range</td>
+<td>18℃~23℃</td>
+<td>18℃~23℃</td>
+</tr>
+</tbody>
+</table>
+<p><code>weather_code</code>字段，取值是数值，不同的数值，代表了不同的天气状态，</p>
+<table>
+<thead>
+<tr>
+<th>取值</th>
+<th>天气状态</th>
+<th>应用显示对应的图标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>晴</td>
+<td>R.mipmap.ic_sunny_l</td>
+</tr>
+<tr>
+<td>1</td>
+<td>雨</td>
+<td>R.mipmap.ic_rainy_l</td>
+</tr>
+<tr>
+<td>2</td>
+<td>多云</td>
+<td>R.mipmap.ic_cloudy_l</td>
+</tr>
+<tr>
+<td>3</td>
+<td>雾</td>
+<td>R.mipmap.ic_fog_l</td>
+</tr>
+<tr>
+<td>4</td>
+<td>雪</td>
+<td>R.mipmap.ic_snow_l</td>
+</tr>
+<tr>
+<td>5</td>
+<td>晴间多云</td>
+<td>R.mipmap.ic_sunny_cloudy_l</td>
+</tr>
+</tbody>
+</table>
+<h4 id="天气预报数据"><a href="#天气预报数据" class="headerlink" title="天气预报数据"></a>天气预报数据</h4><p>天气预报数据包含5个子项，</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">"forcast": [</div><div class="line">      &#123;</div><div class="line">          "date": "明天",</div><div class="line">          "temperature_range": "18℃~23℃",</div><div class="line">          "weather_code": "0"</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">          "date": "星期六",</div><div class="line">          "temperature_range": "17℃~21℃",</div><div class="line">          "weather_code": "1"</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">          "date": "星期日",</div><div class="line">          "temperature_range": "19℃~24℃",</div><div class="line">          "weather_code": "3"</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">          "date": "星期一",</div><div class="line">          "temperature_range": "16℃~22℃",</div><div class="line">          "weather_code": "4"</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">          "date": "星期二",</div><div class="line">          "temperature_range": "20℃~26℃",</div><div class="line">          "weather_code": "2"</div><div class="line">      &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>大部分数据的取值就是我们要显示到界面上的内容，这很简单。例如，</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>取值</th>
+<th>显示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date</td>
+<td>星期一</td>
+<td>星期一</td>
+</tr>
+<tr>
+<td>temperature_range</td>
+<td>16℃~22℃</td>
+<td>16℃~22℃</td>
+</tr>
+</tbody>
+</table>
+<p><code>weather_code</code>字段，取值是数值，不同的数值，代表了不同的天气状态，对它的理解与天气预报数据中的<code>weather_code</code>一样，只是图标变小了，</p>
+<table>
+<thead>
+<tr>
+<th>取值</th>
+<th>天气状态</th>
+<th>应用显示对应的图标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>晴</td>
+<td>R.mipmap.ic_sunny_s</td>
+</tr>
+<tr>
+<td>1</td>
+<td>雨</td>
+<td>R.mipmap.ic_rainy_s</td>
+</tr>
+<tr>
+<td>2</td>
+<td>多云</td>
+<td>R.mipmap.ic_cloudy_s</td>
+</tr>
+<tr>
+<td>3</td>
+<td>雾</td>
+<td>R.mipmap.ic_fog_s</td>
+</tr>
+<tr>
+<td>4</td>
+<td>雪</td>
+<td>R.mipmap.ic_snow_s</td>
+</tr>
+<tr>
+<td>5</td>
+<td>晴间多云</td>
+<td>R.mipmap.ic_sunny_cloudy_s</td>
+</tr>
+</tbody>
+</table>
+<h4 id="更多天气信息"><a href="#更多天气信息" class="headerlink" title="更多天气信息"></a>更多天气信息</h4><p>更多天气信息需要使用到如下内容，</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">"wind_direction": "东南",</div><div class="line">"wind_level": "1级",</div><div class="line">"humidity_level": "30%",</div><div class="line">"air_quality": "良",</div><div class="line">"sport_level": "适宜",</div><div class="line">"ultraviolet_ray": "弱"</div></pre></td></tr></table></figure>
+<p>大部分数据的取值就是我们要显示到界面上的内容，这很简单。例如，</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>取值</th>
+<th>显示</th>
+<th>使用的图标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wind_direction</td>
+<td>东南</td>
+<td>东南</td>
+<td>R.mipmap.ic_wind_direction</td>
+</tr>
+<tr>
+<td>wind_level</td>
+<td>1级</td>
+<td>1级</td>
+<td>R.mipmap.ic_wind_level</td>
+</tr>
+<tr>
+<td>humidity_level</td>
+<td>30%</td>
+<td>30%</td>
+<td>R.mipmap.ic_humidity_level</td>
+</tr>
+<tr>
+<td>air_quality</td>
+<td>良</td>
+<td>良</td>
+<td>R.mipmap.ic_air_quality</td>
+</tr>
+<tr>
+<td>sport_level</td>
+<td>适宜</td>
+<td>适宜</td>
+<td>R.mipmap.ic_sport_level</td>
+</tr>
+<tr>
+<td>ultraviolet_ray</td>
+<td>弱</td>
+<td>弱</td>
+<td>R.mipmap.ic_ultraviolet_level</td>
+</tr>
+</tbody>
+</table>
+<h2 id="解析JSON数据"><a href="#解析JSON数据" class="headerlink" title="解析JSON数据"></a>解析JSON数据</h2><p><code>Android SDK</code>给我们提供了非常好的<code>JSON</code>解析支持，我们不需要冲头去写一个解析器，直接拿过来用就好了。</p>
+<ol>
+<li><p>添加<code>JSON</code>假数据，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String FAKE_DATA= <span class="string">"&#123;\n"</span> +</div><div class="line">            <span class="string">"    \"error_code\": \"0\",\n"</span> +</div><div class="line">            <span class="string">"    \"data\": &#123;\n"</span> +</div><div class="line">            <span class="string">"        \"location\": \"成都\",\n"</span> +</div><div class="line">            <span class="string">"        \"temperature\": \"23°\",\n"</span> +</div><div class="line">            <span class="string">"        \"temperature_range\": \"18℃~23℃\",\n"</span> +</div><div class="line">            <span class="string">"        \"weather_code\": \"5\",\n"</span> +</div><div class="line">            <span class="string">"        \"wind_direction\": \"东南\",\n"</span> +</div><div class="line">            <span class="string">"        \"wind_level\": \"1级\",\n"</span> +</div><div class="line">            <span class="string">"        \"humidity_level\": \"30%\",\n"</span> +</div><div class="line">            <span class="string">"        \"air_quality\": \"良\",\n"</span> +</div><div class="line">            <span class="string">"        \"sport_level\": \"适宜\",\n"</span> +</div><div class="line">            <span class="string">"        \"ultraviolet_ray\": \"弱\",\n"</span> +</div><div class="line">            <span class="string">"        \"forcast\": [\n"</span> +</div><div class="line">            <span class="string">"            &#123;\n"</span> +</div><div class="line">            <span class="string">"                \"date\": \"明天\",\n"</span> +</div><div class="line">            <span class="string">"                \"temperature_range\": \"18℃~23℃\",\n"</span> +</div><div class="line">            <span class="string">"                \"weather_code\": \"0\"\n"</span> +</div><div class="line">            <span class="string">"            &#125;,\n"</span> +</div><div class="line">            <span class="string">"            &#123;\n"</span> +</div><div class="line">            <span class="string">"                \"date\": \"星期六\",\n"</span> +</div><div class="line">            <span class="string">"                \"temperature_range\": \"17℃~21℃\",\n"</span> +</div><div class="line">            <span class="string">"                \"weather_code\": \"1\"\n"</span> +</div><div class="line">            <span class="string">"            &#125;,\n"</span> +</div><div class="line">            <span class="string">"            &#123;\n"</span> +</div><div class="line">            <span class="string">"                \"date\": \"星期日\",\n"</span> +</div><div class="line">            <span class="string">"                \"temperature_range\": \"19℃~24℃\",\n"</span> +</div><div class="line">            <span class="string">"                \"weather_code\": \"3\"\n"</span> +</div><div class="line">            <span class="string">"            &#125;,\n"</span> +</div><div class="line">            <span class="string">"            &#123;\n"</span> +</div><div class="line">            <span class="string">"                \"date\": \"星期一\",\n"</span> +</div><div class="line">            <span class="string">"                \"temperature_range\": \"16℃~22℃\",\n"</span> +</div><div class="line">            <span class="string">"                \"weather_code\": \"4\"\n"</span> +</div><div class="line">            <span class="string">"            &#125;,\n"</span> +</div><div class="line">            <span class="string">"            &#123;\n"</span> +</div><div class="line">            <span class="string">"                \"date\": \"星期二\",\n"</span> +</div><div class="line">            <span class="string">"                \"temperature_range\": \"20℃~26℃\",\n"</span> +</div><div class="line">            <span class="string">"                \"weather_code\": \"2\"\n"</span> +</div><div class="line">            <span class="string">"            &#125;\n"</span> +</div><div class="line">            <span class="string">"        ]\n"</span> +</div><div class="line">            <span class="string">"    &#125;\n"</span> +</div><div class="line">            <span class="string">"&#125;"</span>;</div><div class="line">......</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除之前为<code>更多天气信息</code>而创建的假数据，同时在<code>onCreate()</code>中创建一个<code>JSON</code>解析器，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    ......</div><div class="line">    </div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        JSONObject weatherResult = <span class="keyword">new</span> JSONObject(FAKE_DATA);</div><div class="line">    &#125; <span class="keyword">catch</span> (JSONException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> <code>Android Studio</code>会提示你处理<code>try catch</code>异常。假如程序运行时解析<code>JSON</code>字符串遇到了问题，会通过异常报错，让我们做进一步的处理。</p>
+</li>
+<li><p>解析<code>error_code</code>，判断数据是否可用，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">try</span> &#123;</div><div class="line">         JSONObject weatherResult = <span class="keyword">new</span> JSONObject(FAKE_DATA);</div><div class="line">         <span class="keyword">int</span> errorCode = weatherResult.getInt(<span class="string">"error_code"</span>);</div><div class="line">         <span class="keyword">if</span>(errorCode == <span class="number">0</span>) &#123;</div><div class="line">         </div><div class="line">         &#125;</div><div class="line">         <span class="keyword">else</span> &#123;</div><div class="line">         </div><div class="line">         &#125;</div><div class="line">&#125; <span class="keyword">catch</span> (JSONException e) &#123;</div><div class="line">    e.printStackTrace();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 这里使用了<code>getInt(&quot;error_code&quot;)</code>来获取<code>error</code>字段对应的值，并且把这个值解析成数值<code>int</code>类型。</p>
+</li>
+</ol>
+<h3 id="解析天气详情数据"><a href="#解析天气详情数据" class="headerlink" title="解析天气详情数据"></a>解析天气详情数据</h3><ol>
+<li>通过<code>getJSONObject(&quot;data&quot;)</code> 获取<code>data</code>字段的数据结构；</li>
+<li>通过<code>getString(xxx)</code>、<code>getInt(xxx)</code>获取<code>location</code> <code>temperature</code> <code>temperature_range</code> <code>weather_code</code>等字段的具体内容；</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(errorCode == <span class="number">0</span>) &#123;</div><div class="line">    JSONObject data = weatherResult.getJSONObject(<span class="string">"data"</span>);</div><div class="line">    String location = data.getString(<span class="string">"location"</span>);</div><div class="line">    String temperature = data.getString(<span class="string">"temperature"</span>);</div><div class="line">    String temperatureRange = data.getString(<span class="string">"temperature_range"</span>);</div><div class="line">    <span class="keyword">int</span> weatherCode = data.getInt(<span class="string">"weather_code"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="解析天气预报数据-1"><a href="#解析天气预报数据-1" class="headerlink" title="解析天气预报数据"></a>解析天气预报数据</h3><ol>
+<li><p>通过<code>getJSONArray(&quot;forcast&quot;)</code>获取<code>forcast</code>字段下所有的天气预报子项，一共有5个子项；</p>
+</li>
+<li><p>通过<code>getString(xxx)</code>和<code>getInt(xxx)</code>，获取<code>date</code> <code>temperature_range</code> <code>weather_code</code>等字段的内容；</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(errorCode == <span class="number">0</span>) &#123;</div><div class="line">    ......</div><div class="line">    </div><div class="line">    JSONArray forcast = data.getJSONArray(<span class="string">"forcast"</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; forcast.length(); i++) &#123;</div><div class="line">        JSONObject forcastItem = forcast.getJSONObject(i);</div><div class="line">        String date = forcastItem.getString(<span class="string">"date"</span>);</div><div class="line">        String forcastTemperatureRange = forcastItem.getString(<span class="string">"temperature_range"</span>);</div><div class="line">        <span class="keyword">int</span> forcastWeatherCode = forcastItem.getInt(<span class="string">"weather_code"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="解析更多天气数据"><a href="#解析更多天气数据" class="headerlink" title="解析更多天气数据"></a>解析更多天气数据</h3><p>通过<code>getString(xxx)</code>获取<code>wind_direction</code> <code>wind_level</code> <code>humidity_level</code> <code>air_quality</code> <code>sport_level</code> <code>ultraviolet_ray</code>等字段的具体内容；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(errorCode == <span class="number">0</span>) &#123;</div><div class="line">    ......</div><div class="line">    </div><div class="line">    String windDirection = data.getString(<span class="string">"wind_direction"</span>);</div><div class="line">    String windLevel = data.getString(<span class="string">"wind_level"</span>);</div><div class="line">    String humidityLevel = data.getString(<span class="string">"humidity_level"</span>);</div><div class="line">    String airQuality = data.getString(<span class="string">"air_quality"</span>);</div><div class="line">    String sportLevel = data.getString(<span class="string">"sport_level"</span>);</div><div class="line">    String ultravioletRay = data.getString(<span class="string">"ultraviolet_ray"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<p>完整的代码如下，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">   ......</div><div class="line">   </div><div class="line">   <span class="keyword">try</span> &#123;</div><div class="line">        JSONObject weatherResult = <span class="keyword">new</span> JSONObject(FAKE_DATA);</div><div class="line">        <span class="keyword">int</span> errorCode = weatherResult.getInt(<span class="string">"error_code"</span>);</div><div class="line">        <span class="keyword">if</span>(errorCode == <span class="number">0</span>) &#123;</div><div class="line">            JSONObject data = weatherResult.getJSONObject(<span class="string">"data"</span>);</div><div class="line">            String location = data.getString(<span class="string">"location"</span>);</div><div class="line">            String temperature = data.getString(<span class="string">"temperature"</span>);</div><div class="line">            String temperatureRange = data.getString(<span class="string">"temperature_range"</span>);</div><div class="line">            <span class="keyword">int</span> weatherCode = data.getInt(<span class="string">"weather_code"</span>);</div><div class="line">            </div><div class="line">            JSONArray forcast = data.getJSONArray(<span class="string">"forcast"</span>);</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; forcast.length(); i++) &#123;</div><div class="line">                JSONObject forcastItem = forcast.getJSONObject(i);</div><div class="line">                String date = forcastItem.getString(<span class="string">"date"</span>);</div><div class="line">                String forcastTemperatureRange = forcastItem.getString(<span class="string">"temperature_range"</span>);</div><div class="line">                <span class="keyword">int</span> forcastWeatherCode = forcastItem.getInt(<span class="string">"weather_code"</span>);</div><div class="line">            </div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            String windDirection = data.getString(<span class="string">"wind_direction"</span>);</div><div class="line">            String windLevel = data.getString(<span class="string">"wind_level"</span>);</div><div class="line">            String humidityLevel = data.getString(<span class="string">"humidity_level"</span>);</div><div class="line">            String airQuality = data.getString(<span class="string">"air_quality"</span>);</div><div class="line">            String sportLevel = data.getString(<span class="string">"sport_level"</span>);</div><div class="line">            String ultravioletRay = data.getString(<span class="string">"ultraviolet_ray"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">    </div><div class="line">        &#125;</div><div class="line">   &#125; <span class="keyword">catch</span> (JSONException e) &#123;</div><div class="line">       e.printStackTrace();</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="关于调试"><a href="#关于调试" class="headerlink" title="关于调试"></a>关于调试</h2><p>解析的数据需要更新到界面上。但是在解析的过程中，我们希望能尽早看到解析的结果是否正确。</p>
+<p><code>Android Studio</code>为我们提供了两种调试代码、看到代码运行到中间状态的方法：<code>断点调试</code>和<code>Log调试</code>。</p>
+<h3 id="断点调试"><a href="#断点调试" class="headerlink" title="断点调试"></a>断点调试</h3><p>断点调试让程序在运行到某一个状态的时候，冻结应用运行的状态，仿佛时间停止了一般。然后让我们有时间逐一观察此时程序的各个参数是否符合我们的预期。</p>
+<p>这种调试方法适用于对时间不敏感的程序。也就是说被调试的程序线程不需要依赖别的线程，即使暂时停止工作也不会影响别的工作线程或者受别的工作线程影响。</p>
+<ol>
+<li><p>在希望代码暂停运行的地方打断点——在代码前点击一下，出现一个红色的圆点，如果想取消，再点击一次即可。</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/debug_set_break_point.png" width="500" alt=" debug_set_break_point"></div></li>
+<li><p>用<code>debug run</code>的方式(ctrl+D)部署程序。当程序运行到设置了端点的位置时，程序将停止下来，切换到<code>Debug</code>窗口。这时，我们就可以观察各个参数了。</p>
+<p> 例如下图右半区域就列出了停止时，各个变量的值；左边区域展示了当时函数到调用栈（谁调用的这个函数）情况。我们可以逐一分析，详细观察，看这些值是否符合我们的预期。</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/debug_watch_break_point_values.png" width="500" alt=" debug_watch_break_point_values"></div></li>
+<li><p>使用菜单栏中的<code>Run -&gt; Step Over</code>(或者快捷键F8)，能让程序往下执行一步。多按几次，就会依次往下执行几次。</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/debug_watch_break_point_values_more.png" width="600" alt=" debug_watch_break_point_values_more"></div>
+
+<p> 这里可以看到我们解析的天气预报数据都没有问题。</p>
+</li>
+</ol>
+<p>端点调试有很多的快捷按键，都是值得我们记住的，可以大大加快我们的开发效率。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/debug_break_point_shortcut.png" width="250" alt=" debug_break_point_shortcut"></div>
+
+
+<h3 id="Log调试"><a href="#Log调试" class="headerlink" title="Log调试"></a>Log调试</h3><p>对于那些和时间相关的程序（不能让程序暂停，等你慢慢观察），我们就不能使用静态的设置断点的调试方法了，得采用动态调试，添加log的方式。</p>
+<p>Log的中文名字叫做日志，在编程界表示程序运行过程中打印出的信息。根据log我们就知道现在程序运行到什么地方了，log还可以携带程序中某些变量的信息输出，让我们更精准的知道程序当前运行的状态。</p>
+<h4 id="代码中添加Log"><a href="#代码中添加Log" class="headerlink" title="代码中添加Log"></a>代码中添加Log</h4><p>在代码中添加一段函数，就能通过特别的工具输出这些log。我们在创建工程的时候就用过了，</p>
+<p>在Android代码中添加log的方式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.activity_main);</div><div class="line">    Log.d(<span class="string">"TEST"</span>, <span class="string">"Weather app launched"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里面使用了Android提供的Log库，<code>Log.d</code>代表信息属于<code>Debug</code>类型。</p>
+<p>我们给解析出的天气预报数据，都一一加上Log信息。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">try &#123;</div><div class="line">    Log.d("TEST","start to parse JSON content");</div><div class="line">    </div><div class="line">    JSONObject weatherResult = new JSONObject(FAKE_DATA);</div><div class="line">    int errorCode = weatherResult.getInt("error_code");</div><div class="line">    Log.d("TEST", "error_code = " + errorCode);</div><div class="line">    if(errorCode == 0) &#123;</div><div class="line">        JSONObject data = weatherResult.getJSONObject("data");</div><div class="line">        String location = data.getString("location");</div><div class="line">        String temperature = data.getString("temperature");</div><div class="line">        String temperatureRange = data.getString("temperature_range");</div><div class="line">        int weatherCode = data.getInt("weather_code");</div><div class="line">        </div><div class="line">        Log.d("TEST","weather detail info: "+</div><div class="line">            "location=" + location +</div><div class="line">            "temperature=" + temperature +</div><div class="line">            "temperatureRange=" + temperatureRange +</div><div class="line">            "weatherCode=" + weatherCode);</div><div class="line">        </div><div class="line">        JSONArray forcast = data.getJSONArray("forcast");</div><div class="line">        for(int i = 0; i &lt; forcast.length(); i++) &#123;</div><div class="line">            JSONObject forcastItem = forcast.getJSONObject(i);</div><div class="line">            String date = forcastItem.getString("date");</div><div class="line">            String forcastTemperatureRange = forcastItem.getString("temperature_range");</div><div class="line">            int forcastWeatherCode = forcastItem.getInt("weather_code");</div><div class="line">            </div><div class="line">            Log.d("TEST","weather forcast info: "+</div><div class="line">                    "date=" + date +</div><div class="line">                    "forcastTemperatureRange=" + forcastTemperatureRange +</div><div class="line">                    "forcastWeatherCode=" + forcastWeatherCode);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        String windDirection = data.getString("wind_direction");</div><div class="line">        String windLevel = data.getString("wind_level");</div><div class="line">        String humidityLevel = data.getString("humidity_level");</div><div class="line">        String airQuality = data.getString("air_quality");</div><div class="line">        String sportLevel = data.getString("sport_level");</div><div class="line">        String ultravioletRay = data.getString("ultraviolet_ray");</div><div class="line">        </div><div class="line">        Log.d("TEST","more weather info: "+</div><div class="line">            "windDirection=" + windDirection +</div><div class="line">            "windLevel=" + windLevel +</div><div class="line">            "humidityLevel=" + humidityLevel +</div><div class="line">            "airQuality=" + airQuality +</div><div class="line">            "sportLevel=" + sportLevel +</div><div class="line">            "ultravioletRay=" + ultravioletRay );</div><div class="line">        </div><div class="line">        Log.d("TEST","finish to parse JSON content");</div><div class="line">    &#125;</div><div class="line">    else &#123;</div><div class="line">    </div><div class="line">    &#125;</div><div class="line">&#125; catch (JSONException e) &#123;</div><div class="line">    e.printStackTrace();</div><div class="line">    Log.d("TEST","fail to parse JSON content");</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Log的查看"><a href="#Log的查看" class="headerlink" title="Log的查看"></a>Log的查看</h4><p>添加了log信息后，将程序通过<code>debug app</code>部署到设备上，就能在<code>Android Monitor</code>工具的<code>logcat</code>窗口中看到对应的信息了。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/debug_log_information.png" width="700" alt=" debug_log_information"></div>
+
+<p>可以看出，我们对<code>JSON</code>的解析完全正确。</p>
+<p>输出的调试信息，单条如下：</p>
+<p><code>02-10 13:49:29.608 7948-7948/com.anddle.weatherapp D/TEST: error_code = 0</code></p>
+<p>是不是可以猜出它所代表的含义呢？</p>
+<p>Android应用开发的Log库提供了几种不同等级的log：<code>Verbose</code> <code>Debug</code> <code>Info</code> <code>Warning</code> <code>Error</code>，我们可以根据自己log的需要加不同等级的log，使用的形式为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Log.v(“TAG”,”content is verbose”);</div><div class="line">Log.d(“TAG”,”content is debug”);</div><div class="line">Log.i(“TAG”,”content is info”);</div><div class="line">Log.w(“TAG”,”content is waring”);</div><div class="line">Log.e(“TAG”,”content is error”);</div></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-16T08:05:46.000Z" itemprop="dateUpdated">2017年2月16日 16:05</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://booktest.anddle.com">
+            <img src="/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/10_解析天气预报数据/&title=《10 解析天气预报数据》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/10_解析天气预报数据/&title=《10 解析天气预报数据》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/4_开发/9_天气更多信息的布局/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">9 天气更多信息的布局</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/4_开发/11_界面的更新/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">11 界面的更新</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/10_解析天气预报数据/&title=《10 解析天气预报数据》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/10_解析天气预报数据/&title=《10 解析天气预报数据》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACp0lEQVR42u3aMZajQAwFQN//0rPpBIb9X6I9DoqIhw1WEXTLkl6v+Pj5dfy+0p4nR/LrDx94eHh4i9Cvfuw+iKtv5i8ojy2PGQ8PD+807+rR+XI/CzR50fcx/MeCh4eH92W8WSLepsj5poKHh4f3nbzkmzmsLVjg4eHhfQ9v9rgkFU4CSu49XmvBw8PD63pMUVL7PedH+nt4eHh46676Uwt9cteRaPHw8PCOLYQnWvhtWysvUrQFXzw8PLxnefn41H1YV68pb//vxxTe3IWHh4d3gLcZjbonza7MtpkiWcfDw8Nb82ZL/2xYqh0+aMcU3tyLh4eHd4yXU9uBp824QN6Qe7VvAg8PD2/NyzeG/Hqemu/LH/U0GR4eHt6CN0ttkzLrvryblyEKKh4eHt4B3j79zZf7HNluQnh4eHjneO07aK8Mu3Cjka83MeDh4eEd5m3+8OeJeLtJtN/Ew8PD+1tevui31/NNomXXN+Ph4eFN+lDDhfupoYS2hdYm/Xh4eHinee2o06yc0RaF2+uXeyAeHh7eo7xZC2qTCu+LtnWBGA8PD2/Nu/+4XXxnoew3icvn4OHh4R3jJX/+ZyFuXtl9Oo6Hh4f3V7y29NAOCuSbxGZ8IS8u4+Hh4T3Fa//k582tfFxgBo5Kw3h4eHgf4W1Kq3nbrH3+AzMReHh4eI/yZn/sZy9lts0Mu1p4eHh4x3htEMmnwyrI4sDDw8M7zfspj1nSnCfieQMsaqTh4eHhHeC1C+6sTdVuNu15m+jj4eHh7Xmb0atZk2xTeqg3FTw8PLxjvGcLEO0m8cDelVep8fDw8D7Oywu+eTU1Sd/bmPHw8PC+k9eWgGfnszEsPDw8vNO8JKzZUj57ziz5jiYj8PDw8Na8zSNmjbEc8KERLjw8PLz0+Ad4vErfTwjp0gAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261181710&web_id=1261181710')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>

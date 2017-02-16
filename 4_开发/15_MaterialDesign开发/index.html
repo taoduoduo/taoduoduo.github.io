@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>15 MaterialDesign开发 | 从设计到实现 | 手把手教你做android应用开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Material Design开发从这一章节开始，我们将开始把现有的设计改造成Material Design。
+前面我们已经详细的介绍过了Material Design设计相关的内容，但是具体落实到实际的开发，又需要考验程序开发者了。
+Google深知实现Material Design对于初级开发者的难度。为了让开发者们能尽可能的使用Material Design规范开发应用，它提供了一系列的开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="15 MaterialDesign开发">
+<meta property="og:url" content="http://booktest.anddle.com/4_开发/15_MaterialDesign开发/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="Material Design开发从这一章节开始，我们将开始把现有的设计改造成Material Design。
+前面我们已经详细的介绍过了Material Design设计相关的内容，但是具体落实到实际的开发，又需要考验程序开发者了。
+Google深知实现Material Design对于初级开发者的难度。为了让开发者们能尽可能的使用Material Design规范开发应用，它提供了一系列的开发">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/material_classic_float_button.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/appbar_scroll_toolbar_image.gif">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/slider_drawer_example.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/add_design_lib_support.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/add_design_lib_support_result.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/add_design_lib_support_auto_load.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/aar_file_content.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_phase1_complete.png">
+<meta property="og:updated_time" content="2017-02-16T08:05:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="15 MaterialDesign开发">
+<meta name="twitter:description" content="Material Design开发从这一章节开始，我们将开始把现有的设计改造成Material Design。
+前面我们已经详细的介绍过了Material Design设计相关的内容，但是具体落实到实际的开发，又需要考验程序开发者了。
+Google深知实现Material Design对于初级开发者的难度。为了让开发者们能尽可能的使用Material Design规范开发应用，它提供了一系列的开发">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/material_classic_float_button.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+          <span class="mail">QQ群：348702074</span><br/>
+          <span class="mail"></span>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                网站首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第1章-创意/"  >
+                <i class="icon icon-lg icon-birthday-cake"></i>
+                第1章 创意
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第2章-设计原理/"  >
+                <i class="icon icon-lg icon-eyedropper"></i>
+                第2章 设计原理
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第3章-产品原型/"  >
+                <i class="icon icon-lg icon-flask"></i>
+                第3章 产品原型
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resources/"  >
+                <i class="icon icon-lg icon-download"></i>
+                资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">15 MaterialDesign开发</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">15 MaterialDesign开发</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-04T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-02-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Material-Design开发"><span class="post-toc-text">Material Design开发</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#支持包的用法"><span class="post-toc-text">支持包的用法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配色方案"><span class="post-toc-text">配色方案</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-4_开发/15_MaterialDesign开发"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">15 MaterialDesign开发</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月04日 9:00" datetime="2017-02-04T01:00:00.000Z"  itemprop="datePublished">2017-02-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Material-Design开发"><a href="#Material-Design开发" class="headerlink" title="Material Design开发"></a>Material Design开发</h1><p>从这一章节开始，我们将开始把现有的设计改造成<code>Material Design</code>。</p>
+<p>前面我们已经详细的介绍过了<code>Material Design</code>设计相关的内容，但是具体落实到实际的开发，又需要考验程序开发者了。</p>
+<p><code>Google</code>深知实现<code>Material Design</code>对于初级开发者的难度。为了让开发者们能尽可能的使用<code>Material Design</code>规范开发应用，它提供了一系列的开发支持库，</p>
+<table>
+<thead>
+<tr>
+<th>支持库名称</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>设计支持库</td>
+<td>com.android.support:design:24.2.1</td>
+</tr>
+<tr>
+<td>v7 appcompat 库</td>
+<td>com.android.support:appcompat-v7:24.2.0</td>
+</tr>
+<tr>
+<td>v7 cardview 库</td>
+<td>com.android.support:cardview-v7:24.2.0</td>
+</tr>
+<tr>
+<td>v7 gridlayout 库</td>
+<td>com.android.support:gridlayout-v7:24.2.0</td>
+</tr>
+<tr>
+<td>v7 palette 库</td>
+<td>com.android.support:palette-v7:24.2.0</td>
+</tr>
+<tr>
+<td>v7 recyclerview 库</td>
+<td>com.android.support:recyclerview-v7:24.2.0</td>
+</tr>
+</tbody>
+</table>
+<p>这些支持库是对<code>Android SDK</code>的拓展，实现了很多复杂的<code>Material Design</code>动态效果。开发者不需要去为如何实现一个动效而抓耳挠腮，只需要把精力放倒程序逻辑当中。</p>
+<p>这些开发包具体支持了哪些<code>Material Design</code>的设计呢？下面举几个例子，</p>
+<p>悬浮按钮（Floating Action bar）</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_classic_float_button.png" width="50" alt=" material_classic_float_button"></div>
+
+<p><code>Appbar</code>可滑动的界面特效（CoordinatorLayout）</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/appbar_scroll_toolbar_image.gif" width="250" alt=" appbar_scroll_toolbar_image"></div>
+
+<p>侧边栏滑动</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/slider_drawer_example.png" width="250" alt=" slider_drawer_example"></div>
+
+<h2 id="支持包的用法"><a href="#支持包的用法" class="headerlink" title="支持包的用法"></a>支持包的用法</h2><p>看到这么多支持库，是不是有点犯晕，不知道该用哪个，具体怎么使用了？</p>
+<p>现在开始改造<code>天气预报</code>，给工程添加<code>Material Design</code>的支持库。</p>
+<p><code>Android Studio</code>给我们提供了一个非常简便的方法，</p>
+<ol>
+<li><p>打开项目工程下的<code>app\build.grandle</code>目录（注意是<strong><code>app目录</code></strong>下的<code>build.grandle</code>文件），</p>
+</li>
+<li><p>给<code>dependencies</code>添加支持库的引用，<code>compile &#39;com.android.support:design:24.2.1&#39;</code></p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile fileTree(dir: 'libs', include: ['*.jar'])</div><div class="line">    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', &#123;</div><div class="line">        exclude group: 'com.android.support', module: 'support-annotations'</div><div class="line">    &#125;)</div><div class="line">    compile 'com.android.support:appcompat-v7:24.2.1'</div><div class="line">    compile 'com.android.support:design:24.2.1'</div><div class="line">    testCompile 'junit:junit:4.12'</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 其中的<code>compile &#39;com.android.support:appcompat-v7:24.2.1&#39;</code>是原本就有的，假如没有，只是添加<code>compile &#39;com.android.support:design:24.2.1&#39;</code>也行，<code>Android Studio</code>会自动加上<code>设计支持库</code>需要的库文件。</p>
+</li>
+<li><p>保存修改后，点击右上角出现的<code>Sync Now</code>就可以了，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/add_design_lib_support.png" width="400" alt=" add_design_lib_support"></div>
+
+</li>
+</ol>
+<p>可以看到，整个项目多出了如下的<code>java包</code>，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/add_design_lib_support_result.png" width="500" alt=" add_design_lib_support_result"></div>
+
+<p>引入<code>设计支持库</code>的时候，<code>Android Studio</code>还会检查是否已经引入了其他相关支持库，如果没有会自动引入，例如很多<code>v4</code>和<code>v7</code>的支持包。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/add_design_lib_support_auto_load.png" width="250" alt=" add_design_lib_support_auto_load"></div>
+
+<p>假如要使用没有自动引入的开发库，我们需要使用上面的方法，手动引入支持库。例如<code>v7 palette 库</code>，</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">   ......</div><div class="line">   compile 'com.android.support:appcompat-v7:24.2.1'</div><div class="line">   compile 'com.android.support:design:24.2.1'</div><div class="line">   compile 'com.android.support:palette-v7:24.2.0'</div><div class="line">   testCompile 'junit:junit:4.12'</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><em><code>Google</code>提供的官方支持库，包含了很多种类，开发者需要根据自己的需要自己选择。最重要的就是<code>v4支持库</code>（由多个支持库组成） <code>v7支持库</code>由多个支持库组成）和<code>设计支持库</code>。通常来讲只要引入<code>设计支持库</code>，就能自动引入很多常用的相关开发库了。</em></p>
+<p><em>支持库就是<code>aar</code>格式的文件，把它解压后可以发现，里面包含了开发需要使用到的<code>jar包</code>、资源文件等等。不过你并不需要自己去找这样的<code>aar</code>文件，<code>Android Studio</code>会自动为你完成匹配。</em></p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/aar_file_content.png" width="200" alt=" aar_file_content"></div>
+
+<h2 id="配色方案"><a href="#配色方案" class="headerlink" title="配色方案"></a>配色方案</h2><p>在前面的设计原理章节，我们讲到了<code>Material Design</code>有一个色彩搭配的规则：一个应用要设定它的调色板，<code>Primary Color</code> <code>Primary Dark Color</code> <code>Accent Color</code>。</p>
+<p>这个规则在代码实现中是如何得以体现的呢？</p>
+<p>我们打开项目工程的<code>app\src\main\res\values\colors.xml</code>，可以看到这样的颜色定义，</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>#3F51B5<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>#303F9F<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>#FF4081<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这三个颜色正是对应着调色板的三个主要颜色，</p>
+<table>
+<thead>
+<tr>
+<th>调色板块</th>
+<th>颜色属性名称</th>
+<th>调色板颜色名</th>
+<th>颜色值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primary Color</td>
+<td>colorPrimary</td>
+<td>Indigo 500</td>
+<td>#3F51B5</td>
+</tr>
+<tr>
+<td>Primary Dark Color</td>
+<td>colorPrimaryDark</td>
+<td>Indigo 700</td>
+<td>#303F9F</td>
+</tr>
+<tr>
+<td>Accent Color</td>
+<td>colorAccent</td>
+<td>Pink A200</td>
+<td>#FF4081</td>
+</tr>
+</tbody>
+</table>
+<p>在打开项目工程的<code>app\src\main\res\values\styles.xml</code>，可以看到这样的颜色定义，</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!-- Base application theme. --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.DarkActionBar"</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="comment">&lt;!-- Customize your theme here. --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/colorPrimary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/colorPrimaryDark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">    ......</div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>可以看到，这里定义了一个主题<code>AppTheme</code>。</p>
+<p>主题<code>theme</code>是一个应用或者<code>Activity</code>的显示风格，它的定义和前面提到的<code>style</code>很类似。</p>
+<p>这个主题当中，重新定义了主题的<code>colorPrimary</code> <code>colorPrimaryDark</code> <code>colorAccent</code>属性，把调色板的颜色赋予给了它们。</p>
+<p>又在<code>AndroidManifest.xml</code>当中把这个主题赋予了整个应用，</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">package</span>=<span class="string">"com.anddle.weatherapp"</span>&gt;</div><div class="line">    ......</div><div class="line">    <span class="tag">&lt;<span class="name">application</span></span></div><div class="line">        <span class="attr">......</span></div><div class="line">        <span class="attr">android:supportsRtl</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:theme</span>=<span class="string">"@style/AppTheme"</span>&gt;</div><div class="line">        </div><div class="line">        ......</div><div class="line">    <span class="tag">&lt;/<span class="name">application</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>上面整个这套配色体系在工程创建的时候，就自动为我们创建好了。所以在进入这一章节之前，将应用运行起来的时候，已经可以看到<code>天气预报</code>界面这样的颜色搭配了。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_phase1_complete.png" width="250" alt=" weather_app_phase1_complete"></div>
+
+<p>假如你对<code>主题theme</code>还是感觉很抽象没有明白，也没有关系，后面我们会自定一个<code>主题</code>，我想等你做过一遍后，会对它有一个具体的认识与理解。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-16T08:05:46.000Z" itemprop="dateUpdated">2017年2月16日 16:05</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://booktest.anddle.com">
+            <img src="/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/15_MaterialDesign开发/&title=《15 MaterialDesign开发》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/15_MaterialDesign开发/&title=《15 MaterialDesign开发》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/4_开发/14_界面优化/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">14 界面优化</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/4_开发/16_改造Appbar/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">16 改造Appbar</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/15_MaterialDesign开发/&title=《15 MaterialDesign开发》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/15_MaterialDesign开发/&title=《15 MaterialDesign开发》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3aO1LEMBAFQO5/6SUlwK73RoYqS62IWoOl3mCYj76+4vX5se4/v/rNq3cmuzy2MDAwXsv43K7ZBvdHvHpz/vSXk2BgYBzAuD/KPSAH339+xYjeg4GBgXH76iRAt08xMDAwnmWsFLQ5DwMDAyMpJuvCsixfl/bCwMDYmtG2z/7z5z+Zb2BgYLyK8SlXnsCtDxWKU2FgYGzNyANc2yBbGQDMzoOBgXECI9/4gSZ++WVFF8gwMDC2ZhSPFw4xu3A2DMoYGBjHMPKmf/LqPKznwToKuBgYGNsxkpZZe9miHWc+W+5iYGC8nbEyGEgK17bEbXd/YISJgYHxEsascd8212ZNvSLgYmBgHMNIEsE2jWtTwDwEY2BgnMZIis88H/uTFPBqdwwMjK0ZKwF0ZTA5u1qBgYFxMmM2jFwZBuTB+oFpBgYGxtaMPOy2A4Nn23MYGBgnMNqUrj3c7P1JaMbAwDiTkY8Vc0x7ISMfRdSzUwwMjO0YOay9crFyvSyacmBgYGzKaNv9s6I3KZiHoRkDA+MARh7m8jK1pc7KWgwMjL0Zn3Ll7bMkjM6uevzyVxgYGFsz2tZ/HhbzyxmzQrcGYGBgvJzRBtlZIdqy64CLgYFxAGOlid8mdiv/B4paHAMD42BGvk2bSuZDTQwMDIxZMZmE11mJG6WhGBgYBzBm1yySwDobEtRgDAyMrRnrCV8eslvSUwkrBgbGaxnf4BVLqekEe6UAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261181710&web_id=1261181710')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>

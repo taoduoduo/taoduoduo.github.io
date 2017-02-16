@@ -23,7 +23,7 @@
     <meta name="description" content="界面的整体布局从这一章节开始，我们终于可以开始使用Android Studio写代码了。
 天气预报这个应用虽然功能很简单，但是对于从来没有接触过安卓开发的人来讲，开发完成还是需要很多步骤。为了减小学习的坡度，增加开发的阶段性成就感，我将天气预报分成2个阶段来开发，
 
-暂时不考虑Material Design的各种限制，比如Appbar的滑动效果，界面的配色设置，字体的大小等等，先把功能实现了再说；">
+第1阶段：暂时不考虑Material Design的各种限制，比如Appbar的滑动效果，界面的配色设置，字体的大小等等，先把功能实">
 <meta property="og:type" content="article">
 <meta property="og:title" content="6 界面的整体布局">
 <meta property="og:url" content="http://booktest.anddle.com/4_开发/6_界面的整体布局/index.html">
@@ -31,17 +31,27 @@
 <meta property="og:description" content="界面的整体布局从这一章节开始，我们终于可以开始使用Android Studio写代码了。
 天气预报这个应用虽然功能很简单，但是对于从来没有接触过安卓开发的人来讲，开发完成还是需要很多步骤。为了减小学习的坡度，增加开发的阶段性成就感，我将天气预报分成2个阶段来开发，
 
-暂时不考虑Material Design的各种限制，比如Appbar的滑动效果，界面的配色设置，字体的大小等等，先把功能实现了再说；">
+第1阶段：暂时不考虑Material Design的各种限制，比如Appbar的滑动效果，界面的配色设置，字体的大小等等，先把功能实">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_phase1_complete.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_weather_app_static_effect_complete.png">
 <meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_weather_app_static_effect_complete.png">
 <meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/activity_xml_relation.png">
-<meta property="og:updated_time" content="2017-02-04T15:04:46.000Z">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_layout_segments.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/matiaral_controls.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/layout_concept.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/layout_wraper.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/layout_segments.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/git_commit_error.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/git_commit_revert_1.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/git_commit_revert_2.png">
+<meta property="og:updated_time" content="2017-02-16T08:05:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="6 界面的整体布局">
 <meta name="twitter:description" content="界面的整体布局从这一章节开始，我们终于可以开始使用Android Studio写代码了。
 天气预报这个应用虽然功能很简单，但是对于从来没有接触过安卓开发的人来讲，开发完成还是需要很多步骤。为了减小学习的坡度，增加开发的阶段性成就感，我将天气预报分成2个阶段来开发，
 
-暂时不考虑Material Design的各种限制，比如Appbar的滑动效果，界面的配色设置，字体的大小等等，先把功能实现了再说；">
-<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_weather_app_static_effect_complete.png">
+第1阶段：暂时不考虑Material Design的各种限制，比如Appbar的滑动效果，界面的配色设置，字体的大小等等，先把功能实">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_phase1_complete.png">
     
         <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
     
@@ -67,7 +77,7 @@
           <h5 class="nickname">安豆</h5>
           <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
           <span class="mail">QQ群：348702074</span><br/>
-          <span class="mail">订阅号：xxxxx</span>
+          <span class="mail"></span>
         </hgroup>
       </div>
     </div>
@@ -110,9 +120,23 @@
             </li>
         
             <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
               <a href="/resources/"  >
                 <i class="icon icon-lg icon-download"></i>
                 资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
               </a>
             </li>
         
@@ -173,7 +197,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#界面的整体布局"><span class="post-toc-text">界面的整体布局</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Activity与布局"><span class="post-toc-text">Activity与布局</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#布局的划分"><span class="post-toc-text">布局的划分</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#界面的整体布局"><span class="post-toc-text">界面的整体布局</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Activity与布局"><span class="post-toc-text">Activity与布局</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#布局的划分"><span class="post-toc-text">布局的划分</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#布局与控件"><span class="post-toc-text">布局与控件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#布局容器"><span class="post-toc-text">布局容器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#容器的分配"><span class="post-toc-text">容器的分配</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码管理"><span class="post-toc-text">代码管理</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -198,19 +222,20 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="界面的整体布局"><a href="#界面的整体布局" class="headerlink" title="界面的整体布局"></a>界面的整体布局</h1><p>从这一章节开始，我们终于可以开始使用<code>Android Studio</code>写代码了。</p>
 <p><code>天气预报</code>这个应用虽然功能很简单，但是对于从来没有接触过安卓开发的人来讲，开发完成还是需要很多步骤。为了减小学习的坡度，增加开发的阶段性成就感，我将<code>天气预报</code>分成2个阶段来开发，</p>
-<ol>
-<li><p>暂时不考虑<code>Material Design</code>的各种限制，比如<code>Appbar</code>的滑动效果，界面的配色设置，字体的大小等等，先把功能实现了再说；</p>
-<p> ？？？配图简化后的效果图</p>
+<ul>
+<li><p>第1阶段：暂时不考虑<code>Material Design</code>的各种限制，比如<code>Appbar</code>的滑动效果，界面的配色设置，字体的大小等等，先把功能实现了再说；</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_phase1_complete.png" width="250" alt=" weather_app_phase1_complete"></div>
 </li>
-<li><p>加入<code>Material Design</code>的种种要求，完善<code>天气预报</code>；</p>
+<li><p>第2阶段：加入<code>Material Design</code>的种种要求，完善<code>天气预报</code>；</p>
  <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_weather_app_static_effect_complete.png" width="250" alt=" sketch_weather_app_static_effect_complete"></div>
 
 </li>
-</ol>
+</ul>
 <p>我们就从第一阶段开始。</p>
 <h2 id="Activity与布局"><a href="#Activity与布局" class="headerlink" title="Activity与布局"></a>Activity与布局</h2><p><code>Activity</code>几乎是每个应用必有的组件，所以任何安卓应用的开发几乎都是从<code>Activity</code>开始的。</p>
 <p>你甚至可以简单的认为，手机屏幕上能看到的整个界面，就是一个<code>Activity</code>。</p>
-<p>？？？配图说明各种Activity</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/sketch_weather_app_static_effect_complete.png" width="250" alt=" sketch_weather_app_static_effect_complete"></div>
+
 <p>使用<code>Android Studio</code>创建工程后，会默认为我们创建一个<code>Activity</code>组件。它继承自<code>Android SDK</code>的<code>Activity</code>或其派生类。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line">	......</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><code>Activity</code>界面具体该长成什么样，是通过布局文件决定的。它位于项目的<code>res\layout\activity_main.xml</code>文件中。</p>
@@ -221,8 +246,9 @@
 <p>可以说<code>xml</code>布局文件，负责<code>Activity</code>的外观容貌；<code>java</code>源代码，负责<code>Activity</code>的逻辑控制。<code>java</code>控制着<code>xml</code>中的各个元素的显示逻辑。</p>
 <p>接下来，我们<code>天气预报</code>界面的布局，就会在布局文件<code>activity_main.xml</code>中进行。</p>
 <p><em><code>WeatherApp</code>工程项目中的<code>MainActicity</code>继承自<code>AppCompatActivity</code>。<code>AppCompatActivity</code>也是<code>Activity</code>的子类，所以是没有问题的。这个<code>AppCompatActivity</code>作用是为了兼容各个版本的<code>Android SDK</code>而使用的，我们会在今后给出详细的介绍。</em></p>
-<h2 id="布局的划分"><a href="#布局的划分" class="headerlink" title="布局的划分"></a>布局的划分</h2><p>整个布局被分成了三个部分：</p>
-<p>？？？配图展示</p>
+<h2 id="布局的划分"><a href="#布局的划分" class="headerlink" title="布局的划分"></a>布局的划分</h2><p>整个布局被分成了以下几个部分：</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_layout_segments.png" width="300" alt=" weather_app_layout_segments"></div>
+
 <ol>
 <li>Appbar：占据高度56dp；</li>
 <li>天气详情：显示当日的温度范围和实时天气，占据高度300dp - 56dp = 244dp；按照最终的设计，<code>天气详情</code>是需要放在<code>Appbar</code>里面的，但是第1阶段做了简化，所以将它单独拿出来了；</li>
@@ -231,11 +257,103 @@
 <li>相关信息：当日天气的相关信息，占据所有剩余空间的高度；</li>
 </ol>
 <p>Appbar的存在是由系统决定的，我们就不做修改了，主要是分配<code>2～5</code>的布局空间。</p>
-<p><code>Android SDK</code>给我们提供了一个叫做<code>LinearLayout</code>的布局控件。它能够让存放于其中的其他控件按照首尾顺序，一个接一个的排队摆放。</p>
+<h3 id="布局与控件"><a href="#布局与控件" class="headerlink" title="布局与控件"></a>布局与控件</h3><p>界面设计需要先认识两类工具：<code>控件Control</code>与<code>布局Layout</code>。</p>
+<ul>
+<li><p><code>控件Control</code>就是我们常常看到的<code>按钮</code> <code>滑动条</code> <code>文字显示区</code>等等，它们就像房间里的家具，是界面设计的最小单位。为了简小界面开发的难度，<code>SDK</code>会提供很多现成的界面小组件供开发者使用。</p>
+  <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/matiaral_controls.png" width="400" alt=" matiaral_controls"></div>
+</li>
+<li><p><code>布局Layout</code>是一个可以容纳别的布局（或者控件）的容器。它就像是一个大的房间，房间里面可以放各种家具（控件），也可以再隔离成更多的房间（放入别的布局）。</p>
+  <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/layout_concept.png" width="300" alt=" layout_concept"></div>
+
+</li>
+</ul>
+<p>不过两者有很多共同的地方，例如指定它们大小、边距的方式等等。</p>
+<p>给<code>天气预报</code>设计布局，就是通过选用<code>Android SDK</code>中合适的布局和控件来实现的。</p>
+<h3 id="布局容器"><a href="#布局容器" class="headerlink" title="布局容器"></a>布局容器</h3><p>整个应用的内容都是放在一个大的<code>布局Layout</code>当中的。因此要首先确定这个最大的<code>布局</code>。</p>
+<p><code>Android SDK</code>提供了一个叫做<code>LinearLayout</code>的布局控件。它能够让存放于其中的其他控件按照首尾顺序，一个接一个的排队摆放。正好符合我们的要求。</p>
 <ol>
-<li>通过将<code>LinearLayout</code>的<code>android:orientation</code>属性设置成<code>vertical</code>来将它包含的内容以竖直方式排列;</li>
-<li>整个界面将尽可能占用整个屏幕，因此使用<code>match_parent</code>指定布局的宽度和高度。<code>match_parent</code>说明尺寸要尽可能的大。</li>
+<li>编辑<code>activity_main.xml</code>文件，删除其中原有的<code>TextView</code>控件，删除<code>RelativeLayout</code>中的各种<code>padding</code>；</li>
+<li>将原来的<code>RelativeLayout</code>修改成<code>LinearLayout</code>；</li>
+<li>给<code>LinearLayout</code>增加<code>android:orientation</code>属性，其值设置成<code>vertical</code>–将它包含的内容以竖直方式排列;</li>
+<li><code>LinearLayout</code>负责放置应用的整个内容，需要尽可能占用整个屏幕，因此使用<code>match_parent</code>指定布局的宽度和高度。</li>
 </ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_main"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.anddle.weatherapp.MainActivity"</span>&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>现在通过预览窗口，可以看到界面变成了这样，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/layout_wraper.png" width="300" alt=" layout_wraper"></div>
+
+<p><em>注意：文字<code>WeatherApp</code>所在的<code>Appbar</code>是系统自带的，并不是<code>activity_main.xml</code>中设计的。</em></p>
+<p>在设置布局或者控件大小的时候，会使用它们的<code>android:layout_width</code>和<code>android:layout_height</code>属性，</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">View</span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>它们的值可以设定成，</p>
+<ol>
+<li>特定的数值：例如<code>5dp</code>。当然也可以使用除了<code>dp</code>以外其他的尺寸单位，但是考虑到屏幕的像素密度不同，我们都使用<code>dp</code>为单位；</li>
+<li><code>match_parent</code>：以父布局的宽度（或长度）为界，尽可能占据全部空间；</li>
+<li><code>wrap_content</code>：以子布局或控件内容的宽度（或长度）为界，尽可能少占据空间；</li>
+</ol>
+<h3 id="容器的分配"><a href="#容器的分配" class="headerlink" title="容器的分配"></a>容器的分配</h3><p>其他几个区域都占据了整个屏幕都宽度，只是高度各不相同，</p>
+<table>
+<thead>
+<tr>
+<th>区域名称</th>
+<th>区域高度</th>
+<th>选用控件或布局</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>天气详情</td>
+<td>244dp</td>
+<td>LinearLayout</td>
+</tr>
+<tr>
+<td>未来5日天气预报</td>
+<td>100dp</td>
+<td>LinearLayout</td>
+</tr>
+<tr>
+<td>分割线</td>
+<td>10dp</td>
+<td>View</td>
+</tr>
+<tr>
+<td>相关信息</td>
+<td>剩余的所有高度</td>
+<td>ListView</td>
+</tr>
+</tbody>
+</table>
+<p><code>View</code>：是安卓系统中最为基本界面的组件，所有的布局与控件都是<code>特殊的View</code>（它们都是<code>View</code>的子类）。这里用来作为分割线。</p>
+<p><code>ListView</code>：是安卓SDK提供的列表控件，将数据项用列表的形式展现出来。<br>给<code>ListView</code>布局增加一个<code>id</code>叫做<code>weather_more_info_list</code>。<br>我们后面在详细的介绍用法。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_main"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.anddle.weatherapp.MainActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"244dp"</span></div><div class="line">        <span class="attr">android:background</span>=<span class="string">"#FFFF0000"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"100dp"</span></div><div class="line">        <span class="attr">android:background</span>=<span class="string">"#FF00FF00"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">View</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"10dp"</span></div><div class="line">        <span class="attr">android:background</span>=<span class="string">"#1F000000"</span></div><div class="line">        /&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ListView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/weather_more_info_list"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:background</span>=<span class="string">"#FF0000FF"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">ListView</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>为了明显的看到各个控件与布局占据的屏幕空间分布情况，我给每个控件或布局都添加上了<code>android:background</code>属性，给它们设置上了不同的颜色以示区别，后面再将它们移除。最后的效果如下，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/layout_segments.png" width="300" alt=" layout_segments"></div>
+
+
+<p>安卓系统中的颜色数值，可以用4种方式表示，</p>
+<ul>
+<li>RGB：8位RGB数值。例如红色F00，绿色0F0，蓝色00F；</li>
+<li>ARGB：8位RGB数值，外加8位Alpha透明度值。例如透明度为8的红色8F00，绿色80F0，蓝色800F</li>
+<li>RRGGBB：16位RGB数值。例如红色FF0000，绿色00FF00，蓝色0000FF；</li>
+<li>AARRGGBB：16位RGB数值，外加16位Alpha透明度值。例如透明度为0F的红色0FFF0000，绿色0F00FF00，蓝色0F0000FF；</li>
+</ul>
+<h2 id="代码管理"><a href="#代码管理" class="headerlink" title="代码管理"></a>代码管理</h2><p>将修改的内容提交到GitHub上，这一步和之前的操作并没有任何的不同。</p>
+<p>不过这里介绍一下你可能会遇到的意外情况：假如<code>commit</code>之后<code>push</code>之前，我发现自己<code>commit</code>的内容有问题，要撤销上一步的<code>commit</code>。这该怎么办？比如将<code>commit</code>时要记录的信息写错了，要退回到<code>commit</code>之前的状态。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/git_commit_error.png" width="300" alt=" git_commit_error"></div>
+
+<p>改正的方法很简单：</p>
+<ol>
+<li>在上一次正确的<code>commit</code>项上，点击右键；</li>
+<li><p>选择<code>Reset Current Branch to Here...</code>;</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/git_commit_revert_1.png" width="400" alt=" git_commit_revert_1"></div>
+</li>
+<li><p>在弹出的菜单项上，选择<code>Mix</code>（每种选择的效果都有对应的解释，<code>Mix</code>就是说返回<code>commit</code>之前的状态，并保留修改的内容），并点击<code>Reset</code>；</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/git_commit_revert_2.png" width="300" alt=" git_commit_revert_2"></div>
+
+</li>
+</ol>
+<p>这样，整个<code>commit</code>就回到了未被提交时的状态。检查之后再做重新的<code>commit</code>。这一次就得小心仔细一些啦！</p>
+<p>假如你不仅<code>commit</code>了，而且还<code>push</code>到远端的仓库中了，要恢复该怎么办呢？</p>
+<p>答案是没办法了，你只能重新修改一次，再提交。之前的修改已经被记录在案了。所以每次<code>push</code>一定要注意，不然你的合作开发者一定会看到你的粗心大意。</p>
 
         </div>
 
@@ -243,7 +361,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-02-04T15:04:46.000Z" itemprop="dateUpdated">2017年2月4日 23:04</time>
+    最后更新时间：<time datetime="2017-02-16T08:05:46.000Z" itemprop="dateUpdated">2017年2月16日 16:05</time>
 </span><br>
 
 
@@ -284,7 +402,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/6_界面的整体布局/&title=《6 界面的整体布局》 — 从设计到实现&source=my description" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/6_界面的整体布局/&title=《6 界面的整体布局》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -314,6 +432,13 @@
     </div>
   
 
+  
+    <div class="waves-block waves-effect next">
+      <a href="/4_开发/7_天气详情的布局/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">7 天气详情的布局</h4>
+      </a>
+    </div>
   
 </nav>
 
@@ -386,7 +511,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/6_界面的整体布局/&title=《6 界面的整体布局》 — 从设计到实现&source=my description" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/6_界面的整体布局/&title=《6 界面的整体布局》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

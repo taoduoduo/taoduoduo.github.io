@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>14 界面优化 | 从设计到实现 | 手把手教你做android应用开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="界面优化天气预报的功能都实现了，但代码当中还有一些需要优化的地方。比如对资源的使用方式。
+style的用法假如我们想要修改当日温度的字体属性，那就需要修改activity_main.xml中current_temperature所对应的字体颜色、大小等参数。
+修改的方案有2个：
+
+直接修改TextView对应的android:textColor android:textSize等属性；
+给Text">
+<meta property="og:type" content="article">
+<meta property="og:title" content="14 界面优化">
+<meta property="og:url" content="http://booktest.anddle.com/4_开发/14_界面优化/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="界面优化天气预报的功能都实现了，但代码当中还有一些需要优化的地方。比如对资源的使用方式。
+style的用法假如我们想要修改当日温度的字体属性，那就需要修改activity_main.xml中current_temperature所对应的字体颜色、大小等参数。
+修改的方案有2个：
+
+直接修改TextView对应的android:textColor android:textSize等属性；
+给Text">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/add_default_string_support.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_zh_support1.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_zh_support2.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_zh_support3.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_phase1_complete.png">
+<meta property="og:updated_time" content="2017-02-16T08:05:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="14 界面优化">
+<meta name="twitter:description" content="界面优化天气预报的功能都实现了，但代码当中还有一些需要优化的地方。比如对资源的使用方式。
+style的用法假如我们想要修改当日温度的字体属性，那就需要修改activity_main.xml中current_temperature所对应的字体颜色、大小等参数。
+修改的方案有2个：
+
+直接修改TextView对应的android:textColor android:textSize等属性；
+给Text">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/add_default_string_support.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+          <span class="mail">QQ群：348702074</span><br/>
+          <span class="mail"></span>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                网站首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第1章-创意/"  >
+                <i class="icon icon-lg icon-birthday-cake"></i>
+                第1章 创意
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第2章-设计原理/"  >
+                <i class="icon icon-lg icon-eyedropper"></i>
+                第2章 设计原理
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第3章-产品原型/"  >
+                <i class="icon icon-lg icon-flask"></i>
+                第3章 产品原型
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resources/"  >
+                <i class="icon icon-lg icon-download"></i>
+                资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">14 界面优化</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">14 界面优化</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-03T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-02-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#界面优化"><span class="post-toc-text">界面优化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#style的用法"><span class="post-toc-text">style的用法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#资源优化"><span class="post-toc-text">资源优化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优化颜色"><span class="post-toc-text">优化颜色</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优化尺寸"><span class="post-toc-text">优化尺寸</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优化字符串"><span class="post-toc-text">优化字符串</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多国语言支持"><span class="post-toc-text">多国语言支持</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-4_开发/14_界面优化"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">14 界面优化</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月03日 9:00" datetime="2017-02-03T01:00:00.000Z"  itemprop="datePublished">2017-02-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="界面优化"><a href="#界面优化" class="headerlink" title="界面优化"></a>界面优化</h1><p><code>天气预报</code>的功能都实现了，但代码当中还有一些需要优化的地方。比如对资源的使用方式。</p>
+<h2 id="style的用法"><a href="#style的用法" class="headerlink" title="style的用法"></a>style的用法</h2><p>假如我们想要修改当日温度的字体属性，那就需要修改<code>activity_main.xml</code>中<code>current_temperature</code>所对应的字体颜色、大小等参数。</p>
+<p>修改的方案有2个：</p>
+<ol>
+<li>直接修改<code>TextView</code>对应的<code>android:textColor</code> <code>android:textSize</code>等属性；</li>
+<li>给<code>TextView</code>设置一个<code>style</code>，将希望的属性都放到这个<code>Style</code>当中；</li>
+</ol>
+<p>作为优化的方式，我们当然选择第2种方案：使用<code>Style</code>。可以将使用这种类型的字体都统一起来，如果需要修改这些文字的样式，只要修改这种<code>Style</code>就可以了，大大减小了编码的工作量，便于后期维护。</p>
+<p>首先来改造一下<code>天气详情</code>当中的当前温度，</p>
+<ol>
+<li>打开<code>res\values\styles.xml</code>文件；</li>
+<li><p>将<code>android:textColor</code> <code>android:textSize</code>等特性定义成一个<code>style</code>－－－`WeatherDetailCurrentTemperatureStyle。</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    ......</div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"WeatherDetailCurrentTemperatureStyle"</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColor"</span>&gt;</span>#b3ffffff<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textSize"</span>&gt;</span>56sp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+<p> <code>android:textColor</code> <code>android:textSize</code>的取值，完全与<code>current_temperature</code>中的设置完全相同；</p>
+</li>
+<li><p>为<code>TextView</code>设置<code>android:textAppearance</code>属性，添加<code>WeatherDetailCurrentTemperatureStyle</code>风格；</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">     <span class="attr">android:id</span>=<span class="string">"@+id/current_temperature"</span></div><div class="line">     <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">     <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">     <span class="attr">android:text</span>=<span class="string">"23°"</span></div><div class="line">     <span class="attr">android:textAppearance</span>=<span class="string">"@style/WeatherDetailCurrentTemperatureStyle"</span>/&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>使用类似的方法，我们可以添加更多的<code>style</code>，将它们应用到对应的<code>TextView</code>中，</p>
+<table>
+<thead>
+<tr>
+<th>style名称</th>
+<th>应用的对象</th>
+<th>所在文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WeatherDetailCurrentTemperatureStyle</td>
+<td>current_temperature</td>
+<td>activity_main.xml</td>
+</tr>
+<tr>
+<td>WeatherDetailTemperatureRangeStyle</td>
+<td>temperature_range</td>
+<td>activity_main.xml</td>
+</tr>
+<tr>
+<td>WeatherDetailLocationStyle</td>
+<td>weather_location</td>
+<td>activity_main.xml</td>
+</tr>
+<tr>
+<td>WeatherForcastDateStyle</td>
+<td>forcast_date</td>
+<td>forcast_item.xml</td>
+</tr>
+<tr>
+<td>WeatherForcastTemperatureRangeStyle</td>
+<td>forcast_temperature</td>
+<td>forcast_item.xml</td>
+</tr>
+<tr>
+<td>WeatherMoreInfoDescriptionStyle</td>
+<td>weather_more_info_description</td>
+<td>weather_more_info_item_layout.xml</td>
+</tr>
+<tr>
+<td>WeatherMoreInfoValueStyle</td>
+<td>weather_more_info_value</td>
+<td>weather_more_info_item_layout.xml</td>
+</tr>
+</tbody>
+</table>
+<h2 id="资源优化"><a href="#资源优化" class="headerlink" title="资源优化"></a>资源优化</h2><p>字符串、颜色以及各种尺寸相关的值都属于程序的资源。<br>我们前面都是直接使用的这些资源，例如,</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    ......</div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"WeatherForcastTemperatureRangeStyle"</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColor"</span>&gt;</span>#8a000000<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textSize"</span>&gt;</span>12sp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>其实这些资源可以分门别类的放到单独的位置定义，然后通过<code>@</code>引用的方式进行使用。</p>
+<h3 id="优化颜色"><a href="#优化颜色" class="headerlink" title="优化颜色"></a>优化颜色</h3><p>颜色的定义和使用，</p>
+<ol>
+<li><p>颜色应该定义到<code>res\values\colors.xml</code>当中，</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"colorBlackDarkText"</span>&gt;</span>#DE000000<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>在需要使用它的地方采用引用的方式，<code>@color/</code>，</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"WeatherMoreInfoDescriptionStyle"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColor"</span>&gt;</span>@color/colorBlackDarkText<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textSize"</span>&gt;</span>16sp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>使用类似的方法，我们可以添加更多的<code>color</code>，将它们应用到对应的地方，</p>
+<table>
+<thead>
+<tr>
+<th>颜色值</th>
+<th>颜色名称</th>
+<th>所在文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#DE000000</td>
+<td>colorBlackDarkText</td>
+<td>凡事使用了该颜色的位置</td>
+</tr>
+<tr>
+<td>#8A000000</td>
+<td>colorBlackLightText</td>
+<td>凡事使用了该颜色的位置</td>
+</tr>
+<tr>
+<td>#FFFFFFFF</td>
+<td>colorWhiteLightText</td>
+<td>凡事使用了该颜色的位置</td>
+</tr>
+<tr>
+<td>#b3FFFFFF</td>
+<td>colorWhiteDarkText</td>
+<td>凡事使用了该颜色的位置</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>#3F51B5<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>#303F9F<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>#FF4081<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"colorBlackDarkText"</span>&gt;</span>#DE000000<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"colorBlackLightText"</span>&gt;</span>#8A000000<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"colorWhiteLightText"</span>&gt;</span>#FFFFFFFF<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"colorWhiteDarkText"</span>&gt;</span>#b3FFFFFF<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="优化尺寸"><a href="#优化尺寸" class="headerlink" title="优化尺寸"></a>优化尺寸</h3><p>之前给控件或者布局设置边距的时候，都是直接写的<code>xxdp</code>。这个数值最好也统一放倒资源文件当中进行统一管理，</p>
+<ol>
+<li><p>尺寸应该定义到<code>res\values\dimens.xml</code>当中，</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    ......</div><div class="line">    <span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"forcast_margin"</span>&gt;</span>16dp<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>在需要使用它的地方采用引用的方式，<code>@dimen/</code>，</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"100dp"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span></div><div class="line">    <span class="attr">android:layout_marginLeft</span>=<span class="string">"@dimen/forcast_margin"</span></div><div class="line">    <span class="attr">android:layout_marginRight</span>=<span class="string">"@dimen/forcast_margin"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/forcast_item"</span> <span class="attr">android:id</span>=<span class="string">"@+id/forcast_item1"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/forcast_item"</span> <span class="attr">android:id</span>=<span class="string">"@+id/forcast_item2"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/forcast_item"</span> <span class="attr">android:id</span>=<span class="string">"@+id/forcast_item3"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/forcast_item"</span> <span class="attr">android:id</span>=<span class="string">"@+id/forcast_item4"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/forcast_item"</span> <span class="attr">android:id</span>=<span class="string">"@+id/forcast_item5"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>使用类似的方法，我们可以添加更多的<code>color</code>，将它们应用到对应的地方，</p>
+<table>
+<thead>
+<tr>
+<th>数值</th>
+<th>数值名称</th>
+<th>所在文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16dp</td>
+<td>forcast_margin</td>
+<td>activity_main.xml</td>
+</tr>
+<tr>
+<td>10dp</td>
+<td>gap_height</td>
+<td>activity_main.xml</td>
+</tr>
+<tr>
+<td>100dp</td>
+<td>forcast_height</td>
+<td>activity_main.xml</td>
+</tr>
+<tr>
+<td>16dp</td>
+<td>list_icon_left_margin</td>
+<td>weather_more_info_item_layout.xml</td>
+</tr>
+<tr>
+<td>72dp</td>
+<td>list_text_left_margin</td>
+<td>weather_more_info_item_layout.xml</td>
+</tr>
+<tr>
+<td>16dp</td>
+<td>list_text_right_margin</td>
+<td>weather_more_info_item_layout.xml</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- Default screen margins, per the Android Design guidelines. --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"activity_horizontal_margin"</span>&gt;</span>16dp<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"activity_vertical_margin"</span>&gt;</span>16dp<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"forcast_margin"</span>&gt;</span>16dp<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"forcast_height"</span>&gt;</span>100dp<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"gap_height"</span>&gt;</span>10dp<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"list_icon_left_margin"</span>&gt;</span>16dp<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"list_text_left_margin"</span>&gt;</span>72dp<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dimen</span> <span class="attr">name</span>=<span class="string">"list_text_right_margin"</span>&gt;</span>16dp<span class="tag">&lt;/<span class="name">dimen</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="优化字符串"><a href="#优化字符串" class="headerlink" title="优化字符串"></a>优化字符串</h3><p>当应用启动后，还没有获取到网络数据的时候，界面上应该显示<code>空数据</code>才行，不然很容易误导用户。</p>
+<p>在之前的开发中，我为了在布局的时候能够看到界面效果，所以写入了很多假的信息。这里需要一一挪除了。对于文字的部分，如果没有显示我们就统一使用<code>-</code>来代替，</p>
+<table>
+<thead>
+<tr>
+<th>原始文字</th>
+<th>空数据文字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>23°</td>
+<td>–°</td>
+</tr>
+<tr>
+<td>17℃～25℃</td>
+<td>-℃～-℃</td>
+</tr>
+<tr>
+<td>成都</td>
+<td>–</td>
+</tr>
+<tr>
+<td>星期X</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>字符串应该统一定义到<code>res\values\strings.xml</code>当中，</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"current_temperature_none"</span>&gt;</span>--°<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在使用它的地方用<code>@string/</code>来引用，</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">     <span class="attr">android:id</span>=<span class="string">"@+id/current_temperature"</span></div><div class="line">     <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">     <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">     <span class="attr">android:text</span>=<span class="string">"@string/current_temperature_none"</span></div><div class="line">     <span class="attr">android:textAppearance</span>=<span class="string">"@style/WeatherDetailCurrentTemperatureStyle"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>使用类似的方法，我们可以添加更多的<code>string</code>，将它们应用到对应的地方，</p>
+<table>
+<thead>
+<tr>
+<th>字符串</th>
+<th>字符串名称</th>
+<th>所在文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–°</td>
+<td>current_temperature_none</td>
+<td>activity_main.xml</td>
+</tr>
+<tr>
+<td>-℃～-℃</td>
+<td>temperature_range_none</td>
+<td>activity_main.xml forcast_item.xml</td>
+</tr>
+<tr>
+<td>–</td>
+<td>location_none</td>
+<td>activity_main.xml</td>
+</tr>
+<tr>
+<td>—</td>
+<td>date_none</td>
+<td>forcast_item.xml</td>
+</tr>
+</tbody>
+</table>
+<p>对于在代码中使用字符串，应该采用如下方式，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String str = context.getString(R.string.current_temperature_none);</div></pre></td></tr></table></figure>
+<p>其中<code>context</code>是一个应用到上下文环境。对一个Activity来说，就是Activity自身<code>MainActivity.this</code>。</p>
+<p>设置字符串的时候，也可以直接使用字符串对应的资源id，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">TextView currentTemperatureView = (TextView) findViewById(R.id.current_temperature);</div><div class="line">currentTemperatureView.setText(R.string.current_temperature_none);</div></pre></td></tr></table></figure>
+<p>项目工程中<code>WeatherMoreInfo.java</code>中使用了字符串，所以需要将这里的字符串进行改造，</p>
+<ol>
+<li><p><code>strings.xml</code>中增加对应的文字：</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    ......</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"wind_direction"</span>&gt;</span>Wind Direction<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"wind_level"</span>&gt;</span>Wind Level<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"humidity_level"</span>&gt;</span>Humidity<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"air_quality"</span>&gt;</span>Air Quality<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"sport"</span>&gt;</span>Sport<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"ultraviolet_level"</span>&gt;</span>Ultraviolet<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><code>WeatherMoreInfo.java</code>中的<code>description</code>类型从<code>String</code>改变成<code>int</code>，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeatherMoreInfo</span> </span>&#123;</div><div class="line"></div><div class="line">    ......</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> description;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WeatherMoreInfo</span><span class="params">(String keyword, String value)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.value = value;</div><div class="line"></div><div class="line">        <span class="keyword">switch</span> (keyword) &#123;</div><div class="line">            <span class="keyword">case</span> <span class="string">"wind_direction"</span>:</div><div class="line">                <span class="keyword">this</span>.typeResId = R.mipmap.ic_wind_direction;</div><div class="line">                <span class="keyword">this</span>.description = R.string.wind_direction;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">            <span class="keyword">case</span> <span class="string">"wind_level"</span>:</div><div class="line">                <span class="keyword">this</span>.typeResId = R.mipmap.ic_wind_level;</div><div class="line">                <span class="keyword">this</span>.description = R.string.wind_level;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">            <span class="keyword">case</span> <span class="string">"humidity_level"</span>:</div><div class="line">                <span class="keyword">this</span>.typeResId = R.mipmap.ic_humidity_level;</div><div class="line">                <span class="keyword">this</span>.description = R.string.humidity_level;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">            <span class="keyword">case</span> <span class="string">"air_quality"</span>:</div><div class="line">                <span class="keyword">this</span>.typeResId = R.mipmap.ic_air_quality;</div><div class="line">                <span class="keyword">this</span>.description = R.string.air_quality;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">            <span class="keyword">case</span> <span class="string">"sport_level"</span>:</div><div class="line">                <span class="keyword">this</span>.typeResId = R.mipmap.ic_sport_level;</div><div class="line">                <span class="keyword">this</span>.description = R.string.sport;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">            <span class="keyword">case</span> <span class="string">"ultraviolet_ray"</span>:</div><div class="line">                <span class="keyword">this</span>.typeResId = R.mipmap.ic_ultraviolet_level;</div><div class="line">                <span class="keyword">this</span>.description = R.string.ultraviolet_level;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>将代码中所有使用资源的地方，都按照前面介绍的方式进行改造。以后在修改代码的时候，就不会牵一发而动全身了，只需要修改一处，就能够把所有需要修改的地方都修改到了。</p>
+<p>重新运行程序，可以看到这样的界面了，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/add_default_string_support.png" width="250" alt=" add_default_string_support"></div>
+
+<p>现在资源使用方式的优化就完成了。</p>
+<h2 id="多国语言支持"><a href="#多国语言支持" class="headerlink" title="多国语言支持"></a>多国语言支持</h2><p>安卓系统，支持多国语言。它的本质是使用<code>资源的命名法</code>在<code>res\</code>目录下，增加一个<code>value-xx</code>目录，然后在里面添加<code>string.xml</code>文件，该文件当中定义的字符串就是当地的语言。</p>
+<p>例如增加中文支持，就增加一个名字叫做<code>value-zh</code>的目录。添加<code>string.xml</code>文件后，就该文件当中定义的中文字符串。</p>
+<p>现在我们将添加对中文支持。</p>
+<ol>
+<li><p>在<code>res</code>目录下，点击右键，启动创建android resource的向导；</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_zh_support1.png" width="400" alt=" create_zh_support1"></div>
+</li>
+<li><p>在<code>File name</code>栏，输入<code>strings</code>，再选中下方的<code>locale</code>，添加到右边；</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_zh_support2.png" width="400" alt=" create_zh_support2"></div>
+</li>
+<li><p>选中<code>zh</code>，代表中文；</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_zh_support3.png" width="400" alt=" create_zh_support3"></div>
+</li>
+<li><p>在创建出来的中文的<code>res\values-zh\strings.xml</code>文件中，仿照<code>res\values\strings.xml</code>的内容，添加中文语言；</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">    &lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"app_name"</span>&gt;</span>天气预报<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    </div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"wind_direction"</span>&gt;</span>风向<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"wind_level"</span>&gt;</span>风力<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"humidity_level"</span>&gt;</span>湿度<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"air_quality"</span>&gt;</span>空气质量<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"sport"</span>&gt;</span>运动<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"ultraviolet_level"</span>&gt;</span>紫外线<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这里的<code>app_name</code>，在<code>AndroidManifest.xml</code>文件中被使用，里面使用了<code>android:label</code>属性，指定这个应用的名称。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">application</span></span></div><div class="line">        <span class="attr">android:allowBackup</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_launcher"</span></div><div class="line">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">        <span class="attr">android:supportsRtl</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:theme</span>=<span class="string">"@style/AppTheme"</span>&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".MainActivity"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></div><div class="line"></div><div class="line">                <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">application</span>&gt;</span></div></pre></td></tr></table></figure>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_phase1_complete.png" width="250" alt=" weather_app_phase1_complete"></div>
+
+<p>现在<code>天气预报</code>就支持了中文和英文显示了。</p>
+<hr>
+<p>至此我们也完成了整个第一阶段的任务：开发完成了<code>天气预报</code>的所有功能。我们将在下一个阶段开始，加入<code>Material Design</code>的设计。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-16T08:05:46.000Z" itemprop="dateUpdated">2017年2月16日 16:05</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://booktest.anddle.com">
+            <img src="/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/14_界面优化/&title=《14 界面优化》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/14_界面优化/&title=《14 界面优化》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/4_开发/13_获取网络数据/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">13 获取网络数据</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/4_开发/15_MaterialDesign开发/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">15 MaterialDesign开发</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/14_界面优化/&title=《14 界面优化》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/14_界面优化/&title=《14 界面优化》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3aQW7DMAwEwPz/0+m1ASp3SaoFbI1PgeNIHh0YkdTrFV/vb9f1/dWTk1m2XRgYGLdlvC+v1TMJL58ln3dJxcDAOICximDXz6yezMdMGNfjYGBgYCQvej1973kMDAyMXYx8Y5cAMDAwMK4ZvS1avhwT5OZcHAMD44aMvOr+/5//pL+BgYFxK8beYn0eaudv8jEmBgbGoxnVbV+ycayOlm8xfxkBAwPjYEY+2eS1qofMMDAwzmTMN3y9O5PmRLlqiIGBcUNGnqb2wmJ1lpz38S0GBsYxjEn429WSzMfEwMA4h1FtXlYbA9UlWH3e0KfFwMC4OWNXmKuG2uomMkplMTAwHsroDZE3CfJjFtfLEQV6DAyMxzF6LcNJ6X/XoY1lYwADA+OhjMkBiBw8P1qBgYFxJiMZulcUyxPUalOhUCPEwMB4BCMvflW3d72SXJIe//BbDAyMYxjV1DSv51UPfuVHOjAwME5gFIJafH+eADePXGBgYBzAyLd05QMQxayzl1RjYGCcwKgGvjxozhsJUaqMgYFxAKMa/pKAO2kkVA+QYWBgPJXxLl69pmYSRpPfLhcCAwPj0YxesEvaAHnbspcelwEYGBg3Z/Rertd0rN4vBFwMDIwDGJOXm5TYqv8DyycxMDAwxrvOSakOAwMDY86oFsvyFLdQyMPAwDiAkSSxE8Dk2NnmXBwDA+OGjFHq2FqIfFGqqTUGBsbjGF/dE6h25MoS5AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261181710&web_id=1261181710')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>

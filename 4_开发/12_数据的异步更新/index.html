@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>12 数据的异步更新 | 从设计到实现 | 手把手教你做android应用开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="界面的异步更新前面我们获取的数据是假数据，只要需要，马上就能得到。但是实际的情况下，我们将从网络获取数据。
+从网络获取数据有很大的不确定性，主要体现在消耗的时间不确定。假如当时的网络情况非常很好，瞬间就能得到期望的数据，就像是使用在代码中写死的假数据一样；假如网络情况很糟糕，发起数据请求后几十秒钟才能获得结果。
+由此可见，通过网络获取数据，花费的时间是说不清楚的。
+安卓应用只有一个主线程－各个组件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="12 数据的异步更新">
+<meta property="og:url" content="http://booktest.anddle.com/4_开发/12_数据的异步更新/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="界面的异步更新前面我们获取的数据是假数据，只要需要，马上就能得到。但是实际的情况下，我们将从网络获取数据。
+从网络获取数据有很大的不确定性，主要体现在消耗的时间不确定。假如当时的网络情况非常很好，瞬间就能得到期望的数据，就像是使用在代码中写死的假数据一样；假如网络情况很糟糕，发起数据请求后几十秒钟才能获得结果。
+由此可见，通过网络获取数据，花费的时间是说不清楚的。
+安卓应用只有一个主线程－各个组件">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/ANR.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/main_thread_and_work_thread.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/asynctask_threadid.png">
+<meta property="og:updated_time" content="2017-02-16T08:05:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="12 数据的异步更新">
+<meta name="twitter:description" content="界面的异步更新前面我们获取的数据是假数据，只要需要，马上就能得到。但是实际的情况下，我们将从网络获取数据。
+从网络获取数据有很大的不确定性，主要体现在消耗的时间不确定。假如当时的网络情况非常很好，瞬间就能得到期望的数据，就像是使用在代码中写死的假数据一样；假如网络情况很糟糕，发起数据请求后几十秒钟才能获得结果。
+由此可见，通过网络获取数据，花费的时间是说不清楚的。
+安卓应用只有一个主线程－各个组件">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/ANR.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+          <span class="mail">QQ群：348702074</span><br/>
+          <span class="mail"></span>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                网站首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第1章-创意/"  >
+                <i class="icon icon-lg icon-birthday-cake"></i>
+                第1章 创意
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第2章-设计原理/"  >
+                <i class="icon icon-lg icon-eyedropper"></i>
+                第2章 设计原理
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第3章-产品原型/"  >
+                <i class="icon icon-lg icon-flask"></i>
+                第3章 产品原型
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resources/"  >
+                <i class="icon icon-lg icon-download"></i>
+                资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">12 数据的异步更新</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">12 数据的异步更新</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-01T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-02-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#界面的异步更新"><span class="post-toc-text">界面的异步更新</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工作线程"><span class="post-toc-text">工作线程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AsyncTask的用法"><span class="post-toc-text">AsyncTask的用法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AsyncTask中解析天气数据"><span class="post-toc-text">AsyncTask中解析天气数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AsyncTask的使用"><span class="post-toc-text">AsyncTask的使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#验证主线程与工作线程"><span class="post-toc-text">验证主线程与工作线程</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-4_开发/12_数据的异步更新"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">12 数据的异步更新</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月01日 9:00" datetime="2017-02-01T01:00:00.000Z"  itemprop="datePublished">2017-02-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="界面的异步更新"><a href="#界面的异步更新" class="headerlink" title="界面的异步更新"></a>界面的异步更新</h1><p>前面我们获取的数据是假数据，只要需要，马上就能得到。但是实际的情况下，我们将从网络获取数据。</p>
+<p>从网络获取数据有很大的不确定性，主要体现在消耗的时间不确定。假如当时的网络情况非常很好，瞬间就能得到期望的数据，就像是使用在代码中写死的假数据一样；假如网络情况很糟糕，发起数据请求后几十秒钟才能获得结果。</p>
+<p>由此可见，通过网络获取数据，花费的时间是说不清楚的。</p>
+<p>安卓应用只有一个主线程－各个组件都是在这个线程中运行。作为组件的之一的Activity就是在这个线程中更新应用界面的，例如，用户点击界面上的一个按钮，按钮得到响应，整个过程就是在这个主线程里。所以这个主线程<strong>绝对不可以做耗时的操作</strong>。假如在按钮中做了耗时的操作，那么当它进行耗时操作的时候，你去点击界面上的其它按钮是不会有反应的，就好像程序冻在了那里。</p>
+<p>比如说，我们看到的这个<code>onCreate()</code>函数，就是在主线程中执行的。如果在这个主线程中进行网络访问，等着在不确定的时间内收到结果，那么主线程在等待的过程中啥也不能做，整个程序就好像是僵死在那里。</p>
+<p>我们的代码一旦连续占用这个线程超过一定的时间，系统甚至就会弹出“程序无响应的”提示，这个提示叫做<code>ANR</code>-Applicatin No Response。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/ANR.png" width="200" alt=" ANR"></div>
+
+<p>所以每当需要进行与界面操作不相关的耗时操作时，比如访问网络获取数据，就需要开辟另一个线程-叫做工作线程。在工作线程中进行耗时工作，然后再将处理的结果告诉主线程，让主线程进行界面更新的工作。</p>
+<p>这就好比你在正在做一件事情A，突然另一件事情B来打扰你，你不得不停下手头的工作来完成，做完了才能继续之前的工作；这时如果有另外一个人（另一个线程）来帮助你，把事情B全部包揽了，那你就不用分心了。当另一个人把事情B做完后，告诉你一声就可以了。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/main_thread_and_work_thread.png" width="300" alt=" main_thread_and_work_thread"></div>
+
+<p>因此，在从网络获取真实的数据之前，我们要首先解决在工作线程中如何异步刷新界面的问题。</p>
+<h2 id="工作线程"><a href="#工作线程" class="headerlink" title="工作线程"></a>工作线程</h2><p>启动一个新的线程，分担耗时工作的方法是一种异步操作：我让你帮我做一件事情，布置任务后，我就去做其他的事情了，等你做完了再告诉我结果；</p>
+<p>与它对应的是同步操作：我让你帮我做一件事情，布置任务后，我啥也不做，就等着你做完了告诉我结果；</p>
+<p>获取网络信息是个异步操作，启动一个新线程－工作线程thread－查询网络数据，查询完成后，工作线程再将结果通知到主线程，让主线程将查询到结果的结果显示到界面上。界面的更新一定要在主线程中进行，不能在别的线程修改，否则系统后提示运行错误，这一点相当重要。因此我们一定要将查询的结果发送给主线程，让主线程处理界面的更新。</p>
+<p>安卓系统提供的异步操作方案有：</p>
+<ol>
+<li><p>创建工作线程<code>thread</code>和<code>Handler</code>，利用Handler在工作线程和主线程之间传递数据；</p>
+</li>
+<li><p>使用<code>AsyncTask</code>帮助类，</p>
+<p> 考虑到2个因素，</p>
+<ol>
+<li>耗时的工作要开辟一个工作线程，在其中进行工作；</li>
+<li><p>耗时工作的结果要返回给主线程，由主线程更新界面；</p>
+<p><code>Android SDK</code>提供了<code>AsyncTask</code>实现耗时操作的使用场景。</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>虽然将AsyncTask看成是一个单独的方案，但实际上它也是通过<code>方案1</code>实现的，只不过对于使用者来讲更加方便而已。</p>
+<p>它们的本质都是创建一个<code>Thread</code>对象，然后让它运行起来。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Thread thread = <span class="keyword">new</span> Thread();</div><div class="line">thread.start();</div></pre></td></tr></table></figure>
+<p>这里我们选择<code>方案2</code>。因为，</p>
+<ol>
+<li>使用场景简单，只是单个任务的异步操作，没有多个线程之间的数据同步考虑；</li>
+<li>使用方便，不用考虑太多的新线程创建的细节；</li>
+</ol>
+<h2 id="AsyncTask的用法"><a href="#AsyncTask的用法" class="headerlink" title="AsyncTask的用法"></a>AsyncTask的用法</h2><p>AsyncTask需要被继承成为一个新的子类来使用，在被继承时，要指定三种参数的类型－<code>Param</code> <code>Progress</code> <code>Result</code>，还需要实现<code>doInBackground(Param...)</code>函数，此外通常还要实现<code>onProgressUpdate(Progress...)</code> <code>onPostExecute(Result)</code> 两个回调函数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTask</span>  <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">Param</span>, <span class="title">Progress</span>, <span class="title">Result</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> Result <span class="title">doInBackground</span><span class="params">(Param... params)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onProgressUpdate</span><span class="params">(Progress... progresses)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(Result result)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><p><code>doInBackground(Param... params)</code>函数：传入参数的<code>Param</code>类型就是<code>AsyncTask&lt;Param, Progress, Result&gt;</code>中指定的<code>Param</code>类型。它运行在新创建的工作线程当中。</p>
+<p> 使用<code>MyTask</code>时，要在主线程中使用<code>excute()</code>方法传入不定长参数，让<code>Task</code>运行起来，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MyTask task = <span class="keyword">new</span> MyTask();</div><div class="line">task.excute(param0, param1, ..., paramN);</div></pre></td></tr></table></figure>
+<p> 不定长参数会以数组的形式传递到<code>doInBackground()</code>函数当中，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> Result <span class="title">doInBackground</span><span class="params">(Param... params)</span> </span>&#123;</div><div class="line">    Param param0 = params[<span class="number">0</span>];</div><div class="line">    Param param1 = params[<span class="number">1</span>];</div><div class="line">    ......</div><div class="line">    Param paramN = params[N];</div><div class="line"> </div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>onProgressUpdate(Progress... progresses)</code>函数：传入参数的<code>Progress</code>类型就是<code>AsyncTask&lt;Param, Progress, Result&gt;</code>中指定的<code>Progress</code>类型。</p>
+<p> 在<code>doInBackground()</code>中执行的是一个很耗时的工作，有时需要向主线程报告当前的运行状况，这就要使用到<code>publishProgress()</code>函数，<code>publishProgress()</code>也是使用的不定长参数，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> Result <span class="title">doInBackground</span><span class="params">(Param... params)</span> </span>&#123;</div><div class="line">    ......</div><div class="line">    publishProgress(progress1, progress2, ..., progressN)</div><div class="line"> </div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 不定长参数会以数组的形式传递到<code>onProgressUpdate()</code>函数当中，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onProgressUpdate</span><span class="params">(Progress... progresses)</span> </span>&#123;</div><div class="line">    Progress progress0 = progresses[<span class="number">0</span>];</div><div class="line">    Progress progress1 = progresses[<span class="number">1</span>];</div><div class="line">    ......</div><div class="line">    Progress progressN = progresses[N];</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>onPostExecute(Result result)</code>函数：传入参数的<code>Result</code>类型就是<code>AsyncTask&lt;Param, Progress, Result&gt;</code>中指定的<code>Result</code>类型。</p>
+<p> <code>doInBackground()</code>函数返回的类型也是<code>Result</code></p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> Result <span class="title">doInBackground</span><span class="params">(Param... params)</span> </span>&#123;</div><div class="line">    ......</div><div class="line"> </div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 返回的结果作为参数传递给<code>onPostExecute()</code>函数，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(Result result)</span> </span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>onCancel()</code>函数会在调用者取消<code>AsyncTask</code>的工作的时候被触发。</p>
+<p> 要取消<code>AsyncTask</code>的工作，首先要在主线程中调用<code>cancel()</code>方法，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">task.cancel(<span class="keyword">true</span>);</div></pre></td></tr></table></figure>
+<p> 因为在<code>doInBackground()</code>中执行的是一个很耗时的工作，需要时不时的检查自己是否被取消执行了，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> Result <span class="title">doInBackground</span><span class="params">(Param... params)</span> </span>&#123;</div><div class="line">    ......</div><div class="line">    <span class="keyword">if</span>(isCancelled())</div><div class="line">    &#123;</div><div class="line">        ......</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    ......</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 最后，<code>onCancelled()</code>函数会被触发，这个函数会在主线程中被执行，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<p>综合上面的分析，自定义一个<code>AsyncTask</code>的方法如下，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTask</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">Param</span>, <span class="title">Progress</span>, <span class="title">Result</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> Result <span class="title">doInBackground</span><span class="params">(Param... params)</span> </span>&#123;</div><div class="line">        Param param0 = params[<span class="number">0</span>];</div><div class="line">        Param param1 = params[<span class="number">1</span>];</div><div class="line">        ......</div><div class="line">        Param paramN = params[N];</div><div class="line">     </div><div class="line">        <span class="keyword">while</span>(!isCancelled())</div><div class="line">        &#123;</div><div class="line">            ......</div><div class="line">            publishProgress(progress1, progress2, ..., progressN);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onProgressUpdate</span><span class="params">(Progress... progresses)</span> </span>&#123;</div><div class="line">        Progress progress0 = progresses[<span class="number">0</span>];</div><div class="line">        Progress progress1 = progresses[<span class="number">1</span>];</div><div class="line">        ......</div><div class="line">        Progress progressN = progresses[N];</div><div class="line">        ......</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(Result result)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用一个<code>AsyncTask</code>的方法如下，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">MyTask task = <span class="keyword">new</span> MyTask();</div><div class="line">task.excute(param0, param1, ..., paramN);</div><div class="line">......    </div><div class="line">task.cancel(<span class="keyword">true</span>);</div></pre></td></tr></table></figure>
+<h2 id="AsyncTask中解析天气数据"><a href="#AsyncTask中解析天气数据" class="headerlink" title="AsyncTask中解析天气数据"></a>AsyncTask中解析天气数据</h2><p>根据我们的需要，自己定义个<code>AsyncTask</code>－<code>UpdateTask</code>，</p>
+<ol>
+<li>不需要为新创建的线程传入参数；所以<code>Param</code>设置成<code>Object</code>；</li>
+<li>获取网络数据以及解析数据的是一个耗时不确定的过程。为了减小我们开发的难度，可以假设在完成整个过程之前，不需要通知主线程当前查询的状态；所以<code>Progress</code>设置成<code>Void</code>；</li>
+<li><p>解析出来的结果有3类，天气详情信息，天气预报信息和天气更多信息。 但是<code>AsyncTask</code>发送给主线程的内容只能包含在一个<code>Result</code>参数当中。</p>
+<p> 为此可以有两种办法，</p>
+<ol>
+<li>在定义一个结构体，把这3类数据放里面，让它们整体作为一个<code>Result</code>；</li>
+<li><p>把这3类数据作为<code>UpdateTask</code>的成员变量直接使用，作为结果的保存对象；</p>
+<p>同样为了简化问题，我决定使用第2个方法。因此<code>Result</code>设置成<code>Void</code>；再分别设置3类数据的成员变量</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">UpdateTask</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">Void</span>, <span class="title">Void</span>, <span class="title">Void</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String mLocation;</div><div class="line">    <span class="keyword">private</span> String mTemperature;</div><div class="line">    <span class="keyword">private</span> String mTemperatureRange;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mWeatherCode;</div><div class="line">    <span class="keyword">private</span> List&lt;ForcastInfo&gt; mForcastList;</div><div class="line">    <span class="keyword">private</span> List&lt;WeatherMoreInfo&gt; mWeatherMoreInfoList;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> Void <span class="title">doInBackground</span><span class="params">(Void... params)</span> </span>&#123;</div><div class="line">    </div><div class="line">      <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(Void aVoid)</span> </span>&#123;</div><div class="line">    </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">()</span> </span>&#123;</div><div class="line">      </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>将获取网络数据和解析数据的工作放到<code>doInBackground()</code>中进行，这是在一个新创建的工作线程中执行的；并且将解析的结果保存到<code>UpdateTask</code>的成员变量当中，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> Void <span class="title">doInBackground</span><span class="params">(Void... params)</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        Log.d(<span class="string">"TEST"</span>,<span class="string">"start to parse JSON content"</span>);</div><div class="line">        </div><div class="line">        JSONObject weatherResult = <span class="keyword">new</span> JSONObject(FAKE_DATA);</div><div class="line">        <span class="keyword">int</span> errorCode = weatherResult.getInt(<span class="string">"error_code"</span>);</div><div class="line">        Log.d(<span class="string">"TEST"</span>, <span class="string">"error_code = "</span> + errorCode);</div><div class="line">        <span class="keyword">if</span>(errorCode == <span class="number">0</span>) &#123;</div><div class="line">            JSONObject data = weatherResult.getJSONObject(<span class="string">"data"</span>);</div><div class="line">            mLocation = data.getString(<span class="string">"location"</span>);</div><div class="line">            mTemperature = data.getString(<span class="string">"temperature"</span>);</div><div class="line">            mTemperatureRange = data.getString(<span class="string">"temperature_range"</span>);</div><div class="line">            mWeatherCode = data.getInt(<span class="string">"weather_code"</span>);</div><div class="line">            </div><div class="line">            Log.d(<span class="string">"TEST"</span>,<span class="string">"weather detail info:"</span>+</div><div class="line">                    <span class="string">" location = "</span> + mLocation +</div><div class="line">                    <span class="string">" temperature = "</span> + mTemperature +</div><div class="line">                    <span class="string">" temperatureRange = "</span> + mTemperatureRange +</div><div class="line">                    <span class="string">" weatherCode = "</span> + mWeatherCode);</div><div class="line">            </div><div class="line">            JSONArray forcast = data.getJSONArray(<span class="string">"forcast"</span>);</div><div class="line">            mForcastList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; forcast.length(); i++) &#123;</div><div class="line">                JSONObject forcastItem = forcast.getJSONObject(i);</div><div class="line">                String date = forcastItem.getString(<span class="string">"date"</span>);</div><div class="line">                String forcastTemperatureRange = forcastItem.getString(<span class="string">"temperature_range"</span>);</div><div class="line">                <span class="keyword">int</span> forcastWeatherCode = forcastItem.getInt(<span class="string">"weather_code"</span>);</div><div class="line">            </div><div class="line">                Log.d(<span class="string">"TEST"</span>,<span class="string">"weather forcast info:"</span>+</div><div class="line">                        <span class="string">" date = "</span> + date +</div><div class="line">                        <span class="string">" forcastTemperatureRange = "</span> + forcastTemperatureRange +</div><div class="line">                        <span class="string">" forcastWeatherCode = "</span> + forcastWeatherCode);</div><div class="line">            </div><div class="line">                ForcastInfo forcastInfo = <span class="keyword">new</span> ForcastInfo(date, forcastTemperatureRange, forcastWeatherCode);</div><div class="line">                mForcastList.add(forcastInfo);</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            String windDirection = data.getString(<span class="string">"wind_direction"</span>);</div><div class="line">            String windLevel = data.getString(<span class="string">"wind_level"</span>);</div><div class="line">            String humidityLevel = data.getString(<span class="string">"humidity_level"</span>);</div><div class="line">            String airQuality = data.getString(<span class="string">"air_quality"</span>);</div><div class="line">            String sportLevel = data.getString(<span class="string">"sport_level"</span>);</div><div class="line">            String ultravioletRay = data.getString(<span class="string">"ultraviolet_ray"</span>);</div><div class="line">            </div><div class="line">            Log.d(<span class="string">"TEST"</span>,<span class="string">"more weather info:"</span>+</div><div class="line">                    <span class="string">" windDirection = "</span> + windDirection +</div><div class="line">                    <span class="string">" windLevel = "</span> + windLevel +</div><div class="line">                    <span class="string">" humidityLevel = "</span> + humidityLevel +</div><div class="line">                    <span class="string">" airQuality = "</span> + airQuality +</div><div class="line">                    <span class="string">" sportLevel = "</span> + sportLevel +</div><div class="line">                    <span class="string">" ultravioletRay = "</span> + ultravioletRay );</div><div class="line">            </div><div class="line">            mWeatherMoreInfoList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">            WeatherMoreInfo info1 = <span class="keyword">new</span> WeatherMoreInfo(<span class="string">"wind_direction"</span>, windDirection);</div><div class="line">            WeatherMoreInfo info2 = <span class="keyword">new</span> WeatherMoreInfo(<span class="string">"wind_level"</span>, windLevel);</div><div class="line">            WeatherMoreInfo info3 = <span class="keyword">new</span> WeatherMoreInfo(<span class="string">"humidity_level"</span>, humidityLevel);</div><div class="line">            WeatherMoreInfo info4 = <span class="keyword">new</span> WeatherMoreInfo(<span class="string">"air_quality"</span>, airQuality);</div><div class="line">            WeatherMoreInfo info5 = <span class="keyword">new</span> WeatherMoreInfo(<span class="string">"sport_level"</span>, sportLevel);</div><div class="line">            WeatherMoreInfo info6 = <span class="keyword">new</span> WeatherMoreInfo(<span class="string">"ultraviolet_ray"</span>, ultravioletRay);</div><div class="line">            mWeatherMoreInfoList.add(info1);</div><div class="line">            mWeatherMoreInfoList.add(info2);</div><div class="line">            mWeatherMoreInfoList.add(info3);</div><div class="line">            mWeatherMoreInfoList.add(info4);</div><div class="line">            mWeatherMoreInfoList.add(info5);</div><div class="line">            mWeatherMoreInfoList.add(info6);</div><div class="line">            </div><div class="line">            Log.d(<span class="string">"TEST"</span>,<span class="string">"finish to parse JSON content"</span>);</div><div class="line">             </div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">        </div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">catch</span> (JSONException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">        Log.d(<span class="string">"TEST"</span>,<span class="string">"fail to parse JSON content"</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>将解析完成，刷新界面的工作放到<code>onPostExecute()</code>中进行，这是运行在主线程上的，所以可以用来更新界面，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(Void aVoid)</span> </span>&#123;</div><div class="line"></div><div class="line">    updateWeatherDetail(mLocation, mTemperature, mTemperatureRange, mWeatherCode);</div><div class="line">    updateWeatherForcast(mForcastList);</div><div class="line">    updateWeatherMoreInfo(mWeatherMoreInfoList);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="AsyncTask的使用"><a href="#AsyncTask的使用" class="headerlink" title="AsyncTask的使用"></a>AsyncTask的使用</h2><p>在<code>天气应用</code>的<code>MainActivity</code>创建的时候，我们就启动<code>UpdateTask</code>，开始更新界面的工作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> AsyncTask mUpdateTask;</div><div class="line"></div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.activity_main);</div><div class="line">    ......</div><div class="line">    </div><div class="line">    mUpdateTask = <span class="keyword">new</span> UpdateTask();</div><div class="line">    mUpdateTask.execute();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在<code>MainActivity</code>退出的时候，判断<code>mUpdateTask</code>是否还在运行，如果还在运行，就让它停止，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onDestroy();</div><div class="line"></div><div class="line">    <span class="keyword">if</span>((mUpdateTask != <span class="keyword">null</span>) &amp;&amp; (mUpdateTask.getStatus() == AsyncTask.Status.RUNNING)) &#123;</div><div class="line">        mUpdateTask.cancel(<span class="keyword">true</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    mUpdateTask = <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>onCreate()</code>与<code>onDestroy()</code>是Activity生命周期的一部分，当一个<code>Activity</code>被创建的时候会调用到<code>onCreate()</code>，当Activity被退出销毁的时候会调用到<code>onDestroy()</code>。所以在这两个地方使用<code>UpdateTask</code>是一个合适的选择。</p>
+<h2 id="验证主线程与工作线程"><a href="#验证主线程与工作线程" class="headerlink" title="验证主线程与工作线程"></a>验证主线程与工作线程</h2><p>代码写完了，我们来验证一下<code>AsyncTask</code>是否如我之前介绍的那样，将不同的工作自动的放到了主线程与工作线程之中进行。</p>
+<p>系统运行时，会未每一个程序分配一个<code>进程ID-PID</code>，每个进程可以有多个线程，而每个线程又会根据线程的数量给它们分配对于的<code>线程ID-TID</code>。</p>
+<p><code>Android SDK</code>提供了一个叫做<code>Thread.currentThread()</code>的函数，能获取执行当前函数所用线程<code>TID</code>值。</p>
+<p>使用<code>Log.d()</code>将这两个信息打印出来看看，</p>
+<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">UpdateTask</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">Void</span>, <span class="title">Void</span>, <span class="title">Void</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> Void <span class="title">doInBackground</span><span class="params">(Void... params)</span> </span>&#123;</div><div class="line"></div><div class="line">        Log.d(<span class="string">"TEST"</span>,<span class="string">"UpdateTask doInBackground - ThreadId = "</span> + Thread.currentThread().getId());</div><div class="line">     </div><div class="line">        ......   </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(Void aVoid)</span> </span>&#123;</div><div class="line"></div><div class="line">        Log.d(<span class="string">"TEST"</span>,<span class="string">"UpdateTask onPostExecute - ThreadId = "</span> + Thread.currentThread().getId());</div><div class="line">        ......</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><p>从<code>log</code>中可以看到，工作线程的<code>线程id</code>是<code>1008</code>；而主线程的<code>线程id</code>是<code>1</code>。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/asynctask_threadid.png" width="600" alt=" asynctask_threadid"></div>
+
+<p>这和我们之前的介绍一样。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-16T08:05:46.000Z" itemprop="dateUpdated">2017年2月16日 16:05</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://booktest.anddle.com">
+            <img src="/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/12_数据的异步更新/&title=《12 数据的异步更新》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/12_数据的异步更新/&title=《12 数据的异步更新》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/4_开发/11_界面的更新/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">11 界面的更新</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/4_开发/13_获取网络数据/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">13 获取网络数据</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/12_数据的异步更新/&title=《12 数据的异步更新》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/12_数据的异步更新/&title=《12 数据的异步更新》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aS27DMAwFwN7/0u4B0jiPpFNA0mgVJLGl8YIwPz8/8bpe1uuv7666//7187urHlgYGBjLMq7blRwo/39y3Hew+0eJgYFxAqN6uypmfocPZ8bAwMCIt7mK6z4QY2BgYExSzV7KOtkXAwMDI0likxB5v1k1Yf5KLo6BgbEgI6+6///nr/Q3MDAwlmJc45WE4+R1cJQGY2BgbM2oBsE8RE5g+cPCwMA4h5G/FFbHxSbp7n3wxcDAOIdRHc+qFtSqYxZJA/WPbzAwMI5k9Ipi+evgpHX6IRfHwMDYlFENr5PGZPWhlKdFMDAwtmNU+4NzUpLo5qU3DAyMMxm9LZOrnk1fy+MXGBgYyzKqt8hf8iaNyXK6i4GBsTWjV9zPw25+3MkLKAYGxgmMasnsqcDaG9Qop68YGBiLM3pl+skIVzXgRuEeAwPjGEYeFpOg2QvNzdIbBgbG1ozqKMOkATkZ6aiW5zAwMHZiJH+tJp/feIkstDAxMDC2Y/QKbYW2Yjx2Nr8PBgbGrozkcE8F4uQMvUYpBgbG3ozqaMUkXPZaAnlyi4GBsSvjKq5q86Ba+m8myRgYGFszeoluvlm1JZkUAathGgMDYw9GL8hOKl3JoEY54GJgYBzASAph+fbzElt+LQYGBkZy9N4jqBb7CpMjGBgYBzOSAtm8VdlLjzEwME5g9JoBkzGL3sviw7k4BgbGIozqNklwrLYK8vDae0wYGBjLMn4BPeWOdH9nkDUAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261181710&web_id=1261181710')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>

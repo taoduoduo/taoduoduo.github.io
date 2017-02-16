@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>16 改造Appbar | 从设计到实现 | 手把手教你做android应用开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="改造Appbar现在我们开始改造Appbar，希望给它添加上滑动效果，
+
+
+Appbar改造方案根据Material Design规范，Appbar可以由3个区域组成，
+
+
+天气预报应用会使用到3个区域中的Toolbar和Flexible space。
+
+
+它们的对应关系，可以使用Android SDK提供的设计支持库来实现，
+
+
+
+区域
+支持库控件
+高度
+说明
+
+
+
+
+Appbar
+androi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="16 改造Appbar">
+<meta property="og:url" content="http://booktest.anddle.com/4_开发/16_改造Appbar/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="改造Appbar现在我们开始改造Appbar，希望给它添加上滑动效果，
+
+
+Appbar改造方案根据Material Design规范，Appbar可以由3个区域组成，
+
+
+天气预报应用会使用到3个区域中的Toolbar和Flexible space。
+
+
+它们的对应关系，可以使用Android SDK提供的设计支持库来实现，
+
+
+
+区域
+支持库控件
+高度
+说明
+
+
+
+
+Appbar
+androi">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_phase_2_complete.gif">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/appbar_area.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_bar_area.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/material_design_appbar_layout.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/app_run_crash.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/app_run_crash_log.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_change_activity_theme_for_material_design.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_add_appbar_theme_for_material_design.png">
+<meta property="og:updated_time" content="2017-02-16T08:05:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="16 改造Appbar">
+<meta name="twitter:description" content="改造Appbar现在我们开始改造Appbar，希望给它添加上滑动效果，
+
+
+Appbar改造方案根据Material Design规范，Appbar可以由3个区域组成，
+
+
+天气预报应用会使用到3个区域中的Toolbar和Flexible space。
+
+
+它们的对应关系，可以使用Android SDK提供的设计支持库来实现，
+
+
+
+区域
+支持库控件
+高度
+说明
+
+
+
+
+Appbar
+androi">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_phase_2_complete.gif">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+          <span class="mail">QQ群：348702074</span><br/>
+          <span class="mail"></span>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                网站首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第1章-创意/"  >
+                <i class="icon icon-lg icon-birthday-cake"></i>
+                第1章 创意
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第2章-设计原理/"  >
+                <i class="icon icon-lg icon-eyedropper"></i>
+                第2章 设计原理
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第3章-产品原型/"  >
+                <i class="icon icon-lg icon-flask"></i>
+                第3章 产品原型
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resources/"  >
+                <i class="icon icon-lg icon-download"></i>
+                资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">16 改造Appbar</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">16 改造Appbar</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-05T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-02-05
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#改造Appbar"><span class="post-toc-text">改造Appbar</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Appbar改造方案"><span class="post-toc-text">Appbar改造方案</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Appbar布局的调整"><span class="post-toc-text">Appbar布局的调整</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#启用Toolbar"><span class="post-toc-text">启用Toolbar</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码设置"><span class="post-toc-text">代码设置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主题设置"><span class="post-toc-text">主题设置</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-4_开发/16_改造Appbar"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">16 改造Appbar</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月05日 9:00" datetime="2017-02-05T01:00:00.000Z"  itemprop="datePublished">2017-02-05</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="改造Appbar"><a href="#改造Appbar" class="headerlink" title="改造Appbar"></a>改造Appbar</h1><p>现在我们开始改造<code>Appbar</code>，希望给它添加上滑动效果，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_phase_2_complete.gif" width="250" alt=" weather_app_phase_2_complete"></div>
+
+<h2 id="Appbar改造方案"><a href="#Appbar改造方案" class="headerlink" title="Appbar改造方案"></a>Appbar改造方案</h2><p>根据<code>Material Design</code>规范，<code>Appbar</code>可以由3个区域组成，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/appbar_area.png" width="250" alt=" appbar_area"></div>
+
+<p><code>天气预报</code>应用会使用到3个区域中的<code>Toolbar</code>和<code>Flexible space</code>。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_bar_area.png" width="250" alt=" weather_app_bar_area"></div>
+
+<p>它们的对应关系，可以使用<code>Android SDK</code>提供的<code>设计支持库</code>来实现，</p>
+<table>
+<thead>
+<tr>
+<th>区域</th>
+<th>支持库控件</th>
+<th>高度</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Appbar</td>
+<td>android.support.design.widget.AppBarLayout</td>
+<td>300dp</td>
+<td>包含Toolbar和可变区域</td>
+</tr>
+<tr>
+<td>Appbar</td>
+<td>android.support.design.widget.CollapsingToolbarLayout</td>
+<td>300dp</td>
+<td>为了Toolbar和可变区域能配合滑动</td>
+</tr>
+<tr>
+<td>Toolbar</td>
+<td>android.support.v7.widget.Toolbar</td>
+<td>56dp</td>
+<td>显示位置信息</td>
+</tr>
+<tr>
+<td>Flexible area</td>
+<td>LinearLayout</td>
+<td>300dp</td>
+<td>放置天气详情</td>
+</tr>
+</tbody>
+</table>
+<p>其中，</p>
+<ul>
+<li><p>在<code>AppBarLayout</code>里面又放入了一个<code>CollapsingToolbarLayout</code>-可以折叠<code>Toolbar</code>的布局。<code>CollapsingToolbarLayout</code>能够让内部的<code>Toolbar</code>和<code>可变区域</code>能配合着滑动，出现设计中的滑动折叠效果。</p>
+</li>
+<li><p><code>Flexible area</code>可变区域中的内容，就是天气详情界面。</p>
+</li>
+</ul>
+<h2 id="Appbar布局的调整"><a href="#Appbar布局的调整" class="headerlink" title="Appbar布局的调整"></a>Appbar布局的调整</h2><p>移除<code>地理位置</code>：</p>
+<p>设计支持库提供的<code>CollapsingToolbarLayout</code>支持中，自动包含了我们之前设计的<code>地理位置</code>信息的展示区域-也就是显示应用的标题。所以我们，</p>
+<ol>
+<li>将它的布局从之前的布局文件中移除；</li>
+<li>修改<code>MainActivity.java</code>的<code>updateWeatherDetail()</code>函数，将涉及到<code>weather_location</code>的代码移除；</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">updateWeatherDetail</span><span class="params">(String location, String temperature, String temperatureRange, <span class="keyword">int</span> weatherCode)</span> </span>&#123;</div><div class="line"></div><div class="line">        TextView currentTemperatureView = (TextView) findViewById(R.id.current_temperature);</div><div class="line">        TextView temperatureRangeView = (TextView) findViewById(R.id.temperature_range);</div><div class="line">        ImageView weatherIcon = (ImageView) findViewById(R.id.weather_icon);</div><div class="line"></div><div class="line">        currentTemperatureView.setText(temperature);</div><div class="line">        temperatureRangeView.setText(temperatureRange);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> iconId = R.mipmap.ic_sunny_cloudy_l;</div><div class="line">        ......</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>添加<code>Appbar</code>：</p>
+<ol>
+<li>将高度原本设置成<code>244dp</code>的<code>LinearLayout</code>修改成<code>AppBarLayout</code>，让它包裹整个<code>天气详情</code>布局；</li>
+<li>高度调整为<code>300dp</code>，移除背景颜色和不需要的<code>orientation</code>属性；</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.AppBarLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"300dp"</span>&gt;</div><div class="line">        </div><div class="line">        <span class="comment">&lt;!--天气详情的布局--&gt;</span></div><div class="line">        ......</div><div class="line">        </div><div class="line"><span class="tag">&lt;/<span class="name">android.support.design.widget.AppBarLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>添加<code>CollapsingToolbarLayout</code>：在<code>AppBarLayout</code>内，增加<code>CollapsingToolbarLayout</code>，让它包裹整个<code>天气详情</code>布局；</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.AppBarLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"300dp"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">android.support.design.widget.CollapsingToolbarLayout</span></span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line">           </div><div class="line">           <span class="comment">&lt;!--天气详情的布局--&gt;</span></div><div class="line">           ......</div><div class="line">            </div><div class="line">        <span class="tag">&lt;/<span class="name">android.support.design.widget.CollapsingToolbarLayout</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">android.support.design.widget.AppBarLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>添加<code>Toolbar</code>：</p>
+<ol>
+<li><p>在<code>CollapsingToolbarLayout</code>内，增加<code>Toolbar</code>，让它与整个<code>天气详情</code>布局处于平级；</p>
+</li>
+<li><p>给<code>Toolbar</code>设置<code>id</code>-<code>app_toolbar</code>;</p>
+</li>
+<li>高度设置成<code>&quot;?attr/actionBarSize&quot;</code>，这是<code>Android SDK</code>提供的一个值，表示的就是<code>Appbar</code>的高度-<code>56dp</code>；</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.AppBarLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"300dp"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">android.support.design.widget.CollapsingToolbarLayout</span></span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line">           </div><div class="line">           <span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/app_toolbar"</span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"?attr/actionBarSize"</span>/&gt;</div><div class="line">           </div><div class="line">           <span class="comment">&lt;!--天气详情的布局--&gt;</span></div><div class="line">           ......</div><div class="line">            </div><div class="line">        <span class="tag">&lt;/<span class="name">android.support.design.widget.CollapsingToolbarLayout</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">android.support.design.widget.AppBarLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>?attr/actionBarSize&quot;</code>当中<code>?</code>的用法表示：这个属性的取值，与当前应用使用的到的<code>actionBarSize</code>属性的取值相同；但是<code>actionBarSize</code>取值到底是什么，我们并不需要知道，只要知道系统对这个值有设定就行了，我们的目的是让它与系统值保持一致即可。</p>
+<p>修改<code>天气详情</code>布局的上边距：</p>
+<p>将上边距从<code>24dp</code>调整为<code>80dp</code>，</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.AppBarLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"300dp"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">android.support.design.widget.CollapsingToolbarLayout</span></span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line">           </div><div class="line">           <span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/app_toolbar"</span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"?attr/actionBarSize"</span>/&gt;</div><div class="line">           </div><div class="line">           <span class="comment">&lt;!--天气详情的布局--&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                <span class="attr">android:layout_marginTop</span>=<span class="string">"80dp"</span></div><div class="line">                <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span></div><div class="line">                <span class="attr">android:gravity</span>=<span class="string">"center"</span>&gt;</div><div class="line">                </div><div class="line">                ......</div><div class="line">                </div><div class="line">            <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line">            </div><div class="line">        <span class="tag">&lt;/<span class="name">android.support.design.widget.CollapsingToolbarLayout</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">android.support.design.widget.AppBarLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/material_design_appbar_layout.png" width="500" alt=" material_design_appbar_layout"></div>
+
+<p>现在<code>Appbar</code>的布局就调整好了。</p>
+<h2 id="启用Toolbar"><a href="#启用Toolbar" class="headerlink" title="启用Toolbar"></a>启用Toolbar</h2><p>我们在布局文件中，使用了<code>Toolbar</code>，希望借此代替程序原有的标题栏。</p>
+<p>但代替的工作还没有完成。</p>
+<p>还需要做两件配合的事情。</p>
+<h3 id="代码设置"><a href="#代码设置" class="headerlink" title="代码设置"></a>代码设置</h3><p>在<code>MainActivity</code>创建的时候，我们需要，</p>
+<ol>
+<li>通过<code>findViewById()</code>找到布局文件中的<code>Toolbar</code>；</li>
+<li>使用<code>setSupportActionBar()</code>替换系统默认的标题栏；</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        Log.d(<span class="string">"TEST"</span>, <span class="string">"Weather app launched"</span>);</div><div class="line">        </div><div class="line">        Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);</div><div class="line">        setSupportActionBar(toolbar);</div><div class="line">        ......</div><div class="line">    &#125;</div><div class="line">    ......</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>此时运行程序看看吧。啊哦！！！程序运行崩溃了，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/app_run_crash.png" width="200" alt=" app_run_crash"></div>
+
+<p>当程序运行出错的时候，设备通常会弹出这样的对话框，提示用户。不过这个提示对开发者没有太大的用处，没法知道哪里出错了。</p>
+<p>再看看<code>Android Studio</code>的调试窗口(<code>Android Monitor -&gt; logcat</code>)，打出了一堆的信息，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/app_run_crash_log.png" width="500" alt=" app_run_crash_log"></div>
+
+<p>通过打出的信息，我们可以看到，系统提示我们要使用<code>Toolbar</code>的话，必须将主题的<code>windowActionBar</code>设置成<code>false</code>。</p>
+<p>这是啥意思？主题又是啥？</p>
+<h3 id="主题设置"><a href="#主题设置" class="headerlink" title="主题设置"></a>主题设置</h3><p>主题是一个应用或者<code>Activity</code>的显示风格，它的定义和前面提到的<code>style</code>很类似。<br>先跟着我做一遍，之后你一定会对主题有个具体的认识，</p>
+<ol>
+<li>打开<code>res\valuse\styles.xml</code>文件，里面已经默认定义好了一个主题<code>AppTheme</code>;</li>
+<li><p>自定义一个主题-<code>AppTheme.NoActionBar</code>；</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!-- Base application theme. --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.DarkActionBar"</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="comment">&lt;!-- Customize your theme here. --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/colorPrimary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/colorPrimaryDark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme.NoActionBar"</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"windowActionBar"</span>&gt;</span>false<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"windowNoTitle"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">    </div><div class="line">    ......</div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><code>AppTheme.NoActionBar</code>的这种写法，说明它继承了主题<code>AppTheme</code>的所有属性。</p>
+<p>这个新主题，新增了<code>windowActionBar</code>为<code>false</code>，和<code>windowNoTitle</code>为<code>true</code>两个属性。</p>
+<p><em>通过<code>.</code>分割主题名称的命名方式，是主题的隐性继承，还有一种使用<code>parent=</code>的显性继承方式，例如<code>AppTheme</code>的定义。</em></p>
+<p>使用这个主题的时候，需要，</p>
+<ol>
+<li><p>打开<code>AndroidManifest.xml</code>文件，</p>
+</li>
+<li><p>修改<code>Activity</code>的属性，给它加上<code>android:theme=&quot;@style/AppTheme.NoActionBar&quot;</code>，</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">application</span></span></div><div class="line">    <span class="attr">......</span></div><div class="line">    <span class="attr">android:theme</span>=<span class="string">"@style/AppTheme"</span>&gt;</div><div class="line">    </div><div class="line">        <span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".MainActivity"</span></span></div><div class="line">            <span class="attr">android:theme</span>=<span class="string">"@style/AppTheme.NoActionBar"</span>&gt;</div><div class="line">            ......</div><div class="line">        <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">application</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这样一来，<code>MainActivity</code>就使用了我们刚定义的<code>AppTheme.NoActionBar</code>主题。</p>
+<p>同时也可以看到整个程序-<code>application</code>，在默认情况下使用的是<code>AppTheme</code>主题。</p>
+<p>再次运行程序看看，成了，程序没有报错了。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_change_activity_theme_for_material_design.png" width="250" alt=" weather_app_change_activity_theme_for_material_design"></div>
+
+<p>不过这里会发现2个问题：</p>
+<ol>
+<li><code>天气预报</code>几个字是黑色，与我们预想的不符；</li>
+<li>滑动整个界面，还是没有<code>Appbar</code>动态变化的效果；</li>
+</ol>
+<p>我们先来解决第1个问题。</p>
+<p><code>天气预报</code>这几个字，默认情况下是程序的名称，是<code>AppBarLayout</code>自身就有的一部分。</p>
+<p>因此可以给<code>AppBarLayout</code>设置一个显示白色文字的主题。</p>
+<p><code>Android SDK</code>提供了很多现成的主题，这里可以使用一个叫做<code>ThemeOverlay.AppCompat.Dark.ActionBar</code>的主题。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.AppBarLayout</span></span></div><div class="line">   <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">   <span class="attr">android:layout_height</span>=<span class="string">"300dp"</span></div><div class="line">   <span class="attr">android:theme</span>=<span class="string">"@style/ThemeOverlay.AppCompat.Dark.ActionBar"</span>&gt;</div></pre></td></tr></table></figure>
+<p>为什么是选择的这个主题？</p>
+<ol>
+<li>这个主题能让文字从黑色变成白色，其他文字的属性都不会被影响；</li>
+<li>用多了就习惯了；</li>
+</ol>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_add_appbar_theme_for_material_design.png" width="250" alt=" weather_app_add_appbar_theme_for_material_design"></div>
+
+<hr>
+<p>要解决第2个问题，我们还的继续调整整个界面的布局。</p>
+<p>咱们下一节继续。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-16T08:05:46.000Z" itemprop="dateUpdated">2017年2月16日 16:05</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://booktest.anddle.com">
+            <img src="/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/16_改造Appbar/&title=《16 改造Appbar》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/16_改造Appbar/&title=《16 改造Appbar》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/4_开发/15_MaterialDesign开发/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">15 MaterialDesign开发</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/4_开发/17_Appbar动效/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">17 Appbar动效</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/16_改造Appbar/&title=《16 改造Appbar》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/16_改造Appbar/&title=《16 改造Appbar》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIklEQVR42u3aS3LCMBAFQO5/aXIAsPOeJqQKqbWi7IDVWkw8n8cjXs+X9Xr96sraUx6fWBgYGF/LeN6u+wfcX28PIr/7hoqBgXEA4yqC3W/r6nPymzkj+R0MDAyMPKQmsPa7GBgYGC3j/u/bFDcnYWBgYMxf0RJenhh/MBfHwMD4QkZedf//zx/pb2BgYHwV41mupECWhNrkmIpdYWBgbM3IA1yLbIcq5r+AgYFxGmOt4FWUxkpeNOSBgYGxKWNSYpu0AdaGMy73hoGBsTUjCaDJ9XkqmzQJFvuxGBgYX85IxknbmJaH18kABwYGxjmMdnOTcYe1UbC6nIeBgbEpY1Krm4faSbi/zMgxMDC2Y0wS1LXWQh5SF4M+BgbGRoxJ4WwSrJNUtjg4DAyMAxjJ61f7OpgnuvkRYGBgnMlYC3Nto7HF/0G9EAMDYyNGsq0kHV0b81pLgN88BQMDY2tGG68mqWk7YNEOdmBgYJzAaNPXdlxj0k6IjgADA+NIxtoW84J+/poY7QoDA+MAxiTsro1KtMMcv3wLAwPjAEZb1s8ZkwZngsHAwNib8SzXWuF+EkyjfwMYGBhbMybBLi+EtYWzNpRjYGCcwGiDbPLaN28P1AEXAwPjAEZexJ8U14qWZNBaiG5gYGAcz1hrXn7kKRgYGBhxcJyMsSYDHNEAKwYGxqaMdiQib0/mL4KTsh0GBsbejFHquHQQ7d2cioGBsR3jBz9tslCzPgl5AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261181710&web_id=1261181710')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>

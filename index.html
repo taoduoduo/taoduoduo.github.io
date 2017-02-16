@@ -20,15 +20,15 @@
     
     
     <meta name="keywords" content="undefined">
-    <meta name="description" content="my description">
+    <meta name="description" content="手把手教你做android应用开发">
 <meta property="og:type" content="website">
 <meta property="og:title" content="从设计到实现">
 <meta property="og:url" content="http://booktest.anddle.com/index.html">
 <meta property="og:site_name" content="从设计到实现">
-<meta property="og:description" content="my description">
+<meta property="og:description" content="手把手教你做android应用开发">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从设计到实现">
-<meta name="twitter:description" content="my description">
+<meta name="twitter:description" content="手把手教你做android应用开发">
     
         <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
     
@@ -54,7 +54,7 @@
           <h5 class="nickname">安豆</h5>
           <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
           <span class="mail">QQ群：348702074</span><br/>
-          <span class="mail">订阅号：xxxxx</span>
+          <span class="mail"></span>
         </hgroup>
       </div>
     </div>
@@ -97,9 +97,23 @@
             </li>
         
             <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
               <a href="/resources/"  >
                 <i class="icon icon-lg icon-download"></i>
                 资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
               </a>
             </li>
         
@@ -153,6 +167,617 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-4_开发/18_调整列表显示"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年02月07日 9:00" datetime="2017-02-07T01:00:00.000Z"  itemprop="datePublished">2017-02-07</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/4_开发/18_调整列表显示/">18 调整列表显示</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        调整列表显示现在界面上列表的异常显示根本原因在于：将ListView放到了NestedScrollView之内。NestedScrollView内部要使用列表的话，必须使用RecyclerView。
+RecyclerView是我们之前提到的Material Design开发支持库中的一个。从它的名字可以看出，它的优点在于提高了数据项刷新、滚动的效率，减小了系统资源的占用。听起来有点抽象是吧，...
+    
+
+        <a href="/4_开发/18_调整列表显示/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-4_开发/17_Appbar动效"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年02月06日 9:00" datetime="2017-02-06T01:00:00.000Z"  itemprop="datePublished">2017-02-06</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/4_开发/17_Appbar动效/">17 Appbar动效</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Appbar动效之前的改造完成后，Appbar还不能具有滑动的效果。
+要具备联动的滑动功能，还需要做3个地方的修改。
+使用CoordinatorLayoutCoordinatorLayout是Material Design里面，所有滑动渐变效果必用的布局，它能根据内部某个元素滑动的百分比来控制内部另一个元素的属性变化。
+
+
+要实现Appbar随着界面滑动而进行变化，
+
+必须引入Coordin...
+    
+
+        <a href="/4_开发/17_Appbar动效/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-4_开发/16_改造Appbar"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年02月05日 9:00" datetime="2017-02-05T01:00:00.000Z"  itemprop="datePublished">2017-02-05</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/4_开发/16_改造Appbar/">16 改造Appbar</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        改造Appbar现在我们开始改造Appbar，希望给它添加上滑动效果，
+
+
+Appbar改造方案根据Material Design规范，Appbar可以由3个区域组成，
+
+
+天气预报应用会使用到3个区域中的Toolbar和Flexible space。
+
+
+它们的对应关系，可以使用Android SDK提供的设计支持库来实现，
+
+
+
+区域
+支持库控件
+高度
+说明
+
+
+
+
+Appbar
+and...
+    
+
+        <a href="/4_开发/16_改造Appbar/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-4_开发/15_MaterialDesign开发"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年02月04日 9:00" datetime="2017-02-04T01:00:00.000Z"  itemprop="datePublished">2017-02-04</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/4_开发/15_MaterialDesign开发/">15 MaterialDesign开发</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Material Design开发从这一章节开始，我们将开始把现有的设计改造成Material Design。
+前面我们已经详细的介绍过了Material Design设计相关的内容，但是具体落实到实际的开发，又需要考验程序开发者了。
+Google深知实现Material Design对于初级开发者的难度。为了让开发者们能尽可能的使用Material Design规范开发应用，它提供了一系列...
+    
+
+        <a href="/4_开发/15_MaterialDesign开发/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-4_开发/14_界面优化"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年02月03日 9:00" datetime="2017-02-03T01:00:00.000Z"  itemprop="datePublished">2017-02-03</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/4_开发/14_界面优化/">14 界面优化</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        界面优化天气预报的功能都实现了，但代码当中还有一些需要优化的地方。比如对资源的使用方式。
+style的用法假如我们想要修改当日温度的字体属性，那就需要修改activity_main.xml中current_temperature所对应的字体颜色、大小等参数。
+修改的方案有2个：
+
+直接修改TextView对应的android:textColor android:textSize等属性；
+给T...
+    
+
+        <a href="/4_开发/14_界面优化/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-4_开发/13_获取网络数据"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年02月02日 9:00" datetime="2017-02-02T01:00:00.000Z"  itemprop="datePublished">2017-02-02</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/4_开发/13_获取网络数据/">13 获取网络数据</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        获取网络数据之前对数据的解析都是建立在假数据之上的，当网络端的开发者把真实数据上线以后，我们就可以通过网络获取真实的数据了。
+正如我们最早的假设前提那样，网络数据是由我构造好了放到自己的服务器上的，里面的内容并不是真实的当日天气，只是便于大家学习如何使用网络访问获取数据。
+我们这个示例的网络地址是：http://book.anddle.com/api/query_weather。
+大家通过浏...
+    
+
+        <a href="/4_开发/13_获取网络数据/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-4_开发/12_数据的异步更新"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年02月01日 9:00" datetime="2017-02-01T01:00:00.000Z"  itemprop="datePublished">2017-02-01</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/4_开发/12_数据的异步更新/">12 数据的异步更新</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        界面的异步更新前面我们获取的数据是假数据，只要需要，马上就能得到。但是实际的情况下，我们将从网络获取数据。
+从网络获取数据有很大的不确定性，主要体现在消耗的时间不确定。假如当时的网络情况非常很好，瞬间就能得到期望的数据，就像是使用在代码中写死的假数据一样；假如网络情况很糟糕，发起数据请求后几十秒钟才能获得结果。
+由此可见，通过网络获取数据，花费的时间是说不清楚的。
+安卓应用只有一个主线程－各...
+    
+
+        <a href="/4_开发/12_数据的异步更新/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-4_开发/11_界面的更新"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年01月28日 9:00" datetime="2017-01-28T01:00:00.000Z"  itemprop="datePublished">2017-01-28</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/4_开发/11_界面的更新/">11 界面的更新</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        界面的更新解析出天气预报的各种数据之后，就需要将它们反映到界面上了。
+更新的原理很简单，通过findViewById()获取要更新的各种控件，然后将要更新的数据设置给这些控件就可以了。例如，
+12345//获取控件TextView currentTemperatureView = (TextView) findViewById(R.id.current_temperature);//使用控件...
+    
+
+        <a href="/4_开发/11_界面的更新/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-4_开发/10_解析天气预报数据"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年01月27日 9:00" datetime="2017-01-27T01:00:00.000Z"  itemprop="datePublished">2017-01-27</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/4_开发/10_解析天气预报数据/">10 解析天气预报数据</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        解析天气预报数据界面布局完成以后，就需要设计代码来控制界面上各个元素的逻辑了。
+
+从网络获取天气预报数据；
+解析获取的数据；
+根据解析的结果更新天气预报界面；
+
+天气预报数据依赖于网络端的服务器，不是我们应用开发者自己能决定的。假如应用和网络服务器是两拨人同时在开发，极有可能出现应用端需要获取数据的时候，服务器端还没有准备好数据的情况。
+这种情况怎么办呢？
+我们应用开发者可以自己构造一个假数...
+    
+
+        <a href="/4_开发/10_解析天气预报数据/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-4_开发/9_天气更多信息的布局"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年01月26日 9:00" datetime="2017-01-26T01:00:00.000Z"  itemprop="datePublished">2017-01-26</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/4_开发/9_天气更多信息的布局/">9 天气更多信息的布局</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        天气更多信息的布局天气相关信息是通过列表方式呈现的。Android SDK提供的ListView控件就能实现这样功能。
+ListView需要和Adapter配合使用，ListView负责内容的显示，Adapter负责为ListView提供要展示的数据。
+要实现我们希望的展示效果，需要开发者自定义一个Adapter。那我们先把问题简化一下，看看ListView是怎么使用的。
+ListView的...
+    
+
+        <a href="/4_开发/9_天气更多信息的布局/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-4_开发/8_天气预报的布局"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年01月25日 9:00" datetime="2017-01-25T01:00:00.000Z"  itemprop="datePublished">2017-01-25</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/4_开发/8_天气预报的布局/">8 天气预报的布局</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        天气预报的布局现在我们开始进行天气预报区域的布局。
+
+
+可以看出，这个区域，由5个完全一样的组件组合而成。只要我们完成一个组件-天气预报项的布局，再把这个布局复制粘贴，很容易就完成了。
+
+
+天气预报项在layout目录上点击右键，选择New -&gt; Layout resource file。
+
+
+输入布局文件的名字forcast_item，
+
+
+一个新的布局文件forcast_item....
+    
+
+        <a href="/4_开发/8_天气预报的布局/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-4_开发/7_天气详情的布局"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年01月24日 9:00" datetime="2017-01-24T01:00:00.000Z"  itemprop="datePublished">2017-01-24</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/4_开发/7_天气详情的布局/">7 天气详情的布局</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        天气详情的布局整体布局完成之后，我们开始进行天气详情区域的布局。
+这个区域由天气图标、当前温度、当日温度范围、地理位置等4个元素组成。我们可以选用Android SDK提供的现有控件，完成布局。
+
+
+
+区域名称
+区域高度
+选用控件或布局
+
+
+
+
+天气图标
+100dp
+ImageView
+
+
+当前温度
+文字的字体决定
+TextView
+
+
+当日温度范围
+文字的字体决定
+TextView
+
+
+地...
+    
+
+        <a href="/4_开发/7_天气详情的布局/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-4_开发/6_界面的整体布局"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -186,7 +811,7 @@
         界面的整体布局从这一章节开始，我们终于可以开始使用Android Studio写代码了。
 天气预报这个应用虽然功能很简单，但是对于从来没有接触过安卓开发的人来讲，开发完成还是需要很多步骤。为了减小学习的坡度，增加开发的阶段性成就感，我将天气预报分成2个阶段来开发，
 
-暂时不考虑Material Design的各种限制，比如Appbar的滑动效果，界面的配色设置，字体的大小等等，先把功能实现了...
+第1阶段：暂时不考虑Material Design的各种限制，比如Appbar的滑动效果，界面的配色设置，字体的大小等等，先把...
     
 
         <a href="/4_开发/6_界面的整体布局/" class="post-more waves-effect waves-button">
@@ -233,7 +858,9 @@
 图标导入现在，我们先把开发过程中要使用到的图片资源添加到Android Studio工程目录当中。
 
 将Sketch创建的静态高保真原型中的图标，根据导出的尺寸，将它们分类整理到对应的文件夹当中，
- | 文件夹 | 图片放大倍数 | | — | :-: | | mipmap...
+ 
+
+打开天气预报所在的Android Studio的工程文件夹-app -...
     
 
         <a href="/4_开发/5_资源的导入/" class="post-more waves-effect waves-button">
@@ -548,115 +1175,12 @@ Facebook似乎也深谙此道，专门为安卓和iOS系统开发很有针对性
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-3_产品原型/3_静态原型设计"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017年01月15日 9:00" datetime="2017-01-15T01:00:00.000Z"  itemprop="datePublished">2017-01-15</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第3章-产品原型/">第3章-产品原型</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/3_产品原型/3_静态原型设计/">3 静态原型设计</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        静态原型设计对于静态原型的设计，我们使用Sketch。
-启动Sketch后，我们将看到类似如下的界面，
-
-
-工具栏它的顶部是工具栏，
-
-
-可以通过菜单栏View -&gt; Customize Toolbar...来自定义工具栏。在弹出的窗口中，将下方的图标拖拽到上方的工具栏中就可以了。
-
-
-导航栏左边是导航栏，用来展示这个项目拥有的page和page中包含的详细内容。
-page是一张张单独...
-    
-
-        <a href="/3_产品原型/3_静态原型设计/" class="post-more waves-effect waves-button">
-            阅读全文...
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-3_产品原型/2_前期准备"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017年01月14日 9:00" datetime="2017-01-14T01:00:00.000Z"  itemprop="datePublished">2017-01-14</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第3章-产品原型/">第3章-产品原型</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/3_产品原型/2_前期准备/">2 前期准备</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        前期准备设计师首先在头脑中、草稿中勾勒出静态效果图，
-
-
-之后就需要收集制作时需要的各种素材、确定界面的配色方案。
-收集素材界面中需要使用各种天气图标：晴天、雨天、大雾、下雪、下雨、多云等等；还有天气信息中的风力、风向等等。
-我们可以使用Sketch工具进行完全的从无到有的自由创作，也可以适用现有的素材，减少设计的工作量。
-这里并不打算讲如何画出一个完美的图形，我想作为一名设计师，这点基本的...
-    
-
-        <a href="/3_产品原型/2_前期准备/" class="post-more waves-effect waves-button">
-            阅读全文...
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
     </div>
 </nav>
 
@@ -698,7 +1222,7 @@ page是一张张单独...
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/&title=从设计到实现&source=my description" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/&title=从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

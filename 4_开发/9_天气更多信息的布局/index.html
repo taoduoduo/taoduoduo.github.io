@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>9 天气更多信息的布局 | 从设计到实现 | 手把手教你做android应用开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="天气更多信息的布局天气相关信息是通过列表方式呈现的。Android SDK提供的ListView控件就能实现这样功能。
+ListView需要和Adapter配合使用，ListView负责内容的显示，Adapter负责为ListView提供要展示的数据。
+要实现我们希望的展示效果，需要开发者自定义一个Adapter。那我们先把问题简化一下，看看ListView是怎么使用的。
+ListView的基本方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="9 天气更多信息的布局">
+<meta property="og:url" content="http://booktest.anddle.com/4_开发/9_天气更多信息的布局/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="天气更多信息的布局天气相关信息是通过列表方式呈现的。Android SDK提供的ListView控件就能实现这样功能。
+ListView需要和Adapter配合使用，ListView负责内容的显示，Adapter负责为ListView提供要展示的数据。
+要实现我们希望的展示效果，需要开发者自定义一个Adapter。那我们先把问题简化一下，看看ListView是怎么使用的。
+ListView的基本方">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_list_view_demo.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weahter_more_info_item_layout.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weahter_more_info_item_layout_solution.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/framelayout_principle.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weahter_more_info_item_layout_complete.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_java_class_file.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_java_class_file2.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_more_info_list_complete.png">
+<meta property="og:updated_time" content="2017-02-16T08:05:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="9 天气更多信息的布局">
+<meta name="twitter:description" content="天气更多信息的布局天气相关信息是通过列表方式呈现的。Android SDK提供的ListView控件就能实现这样功能。
+ListView需要和Adapter配合使用，ListView负责内容的显示，Adapter负责为ListView提供要展示的数据。
+要实现我们希望的展示效果，需要开发者自定义一个Adapter。那我们先把问题简化一下，看看ListView是怎么使用的。
+ListView的基本方">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_list_view_demo.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+          <span class="mail">QQ群：348702074</span><br/>
+          <span class="mail"></span>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                网站首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第1章-创意/"  >
+                <i class="icon icon-lg icon-birthday-cake"></i>
+                第1章 创意
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第2章-设计原理/"  >
+                <i class="icon icon-lg icon-eyedropper"></i>
+                第2章 设计原理
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第3章-产品原型/"  >
+                <i class="icon icon-lg icon-flask"></i>
+                第3章 产品原型
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resources/"  >
+                <i class="icon icon-lg icon-download"></i>
+                资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">9 天气更多信息的布局</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">9 天气更多信息的布局</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-26T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-01-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#天气更多信息的布局"><span class="post-toc-text">天气更多信息的布局</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ListView的基本方法"><span class="post-toc-text">ListView的基本方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自定义Adapter"><span class="post-toc-text">自定义Adapter</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定义数据项的布局"><span class="post-toc-text">定义数据项的布局</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定义数据项的数据结构"><span class="post-toc-text">定义数据项的数据结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定义Adapter"><span class="post-toc-text">定义Adapter</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用Adapter"><span class="post-toc-text">使用Adapter</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-4_开发/9_天气更多信息的布局"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">9 天气更多信息的布局</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年01月26日 9:00" datetime="2017-01-26T01:00:00.000Z"  itemprop="datePublished">2017-01-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第4章-开发/">第4章-开发</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="天气更多信息的布局"><a href="#天气更多信息的布局" class="headerlink" title="天气更多信息的布局"></a>天气更多信息的布局</h1><p>天气相关信息是通过列表方式呈现的。<code>Android SDK</code>提供的<code>ListView</code>控件就能实现这样功能。</p>
+<p><code>ListView</code>需要和<code>Adapter</code>配合使用，<code>ListView</code>负责内容的显示，<code>Adapter</code>负责为<code>ListView</code>提供要展示的数据。</p>
+<p>要实现我们希望的展示效果，需要开发者自定义一个<code>Adapter</code>。那我们先把问题简化一下，看看<code>ListView</code>是怎么使用的。</p>
+<h2 id="ListView的基本方法"><a href="#ListView的基本方法" class="headerlink" title="ListView的基本方法"></a>ListView的基本方法</h2><p>先在我们的工程项目中，使用<code>ListView</code>展示点简单的内容，大家熟悉熟悉使用<code>ListView</code>的套路，</p>
+<ol>
+<li><p>在<code>activity_main.xml</code>布局文件中，给<code>ListView</code>布局增加一个<code>id</code>叫做<code>weather_more_info_list</code>(在现有的代码中，我们之前已经增加过了)；</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ListView</span></span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/weather_more_info_list"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">ListView</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>MainActivity.java</code>的源码文件里，在界面创建的时候（onCreate()当中），通过代码获取<code>ListView</code>；</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.activity_main);</div><div class="line">    Log.d(<span class="string">"TEST"</span>, <span class="string">"Weather app launched"</span>);</div><div class="line"></div><div class="line">    ListView lv = (ListView) findViewById(R.id.weather_more_info_list);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> <code>java</code>源码通过<code>R.id.weather_more_info_list</code>，将布局文件中的<code>ListView</code>找了出来，转换成了可以通过<code>java</code>代码操作的对象。</p>
+</li>
+<li><p>创建一个<code>Adapter</code>负责为<code>ListView</code>提供数据。Android SDK提供了很多类型的<code>Adapter</code>，<code>ArrayAdapter</code> <code>CursorAdapter</code> <code>SimpleAdapter</code>等等，它们都是<code>BaseAdapter</code>的子类，简化了<code>Adapter</code>的使用。</p>
+<p> 要显示的数据和显示这项数据项的布局要设置给<code>Adapter</code>，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    ......</div><div class="line">    <span class="comment">//每一项要显示的数据是一个字符串，这里设置显示3项</span></div><div class="line">    String data[] = &#123;<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>&#125;;</div><div class="line">    <span class="comment">//指定显示的数据内容，以及显示每项内容的布局文件</span></div><div class="line">    ArrayAdapter adapter ＝ <span class="keyword">new</span> ArrayAdapter&lt;String&gt;(MainActivity.<span class="keyword">this</span>, android.R.layout.simple_list_item_1 , data);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> Android SDK提供了一些常用的数据项布局方式<code>android.R.layout.simple_list_item_1</code> <code>android.R.layout.simple_list_item_2</code>等等。我们也可以自己设计每一项的布局方式。</p>
+</li>
+<li><p>将<code>Adapter</code>设置给<code>ListView</code>，数据将以列表的形式被展示，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    ......</div><div class="line">    lv.setAdapter(adapter);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>为显示的每个item添加，点击时代响应处理函数；</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    ......</div><div class="line">    lv.setOnItemClickListener(<span class="keyword">new</span> OnItemClickListener() &#123;</div><div class="line">        </div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(AdapterView&lt;?&gt; parent, View view, <span class="keyword">int</span> position, <span class="keyword">long</span> id)</span> </span>&#123;</div><div class="line">            <span class="comment">//添加需要响应的操作</span></div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>综合以上的代码，就是，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    ......</div><div class="line">    ListView lv = (ListView) findViewById(R.id.list_view);</div><div class="line">    String data[] = &#123;<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>&#125;;</div><div class="line">    ArrayAdapter adapter ＝ <span class="keyword">new</span> ArrayAdapter&lt;String&gt;(MainActivity.<span class="keyword">this</span>, android.R.layout.simple_list_item_1 , data);</div><div class="line">    lv.setAdapter(adapter);</div><div class="line">    lv.setOnItemClickListener(<span class="keyword">new</span> OnItemClickListener() &#123;</div><div class="line">            </div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(AdapterView&lt;?&gt; parent, View view, <span class="keyword">int</span> position, <span class="keyword">long</span> id)</span> </span>&#123;</div><div class="line">            <span class="comment">//添加需要响应的操作</span></div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最后的界面效果就是这样，</p>
+<p>运行以后，就能看到<code>a b c</code>以列表的形式，在界面上展现出来了。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_list_view_demo.png" width="250" alt=" weather_app_list_view_demo"></div>
+
+<p>如果需要展示的数据有变化，就需要更新<code>ListView</code>。</p>
+<p><code>ListView</code>的更新需要在主线程进行（UI线程）。如果在其他线程更新，系统有可能报错，并提示你“不能在非UI线程更新界面元素”。</p>
+<p>所以修改了<code>Adapter</code>中要展示的数据后，需要使用<code>Adapter</code>的<code>notifyDataSetChanged()</code>通知主线程自动刷新界面;</p>
+<p>例如，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//要显示的数据用链表的形式保存；</span></div><div class="line">List data ＝ <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">data.add(<span class="string">"a"</span>);</div><div class="line">data.add(<span class="string">"b"</span>);</div><div class="line">data.add(<span class="string">"c"</span>);</div><div class="line"><span class="comment">//指定显示的数据内容，以及显示每项内容的布局文件</span></div><div class="line">ArrayAdapter adapter ＝ <span class="keyword">new</span> ArrayAdapter&lt;String&gt;(MainActivity.<span class="keyword">this</span>, android.R.layout.simple_list_item_1 , data);</div><div class="line">    </div><div class="line">......</div><div class="line"><span class="comment">//修改显示的数据项</span></div><div class="line">data.add(<span class="string">"d"</span>);</div><div class="line"></div><div class="line"><span class="comment">//使用notifyDataSetChanged()通知主线程刷新界面</span></div><div class="line">ArrayAdapter.notifyDataSetChanged();</div></pre></td></tr></table></figure>
+<h2 id="自定义Adapter"><a href="#自定义Adapter" class="headerlink" title="自定义Adapter"></a>自定义Adapter</h2><p>虽然<code>Android SDK</code>为我们提供了好几种现成的Adapter使用，但有时它们也并不能完全符合我们的要求，比如满足我们希望的天气信息项界面。</p>
+<p>因此，我们准备自定义一个Adapter。</p>
+<p><em>其实<code>SimpleAdapter</code>是可以满足要求的，但是为了下一阶段能容易的使用<code>Material Design</code>推荐的列表控件，我就先讲一讲如何自定义Adapter，降低后面的学习难度。</em></p>
+<h3 id="定义数据项的布局"><a href="#定义数据项的布局" class="headerlink" title="定义数据项的布局"></a>定义数据项的布局</h3><p>为了让列表的数据项按照我们设计的模样显示，我们需要为它设计一个布局，把天气相关的更多信息展示上去。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weahter_more_info_item_layout.png" width="250" alt=" weahter_more_info_item_layout"></div>
+
+<p>数据项的布局定义在<code>res\layout\weather_more_info_item_layout.xml</code>文件中（如何创建这种布局文件，前面已经介绍过了）。</p>
+<p>数据项布局的方案如下，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weahter_more_info_item_layout_solution.png" width="400" alt=" weahter_more_info_item_layout_solution"></div>
+
+<table>
+<thead>
+<tr>
+<th>元素</th>
+<th>控件</th>
+<th>属性</th>
+<th>id名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>图标</td>
+<td>ImageView</td>
+<td>左边距 16dp 内容居中</td>
+<td>weather_more_info_icon</td>
+</tr>
+<tr>
+<td>内容描述</td>
+<td>TextView</td>
+<td>左边距 72dp 内容垂直居中</td>
+<td>weather_more_info_description</td>
+</tr>
+<tr>
+<td>取值</td>
+<td>TextView</td>
+<td>有边距 16dp 内容垂直居中</td>
+<td>weather_more_info_value</td>
+</tr>
+<tr>
+<td>数据项的整体布局</td>
+<td>FrameLayout</td>
+<td>高度48dp</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>数据项是一个<code>FrameLayout</code>，放到这个布局中的所有元素就像千层饼一样，都是一层一层堆叠起来的；</p>
+<p>  <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/framelayout_principle.png" width="300" alt=" framelayout_principle"></div><br>  高度是设计规范中定义的<code>48dp</code>，</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">FrameLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"48dp"</span>&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">FrameLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>图标使用<code>ImageView</code>控件，给它的<code>android:scaleType</code>属性设置<code>center</code>，让缩略图垂直居中放置，图片预设成<code>ic_air_quality</code>；左边距是<code>16dp</code>；</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/weather_more_info_icon"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:src</span>=<span class="string">"@mipmap/ic_air_quality"</span></div><div class="line">    <span class="attr">android:scaleType</span>=<span class="string">"center"</span></div><div class="line">    <span class="attr">android:layout_gravity</span>=<span class="string">"center_vertical"</span></div><div class="line">    <span class="attr">android:layout_marginLeft</span>=<span class="string">"16dp"</span>/&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>内容描述使用<code>TextView</code>控件，它的左边距是<code>72dp</code>，垂直居中放置，字体的大小和颜色按照设计的规范来指定，</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/weather_more_info_description"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:text</span>=<span class="string">"湿度"</span></div><div class="line">    <span class="attr">android:layout_marginLeft</span>=<span class="string">"72dp"</span></div><div class="line">    <span class="attr">android:layout_gravity</span>=<span class="string">"center_vertical"</span></div><div class="line">    <span class="attr">android:textSize</span>=<span class="string">"16sp"</span></div><div class="line">    <span class="attr">android:textColor</span>= <span class="string">"#DE000000"</span>/&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>取值使用<code>TextView</code>控件，它的右边距是<code>16dp</code>，垂直居中、整体靠右放置-<code>center_vertical|right</code>，字体的大小和颜色按照设计的规范来指定，</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/weather_more_info_value"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:text</span>=<span class="string">"30%"</span></div><div class="line">    <span class="attr">android:layout_marginRight</span>=<span class="string">"16dp"</span></div><div class="line">    <span class="attr">android:layout_gravity</span>=<span class="string">"center_vertical|right"</span></div><div class="line">    <span class="attr">android:textSize</span>=<span class="string">"14sp"</span></div><div class="line">    <span class="attr">android:textColor</span>= <span class="string">"#8A000000"</span>/&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>综合起来，如下面的布局源码，</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">FrameLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span> <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"48dp"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/weather_more_info_icon"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:src</span>=<span class="string">"@mipmap/ic_air_quality"</span></div><div class="line">        <span class="attr">android:scaleType</span>=<span class="string">"center"</span></div><div class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"center_vertical"</span></div><div class="line">        <span class="attr">android:layout_marginLeft</span>=<span class="string">"16dp"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/weather_more_info_description"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"湿度"</span></div><div class="line">        <span class="attr">android:layout_marginLeft</span>=<span class="string">"72dp"</span></div><div class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"center_vertical"</span></div><div class="line">        <span class="attr">android:textSize</span>=<span class="string">"16sp"</span></div><div class="line">        <span class="attr">android:textColor</span>= <span class="string">"#DE000000"</span> /&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/weather_more_info_value"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"30%"</span></div><div class="line">        <span class="attr">android:layout_marginRight</span>=<span class="string">"16dp"</span></div><div class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"center_vertical|right"</span></div><div class="line">        <span class="attr">android:textSize</span>=<span class="string">"14sp"</span></div><div class="line">        <span class="attr">android:textColor</span>= <span class="string">"#8A000000"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">FrameLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>最后效果图：</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weahter_more_info_item_layout_complete.png" width="300" alt=" weahter_more_info_item_layout_complete"></div>
+
+<p><em>实现同一个布局效果的方案可以有很多种。有的方案在代码上很容易实现，有的方案可能还会考虑到布局刷新的效率。随着开发经验的增多，对各种布局实现原理的深入理解，大家会进一步的加深对布局的认识。</em></p>
+<h3 id="定义数据项的数据结构"><a href="#定义数据项的数据结构" class="headerlink" title="定义数据项的数据结构"></a>定义数据项的数据结构</h3><p>为了提供显示的数据内容，要先定义一个存放数据的数据结构-<code>WeatherMoreInfo</code>。</p>
+<p>首先要重新创建一个<code>java源文件</code>，定义数据结构的类，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_java_class_file.png" width="500" alt=" create_java_class_file"></div>
+
+<p>给类命名<code>WeatherMoreInfo</code>，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_java_class_file2.png" width="400" alt=" create_java_class_file2"></div>
+
+<p>在<code>java</code>目录对应的包目录下，就生成了<code>WeatherMoreInfo.java</code>文件。</p>
+<p>我们要在这个类里面存放3个数据：图标、名称、数值。</p>
+<table>
+<thead>
+<tr>
+<th>组件名称</th>
+<th>存储类型</th>
+<th>说明</th>
+<th>字段名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>图标</td>
+<td>int</td>
+<td>存储图标对应的<code>资源id</code></td>
+<td>typeResId</td>
+</tr>
+<tr>
+<td>内容描述</td>
+<td>String</td>
+<td>数据项的名称，描述含义</td>
+<td>description</td>
+</tr>
+<tr>
+<td>数值</td>
+<td>String</td>
+<td>显示名称对应的数据取值</td>
+<td>value</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeatherMoreInfo</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> typeResId = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> description;</div><div class="line">    <span class="keyword">public</span> String value = <span class="string">""</span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><em>数据结构的定义我们暂时就到这里，这个结构在后面还会做出调整，需要和网络端的数据进行配合。我们先到此处，只要能显示列表就可以了。</em></p>
+<h3 id="定义Adapter"><a href="#定义Adapter" class="headerlink" title="定义Adapter"></a>定义Adapter</h3><p>现在开始自定义<code>Adapter</code>-<code>WeatherMoreInfoAdapter</code>。</p>
+<p><code>Adapter</code>都是继承自<code>BaseAdapter</code>的，我们这里的<code>Adapter</code>准备继承自它的一个子类<code>ArrayAdapter</code>。因为<code>ArrayAdapter</code>在最原始的基础上作出了改进，我们再在它的基础上做一些小的调整就可以用了，而不用完全从头来过。</p>
+<p>创建<code>WeatherMoreInfoAdapter.java</code>的新类。</p>
+<ol>
+<li><p>继承<code>ArrayAdapter</code>，将显示的数据类型指定成<code>WeatherMoreInfo</code>；重新构造函数，传入<code>Context</code>，数据项布局使用的布局ID，要显示的数据列表；重写它的<code>getView()</code>方法；</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeatherMoreInfoAdapter</span> <span class="keyword">extends</span> <span class="title">ArrayAdapter</span>&lt;<span class="title">WeatherMoreInfo</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WeatherMoreInfoAdapter</span><span class="params">(Context context, <span class="keyword">int</span> resource, List&lt;WeatherMoreInfo&gt; objects)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, resource, objects);</div><div class="line">        </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在构造函数中，保存好布局ID以后使用，通过<code>Context</code>获取<code>Inflater</code>，为以后数据项布局的创建做准备，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> LayoutInflater mInflater;</div><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> mResource;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">WeatherMoreInfoAdapter</span><span class="params">(Context context, <span class="keyword">int</span> resource, List&lt;WeatherMoreInfo&gt; objects)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>(context, resource, objects);</div><div class="line">    mInflater = LayoutInflater.from(context);</div><div class="line">    mResource = resource;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>getView()</code>函数中，创建数据项的布局，并为他们赋值，最后将这个布局返回给<code>ListView</code>，让它显示，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (convertView == <span class="keyword">null</span>) &#123;</div><div class="line">        convertView = mInflater.inflate(mResource, parent, <span class="keyword">false</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    WeatherMoreInfo item = getItem(position);</div><div class="line"></div><div class="line">    ImageView icon = (ImageView) convertView.findViewById(R.id.weather_more_info_icon);</div><div class="line">    icon.setImageResource(item.typeResId);</div><div class="line"></div><div class="line">    TextView description = (TextView) convertView.findViewById(R.id.weather_more_info_description);</div><div class="line">    description.setText(item.description);</div><div class="line"></div><div class="line">    TextView value = (TextView) convertView.findViewById(R.id.weather_more_info_value);</div><div class="line">    value.setText(item.value);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> convertView;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 这里的<code>convertView</code>就是数据项所代表的那个布局，当<code>ListView</code>刚创建，还没有产生任何数据项的时候，它就是为<code>null</code>的，此时我们就需要创建一个布局，并通过<code>getView()</code>将这个布局返回给<code>ListView</code>。</p>
+<p> 假如<code>ListView</code>上的数据项布局已经足够了，那么这里传入的<code>convertView</code>就不会再是<code>null</code>，而是之前的某个数据项布局，我们就不必为此重新创建了，只需要更新上面的内容就好。这样提高了界面刷新的效率。</p>
+<p> 当然，这里还能通过其他方法减少使用<code>findViewById()</code>，进一步提高效率，不过目前就不改进了，先把功能实现完成。</p>
+</li>
+</ol>
+<p><code>Adapter</code>终于完成了。</p>
+<h2 id="使用Adapter"><a href="#使用Adapter" class="headerlink" title="使用Adapter"></a>使用Adapter</h2><p>现在看看这个<code>Adapter</code>怎么用。</p>
+<ol>
+<li><p>在<code>MainActivity</code>创建之时，我们在<code>onCreate()</code>中创建并设置<code>WeatherMoreInfoAdapter</code>，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">//保存ListView控件</span></div><div class="line">    <span class="keyword">private</span> ListView mWeatherMoreInfoListView;</div><div class="line">    <span class="comment">//保存更多信息到列表当中</span></div><div class="line">    <span class="keyword">private</span> List&lt;WeatherMoreInfo&gt; mWeatherMoreInfoList;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        ......</div><div class="line"></div><div class="line">        mWeatherMoreInfoListView = (ListView) findViewById(R.id.weather_more_info_list);</div><div class="line">        <span class="comment">//创建保存数据的列表，数据暂时没有</span></div><div class="line">        mWeatherMoreInfoList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        <span class="comment">//创建一个还没有添加入数据的Adapter</span></div><div class="line">        WeatherMoreInfoAdapter adapter = <span class="keyword">new</span> WeatherMoreInfoAdapter(MainActivity.<span class="keyword">this</span>, R.layout.weather_more_info_item_layout, mWeatherMoreInfoList);</div><div class="line">        mWeatherMoreInfoListView.setAdapter(adapter);       </div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 在创建<code>Adapter</code>的时候，把<code>weather_more_info_item_layout.xml</code>代表的布局传给了<code>Adapter</code>，<code>Adapter</code>将使用它来生成每个数据项的界面。</p>
+</li>
+<li><p>添加一些虚假的数据到<code>Adapter</code>中，并使用<code>notifyDataSetChanged()</code>刷新看看效果，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    ......</div><div class="line"></div><div class="line">    WeatherMoreInfo data1 = <span class="keyword">new</span> WeatherMoreInfo();</div><div class="line">    data1.typeResId = R.mipmap.ic_wind_level;</div><div class="line">    data1.description = <span class="string">"风力"</span>;</div><div class="line">    data1.value = <span class="string">"3级"</span>;</div><div class="line">    mWeatherMoreInfoList.add(data1);</div><div class="line"></div><div class="line">    WeatherMoreInfo data2 = <span class="keyword">new</span> WeatherMoreInfo();</div><div class="line">    data2.typeResId = R.mipmap.ic_wind_direction;</div><div class="line">    data2.description = <span class="string">"风向"</span>;</div><div class="line">    data2.value = <span class="string">"东南"</span>;</div><div class="line">    mWeatherMoreInfoList.add(data2);</div><div class="line"></div><div class="line">    WeatherMoreInfo data3 = <span class="keyword">new</span> WeatherMoreInfo();</div><div class="line">    data3.typeResId = R.mipmap.ic_humidity_level;</div><div class="line">    data3.description = <span class="string">"湿度"</span>;</div><div class="line">    data3.value = <span class="string">"60%"</span>;</div><div class="line">    mWeatherMoreInfoList.add(data3);</div><div class="line"></div><div class="line">    WeatherMoreInfo data4 = <span class="keyword">new</span> WeatherMoreInfo();</div><div class="line">    data4.typeResId = R.mipmap.ic_air_quality;</div><div class="line">    data4.description = <span class="string">"空气质量"</span>;</div><div class="line">    data4.value = <span class="string">"重污染"</span>;</div><div class="line">    mWeatherMoreInfoList.add(data4);</div><div class="line"></div><div class="line">    WeatherMoreInfo data5 = <span class="keyword">new</span> WeatherMoreInfo();</div><div class="line">    data5.typeResId = R.mipmap.ic_sport_level;</div><div class="line">    data5.description = <span class="string">"运动"</span>;</div><div class="line">    data5.value = <span class="string">"不合适"</span>;</div><div class="line">    mWeatherMoreInfoList.add(data5);</div><div class="line"></div><div class="line">    WeatherMoreInfo data6 = <span class="keyword">new</span> WeatherMoreInfo();</div><div class="line">    data6.typeResId = R.mipmap.ic_ultraviolet_level;</div><div class="line">    data6.description = <span class="string">"紫外线"</span>;</div><div class="line">    data6.value = <span class="string">"强"</span>;</div><div class="line">    mWeatherMoreInfoList.add(data6);</div><div class="line"></div><div class="line">    adapter.notifyDataSetChanged();</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<p> 至此，视频列表的界面就能看到视频列表了。</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_more_info_list_complete.png" width="250" alt=" weather_more_info_list_complete"></div>
+
+
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-16T08:05:46.000Z" itemprop="dateUpdated">2017年2月16日 16:05</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://booktest.anddle.com">
+            <img src="/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/9_天气更多信息的布局/&title=《9 天气更多信息的布局》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/9_天气更多信息的布局/&title=《9 天气更多信息的布局》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/4_开发/8_天气预报的布局/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">8 天气预报的布局</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/4_开发/10_解析天气预报数据/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">10 解析天气预报数据</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/4_开发/9_天气更多信息的布局/&title=《9 天气更多信息的布局》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/4_开发/9_天气更多信息的布局/&title=《9 天气更多信息的布局》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuElEQVR42u3a0U7DQAwEwP7/T4PEE6hKurbPBaTJUxVIkzmknFn78YiPj6/j++fvx/PvPF/7/NOrM/ff89g48PDw8FqPfnUkj3J/7dUCJc+TnLm/Lx4eHt4eL9kM7r86ecTq5+Q3X1jw8PDwfpU3Oe43mORB8fDw8P4jLw8FkvAi2WZ6wQceHh7ee3j5bfKlyeOJXiF+OGvBw8PDi3m9Btjvfl7v7+Hh4eG1uurVYjfZSKojApNABA8PD2+Dl9ws2Srm41nVnxY2DDw8PLyjvEkge3YgIC+jk+jhx76Hh4eH9xZer+E0ClJjal6O4+Hh4b2fV12CpLlVbbwlpfmLzh4eHh7eUd68GZbcZqPsbuYueHh4eId4k8GpZM0m0UN1ES8bYHh4eHhHeXkRPA8OemOm1Z0NDw8Pb483aU3NBwjWQxA8PDy8rXy1nE9UI9r8fLUoH4UReHh4eId4veZT3tY6xSuEJnh4eHgLvHl5nTS98iI7X5pCqIGHh4e3zKu256uBby+crbbT8PDw8PZ4G8NS8+ZZEtoW/mPAw8PDO8SbAPLbn722sC3h4eHhrfHycLZaZCdbRQ8c/Unw8PDwlnnVZn+1wV9dpt4CPaprjIeHhzfg5Y+VB6+Tl35eWL8YF8DDw8M7yssbYPPoodpUy2FRiIyHh4f3Ft5kTCrPUSehRmGbwcPDwzvKq5bO1fBigsxL+ReTEXh4eHgLvPkruzeaUE0PDmcYeHh4eGPY/TF59GqjqxoxX46r4uHh4R3lVd+xebybxxa9hcuvwsPDw9vg5S/lvH01H67qhcVRGIGHh4d3iHeqCK7GCqcGsy6vwsPDw/tjvMmZXq8/Kdnx8PDw/g6v94rvRbTzeBcPDw9vm5d/RS/ercYcSeQRLT0eHh7eAq/6r361rZXEsvfnqwMEeHh4eGu8T0RYnHHjzOxuAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261181710&web_id=1261181710')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>
