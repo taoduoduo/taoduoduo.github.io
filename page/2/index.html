@@ -117,6 +117,13 @@
               </a>
             </li>
         
+            <li class="waves-block waves-effect">
+              <a href="/about/index.html"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
       </ul>
     </div>
   </div>
@@ -167,7 +174,296 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-3_产品原型/3_静态原型设计"
+            <article id="post-3_产品原型/8_静态原型的Appbar折叠"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年01月20日 9:00" datetime="2017-01-20T01:00:00.000Z"  itemprop="datePublished">2017-01-20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第3章-产品原型/">第3章-产品原型</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/3_产品原型/8_静态原型的Appbar折叠/">8 静态原型的Appbar折叠</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        静态原型的hexAppbar折叠接下来，我们开始设计Appbar被滑动收缩以后的界面效果。
+
+
+可以看到，这个效果图绝大部分和展开时的效果图时一样的。
+所以我们可以将整个画板修改一个名字为-展开，并复制出一个新的画板命名为折叠，修改一下其中的元素就好了。
+
+
+使用Symbol这样做完全没有问题，但是可能会给以后内容的修改留下一个隐患：假如我要把风力从3级修改为5级，除了要修改展开画板，还要修...
+    
+
+        <a href="/3_产品原型/8_静态原型的Appbar折叠/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-3_产品原型/7_静态原型的更多天气信息"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年01月19日 9:00" datetime="2017-01-19T01:00:00.000Z"  itemprop="datePublished">2017-01-19</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第3章-产品原型/">第3章-产品原型</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/3_产品原型/7_静态原型的更多天气信息/">7 静态原型的更多天气信息</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        静态原型的更多天气信息天气的更多信息，是通过列表的形式展现的。
+
+
+参数设计
+
+列表项的高度在Material Design中，被定义成了48dp；并且整个list的顶部还有8dp的边距。
+列表项由3部分组成，
+
+图标：
+
+
+
+
+项目
+数值
+
+
+
+
+大小
+24dp
+
+
+左边距
+16dp
+
+
+位置
+垂直居中
+
+
+颜色
+#000000
+
+
+透明度
+54%
+
+
+
+
+项目名称：
+
+
+
+
+项目
+数值
+...
+    
+
+        <a href="/3_产品原型/7_静态原型的更多天气信息/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-3_产品原型/6_静态原型的天气详情"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年01月18日 9:00" datetime="2017-01-18T01:00:00.000Z"  itemprop="datePublished">2017-01-18</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第3章-产品原型/">第3章-产品原型</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/3_产品原型/6_静态原型的天气详情/">6 静态原型的天气详情</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        静态原型的天气预报未来5天的天气预报，可以看成由5个类似的天气模块构成，只要完成一个，其他几个就可以通过复制+修改内容实现改变。
+首先来明确一下各个组件的尺寸和参数，
+
+整个区域的大小，我设定成360dp*100dp；
+左右边距设置成16dp；
+这样一来，每日的天气模块就是（360-16-16）/ 5 = 65.6dp，我将它们设定成65dp宽；
+天气的图标的大小设定成30dp的正方形区域（...
+    
+
+        <a href="/3_产品原型/6_静态原型的天气详情/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-3_产品原型/5_静态原型的Appbar"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年01月17日 9:00" datetime="2017-01-17T01:00:00.000Z"  itemprop="datePublished">2017-01-17</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第3章-产品原型/">第3章-产品原型</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/3_产品原型/5_静态原型的Appbar/">5 静态原型的Appbar</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        静态原型的Appbar我们设计的Appbar包括了两个部分，一个是toolbar，另一个就是flexible space-显示当日天气的详细信息，
+
+
+Toolbar参数确定添加Toolbar很简单，首先找到Material Design中对Appbar的描述可以知道，
+
+这是一个高度为56dp的矩形区域；
+当Appbar收缩时，应用的名字会显示出来，
+ 
+
+ 注意：这里显示的是中文-Den...
+    
+
+        <a href="/3_产品原型/5_静态原型的Appbar/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-3_产品原型/4_静态原型的状态栏"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年01月16日 9:00" datetime="2017-01-16T01:00:00.000Z"  itemprop="datePublished">2017-01-16</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第3章-产品原型/">第3章-产品原型</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/3_产品原型/4_静态原型的状态栏/">4 静态原型的状态栏</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        静态原型的状态栏状态栏Symbol状态栏似乎很复杂，有wifi信号、手机信号、时间、电量等信息，幸好Sketch原生就自带的现成组件，你可以直接拿过来就用了。当然，你也可以自己一个一个去画，不过既然有了现成的轮子，又何必重复劳动呢。
+菜单栏中选择File -&gt; New From Template，在弹出的菜单中选择Material Design。此时会创建一个新的工程文件。
+
+
+与之前...
+    
+
+        <a href="/3_产品原型/4_静态原型的状态栏/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-3_产品原型/3_Sketch静态原型设计"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -187,7 +483,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/3_产品原型/3_静态原型设计/">3 静态原型设计</a>
+      <a class="post-title-link" href="/3_产品原型/3_Sketch静态原型设计/">3 Sketch静态原型设计</a>
     </h3>
   
 
@@ -197,7 +493,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        静态原型设计对于静态原型的设计，我们使用Sketch。
+        Sketch静态原型设计对于静态原型的设计，我们使用Sketch。
 启动Sketch后，我们将看到类似如下的界面，
 
 
@@ -208,10 +504,10 @@
 
 
 导航栏左边是导航栏，用来展示这个项目拥有的page和page中包含的详细内容。
-page是一张张单独...
+page...
     
 
-        <a href="/3_产品原型/3_静态原型设计/" class="post-more waves-effect waves-button">
+        <a href="/3_产品原型/3_Sketch静态原型设计/" class="post-more waves-effect waves-button">
             阅读全文...
         </a>
     </div>
