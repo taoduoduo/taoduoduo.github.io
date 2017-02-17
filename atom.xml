@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://booktest.anddle.com/"/>
-  <updated>2017-02-17T03:01:25.000Z</updated>
+  <updated>2017-02-17T03:11:28.000Z</updated>
   <id>http://booktest.anddle.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/18_%E8%B0%83%E6%95%B4%E5%88%97%E8%A1%A8%E6%98%BE%E7%A4%BA/"/>
     <id>http://booktest.anddle.com/4_开发/18_调整列表显示/</id>
     <published>2017-02-12T01:00:00.000Z</published>
-    <updated>2017-02-17T03:01:25.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="调整列表显示"><a href="#调整列表显示" class="headerlink" title="调整列表显示"></a>调整列表显示</h1><p>现在界面上列表的<code>异常显示</code>根本原因在于：将<code>ListView</code>放到了<code>NestedScrollView</code>之内。<code>NestedScrollView</code>内部要使用列表的话，必须使用<code>RecyclerView</code>。</p>
 <p><code>RecyclerView</code>是我们之前提到的<code>Material Design</code>开发支持库中的一个。从它的名字可以看出，它的优点在于提高了数据项刷新、滚动的效率，减小了系统资源的占用。听起来有点抽象是吧，那就记住它的效率更高就行了，实现的原理我们就不去深究了。</p>
@@ -94,7 +94,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/17_Appbar%E5%8A%A8%E6%95%88/"/>
     <id>http://booktest.anddle.com/4_开发/17_Appbar动效/</id>
     <published>2017-02-11T01:00:00.000Z</published>
-    <updated>2017-02-17T03:01:25.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Appbar动效"><a href="#Appbar动效" class="headerlink" title="Appbar动效"></a>Appbar动效</h1><p>之前的改造完成后，<code>Appbar</code>还不能具有滑动的效果。</p>
 <p>要具备联动的滑动功能，还需要做3个地方的修改。</p>
@@ -165,7 +165,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/16_%E6%94%B9%E9%80%A0Appbar/"/>
     <id>http://booktest.anddle.com/4_开发/16_改造Appbar/</id>
     <published>2017-02-10T01:00:00.000Z</published>
-    <updated>2017-02-17T03:01:25.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="改造Appbar"><a href="#改造Appbar" class="headerlink" title="改造Appbar"></a>改造Appbar</h1><p>现在我们开始改造<code>Appbar</code>，希望给它添加上滑动效果，</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_phase_2_complete.gif" width="250" alt=" weather_app_phase_2_complete"></div>
@@ -331,7 +331,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/15_MaterialDesign%E5%BC%80%E5%8F%91/"/>
     <id>http://booktest.anddle.com/4_开发/15_MaterialDesign开发/</id>
     <published>2017-02-09T01:00:00.000Z</published>
-    <updated>2017-02-17T03:01:25.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Material-Design开发"><a href="#Material-Design开发" class="headerlink" title="Material Design开发"></a>Material Design开发</h1><p>从这一章节开始，我们将开始把现有的设计改造成<code>Material Design</code>。</p>
 <p>前面我们已经详细的介绍过了<code>Material Design</code>设计相关的内容，但是具体落实到实际的开发，又需要考验程序开发者了。</p>
@@ -472,7 +472,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/14_%E7%95%8C%E9%9D%A2%E4%BC%98%E5%8C%96/"/>
     <id>http://booktest.anddle.com/4_开发/14_界面优化/</id>
     <published>2017-02-08T01:00:00.000Z</published>
-    <updated>2017-02-17T03:01:25.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="界面优化"><a href="#界面优化" class="headerlink" title="界面优化"></a>界面优化</h1><p><code>天气预报</code>的功能都实现了，但代码当中还有一些需要优化的地方。比如对资源的使用方式。</p>
 <h2 id="style的用法"><a href="#style的用法" class="headerlink" title="style的用法"></a>style的用法</h2><p>假如我们想要修改当日温度的字体属性，那就需要修改<code>activity_main.xml</code>中<code>current_temperature</code>所对应的字体颜色、大小等参数。</p>
@@ -763,7 +763,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/13_%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE/"/>
     <id>http://booktest.anddle.com/4_开发/13_获取网络数据/</id>
     <published>2017-02-07T01:00:00.000Z</published>
-    <updated>2017-02-17T03:01:25.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="获取网络数据"><a href="#获取网络数据" class="headerlink" title="获取网络数据"></a>获取网络数据</h1><p>之前对数据的解析都是建立在假数据之上的，当网络端的开发者把真实数据上线以后，我们就可以通过网络获取真实的数据了。</p>
 <p>正如我们最早的假设前提那样，网络数据是由我构造好了放到自己的服务器上的，里面的内容并不是真实的当日天气，只是便于大家学习如何使用网络访问获取数据。</p>
@@ -845,7 +845,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/12_%E6%95%B0%E6%8D%AE%E7%9A%84%E5%BC%82%E6%AD%A5%E6%9B%B4%E6%96%B0/"/>
     <id>http://booktest.anddle.com/4_开发/12_数据的异步更新/</id>
     <published>2017-02-06T01:00:00.000Z</published>
-    <updated>2017-02-17T03:01:25.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="界面的异步更新"><a href="#界面的异步更新" class="headerlink" title="界面的异步更新"></a>界面的异步更新</h1><p>前面我们获取的数据是假数据，只要需要，马上就能得到。但是实际的情况下，我们将从网络获取数据。</p>
 <p>从网络获取数据有很大的不确定性，主要体现在消耗的时间不确定。假如当时的网络情况非常很好，瞬间就能得到期望的数据，就像是使用在代码中写死的假数据一样；假如网络情况很糟糕，发起数据请求后几十秒钟才能获得结果。</p>
@@ -973,7 +973,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/11_%E7%95%8C%E9%9D%A2%E7%9A%84%E6%9B%B4%E6%96%B0/"/>
     <id>http://booktest.anddle.com/4_开发/11_界面的更新/</id>
     <published>2017-02-05T01:00:00.000Z</published>
-    <updated>2017-02-17T03:01:25.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="界面的更新"><a href="#界面的更新" class="headerlink" title="界面的更新"></a>界面的更新</h1><p>解析出天气预报的各种数据之后，就需要将它们反映到界面上了。</p>
 <p>更新的原理很简单，通过<code>findViewById()</code>获取要更新的各种控件，然后将要更新的数据设置给这些控件就可以了。<br>例如，</p>
@@ -1101,7 +1101,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/10_%E8%A7%A3%E6%9E%90%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5%E6%95%B0%E6%8D%AE/"/>
     <id>http://booktest.anddle.com/4_开发/10_解析天气预报数据/</id>
     <published>2017-02-04T01:00:00.000Z</published>
-    <updated>2017-02-17T03:01:25.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="解析天气预报数据"><a href="#解析天气预报数据" class="headerlink" title="解析天气预报数据"></a>解析天气预报数据</h1><p>界面布局完成以后，就需要设计代码来控制界面上各个元素的逻辑了。</p>
 <ol>
@@ -1466,7 +1466,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/9_%E5%A4%A9%E6%B0%94%E6%9B%B4%E5%A4%9A%E4%BF%A1%E6%81%AF%E7%9A%84%E5%B8%83%E5%B1%80/"/>
     <id>http://booktest.anddle.com/4_开发/9_天气更多信息的布局/</id>
     <published>2017-02-03T01:00:00.000Z</published>
-    <updated>2017-02-17T03:01:25.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="天气更多信息的布局"><a href="#天气更多信息的布局" class="headerlink" title="天气更多信息的布局"></a>天气更多信息的布局</h1><p>天气相关信息是通过列表方式呈现的。<code>Android SDK</code>提供的<code>ListView</code>控件就能实现这样功能。</p>
 <p><code>ListView</code>需要和<code>Adapter</code>配合使用，<code>ListView</code>负责内容的显示，<code>Adapter</code>负责为<code>ListView</code>提供要展示的数据。</p>
@@ -1664,7 +1664,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/8_%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5%E7%9A%84%E5%B8%83%E5%B1%80/"/>
     <id>http://booktest.anddle.com/4_开发/8_天气预报的布局/</id>
     <published>2017-02-02T01:00:00.000Z</published>
-    <updated>2017-02-17T03:01:25.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="天气预报的布局"><a href="#天气预报的布局" class="headerlink" title="天气预报的布局"></a>天气预报的布局</h1><p>现在我们开始进行<code>天气预报</code>区域的布局。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_forcast_complete.png" width="300" alt=" weather_app_forcast_complete"></div>
@@ -1822,7 +1822,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/7_%E5%A4%A9%E6%B0%94%E8%AF%A6%E6%83%85%E7%9A%84%E5%B8%83%E5%B1%80/"/>
     <id>http://booktest.anddle.com/4_开发/7_天气详情的布局/</id>
     <published>2017-02-01T01:00:00.000Z</published>
-    <updated>2017-02-17T03:01:25.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="天气详情的布局"><a href="#天气详情的布局" class="headerlink" title="天气详情的布局"></a>天气详情的布局</h1><p>整体布局完成之后，我们开始进行<code>天气详情</code>区域的布局。</p>
 <p>这个区域由天气图标、当前温度、当日温度范围、地理位置等4个元素组成。我们可以选用<code>Android SDK</code>提供的现有控件，完成布局。</p>
@@ -1965,7 +1965,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/6_%E7%95%8C%E9%9D%A2%E7%9A%84%E6%95%B4%E4%BD%93%E5%B8%83%E5%B1%80/"/>
     <id>http://booktest.anddle.com/4_开发/6_界面的整体布局/</id>
     <published>2017-01-28T01:00:00.000Z</published>
-    <updated>2017-02-17T03:01:25.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="界面的整体布局"><a href="#界面的整体布局" class="headerlink" title="界面的整体布局"></a>界面的整体布局</h1><p>从这一章节开始，我们终于可以开始使用<code>Android Studio</code>写代码了。</p>
 <p><code>天气预报</code>这个应用虽然功能很简单，但是对于从来没有接触过安卓开发的人来讲，开发完成还是需要很多步骤。为了减小学习的坡度，增加开发的阶段性成就感，我将<code>天气预报</code>分成2个阶段来开发，</p>
@@ -2119,7 +2119,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/5_%E8%B5%84%E6%BA%90%E7%9A%84%E5%AF%BC%E5%85%A5/"/>
     <id>http://booktest.anddle.com/4_开发/5_资源的导入/</id>
     <published>2017-01-27T01:00:00.000Z</published>
-    <updated>2017-02-17T03:01:25.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="资源的导入"><a href="#资源的导入" class="headerlink" title="资源的导入"></a>资源的导入</h1><p>在前面讲解产品原型设计的章节中，我们已经创建出了各种开发时需要使用的各种图标了，包括应用图标、系统图标等等。</p>
 <h2 id="图标导入"><a href="#图标导入" class="headerlink" title="图标导入"></a>图标导入</h2><p>现在，我们先把开发过程中要使用到的图片资源添加到<code>Android Studio</code>工程目录当中。</p>
@@ -2189,7 +2189,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/4_%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
     <id>http://booktest.anddle.com/4_开发/4_版本管理/</id>
     <published>2017-01-26T01:00:00.000Z</published>
-    <updated>2017-02-17T03:01:25.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h1><p>前面已经提到了，非常有必要对开发的代码进行管理。那么进行版本管理到底什么时候使用呢？</p>
 <p>我总结了使用版本管理的主要场景，有以下3种：</p>
@@ -2316,7 +2316,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/3_%E5%BA%94%E7%94%A8%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E9%83%A8%E7%BD%B2/"/>
     <id>http://booktest.anddle.com/4_开发/3_应用的创建与部署/</id>
     <published>2017-01-25T01:00:00.000Z</published>
-    <updated>2017-02-17T03:09:56.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="应用的创建与部署"><a href="#应用的创建与部署" class="headerlink" title="应用的创建与部署"></a>应用的创建与部署</h1><p>现在我们开始创建一个全新的项目工程-<code>天气预报</code>，并在编译后让它运行到真实的设备上。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/deploy_app_to_device.png" width="300" alt=" deploy_app_to_device"></div>
@@ -2467,7 +2467,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/2_%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     <id>http://booktest.anddle.com/4_开发/2_开发环境搭建/</id>
     <published>2017-01-24T01:00:00.000Z</published>
-    <updated>2017-02-17T03:09:56.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="开发环境搭建"><a href="#开发环境搭建" class="headerlink" title="开发环境搭建"></a>开发环境搭建</h1><p>开发安卓应用可以在<code>Window系统</code> <code>MacOS系统</code> <code>Linux系统</code>上进行。但并不是说打开一个写字板就可以了，它还需要编译器等开发工具的配合。所以在正式开发之前，需要搭建开发的环境，我们需要给开发平台（<code>Window系统</code> <code>MacOS系统</code> <code>Linux系统</code>）安装上：</p>
 <ol>
@@ -2574,7 +2574,7 @@
     <link href="http://booktest.anddle.com/4_%E5%BC%80%E5%8F%91/1_%E5%BC%80%E5%8F%91%E4%BA%A7%E5%93%81/"/>
     <id>http://booktest.anddle.com/4_开发/1_开发产品/</id>
     <published>2017-01-23T01:00:00.000Z</published>
-    <updated>2017-02-17T03:09:56.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="开发产品"><a href="#开发产品" class="headerlink" title="开发产品"></a>开发产品</h1><p>当开发者拿到设计师提供的原型（静态或者动态）和资源后，也并不是就可以开始写代码了。</p>
 <p>开发阶段通常还会包含以下几个部分：</p>
@@ -2634,7 +2634,7 @@
     <link href="http://booktest.anddle.com/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/10_%E8%B5%84%E6%BA%90%E7%9A%84%E5%88%9B%E5%BB%BA/"/>
     <id>http://booktest.anddle.com/3_产品原型/10_资源的创建/</id>
     <published>2017-01-22T01:00:00.000Z</published>
-    <updated>2017-02-17T03:09:56.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="资源的创建"><a href="#资源的创建" class="headerlink" title="资源的创建"></a>资源的创建</h1><p>界面原型已经设计完成了。不过离最后交付给开发人员开发还差一步：产品中使用的图片还没有准备好呢？</p>
 <p>设计师除了产品原型还要交付哪些资源呢？开发者最关心的资源就是应用中会使用到的各种图标资源和配色方案。</p>
@@ -2864,7 +2864,7 @@
     <link href="http://booktest.anddle.com/3_%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B/9_Origami%E5%8A%A8%E6%80%81%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
     <id>http://booktest.anddle.com/3_产品原型/9_Origami动态原型设计/</id>
     <published>2017-01-21T01:00:00.000Z</published>
-    <updated>2017-02-17T03:09:56.000Z</updated>
+    <updated>2017-02-17T03:11:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="动态原型设计"><a href="#动态原型设计" class="headerlink" title="动态原型设计"></a>动态原型设计</h1><p>动态的可交互原型产品，是产品经理和界面设计师向开发人员阐释自己设计的最高效工具。</p>
 <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/origami_weather_app_complete.gif" width="300" alt=" origami_weather_app_complete"></div>
