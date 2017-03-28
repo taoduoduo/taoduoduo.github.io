@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>1 打包签名 | 从设计到实现 | 手把手教你做android应用开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="打包签名测试完成后，就要准备发布应用了。我们之前的程序都是使用debug版本进行调试的。debug版本会加入很多冗余的信息便于我们开发者测试代码，运行的效率相对就会低一些。等到要发布的时候，就一定要把整个程序打包成release版，作为正式的产品。
+为何要签名正式的产品需要签名。签名就是给你的应用搭上这个应用开发者才具有的烙印，使用的是一种数字签名的方式。
+
+
+除了彰显你开发者的身份，它也用来做恶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1 打包签名">
+<meta property="og:url" content="http://booktest.anddle.com/6_发布/1_打包签名/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="打包签名测试完成后，就要准备发布应用了。我们之前的程序都是使用debug版本进行调试的。debug版本会加入很多冗余的信息便于我们开发者测试代码，运行的效率相对就会低一些。等到要发布的时候，就一定要把整个程序打包成release版，作为正式的产品。
+为何要签名正式的产品需要签名。签名就是给你的应用搭上这个应用开发者才具有的烙印，使用的是一种数字签名的方式。
+
+
+除了彰显你开发者的身份，它也用来做恶">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/digital_signature.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_release_version_apk.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_release_version_apk_select_module.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_release_version_apk_key_choose.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_release_version_apk_key_create.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_release_version_apk_keystore_create.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_release_version_apk_use_key.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_release_version_apk_error.png">
+<meta property="og:updated_time" content="2017-03-28T05:14:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1 打包签名">
+<meta name="twitter:description" content="打包签名测试完成后，就要准备发布应用了。我们之前的程序都是使用debug版本进行调试的。debug版本会加入很多冗余的信息便于我们开发者测试代码，运行的效率相对就会低一些。等到要发布的时候，就一定要把整个程序打包成release版，作为正式的产品。
+为何要签名正式的产品需要签名。签名就是给你的应用搭上这个应用开发者才具有的烙印，使用的是一种数字签名的方式。
+
+
+除了彰显你开发者的身份，它也用来做恶">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/digital_signature.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+          <span class="mail">QQ群：348702074</span><br/>
+          <span class="mail"></span>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                网站首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第1章-创意/"  >
+                <i class="icon icon-lg icon-birthday-cake"></i>
+                第1章 创意
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第2章-设计原理/"  >
+                <i class="icon icon-lg icon-eyedropper"></i>
+                第2章 设计原理
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第3章-产品原型/"  >
+                <i class="icon icon-lg icon-pencil-square-o"></i>
+                第3章 产品原型
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第5章-测试/"  >
+                <i class="icon icon-lg icon-flask"></i>
+                第5章 测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第6章-发布/"  >
+                <i class="icon icon-lg icon-users"></i>
+                第6章 发布
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resources/"  >
+                <i class="icon icon-lg icon-download"></i>
+                资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about/index.html"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">1 打包签名</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">1 打包签名</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-18T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-02-18
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第6章-发布/">第6章-发布</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>本节目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#打包签名"><span class="post-toc-text">打包签名</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为何要签名"><span class="post-toc-text">为何要签名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何打包"><span class="post-toc-text">如何打包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他"><span class="post-toc-text">其他</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-6_发布/1_打包签名"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">1 打包签名</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月18日 9:00" datetime="2017-02-18T01:00:00.000Z"  itemprop="datePublished">2017-02-18</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第6章-发布/">第6章-发布</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="打包签名"><a href="#打包签名" class="headerlink" title="打包签名"></a>打包签名</h1><p>测试完成后，就要准备发布应用了。我们之前的程序都是使用debug版本进行调试的。debug版本会加入很多冗余的信息便于我们开发者测试代码，运行的效率相对就会低一些。等到要发布的时候，就一定要把整个程序打包成release版，作为正式的产品。</p>
+<h2 id="为何要签名"><a href="#为何要签名" class="headerlink" title="为何要签名"></a>为何要签名</h2><p>正式的产品需要<code>签名</code>。<code>签名</code>就是给你的应用搭上这个应用开发者才具有的烙印，使用的是一种数字签名的方式。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/digital_signature.png" width="100" alt=" digital_signature"></div>
+
+<p>除了彰显你开发者的身份，它也用来做恶意应用的鉴别。假如有一个恶意的开发者，仿造你的应用开发了一个高仿版程序，并且通过其他手段诱骗你的用户尝试安装。那么系统会检查这个即将被安装的高仿程序是否与手机上已经安装的正版程序签名是否一致。只要两者不一致，系统就会判断出它的假冒身份，提示用户注意。</p>
+<p>给程序签名需要使用一个<code>key</code>，这个<code>key</code>是全世界唯一的，一定要好好的保管，不能让别人得到，不然别人就可以用它来仿冒你的身份进行签名操作了。</p>
+<h2 id="如何打包"><a href="#如何打包" class="headerlink" title="如何打包"></a>如何打包</h2><p>使用<code>Android Studio</code>创建release版应用很方便，不需要你去了解太多签名的过程。智能向导会提示你每一步的操作，你只需要照着做就好了。</p>
+<ol>
+<li><p>点击工具栏<code>Build -&gt; Generate Signed APK...</code></p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_release_version_apk.png" width="250" alt=" create_release_version_apk"></div>
+</li>
+<li><p>选择要签名的模块，<code>app</code>就是我们的主程序</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_release_version_apk_select_module.png" width="300" alt=" create_release_version_apk_select_module"></div>
+</li>
+<li><p>选择签名要使用的<code>key</code>，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_release_version_apk_key_choose.png" width="300" alt=" create_release_version_apk_key_choose"></div>
+
+<p> 假如没有<code>key</code>，就根据提示<code>Create new...</code>创建一个。</p>
+</li>
+<li><p>填入生成<code>key</code>时需要使用到的信息，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_release_version_apk_key_create.png" width="400" alt=" create_release_version_apk_key_create"></div>
+</li>
+<li><p>为了保险，给存储<code>key</code>的存储位置也增加一道密码，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_release_version_apk_keystore_create.png" width="300" alt=" create_release_version_apk_keystore_create"></div>
+</li>
+<li><p>指定导出的APK存放位置，点击确定，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_release_version_apk_use_key.png" width="300" alt=" create_release_version_apk_use_key"></div>
+</li>
+<li><p>导出的过程中，你一定会遇到如下的错误提示，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_release_version_apk_error.png" width="500" alt=" create_release_version_apk_error"></div>
+
+<p> 原来，编译的过程中，发现在中文字符串中，并没有将所有的默认字符串都翻译到。</p>
+<p> 经过检查，发现这些字符串的确是我们不需要翻译的，保持它默认的字符就可以了。所以我们也不需要做出修改。</p>
+<p> 为了解决编译报错的问题，错误提示当中，也给出了我们解决的方法。在<code>build.gradle</code>中，添加如下的内容，就可以了，</p>
+ <figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">android &#123;</div><div class="line">    ......</div><div class="line">    </div><div class="line">    lintOptions &#123;</div><div class="line">        abortOnError false</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>重新导出一次。在指定的位置，出现了生成的签名后的<code>天气预报</code>应用APK了，名称叫做<code>app-release.apk</code>。</p>
+</li>
+</ol>
+<p>将导出的release版应用，安装到手机上试试吧。安装前记得把debug版的应用卸载掉，不然系统会因为签名不一致而造成不能安装。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>其实签名并不是说只有release版才能用，我们平时调试程序使用的debug版也是需要签名的。不过这个签名<code>Android Studio</code>自动帮助我们完成了，我们感觉不到它的存在而已。</p>
+<p>如果你愿意，你也可以自己给debug版的程序设置独立的签名，甚至就使用release版的签名也可以。这只需要修改<code>build.gradle</code>文件就可以了。</p>
+<p>假如应用内使用到的函数个数超过了65536个，应用编译的时候会发生错误，就需要使用到特殊的<code>MultiDex</code>技术了。作为初学着，我们很难遇到这样的情况，一般很大的项目才会使用到。这里我就不再详细讲述了。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-28T05:14:16.000Z" itemprop="dateUpdated">2017年3月28日 13:14</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://booktest.anddle.com">
+            <img src="/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/6_发布/1_打包签名/&title=《1 打包签名》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/6_发布/1_打包签名/&title=《1 打包签名》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/5_测试/5_性能调试/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">5 性能调试</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/6_发布/2_代码保护/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2 代码保护</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/6_发布/1_打包签名/&title=《1 打包签名》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/6_发布/1_打包签名/&title=《1 打包签名》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aS46EMAwFwL7/pRlpti3g2YbRECqrFuKTysLt2Pl84rH9jvz63j3b1/i+M3lnc2BgYDyWsR2OvQ/s/Z5Qj797vAQYGBhvYFQD5V64PA6dvXuipcHAwMAIQupVSAwMDIyrGMdpYn4lT0AxMDAwkk1sEl6vTShv2YtjYGA8kFFtDPzl7xv7GxgYGA9hbMWRtxvzsHj85mhWGBgYSzOSLWWvuHbHoY2TBcLAwFiacVWJv7oEvQQ0wmBgYCzEyIPmJAXsHS/LmwcYGBhrM3oPTEr5k/efhHUMDIxFGdVX5yldFCJbXzz538DAwFiUkRe2qqGwmjL2OpUYGBhrM3otyQSWLES1YRnhMTAwlmNUQ2rOmzcpCwkiBgbG0oxqoKy2GPNN6QVfwcDAWJoxSQSrDc55CxMDA+PNjKiYFQS+anluEoK7NTkMDIynMvKUbrL17ZXqojMjGBgYL2BUy/G9cJmPahqKgYGxNiM5MDE/SJGX+HulOgwMjFUZeUCs8ibX86NjGBgYb2NUD2wl7HLTsZgyfqoRHQMD44GMyQOTMlxvcs0tMQYGxsMZW3HkmGQ72kslo104BgbGQow7ErK8MTlfCAwMjPcwqkGwl8wlwbfaIsXAwHgbo1mUb6WDeWOgsDQYGBgYwSQmBzJ6By8wMDAw5mX9PL1Lks6T+WBgYLyAMQmg+ea2GlKPARgYGO9h9BoDeSltUp67vb+BgYHx3xk/s1Ed8xPyJMUAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261181710&web_id=1261181710')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>

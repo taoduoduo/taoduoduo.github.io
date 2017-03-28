@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>3 产品发布 | 从设计到实现 | 手把手教你做android应用开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="产品发布应用的正式版终于打包完成了。
+接下来就要想办法把你开发的程序发布到网络上，供用户下载了。
+安卓应用最官方的发布渠道就是Google Play软件市场。你需要把自己的应用上传到Google Play市场。
+不过目前Google Play软件市场还不能在国内访问到，好在国内已经有了很多软件市场，来做这种应用发布的平台。
+选择发布平台要选那种使用者众多的平台。假如你的应用希望付费下载，还要选择一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3 产品发布">
+<meta property="og:url" content="http://booktest.anddle.com/6_发布/3_产品发布/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="产品发布应用的正式版终于打包完成了。
+接下来就要想办法把你开发的程序发布到网络上，供用户下载了。
+安卓应用最官方的发布渠道就是Google Play软件市场。你需要把自己的应用上传到Google Play市场。
+不过目前Google Play软件市场还不能在国内访问到，好在国内已经有了很多软件市场，来做这种应用发布的平台。
+选择发布平台要选那种使用者众多的平台。假如你的应用希望付费下载，还要选择一">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/android_bugly_crash.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/android_bugly_operate.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/android_youmi.png">
+<meta property="og:updated_time" content="2017-03-28T05:14:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="3 产品发布">
+<meta name="twitter:description" content="产品发布应用的正式版终于打包完成了。
+接下来就要想办法把你开发的程序发布到网络上，供用户下载了。
+安卓应用最官方的发布渠道就是Google Play软件市场。你需要把自己的应用上传到Google Play市场。
+不过目前Google Play软件市场还不能在国内访问到，好在国内已经有了很多软件市场，来做这种应用发布的平台。
+选择发布平台要选那种使用者众多的平台。假如你的应用希望付费下载，还要选择一">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/android_bugly_crash.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+          <span class="mail">QQ群：348702074</span><br/>
+          <span class="mail"></span>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                网站首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第1章-创意/"  >
+                <i class="icon icon-lg icon-birthday-cake"></i>
+                第1章 创意
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第2章-设计原理/"  >
+                <i class="icon icon-lg icon-eyedropper"></i>
+                第2章 设计原理
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第3章-产品原型/"  >
+                <i class="icon icon-lg icon-pencil-square-o"></i>
+                第3章 产品原型
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第5章-测试/"  >
+                <i class="icon icon-lg icon-flask"></i>
+                第5章 测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第6章-发布/"  >
+                <i class="icon icon-lg icon-users"></i>
+                第6章 发布
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resources/"  >
+                <i class="icon icon-lg icon-download"></i>
+                资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about/index.html"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">3 产品发布</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">3 产品发布</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-20T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-02-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第6章-发布/">第6章-发布</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>本节目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#产品发布"><span class="post-toc-text">产品发布</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#发布平台介绍"><span class="post-toc-text">发布平台介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后期维护"><span class="post-toc-text">后期维护</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#bug的修正"><span class="post-toc-text">bug的修正</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#功能的增减"><span class="post-toc-text">功能的增减</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他功能"><span class="post-toc-text">其他功能</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-6_发布/3_产品发布"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">3 产品发布</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月20日 9:00" datetime="2017-02-20T01:00:00.000Z"  itemprop="datePublished">2017-02-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第6章-发布/">第6章-发布</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="产品发布"><a href="#产品发布" class="headerlink" title="产品发布"></a>产品发布</h1><p>应用的正式版终于打包完成了。</p>
+<p>接下来就要想办法把你开发的程序发布到网络上，供用户下载了。</p>
+<p>安卓应用最官方的发布渠道就是Google Play软件市场。你需要把自己的应用上传到Google Play市场。</p>
+<p>不过目前Google Play软件市场还不能在国内访问到，好在国内已经有了很多软件市场，来做这种应用发布的平台。</p>
+<p>选择发布平台要选那种使用者众多的平台。假如你的应用希望付费下载，还要选择一下在哪个平台下发布能方便的收取回报，分成、提现都是需要加入考虑的因素。</p>
+<h2 id="发布平台介绍"><a href="#发布平台介绍" class="headerlink" title="发布平台介绍"></a>发布平台介绍</h2><p>平台主要分两类，一种是手机系统自带的；另一种就是专门的软件市场了。</p>
+<p>系统自带的市场有：</p>
+<ul>
+<li>小米软件商店</li>
+<li>魅族软件商店</li>
+<li>华为软件商店</li>
+</ul>
+<p>专门的软件市场有：</p>
+<ul>
+<li>360手机助手</li>
+<li>腾讯应用宝</li>
+<li>百度应用市场</li>
+<li>安智市场</li>
+</ul>
+<h2 id="后期维护"><a href="#后期维护" class="headerlink" title="后期维护"></a>后期维护</h2><p>产品虽然已经发布了，但是还需要进行长久的维护。 </p>
+<p>维护的内容包括，</p>
+<ul>
+<li>bug的修正；</li>
+<li>功能的增减；</li>
+</ul>
+<h3 id="bug的修正"><a href="#bug的修正" class="headerlink" title="bug的修正"></a>bug的修正</h3><p>虽然我们已经进行了代码的测试，但是也可能会有漏网之鱼。有的bug很不容易出现，大量用户使用的过程中才会出现一两次。</p>
+<p>要是能收集到这些bug发生时的信息，那么对我们调试程序解决bug是非常有帮助的。</p>
+<p>第三方提供了现成的方案帮助我们解决这样的实际需要。例如腾讯的<a href="https://bugly.qq.com/" target="_blank" rel="external">bugly</a>。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/android_bugly_crash.png" width="500" alt=" android_bugly_crash"></div>
+
+
+<p>这样一来，你不仅能知道程序发生了错误，而且也不需要跑到用户那里去询问错误发生时的操作状态，只要打开后台管理页面就能知道程序发生的细节了。</p>
+<p>然后你再根据发回的log信息来查找bug发生的原因了。</p>
+<p>bugly的集成方式这里就不赘述了，毕竟这不属于安卓应用开发的标准范畴，需要使用的话请看它的<a href="https://bugly.qq.com/docs/" target="_blank" rel="external">官方文档</a>吧。</p>
+<h3 id="功能的增减"><a href="#功能的增减" class="headerlink" title="功能的增减"></a>功能的增减</h3><p>我们还要统计下用户对应用到使用偏好，例如喜欢用哪个功能，一般什么时候使用，使用的人群是怎样的。其实这就是一种大数据的分析，通过实实在在的数据来了解我们的用户；通过数据来指定我们下一步的开发计划，增加什么功能，减少什么功能，让我们的决策更有针对性，能够事半功倍。</p>
+<p>还是腾讯提供的<a href="https://bugly.qq.com/" target="_blank" rel="external">bugly</a>，为我们提供了这样的能力，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/android_bugly_operate.png" width="500" alt=" android_bugly_operate"></div>
+
+
+<h3 id="其他功能"><a href="#其他功能" class="headerlink" title="其他功能"></a>其他功能</h3><p>有可能你还希望在应用中集成广告，以此作为收入的来源。通常很多游戏会依靠用户点击广告来收钱。</p>
+<p>这些广告并不是开发者自己去联系广告主发布的，而是通过一个第三方的广告平台实现。</p>
+<p>广告分发平台很多，<a href="https://www.youmi.net" target="_blank" rel="external">有米</a>是其中之一。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/android_youmi.png" width="500" alt=" android_youmi"></div>
+
+<p>广告平台会代理很多广告，然后提供开发者一个<code>SDK</code>，让开发者集成到应用里面。特定情况下，<code>SDK</code>能够将广告内容显示到屏幕上，假如用户进行了点击，那么广告平台会做下记录，把数据统计起来，作为为开发者结算推广费用低依据。</p>
+<p>在安卓系统刚推出那几年，这种广告推广模式非常吃香，那是毕竟是卖方市场，即使有广告，用户为了使用某个功能，也得忍受着。但是随着移动应用种类和数量的增多，用户品位的提升，植入广告已经越来越不受用户待见了。</p>
+<p>所以要是你想在应用中加入广告，那一定得三思才好。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-28T05:14:16.000Z" itemprop="dateUpdated">2017年3月28日 13:14</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://booktest.anddle.com">
+            <img src="/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/6_发布/3_产品发布/&title=《3 产品发布》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/6_发布/3_产品发布/&title=《3 产品发布》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/6_发布/2_代码保护/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2 代码保护</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/6_发布/4_意犹未尽/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">4 意犹未尽</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/6_发布/3_产品发布/&title=《3 产品发布》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/6_发布/3_产品发布/&title=《3 产品发布》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aQW4CMQwF0N7/0nTbCjH870BVkpcVGlDGj4Xl2Pn6itftx7p/fv+b++crb3nZwsDA+FjG7XJdh3i9wzX1eoc8NgwMjHMYjzJYkljz0Fd+8yRmDAwMjBGpLSiv34WBgYHx2oSblH0tCQMDAyMv9ZInsyPxH53FMTAwPpCRd93//vNb5hsYGBgfxbiVKyrR4mFAm6wfRoWBgbE1I09wbdGWBL2ScDEwMM5kzELMG2RJsk72f8s/jYGB8Y8ZSet/VurNGnDDpIyBgXEAY/0F7bfrY9FfO2BgYGzNaLdoh5rtODMpLpfSLgYGxgcy2ksVbRB5sl4aMGBgYBzAuE6OLWZWMq4cdDEwMPZmtI22WbIuDqKjgy4GBsYJjCThtiPPlYtfLQ8DA2NvRt4Ie0tajI+pUVGIgYFxJGPlMtmsYdc27zAwME5jtNezVgrBdhhQ3BnBwMDYjpEn09mscFZurg8hMDAw9mPkzbX24sWrysEoWWNgYBzGWL9O0TbpZk+eJFwMDIztGEnnKm/Prew5u1KGgYFxAqNtvSWNsFk5mMf5ZJCJgYGxBeNWrrYx1wY3+1sxMDD2ZuTrteHmg8n64gUGBsamjCTJJkVe+w/NRhF15YiBgbERo0187beztl1xFQwDAwOjZCQNu/yNGBgYGLNN23SZs5MLFg/nGxgYGFszkkNsm2Tz4247BsDAwDiN0R4d82HnSmJtEzcGBsamjG8hilbkGskt3wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261181710&web_id=1261181710')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>

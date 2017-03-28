@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>3 设备测试 | 从设计到实现 | 手把手教你做android应用开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="设备测试设备上进行测试就是把测试代码打包成APK，放到设备上运行，就像一个应用在实际使用当中被进行测试一样。
+设备单元的代码存放于app/src/androidTest/目录之下；并且要在build.gradle文件中，添加对应的支持库，例如，
+1234567891011dependencies &amp;#123;    androidTestCompile &apos;com.android.support:s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3 设备测试">
+<meta property="og:url" content="http://booktest.anddle.com/5_测试/3_设备测试/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="设备测试设备上进行测试就是把测试代码打包成APK，放到设备上运行，就像一个应用在实际使用当中被进行测试一样。
+设备单元的代码存放于app/src/androidTest/目录之下；并且要在build.gradle文件中，添加对应的支持库，例如，
+1234567891011dependencies &amp;#123;    androidTestCompile &apos;com.android.support:s">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_instrument_test_file.png">
+<meta property="og:updated_time" content="2017-03-28T05:14:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="3 设备测试">
+<meta name="twitter:description" content="设备测试设备上进行测试就是把测试代码打包成APK，放到设备上运行，就像一个应用在实际使用当中被进行测试一样。
+设备单元的代码存放于app/src/androidTest/目录之下；并且要在build.gradle文件中，添加对应的支持库，例如，
+1234567891011dependencies &amp;#123;    androidTestCompile &apos;com.android.support:s">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/create_instrument_test_file.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+          <span class="mail">QQ群：348702074</span><br/>
+          <span class="mail"></span>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                网站首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第1章-创意/"  >
+                <i class="icon icon-lg icon-birthday-cake"></i>
+                第1章 创意
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第2章-设计原理/"  >
+                <i class="icon icon-lg icon-eyedropper"></i>
+                第2章 设计原理
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第3章-产品原型/"  >
+                <i class="icon icon-lg icon-pencil-square-o"></i>
+                第3章 产品原型
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第5章-测试/"  >
+                <i class="icon icon-lg icon-flask"></i>
+                第5章 测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第6章-发布/"  >
+                <i class="icon icon-lg icon-users"></i>
+                第6章 发布
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resources/"  >
+                <i class="icon icon-lg icon-download"></i>
+                资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about/index.html"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">3 设备测试</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">3 设备测试</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-15T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-02-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第5章-测试/">第5章-测试</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>本节目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#设备测试"><span class="post-toc-text">设备测试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设备单元测试"><span class="post-toc-text">设备单元测试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自动化UI测试"><span class="post-toc-text">自动化UI测试</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-5_测试/3_设备测试"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">3 设备测试</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月15日 9:00" datetime="2017-02-15T01:00:00.000Z"  itemprop="datePublished">2017-02-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第5章-测试/">第5章-测试</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="设备测试"><a href="#设备测试" class="headerlink" title="设备测试"></a>设备测试</h1><p>设备上进行测试就是把测试代码打包成APK，放到设备上运行，就像一个应用在实际使用当中被进行测试一样。</p>
+<p>设备单元的代码存放于<code>app/src/androidTest/</code>目录之下；并且要在<code>build.gradle</code>文件中，添加对应的支持库，例如，</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    androidTestCompile 'com.android.support:support-annotations:<span class="number">24</span>.<span class="number">0</span>.<span class="number">0</span>'</div><div class="line">    androidTestCompile 'com.android.support.test:runner:<span class="number">0</span>.<span class="number">5</span>'</div><div class="line">    androidTestCompile 'com.android.support.test:rules:<span class="number">0</span>.<span class="number">5</span>'</div><div class="line">    // Optional -- Hamcrest library</div><div class="line">    androidTestCompile 'org.hamcrest:hamcrest-library:<span class="number">1</span>.<span class="number">3</span>'</div><div class="line">    // Optional -- UI testing with Espresso</div><div class="line">    androidTestCompile 'com.android.support.test.espresso:espresso-core:<span class="number">2</span>.<span class="number">2</span>.<span class="number">2</span>'</div><div class="line">    // Optional -- UI testing with UI Automator</div><div class="line">    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:<span class="number">2</span>.<span class="number">1</span>.<span class="number">2</span>'</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><em>注意看，这些库的依赖，使用的是<code>androidTestCompile</code>关键字。</em></p>
+<p><em>另外，使用<code>Android Studio</code>创建的工程的时候，系统已经默认添加了<code>espresso</code>库，它能自动导入<code>AndroidJUnitRunner</code>需要使用的库，</em></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile fileTree(<span class="built_in">dir</span>: 'libs', include: ['*.jar'])</div><div class="line">    androidTestCompile('com.android.support.test.espresso:espresso-core:<span class="number">2</span>.<span class="number">2</span>.<span class="number">2</span>', &#123;</div><div class="line">        exclude group: 'com.android.support', module: 'support-annotations'</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    testCompile 'junit:junit:<span class="number">4</span>.<span class="number">12</span>'</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在设备上进行的测试有：</p>
+<ol>
+<li>Instrument unit test：设备上进行的单元测试；</li>
+<li>UI测试；</li>
+</ol>
+<h2 id="设备单元测试"><a href="#设备单元测试" class="headerlink" title="设备单元测试"></a>设备单元测试</h2><p>设备单元测试依赖于<code>AndroidJUnitRunner</code>，这是<code>JUnit4</code>的安卓系统运行版。因此它的使用方式与前面的本地单元测试完全兼容。</p>
+<p>使用的时候需要在<code>build.gradle</code>文件中增加配置，</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    androidTestCompile 'com.android.support.test:runner:<span class="number">0</span>.<span class="number">5</span>'</div><div class="line">    androidTestCompile 'com.android.support.test:rules:<span class="number">0</span>.<span class="number">5</span>'</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><em>使用<code>Android Studio</code>创建的工程，就不用在意这一点了，配置文件已经添加了<code>espresso</code>库，将默认倒入配套的库。</em></p>
+<p>在<code>androidTest\java\com.anddle.weatherapp</code>下，点击右键，<code>new -&gt; java class</code>；<br>创建一个设备单元测试的文件-<code>MainActivityInstrumentedTest.java</code>，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/create_instrument_test_file.png" width="400" alt=" create_instrument_test_file"></div>
+
+<p>给测试类添加<code>@RunWith(AndroidJUnit4.class)</code>注解，让<code>Android Studio</code>知道这是需要在设备上运行的测试代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RunWith</span>(AndroidJUnit4.class)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivityInstrumentedTest</span> </span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>既然<code>AndroidJUnitRunner</code>与<code>JUnit4</code>的代码完全兼容，只是运行的环境不同，那么本地单元测试的代码也是完全可以直接拿过来用的。不过既然是在真实的运行环境下测试，自然就不需要使用<code>Mock</code>的方式了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RunWith</span>(AndroidJUnit4.class)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivityInstrumentedTest</span> </span>&#123;</div><div class="line"></div><div class="line">    MainActivity mMainActivity;</div><div class="line"></div><div class="line">    <span class="comment">//使用@Rule进行注解，创建ActivityTestRule对象，用来获取Activity</span></div><div class="line">    <span class="meta">@Rule</span></div><div class="line">    <span class="keyword">public</span> ActivityTestRule mActivityRule = <span class="keyword">new</span> ActivityTestRule&lt;&gt;(</div><div class="line">            MainActivity.class);</div><div class="line"></div><div class="line">    <span class="meta">@Before</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">//通过ActivityTestRule对象，获取Activity</span></div><div class="line">        mMainActivity = (MainActivity) mActivityRule.getActivity();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getWeatherInformationFromNetwork_ifUrlisValid</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">        String data = mMainActivity.getWeatherInformationFromNetwork(<span class="string">"http://book.anddle.com/api/query_weather"</span>);</div><div class="line"></div><div class="line">        assertNotEquals(<span class="string">"MainActivityTest test getWeatherInformationFromNetwork: url is valid"</span>, <span class="number">0</span>, data.length());</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>使用<code>ActivityTestRule</code>获取<code>MainActivity</code>；</li>
+<li><code>mActivityRule</code>要使用<code>@Rule</code>进行注解；</li>
+</ol>
+<p>运行看看，果然能在设备上对<code>getWeatherInformationFromNetwork()</code>函数进行测试了。</p>
+<p>Google官网网站上有对使用<code>Instrument unit test</code>的详细介绍：<a href="https://developer.android.google.cn/training/testing/unit-testing/instrumented-unit-tests.html" target="_blank" rel="external">https://developer.android.google.cn/training/testing/unit-testing/instrumented-unit-tests.html</a>，大家可以进步一对研读，增加对它的认识。</p>
+<h2 id="自动化UI测试"><a href="#自动化UI测试" class="headerlink" title="自动化UI测试"></a>自动化UI测试</h2><p>对程序的操作界面测试的时候，我们通常会认为需要人来手动操作。其实不然，很多时候，自动化测试也能进行UI元素的操作，比如让界面滑动一下，通过某个按钮启动另一项功能等等。</p>
+<p>采用自动化方式测试UI的好处很多，</p>
+<ol>
+<li>将进行手动的人解放出来；</li>
+<li>测试流程的重复性增强了，再多的操作都可以通过编程来做，如果是人来测试难免每次操作的步骤会出现差异；假如发现了问题，可以很容易的复现出来；</li>
+<li>测试的精确度大大提高，比如，在滑动的界面下，可以设置滑动的详细距离（像素为单位），然后进行检测，看界面的显示效果是否符合预期；</li>
+</ol>
+<p>在安卓系统中，进行自动化UI测试，需要用到<code>Espresso</code>测试框架。</p>
+<p>在<code>build.gradle</code>文件中，需要添加上依赖的库文件，</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile fileTree(<span class="built_in">dir</span>: 'libs', include: ['*.jar'])</div><div class="line">    androidTestCompile 'com.android.support.test.espresso:espresso-core:<span class="number">2</span>.<span class="number">2</span>.<span class="number">2</span>'</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><em>使用<code>Android Studio</code>创建的工程，就不用在意这一点了，配置文件已经添加了<code>espresso</code>库，将默认倒入配套的库。</em></p>
+<p>我们的<code>天气预报</code>界面非常的简单，打开应用后，从网络获取数据刷新界面就完成了。<br>因此，我们的测试也很简单：</p>
+<ol>
+<li>打开应用，从网络获取数据；</li>
+<li>检查刷新的界面上<code>当前温度</code>和<code>当前温度范围</code>的内容，是不是都显示了出来就可以了；</li>
+</ol>
+<p>为了实现自动检查,需要获取界面元素上被设置的值，看看是否符合预期，例如，</p>
+<table>
+<thead>
+<tr>
+<th>检查项目</th>
+<th>期望数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>当前温度的显示内容</td>
+<td>显示“23°”</td>
+</tr>
+<tr>
+<td>当前温度范围的显示内容</td>
+<td>显示“18℃～23℃”</td>
+</tr>
+</tbody>
+</table>
+<p>在<code>MainActivityInstrumentedTest.java</code>中加入如下的代码，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RunWith</span>(AndroidJUnit4.class)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivityInstrumentedTest</span> </span>&#123;</div><div class="line"></div><div class="line">    ......</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkWeatherDetail_Activity</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        onView(withId(R.id.current_temperature))</div><div class="line">                .check(matches(withText(<span class="string">"23°"</span>)));</div><div class="line"></div><div class="line">        onView(withId(R.id.temperature_range))</div><div class="line">                .check(matches(withText(<span class="string">"18℃～23℃"</span>)));</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>onView()</code>是<code>espresso</code>框架提供的一个方法，它可以通过<code>withId()</code>的方式，获取到要检查的对象；之后通过<code>check()</code>检查对应的字符串是否符合预期。</p>
+<p>将测试程序部署到设备上运行看看吧。</p>
+<p>除了<code>onView()</code>，<code>espresso</code>还提供了很多其他的检查方式，比如进行滑动操作，点击操作，列表数据检查等等。作为初次接触<code>espresso</code>，我在这里举了一个最为粗浅的例子引导大家对这种测试有个大致的了解。</p>
+<p>如果想深入的学习，可以参考Google官方的文档：<a href="https://developer.android.google.cn/training/testing/ui-testing/espresso-testing.html" target="_blank" rel="external">https://developer.android.google.cn/training/testing/ui-testing/espresso-testing.html</a></p>
+<p>除了<code>espresso</code>之外，Google还提供了<code>uiautomator</code>库，对多个应用之间切换进行测试。详细内容请参考Google官方的文档：<a href="https://developer.android.google.cn/training/testing/ui-testing/uiautomator-testing.html" target="_blank" rel="external">https://developer.android.google.cn/training/testing/ui-testing/uiautomator-testing.html</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-28T05:14:16.000Z" itemprop="dateUpdated">2017年3月28日 13:14</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://booktest.anddle.com">
+            <img src="/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/5_测试/3_设备测试/&title=《3 设备测试》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/5_测试/3_设备测试/&title=《3 设备测试》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/5_测试/2_本地单元测试/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2 本地单元测试</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/5_测试/4_Monkey测试/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">4 Monkey测试</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/5_测试/3_设备测试/&title=《3 设备测试》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/5_测试/3_设备测试/&title=《3 设备测试》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aQYrDMAwF0N7/0h2Y1UBJ+iUlZWo/r0JJHL8UhCX58YjH83e8Xr/e83ec338+w+OOgYGB8bWM5+lIlpK8Pl/i63vP14aBgbEPI5/u/M6rlp6vDQMDA+PonmdxJM9iYGBgXBtwkw1cL9HFwMDAmCSxSQCdbDE/lItjYGB8IWPSGLj7+kP9DQwMjH/MmCSik6Zjb6N5uCoMDIylGeeltPz1eWramyEKxxgYGEsz8qJYLymdB+L8Q2NgYOzAqIbLXgshb4tWPzEGBsZ6jOoDOSDf0uUzH15jYGBsybjq9zvS1MNCGwYGxqKMakpZbXP2AHniWs7IMTAwFmIkgXXe2rwq3cXAwFib0Usyo7pdC9M7hIGBgbEDo1rwSjZ/1aR0st3EwMDYgdF8uNg86B3LiBJXDAyMzRh5StkriuVhOgn6GBgYezLmRbc75nxTnsPAwNiG0Us184DbawCU948YGBjLMfKyWjV03t1aeJPKYmBgLMTIX9A7pNVLVsvnRDAwMDZgJDuuI2rvzmpp702YxsDAWJqRJJm9BVWbndUPevifYGBgLMd4Fke1VJcsuno4483/gIGBsRxjUnWfvGyyZby4eYCBgfEljCTIVsNr/mnygFtoD2BgYCzKyINs9fjF5JBHYWYMDAyMwXV1k9dreWJgYGD0gu88rF/Qj8XAwFiIkSSxk4MX1XS3PDMGBsbSjEljYNLUTIL1xRgMDIzvY/wAFFYsugf1Oi0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261181710&web_id=1261181710')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>

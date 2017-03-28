@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_update_detail.png">
 <meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_update_forcast.png">
 <meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_more_info_list_complete.png">
-<meta property="og:updated_time" content="2017-02-17T03:11:28.000Z">
+<meta property="og:updated_time" content="2017-03-28T05:14:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="11 界面的更新">
 <meta name="twitter:description" content="界面的更新解析出天气预报的各种数据之后，就需要将它们反映到界面上了。
@@ -102,7 +102,7 @@
         
             <li class="waves-block waves-effect">
               <a href="/categories/第3章-产品原型/"  >
-                <i class="icon icon-lg icon-flask"></i>
+                <i class="icon icon-lg icon-pencil-square-o"></i>
                 第3章 产品原型
               </a>
             </li>
@@ -111,6 +111,20 @@
               <a href="/categories/第4章-开发/"  >
                 <i class="icon icon-lg icon-code"></i>
                 第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第5章-测试/"  >
+                <i class="icon icon-lg icon-flask"></i>
+                第5章 测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第6章-发布/"  >
+                <i class="icon icon-lg icon-users"></i>
+                第6章 发布
               </a>
             </li>
         
@@ -248,6 +262,7 @@
 <li><p>因为<code>iconResId</code>保存的是天气状态对应的图标资源<code>id</code>，所以给<code>iconResId</code>赋值的时候得转化一番，因此我想到了给<code>ForcastInfo</code>设计一个构造函数，</p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForcastInfo</span> </span>&#123;</div><div class="line"></div><div class="line">    ......</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ForcastInfo</span><span class="params">(String date, String temperatureRage, <span class="keyword">int</span> weatherCode)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.date = date;</div><div class="line">        <span class="keyword">this</span>.temperatureRage = temperatureRage;</div><div class="line">        </div><div class="line">        <span class="keyword">this</span>.iconResId = R.mipmap.ic_sunny_cloudy_s;</div><div class="line">        <span class="keyword">switch</span> (weatherCode) &#123;</div><div class="line"></div><div class="line">            <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">                <span class="keyword">this</span>.iconResId = R.mipmap.ic_sunny_s;</div><div class="line"></div><div class="line">            <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">                <span class="keyword">this</span>.iconResId =  R.mipmap.ic_rainy_s;</div><div class="line"></div><div class="line">            <span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">                <span class="keyword">this</span>.iconResId =  R.mipmap.ic_cloudy_s;</div><div class="line"></div><div class="line">            <span class="keyword">case</span> <span class="number">3</span>:</div><div class="line">                <span class="keyword">this</span>.iconResId =  R.mipmap.ic_fog_s;</div><div class="line"></div><div class="line">            <span class="keyword">case</span> <span class="number">4</span>:</div><div class="line">                <span class="keyword">this</span>.iconResId =  R.mipmap.ic_snow_s;</div><div class="line"></div><div class="line">            <span class="keyword">case</span> <span class="number">5</span>:</div><div class="line">                <span class="keyword">this</span>.iconResId =  R.mipmap.ic_sunny_cloudy_s;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p> 构造函数中，将3个数据转换成了显示使用的数据。</p>
+<p> <em>注意：这里的代码留有一个bug-<code>switch case</code>缺少了<code>break</code>，为的是给将来的测试做一个铺垫。</em></p>
 </li>
 <li><p>添加一个更新天气预报区域的函数，把界面更新的操作放在一起，便于维护；<br>传人<code>ForcastInfo</code>的列表，作为更新界面需要用到的信息， </p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScrollingActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line">    ......</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">updateWeatherForcast</span><span class="params">(List&lt;ForcastInfo&gt; list)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -329,7 +344,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-02-17T03:11:28.000Z" itemprop="dateUpdated">2017年2月17日 11:11</time>
+    最后更新时间：<time datetime="2017-03-28T05:14:16.000Z" itemprop="dateUpdated">2017年3月28日 13:14</time>
 </span><br>
 
 

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>1 测试的学问 | 从设计到实现 | 手把手教你做android应用开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="测试的学问天气预报的功能全都完成了，开发结束了吗？
+当然还没有，关闭手机上的网络，再打开应用看看。
+
+
+刚完成的作品崩溃了。看看Android Studio下方的信息窗口，可以发现我们的程序联网获取数据失败后，程序进入了我们没有设想过的运行状态，所以崩溃了。
+看来一个健壮的程序远不只是完成了功能，还有很多路要走，还需要经过严格的测试才算开发完成。
+从这一节开始，我开始讲开发时会经常使用到的测试方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1 测试的学问">
+<meta property="og:url" content="http://booktest.anddle.com/5_测试/1_测试的学问/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="测试的学问天气预报的功能全都完成了，开发结束了吗？
+当然还没有，关闭手机上的网络，再打开应用看看。
+
+
+刚完成的作品崩溃了。看看Android Studio下方的信息窗口，可以发现我们的程序联网获取数据失败后，程序进入了我们没有设想过的运行状态，所以崩溃了。
+看来一个健壮的程序远不只是完成了功能，还有很多路要走，还需要经过严格的测试才算开发完成。
+从这一节开始，我开始讲开发时会经常使用到的测试方法">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_crash.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/android_test_black_box_test.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/android_test_white_box_test.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/android_test_intirgrade_test.png.png">
+<meta property="og:updated_time" content="2017-03-28T05:14:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1 测试的学问">
+<meta name="twitter:description" content="测试的学问天气预报的功能全都完成了，开发结束了吗？
+当然还没有，关闭手机上的网络，再打开应用看看。
+
+
+刚完成的作品崩溃了。看看Android Studio下方的信息窗口，可以发现我们的程序联网获取数据失败后，程序进入了我们没有设想过的运行状态，所以崩溃了。
+看来一个健壮的程序远不只是完成了功能，还有很多路要走，还需要经过严格的测试才算开发完成。
+从这一节开始，我开始讲开发时会经常使用到的测试方法">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_crash.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+          <span class="mail">QQ群：348702074</span><br/>
+          <span class="mail"></span>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                网站首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第1章-创意/"  >
+                <i class="icon icon-lg icon-birthday-cake"></i>
+                第1章 创意
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第2章-设计原理/"  >
+                <i class="icon icon-lg icon-eyedropper"></i>
+                第2章 设计原理
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第3章-产品原型/"  >
+                <i class="icon icon-lg icon-pencil-square-o"></i>
+                第3章 产品原型
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第5章-测试/"  >
+                <i class="icon icon-lg icon-flask"></i>
+                第5章 测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第6章-发布/"  >
+                <i class="icon icon-lg icon-users"></i>
+                第6章 发布
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resources/"  >
+                <i class="icon icon-lg icon-download"></i>
+                资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about/index.html"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">1 测试的学问</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">1 测试的学问</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-13T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-02-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第5章-测试/">第5章-测试</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>本节目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#测试的学问"><span class="post-toc-text">测试的学问</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#测试的分类"><span class="post-toc-text">测试的分类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#黑盒测试与白盒测试"><span class="post-toc-text">黑盒测试与白盒测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#单元测试与集成测试"><span class="post-toc-text">单元测试与集成测试</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#测试用例"><span class="post-toc-text">测试用例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安卓的测试"><span class="post-toc-text">安卓的测试</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-5_测试/1_测试的学问"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">1 测试的学问</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月13日 9:00" datetime="2017-02-13T01:00:00.000Z"  itemprop="datePublished">2017-02-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第5章-测试/">第5章-测试</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="测试的学问"><a href="#测试的学问" class="headerlink" title="测试的学问"></a>测试的学问</h1><p><code>天气预报</code>的功能全都完成了，开发结束了吗？</p>
+<p>当然还没有，关闭手机上的网络，再打开应用看看。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_crash.png" width="250" alt=" weather_app_crash"></div>
+
+<p>刚完成的作品崩溃了。看看<code>Android Studio</code>下方的信息窗口，可以发现我们的程序联网获取数据失败后，程序进入了我们没有设想过的运行状态，所以崩溃了。</p>
+<p>看来一个健壮的程序远不只是完成了功能，还有很多路要走，还需要经过严格的测试才算开发完成。</p>
+<p>从这一节开始，我开始讲开发时会经常使用到的测试方法。</p>
+<p>除了测试者假装成普通用户，使用应用的各种功能进行测试以外，可能还需要通过编写代码来进行功能的测试。</p>
+<p>因为很多时候，手动测试的时候并不能模拟实际使用时出现的各种异常状况。</p>
+<p><em>测试其实是一个很专门的职业，可以将它看作和开发有着同样地位的工作。可不像大多数人理解的那样，就是对着应用程序用手点来点去，没有错误发生就算测试完成了。只是靠手进行的测试也太Low了，自动化测试才是整个测试团队的核心。好的测试工程师也会写代码，思维更严密，会想很多日常操作不大会出现的方法来使用开发的产品。薪水比开发工程师薪水还要高啊。</em></p>
+<h2 id="测试的分类"><a href="#测试的分类" class="headerlink" title="测试的分类"></a>测试的分类</h2><p>站在不同的角度，对测试有不同的分类方法。</p>
+<h3 id="黑盒测试与白盒测试"><a href="#黑盒测试与白盒测试" class="headerlink" title="黑盒测试与白盒测试"></a>黑盒测试与白盒测试</h3><p>黑盒测试把要测试的内容看作是一个黑箱子，不需要知道里面是如何设计的，只要把特定的输入放进去，观察它的输出，看这个输出的结果是否与我们的预期相同。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/android_test_black_box_test.png" width="250" alt=" android_test_black_box_test"></div>
+
+<p>白盒测试就要深入到被测对象的内部，把代码肢解，搞清楚它的逻辑，判断是否满足我们的设计需要。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/android_test_white_box_test.png" width="250" alt=" android_test_white_box_test"></div>
+
+<p>黑盒和白盒也是相对的。白盒测试的对象分解后，也许就变成了一个又一个的黑盒。这是和测试的颗粒度相关的，越是分解的细致，黑盒测试越像是白盒测试；分解的粗犷些，白盒测试就像是黑盒测试。</p>
+<h3 id="单元测试与集成测试"><a href="#单元测试与集成测试" class="headerlink" title="单元测试与集成测试"></a>单元测试与集成测试</h3><p>功能测试当中，单元测试与集成测试更容易理解和实际操作。</p>
+<p>单元测试就是选定某个单独的功能点进行测试，它不考虑功能点之间的逻辑。而集成测试才是针对这些简单的功能点组合起来完成一连串逻辑功能而进行的测试。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/android_test_intirgrade_test.png.png" width="300" alt=" android_test_intirgrade_test"></div>
+
+<p>比如<code>从网络获取天气信息并加以解析</code>这个操作，可以把它分成2个功能点：</p>
+<ol>
+<li>从网络获取天气数据；</li>
+<li>对结果继续数据解析；</li>
+</ol>
+<p>每个点可以进行单元测试：</p>
+<ol>
+<li><p>从网络获取天气数据：</p>
+<ul>
+<li>没有网络的时候获取天气数据；</li>
+<li>获取数据时网络超时;</li>
+<li>获取了错误的网络信息；</li>
+</ul>
+</li>
+<li><p>对结果继续数据解析：</p>
+<ul>
+<li>数据为空；</li>
+<li>数据格式不正确解析失败；</li>
+<li>解析出各种不同结果的数据；</li>
+</ul>
+</li>
+</ol>
+<p>2个点结合起来，获取数据并解析数据的测试，可以看作是集成测试。</p>
+<p>除了从代码入手进行集成测试，还有大家熟悉的模拟日常使用进行的集成测试：让测试者操作应用，模拟用户使用各种功能，看有没有问题。</p>
+<p>例如，</p>
+<p>关闭网络连接，启动应用，看应用界面有没有显示当前天气信息；<br>打开网络连接，启动应用，看应用界面有没有显示当前天气信息；</p>
+<p>等等等等。</p>
+<hr>
+<p>黑盒白盒、单元集成、用户模拟、代码测试，都是你中有我我中有你，后面的讲解中，我们将按照单元测试盒集成测试的主线进行。</p>
+<h2 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h2><p>进行测试一定要有章法，不能想到什么测什么，一定要想搞清楚测试的内容，根据测试的内容制定详细的测试计划。</p>
+<p>这些测试的内容条目称作测试用例。<br>例如上面我们提到的<code>从网络获取天气信息并加以解析</code>，<br>如果是模拟用户操作，可能设置的测试用例就是：</p>
+<ul>
+<li>关闭网络连接，启动应用，看应用界面有没有显示当前天气信息；</li>
+<li>打开网络连接，启动应用，看应用界面有没有显示当前天气信息；</li>
+</ul>
+<p>如果是进行代码级别的测试，可能就要按照前面提到的方式，进行单元测试了。</p>
+<p>总之，不论是哪种测试，都要有对应的测试用例。测试用例要写清楚测试的内容，测试的方法，测试的步骤。</p>
+<h2 id="安卓的测试"><a href="#安卓的测试" class="headerlink" title="安卓的测试"></a>安卓的测试</h2><p>安卓应用的测试可以分成下面几个大块，</p>
+<p>单元测试</p>
+<ol>
+<li>Local Unit Test：本地单元测试；</li>
+<li>Instruments Unit Test：需要在设备上进行的单元测试</li>
+</ol>
+<p>集成测试</p>
+<ol>
+<li>被测应用自身操作逻辑的测试；</li>
+<li>被测应用与系统其他应用之间配合的逻辑测试；</li>
+</ol>
+<p>Google为安卓应用的不同测试，提供了专门的方法，可以大大提高对应用测试的效率。</p>
+<p>当然，也不是说每种测试你一定要从头到尾都进行一遍，这个要依据你开发应用的实际情况来决定。测试也许需要付出成本的。你要自己决定把刀用到什么地方。</p>
+<p>通常来讲，单元测试是最为重要的，</p>
+<ul>
+<li>它能够最快的发现问题所在，降低整个程序开发的风险；</li>
+<li>单元测试能最方便的测试各种不常遇到的特殊情况。大部分程序的逻辑和功能都是凭借设计者的直觉和经验完成的，但是百密一疏，谁也不敢保证自己脑袋中的想法就一定面面俱到了。加大对一些不常遇到的特殊情况的测试，能够把问题杜绝在最早的时候；</li>
+</ul>
+<p>集成测试的时候，会抓出常见的使用场景来进行。因为集成测试的时候，是多个模块或功能点的组合，所以不大可能把每一种奇葩情况都考虑进去（实在要考虑也行，但是投入的人力成本可能很高，划不来啊。）</p>
+<p>为了讲述的方便，我将测试分成本地测试、设备测试和性能测试3个大类进行介绍。</p>
+<ul>
+<li>本地测试-Local Test：就是本地的单元测试；</li>
+<li>设备测试-Instrument Test：就是必须在设备上进行的测试，包括3方面的内容，<ol>
+<li>Instrument unit test：设备上进行的单元测试；</li>
+<li>UI测试；</li>
+<li>组件测试；</li>
+</ol>
+</li>
+<li>性能测试</li>
+</ul>
+<p><em>安卓系统还有一个重要的测试叫做兼容性测试-Compatibility Test Suite（CTS）。它是针对整个系统进行的测试，通过这个测试的安卓系统（比如国内各种定制的安卓系统），才能保证各种应用程序在这个系统上能正常的运行。这属于对整个系统的测试了，就不包含在为接下来要讨论的测试当中了。</em></p>
+<p>接下来，我们将按照这个思路，把整个<code>天气预报</code>给测试一遍。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-28T05:14:16.000Z" itemprop="dateUpdated">2017年3月28日 13:14</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://booktest.anddle.com">
+            <img src="/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/5_测试/1_测试的学问/&title=《1 测试的学问》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/5_测试/1_测试的学问/&title=《1 测试的学问》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/4_开发/18_调整列表显示/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">18 调整列表显示</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/5_测试/2_本地单元测试/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2 本地单元测试</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/5_测试/1_测试的学问/&title=《1 测试的学问》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/5_测试/1_测试的学问/&title=《1 测试的学问》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3ay27CQAwFUP7/p6nUVSVEcm3TVnHOrCpCkzlZmPHj8YjX83u9fvJzvX7+KK7J/2JgYOxmPA/XK+N40+/A764ev7JkbxgYGPdhVG9XDb7HT0le2cmeMTAwMIrfOQ6secjGwMDA6AXc40Pb/MiIgYGBMUlikwNiclj851wcAwPjgoxqY+Av//7F/gYGBsZFGM/iyhuN1RLbaFcYGBirGUl6OX983gTtJcMYGBj3YeSJa5LEVo+bSVGvXG7DwMBYxJiU4+cJaq8YFw2HYWBgLGVMRrsKD0takr2RDgwMjKWM/IjWa1gm98nZ0S8GBgbGIkav1FXdSg+ZJK4n/Q0MDIwVjGqZrHzr4JCXHDeTnwQMDIytjMlBbRJG51cxMDDuw6gW/fNyW/VqHnYxMDAwJke3PEBXG5aFkQ4MDIx1jOrgVzMIBtReUwEDA+M+jEJlbjBIMRnmOIFhYGCsZkyGHial/8K0Wu/xGBgY6xhJQMwT12oa3GtOlEMtBgbGZRmTEttxiMzv2WtefqxSiIGBcRHGZEO9YYsPh28MDIzVjLyM1Utuey2EZrkNAwNjKeNZXAlsEl57zU4MDIzdjF65v1csqzJ6yTAGBsZWRv7gKilvZFZD+ckJFwMDYyljMjZRDZ0JpvxNDAwMjDjwTRLUD8yMYGBgYIxbm5OwfvIiMDAwbsDIC2RRShm0IatJbDQ5goGBsZQxaQxUb119HR/GYGBgXI/xBb/dS6nzcMHvAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261181710&web_id=1261181710')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>

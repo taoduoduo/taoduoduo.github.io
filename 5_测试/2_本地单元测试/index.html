@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>2 本地单元测试 | 从设计到实现 | 手把手教你做android应用开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="本地单元测试所谓本地单元测试local unit test就是指，测试的代码不需要部署到设备上，不需要依赖安卓操作系统，在我们的开发环境Android Studio里面（准确的说是开发环境的Java虚拟机当中），就能运行，查看运行的结果。
+可以想象，不需要部署到设备上就能运行，那这种测试方式的速度一定是非常快的。
+它测试的是程序中的某个代码片段，通常就是某个类的方法。要验证这个方法是否到达了设计要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2 本地单元测试">
+<meta property="og:url" content="http://booktest.anddle.com/5_测试/2_本地单元测试/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="本地单元测试所谓本地单元测试local unit test就是指，测试的代码不需要部署到设备上，不需要依赖安卓操作系统，在我们的开发环境Android Studio里面（准确的说是开发环境的Java虚拟机当中），就能运行，查看运行的结果。
+可以想象，不需要部署到设备上就能运行，那这种测试方式的速度一定是非常快的。
+它测试的是程序中的某个代码片段，通常就是某个类的方法。要验证这个方法是否到达了设计要">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/local_unit_test_folder.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/local_unit_test_create_test_file_1.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/local_unit_test_create_test_file_2.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/local_unit_test_start.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/local_unit_test_result_error.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/local_unit_test_result_export.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/local_unit_test_result_report.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/local_unit_test_result_suc.png">
+<meta property="og:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_load_fail_notify.png">
+<meta property="og:updated_time" content="2017-03-28T05:14:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2 本地单元测试">
+<meta name="twitter:description" content="本地单元测试所谓本地单元测试local unit test就是指，测试的代码不需要部署到设备上，不需要依赖安卓操作系统，在我们的开发环境Android Studio里面（准确的说是开发环境的Java虚拟机当中），就能运行，查看运行的结果。
+可以想象，不需要部署到设备上就能运行，那这种测试方式的速度一定是非常快的。
+它测试的是程序中的某个代码片段，通常就是某个类的方法。要验证这个方法是否到达了设计要">
+<meta name="twitter:image" content="http://7xrwhw.com1.z0.glb.clouddn.com/local_unit_test_folder.png">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+          <span class="mail">QQ群：348702074</span><br/>
+          <span class="mail"></span>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                网站首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第1章-创意/"  >
+                <i class="icon icon-lg icon-birthday-cake"></i>
+                第1章 创意
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第2章-设计原理/"  >
+                <i class="icon icon-lg icon-eyedropper"></i>
+                第2章 设计原理
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第3章-产品原型/"  >
+                <i class="icon icon-lg icon-pencil-square-o"></i>
+                第3章 产品原型
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第5章-测试/"  >
+                <i class="icon icon-lg icon-flask"></i>
+                第5章 测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第6章-发布/"  >
+                <i class="icon icon-lg icon-users"></i>
+                第6章 发布
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resources/"  >
+                <i class="icon icon-lg icon-download"></i>
+                资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about/index.html"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2 本地单元测试</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2 本地单元测试</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-14T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-02-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第5章-测试/">第5章-测试</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>本节目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#本地单元测试"><span class="post-toc-text">本地单元测试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用JUnit4框架"><span class="post-toc-text">使用JUnit4框架</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用Mock框架"><span class="post-toc-text">使用Mock框架</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#调整代码结构"><span class="post-toc-text">调整代码结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#测试代码"><span class="post-toc-text">测试代码</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#测试用例"><span class="post-toc-text">测试用例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#异常情况的提示"><span class="post-toc-text">异常情况的提示</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-5_测试/2_本地单元测试"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2 本地单元测试</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月14日 9:00" datetime="2017-02-14T01:00:00.000Z"  itemprop="datePublished">2017-02-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第5章-测试/">第5章-测试</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="本地单元测试"><a href="#本地单元测试" class="headerlink" title="本地单元测试"></a>本地单元测试</h1><p>所谓<code>本地单元测试local unit test</code>就是指，测试的代码不需要部署到设备上，不需要依赖安卓操作系统，在我们的开发环境<code>Android Studio</code>里面（准确的说是开发环境的Java虚拟机当中），就能运行，查看运行的结果。</p>
+<p>可以想象，不需要部署到设备上就能运行，那这种测试方式的速度一定是非常快的。</p>
+<p>它测试的是程序中的某个代码片段，通常就是某个类的方法。要验证这个方法是否到达了设计要求，会不会出现异常情况。</p>
+<p>安卓应用的本地单元测试不需要依赖安卓系统的实际环境，测试时需要使用一种专门针对单元测试的测试框架。这种框架有不少，Google官方推荐了2个：</p>
+<ol>
+<li><code>JUnit4</code>：这是Java的标准单元测试框架<code>JUnit4</code>，安卓系统直接拿过来使用；</li>
+<li><code>Mockito</code>：因为不能依赖安卓系统的API，有时需要模拟一些数据，就可以使用这个测试框架；</li>
+</ol>
+<p>本地单元测试的代码位于工程的<code>app\src\test\java\</code>目录下，</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/local_unit_test_folder.png" width="250" alt=" local_unit_test_folder"></div>
+
+<p>使用的时候需要在<code>build.gradle</code>配置文件中，添加上依赖的测试框架，</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">......</div><div class="line">dependencies &#123;</div><div class="line">    ......</div><div class="line">    </div><div class="line">    testCompile 'junit:junit:<span class="number">4</span>.<span class="number">12</span>'</div><div class="line">    testCompile 'org.mockito:mockito-core:<span class="number">1</span>.<span class="number">10</span>.<span class="number">19</span>'</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在，我们就开始尝试为<code>天气预报</code>做一个简单的本地单元测试吧。目的是掌握本地单元测试的流程。</p>
+<h2 id="使用JUnit4框架"><a href="#使用JUnit4框架" class="headerlink" title="使用JUnit4框架"></a>使用JUnit4框架</h2><p>前面提到过，每个测试都要有章法，确定测试的目标。<code>天气预报</code>的功能是由多个模块组成的，我们这就看看哪些模块可以使用JUnit4进行测试。</p>
+<p><code>ForcastInfo</code>是一个非常简单的类，我们就通过它来熟悉一下如何进行本地单元测试。</p>
+<p>这个类的作用是创建一个存储多日天气预报的数据结构，<code>ForcastInfo</code>在创建的时候，要根据<code>weatherCode</code>，给这个数据结构赋以对应天气图标和显示内容。</p>
+<p>我们就检查一下在使用特定的天气代码时，天气图标是否正确，即</p>
+<table>
+<thead>
+<tr>
+<th>天气代码</th>
+<th>图标Id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>R.mipmap.ic_sunny_s</td>
+</tr>
+<tr>
+<td>1</td>
+<td>R.mipmap.ic_rainy_s</td>
+</tr>
+<tr>
+<td>2</td>
+<td>R.mipmap.ic_cloudy_s</td>
+</tr>
+<tr>
+<td>3</td>
+<td>R.mipmap.ic_fog_s</td>
+</tr>
+<tr>
+<td>4</td>
+<td>R.mipmap.ic_snow_s</td>
+</tr>
+<tr>
+<td>5</td>
+<td>R.mipmap.ic_sunny_cloudy_s</td>
+</tr>
+</tbody>
+</table>
+<p><em>这个测试的功能点看上去很简单，似乎没有测试的必要。不过为了用来说明单元测试的方法，就选用了这个简单的例子。</em></p>
+<ol>
+<li><p>首先在<code>build.gradle</code>配置文件中，添加上依赖的测试框架，</p>
+ <figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">......</div><div class="line">dependencies &#123;</div><div class="line">    ......</div><div class="line">    </div><div class="line">    testCompile 'junit:junit:<span class="number">4</span>.<span class="number">12</span>'</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> <em>在我们通过<code>Android Studio</code>创建工程的时候，已经自动创建了一个可以进行单元测试的示例文件，它位于<code>app\src\test\java\</code>目录下。另外，在创建工程的时候，<code>Android Studio</code>也为我们在<code>build.gradle</code>配置文件中添加上了<code>testCompile &#39;junit:junit:4.12&#39;</code>。</em></p>
+</li>
+<li><p>打开要测试的<code>ForcastInfo</code>类，在它上门点击右键，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/local_unit_test_create_test_file_1.png" width="500" alt=" local_unit_test_create_test_file_1"></div>
+
+<p> 创建名为<code>ForcastInfoTest.java</code>的测试文件，该文件位于<code>app\src\test\java\</code>目录下，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/local_unit_test_create_test_file_2.png" width="400" alt=" local_unit_test_create_test_file_2"></div>
+
+<p> 创建后，已经默认为我们创建了<code>setup()</code>函数，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForcastInfoTest</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="meta">@Before</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    ......</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 这个使用了<code>@Before</code>注解的函数，会在测试类加载的时候被自动调用。通常在这里为测试做些初始化的准备。不过这个测试，我们不会用到。</p>
+</li>
+<li><p>在<code>ForcastInfoTest类</code>中，添加<code>checkWeatherCode0_isCorrect()</code>函数，检测<code>weather code</code>为0的时候，是否使用的是<code>R.mipmap.ic_sunny_s</code>图标</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForcastInfoTest</span> </span>&#123;</div><div class="line">    ......</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkWeatherCode0_isCorrect</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    ......</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 添加函数的时候，要给这个函数使用<code>@Test</code>注解。这样测试框架<code>JUnit4</code>就能认识到这个测试函数了。</p>
+</li>
+<li><p>添加测试使用的代码，创建一个使用<code>weather code</code>为0的<code>ForcastInfo</code>，判断产生的图片Id是否与期望的图片Id一致，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForcastInfoTest</span> </span>&#123;</div><div class="line">    ......</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkWeatherCode0_isCorrect</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        ForcastInfo forcastInfo0 = <span class="keyword">new</span> ForcastInfo(<span class="string">""</span>, <span class="string">""</span>, <span class="number">0</span>);</div><div class="line">    assertEquals(<span class="string">"ForcastInfoTest test weather code 0: "</span>, R.mipmap.ic_sunny_s, forcastInfo0.iconResId);</div><div class="line">    &#125;</div><div class="line">    ......</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> <code>assertEquals()</code>函数用来两个值（返回值和期望值）是否一致，如果不一致就会抛出异常。</p>
+</li>
+<li><p>再使用类似的方法，创建对其他<code>weather code</code>的测试，</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForcastInfoTest</span> </span>&#123;</div><div class="line">    ......</div><div class="line">    </div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkWeatherCode1_isCorrect</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">        ForcastInfo forcastInfo1 = <span class="keyword">new</span> ForcastInfo(<span class="string">""</span>, <span class="string">""</span>, <span class="number">1</span>);</div><div class="line">        assertEquals(<span class="string">"ForcastInfoTest test weather code 1: "</span>, R.mipmap.ic_rainy_s, forcastInfo1.iconResId);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkWeatherCode2_isCorrect</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">        ForcastInfo forcastInfo2 = <span class="keyword">new</span> ForcastInfo(<span class="string">""</span>, <span class="string">""</span>, <span class="number">2</span>);</div><div class="line">        assertEquals(<span class="string">"ForcastInfoTest test weather code 2: "</span>, R.mipmap.ic_cloudy_s, forcastInfo2.iconResId);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkWeatherCode3_isCorrect</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">        ForcastInfo forcastInfo3 = <span class="keyword">new</span> ForcastInfo(<span class="string">""</span>, <span class="string">""</span>, <span class="number">3</span>);</div><div class="line">        assertEquals(<span class="string">"ForcastInfoTest test weather code 3: "</span>, R.mipmap.ic_fog_s, forcastInfo3.iconResId);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkWeatherCode4_isCorrect</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">        ForcastInfo forcastInfo4 = <span class="keyword">new</span> ForcastInfo(<span class="string">""</span>, <span class="string">""</span>, <span class="number">4</span>);</div><div class="line">        assertEquals(<span class="string">"ForcastInfoTest test weather code 4: "</span>, R.mipmap.ic_snow_s, forcastInfo4.iconResId);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkWeatherCode5_isCorrect</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">        ForcastInfo forcastInfo5 = <span class="keyword">new</span> ForcastInfo(<span class="string">""</span>, <span class="string">""</span>, <span class="number">5</span>);</div><div class="line">        assertEquals(<span class="string">"ForcastInfoTest test weather code 5: "</span>, R.mipmap.ic_sunny_cloudy_s, forcastInfo5.iconResId);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 也许你觉得很奇怪，一个简单的测试，为什么要写成好几个函数呢？为什么不写到一个函数当中呢？</p>
+<p> 这样做的好处是：当测试出现问题的时候，能更佳容易的知道是哪个位置出现了问题，所以越是细致越能更准确的找准问题所在。</p>
+</li>
+</ol>
+<p>现在代码部分就添加完成了。可以开始启动测试了。</p>
+<ol>
+<li><p>在测试文件上，点击右键，选择<code>Debug &#39;ForcastInfoTest&#39;</code>，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/local_unit_test_start.png" width="400" alt=" local_unit_test_start"></div>
+</li>
+<li><p>注意<code>Android Studio</code>下部区域的<code>debug窗口</code>，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/local_unit_test_result_error.png" width="500" alt=" local_unit_test_result_error"></div>
+
+<p> 左边列出了要进行测试的函数，右边的上方列出了测试的状态-<code>6项测试，5项失败</code>。这里将测试的过程和结果都展示了出来。</p>
+</li>
+<li><p>选择<code>debug窗口</code>导出测试结果的选项，</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/local_unit_test_result_export.png" width="500" alt=" local_unit_test_result_export"></div>
+
+<p> 导出的报告结果就像这样，便于提交给相关的人查阅。</p>
+ <div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/local_unit_test_result_report.png" width="400" alt=" local_unit_test_result_report"></div>
+
+</li>
+</ol>
+<p>可以看到，这里的测试并没有完全通过。测试失败的原因是什么呢？检查<code>ForcastInfoTest.java</code>，发现原来是开发的过程中，忘记给每个<code>case</code>添加<code>break</code>语句了。因此要做如下的修改，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForcastInfo</span> </span>&#123;</div><div class="line">    ......</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ForcastInfo</span><span class="params">(String date, String temperatureRage, <span class="keyword">int</span> weatherCode)</span> </span>&#123;</div><div class="line">        ......</div><div class="line">        <span class="keyword">switch</span> (weatherCode) &#123;</div><div class="line"></div><div class="line">            <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">                <span class="keyword">this</span>.iconResId = R.mipmap.ic_sunny_s;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">            <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">                <span class="keyword">this</span>.iconResId =  R.mipmap.ic_rainy_s;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">            <span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">                <span class="keyword">this</span>.iconResId =  R.mipmap.ic_cloudy_s;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">            <span class="keyword">case</span> <span class="number">3</span>:</div><div class="line">                <span class="keyword">this</span>.iconResId =  R.mipmap.ic_fog_s;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">            <span class="keyword">case</span> <span class="number">4</span>:</div><div class="line">                <span class="keyword">this</span>.iconResId =  R.mipmap.ic_snow_s;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">            <span class="keyword">case</span> <span class="number">5</span>:</div><div class="line">                <span class="keyword">this</span>.iconResId =  R.mipmap.ic_sunny_cloudy_s;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>按照这样的方式修改后，再测试一遍。</p>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/local_unit_test_result_suc.png" width="500" alt=" local_unit_test_result_suc"></div>
+
+<p>测试通过了。</p>
+<hr>
+<p>使用相同的方法，我们可以把<code>WeatherMoreInfo</code>测试一番。</p>
+<h2 id="使用Mock框架"><a href="#使用Mock框架" class="headerlink" title="使用Mock框架"></a>使用Mock框架</h2><p>上面的测试方式不需要依赖安卓系统自身的特性。但是大部分时候，这些安卓自有的特性是我们测试时难以回避的。</p>
+<p>例如<code>MainActivity</code>中要测试<code>从网络获取并解析数据</code>的功能：</p>
+<p>这项功能是封装在<code>UpdateTask类</code>内部当中的<code>doInBackground()</code>函数里。该类还会进行界面的刷新操作。要测试到这个操作着实不容易。有什么好的办法吗？</p>
+<p>老实说，这个问题引入了一个很大的话题-程序的设计框架。如果你发现自己的程序当中，各个互不关联的模块或者功能互相胶着在一起，你中有我，我中有你，显得非常的混乱，那么多半是你设计程序时采用的框架可能有问题。</p>
+<p>比如我们现在的<code>天气预报</code>，就没有使用任何设计框架，所有的逻辑代码几乎都放在<code>MainActivity.java</code>当中，因此现在测试的时候，你就遇到了不容易测试的问题</p>
+<p>设计框架通常都会把界面显示的模块和逻辑控制的模块分开。它能更好的帮助我们理解程序设计的思路，维护起来更加的容易。另外，因为它把实现逻辑控制的模块单独分离出来了，也就能让我们进行测试的时候显得非常容易。</p>
+<p>我们现在的重要目标是熟悉安卓开发，设计框架并不会讲到，所以只能采取一些中立的方式对目前的程序结构进行改造了。</p>
+<h3 id="调整代码结构"><a href="#调整代码结构" class="headerlink" title="调整代码结构"></a>调整代码结构</h3><p>首先将设计一个<code>WeatherParsedData</code>结构体，用于存放<code>UpdateTask</code>解析出天气数据时获得的结果，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line">    </div><div class="line">    ......</div><div class="line">        </div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">WeatherParsedData</span> </span>&#123;</div><div class="line">    </div><div class="line">       <span class="keyword">public</span> <span class="keyword">int</span> errorCode;</div><div class="line">    </div><div class="line">       <span class="keyword">public</span> String location;</div><div class="line">    </div><div class="line">       <span class="keyword">public</span> String temperature;</div><div class="line">    </div><div class="line">       <span class="keyword">public</span> String temperatureRange;</div><div class="line">    </div><div class="line">       <span class="keyword">public</span> <span class="keyword">int</span> weatherCode;</div><div class="line">    </div><div class="line">       <span class="keyword">public</span> List&lt;ForcastInfo&gt; forcastList;</div><div class="line">    </div><div class="line">       <span class="keyword">public</span> List&lt;WeatherMoreInfo&gt; weatherMoreInfoList;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>将原来<code>doInBackground()</code>中的函数拆解成2个部分</p>
+<ol>
+<li><p>获取网络数据：</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    ......</div><div class="line">    </div><div class="line">    <span class="function">String <span class="title">getWeatherInformationFromNetwork</span><span class="params">(String apiUrl)</span> </span>&#123;</div><div class="line"></div><div class="line">        URL url = <span class="keyword">null</span>;</div><div class="line">        String weatherRes = <span class="string">""</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            url = <span class="keyword">new</span> URL(apiUrl);</div><div class="line">            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();</div><div class="line"></div><div class="line">            InputStream in = <span class="keyword">new</span> BufferedInputStream(urlConnection.getInputStream());</div><div class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">2048</span>];</div><div class="line">            <span class="keyword">int</span> readBytes = <span class="number">0</span>;</div><div class="line">            StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder();</div><div class="line">            <span class="keyword">while</span>((readBytes = in.read(buffer)) &gt; <span class="number">0</span>)&#123;</div><div class="line">                stringBuilder.append(<span class="keyword">new</span> String(buffer, <span class="number">0</span>, readBytes));</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            urlConnection.disconnect();</div><div class="line"></div><div class="line">            weatherRes = stringBuilder.toString();</div><div class="line"></div><div class="line">        &#125; <span class="keyword">catch</span> (MalformedURLException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> weatherRes;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>解析网络数据：</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line">    </div><div class="line">        ......</div><div class="line">        </div><div class="line">    <span class="function">WeatherParsedData <span class="title">parseWeatherInfo</span><span class="params">(String jsonString)</span> </span>&#123;</div><div class="line"></div><div class="line">        WeatherParsedData result = <span class="keyword">new</span> WeatherParsedData();</div><div class="line">        result.errorCode = -<span class="number">1</span>;</div><div class="line"></div><div class="line">        Log.d(<span class="string">"TEST"</span>,<span class="string">"start to parse JSON content"</span>);</div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            JSONObject weatherResult = <span class="keyword">new</span> JSONObject(jsonString);</div><div class="line">            result.errorCode = weatherResult.getInt(<span class="string">"error_code"</span>);</div><div class="line">            Log.d(<span class="string">"TEST"</span>, <span class="string">"error_code = "</span> + result.errorCode);</div><div class="line">            <span class="keyword">if</span>(result.errorCode == <span class="number">0</span>) &#123;</div><div class="line">                JSONObject data = weatherResult.getJSONObject(<span class="string">"data"</span>);</div><div class="line">                result.location = data.getString(<span class="string">"location"</span>);</div><div class="line">                result.temperature = data.getString(<span class="string">"temperature"</span>);</div><div class="line">                result.temperatureRange = data.getString(<span class="string">"temperature_range"</span>);</div><div class="line">                result.weatherCode = data.getInt(<span class="string">"weather_code"</span>);</div><div class="line"></div><div class="line">                Log.d(<span class="string">"TEST"</span>,<span class="string">"weather detail info:"</span>+</div><div class="line">                        <span class="string">" location = "</span> + result.location +</div><div class="line">                        <span class="string">" temperature = "</span> + result.temperature +</div><div class="line">                        <span class="string">" temperatureRange = "</span> + result.temperatureRange +</div><div class="line">                        <span class="string">" weatherCode = "</span> + result.weatherCode);</div><div class="line"></div><div class="line">                JSONArray forcast = data.getJSONArray(<span class="string">"forcast"</span>);</div><div class="line">                result.forcastList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; forcast.length(); i++) &#123;</div><div class="line">                    JSONObject forcastItem = forcast.getJSONObject(i);</div><div class="line">                    String date = forcastItem.getString(<span class="string">"date"</span>);</div><div class="line">                    String forcastTemperatureRange = forcastItem.getString(<span class="string">"temperature_range"</span>);</div><div class="line">                    <span class="keyword">int</span> forcastWeatherCode = forcastItem.getInt(<span class="string">"weather_code"</span>);</div><div class="line"></div><div class="line">                    Log.d(<span class="string">"TEST"</span>,<span class="string">"weather forcast info:"</span>+</div><div class="line">                            <span class="string">" date = "</span> + date +</div><div class="line">                            <span class="string">" forcastTemperatureRange = "</span> + forcastTemperatureRange +</div><div class="line">                            <span class="string">" forcastWeatherCode = "</span> + forcastWeatherCode);</div><div class="line"></div><div class="line">                    ForcastInfo forcastInfo = <span class="keyword">new</span> ForcastInfo(date, forcastTemperatureRange, forcastWeatherCode);</div><div class="line">                    result.forcastList.add(forcastInfo);</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                String windDirection = data.getString(<span class="string">"wind_direction"</span>);</div><div class="line">                String windLevel = data.getString(<span class="string">"wind_level"</span>);</div><div class="line">                String humidityLevel = data.getString(<span class="string">"humidity_level"</span>);</div><div class="line">                String airQuality = data.getString(<span class="string">"air_quality"</span>);</div><div class="line">                String sportLevel = data.getString(<span class="string">"sport_level"</span>);</div><div class="line">                String ultravioletRay = data.getString(<span class="string">"ultraviolet_ray"</span>);</div><div class="line"></div><div class="line">                Log.d(<span class="string">"TEST"</span>,<span class="string">"more weather info:"</span>+</div><div class="line">                        <span class="string">" windDirection = "</span> + windDirection +</div><div class="line">                        <span class="string">" windLevel = "</span> + windLevel +</div><div class="line">                        <span class="string">" humidityLevel = "</span> + humidityLevel +</div><div class="line">                        <span class="string">" airQuality = "</span> + airQuality +</div><div class="line">                        <span class="string">" sportLevel = "</span> + sportLevel +</div><div class="line">                        <span class="string">" ultravioletRay = "</span> + ultravioletRay );</div><div class="line"></div><div class="line">                result.weatherMoreInfoList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">                WeatherMoreInfo info1 = <span class="keyword">new</span> WeatherMoreInfo(<span class="string">"wind_direction"</span>, windDirection);</div><div class="line">                WeatherMoreInfo info2 = <span class="keyword">new</span> WeatherMoreInfo(<span class="string">"wind_level"</span>, windLevel);</div><div class="line">                WeatherMoreInfo info3 = <span class="keyword">new</span> WeatherMoreInfo(<span class="string">"humidity_level"</span>, humidityLevel);</div><div class="line">                WeatherMoreInfo info4 = <span class="keyword">new</span> WeatherMoreInfo(<span class="string">"air_quality"</span>, airQuality);</div><div class="line">                WeatherMoreInfo info5 = <span class="keyword">new</span> WeatherMoreInfo(<span class="string">"sport_level"</span>, sportLevel);</div><div class="line">                WeatherMoreInfo info6 = <span class="keyword">new</span> WeatherMoreInfo(<span class="string">"ultraviolet_ray"</span>, ultravioletRay);</div><div class="line">                result.weatherMoreInfoList.add(info1);</div><div class="line">                result.weatherMoreInfoList.add(info2);</div><div class="line">                result.weatherMoreInfoList.add(info3);</div><div class="line">                result.weatherMoreInfoList.add(info4);</div><div class="line">                result.weatherMoreInfoList.add(info5);</div><div class="line">                result.weatherMoreInfoList.add(info6);</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125; <span class="keyword">catch</span> (JSONException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        Log.d(<span class="string">"TEST"</span>,<span class="string">"finish to parse JSON content"</span>);</div><div class="line"></div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>再将<code>UpdateTask</code>工作线程返回的结果从<code>Void</code>变成<code>WeatherParsedData</code>，并修改<code>doInBackground()</code>的实现，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">UpdateTask</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">Void</span>, <span class="title">Void</span>, <span class="title">WeatherParsedData</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">protected</span> WeatherParsedData <span class="title">doInBackground</span><span class="params">(Void... params)</span> </span>&#123;</div><div class="line"></div><div class="line">       <span class="comment">// 从网络获取并解析出weatherParsedData数据</span></div><div class="line">       Log.d(<span class="string">"TEST"</span>,<span class="string">"UpdateTask doInBackground - ThreadId = "</span> + Thread.currentThread().getId());</div><div class="line"></div><div class="line">            String url = <span class="string">"http://book.anddle.com/api/query_weather"</span>;</div><div class="line">            String dataString = getWeatherInformationFromNetwork(url);</div><div class="line"></div><div class="line">            WeatherParsedData weatherParsedData = parseWeatherInfo(dataString);</div><div class="line"></div><div class="line">            <span class="keyword">return</span> weatherParsedData;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(WeatherParsedData data)</span> </span>&#123;</div><div class="line"></div><div class="line">        Log.d(<span class="string">"TEST"</span>,<span class="string">"UpdateTask onPostExecute - ThreadId = "</span> + Thread.currentThread().getId());</div><div class="line"></div><div class="line">            <span class="keyword">if</span>(data.errorCode != <span class="number">0</span>) &#123;</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            updateWeatherDetail(data.location, data.temperature, data.temperatureRange, data.weatherCode);</div><div class="line">            updateWeatherForcast(data.forcastList);</div><div class="line">            updateWeatherMoreInfo(data.weatherMoreInfoList);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">   &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h3><p>首先在<code>build.gradle</code>配置文件中，添加上依赖的测试框架，</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">......</div><div class="line">dependencies &#123;</div><div class="line">   ......</div><div class="line">   </div><div class="line">   testCompile 'org.mockito:mockito-core:<span class="number">1</span>.<span class="number">10</span>.<span class="number">19</span>'</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>仿造使用<code>JUnit4</code>测试的方法，创建<code>MainActivityTest.java</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivityTest</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Before</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在<code>setUp()</code>函数中，初始化<code>Mockito</code>框架，并创建一个<code>虚拟</code>的<code>MainActivity</code>，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivityTest</span> </span>&#123;</div><div class="line"></div><div class="line">    MainActivity mMainActivity;</div><div class="line"></div><div class="line">    <span class="meta">@Before</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">//初始化Mockito框架</span></div><div class="line">        MockitoAnnotations.initMocks(<span class="keyword">this</span>);</div><div class="line">        <span class="comment">//创建虚拟的MainActivity</span></div><div class="line">        mMainActivity = Mockito.spy(MainActivity.class);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里使用了<code>Mock</code>框架的<code>spy()</code>方法来模拟整个<code>MainActivity</code>类。</p>
+<p>给测试类<code>MainActivityTest</code>添加测试用例，用来检测传入的网站链接为空的情况，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivityTest</span> </span>&#123;</div><div class="line"></div><div class="line">    ......</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getWeatherInformationFromNetwork_ifUrlisNull</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">        String data = mMainActivity.getWeatherInformationFromNetwork(<span class="keyword">null</span>);</div><div class="line"></div><div class="line">        assertEquals(<span class="string">"MainActivityTest test getWeatherInformationFromNetwork: url is null"</span>, <span class="string">""</span>, data);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以此类推，对于从网站获取数据，就添加很多需要测试的项目，例如：</p>
+<table>
+<thead>
+<tr>
+<th>测试项目</th>
+<th>参数</th>
+<th>期望结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>获取网络数据时，没有网络地址</td>
+<td>null</td>
+<td>返回空字符串</td>
+</tr>
+<tr>
+<td>获取网络数据时，网络地址为空内容</td>
+<td>“”</td>
+<td>返回空字符串</td>
+</tr>
+<tr>
+<td>获取网络数据时，网络地址无效</td>
+<td>“<a href="http://www.xxx.com" target="_blank" rel="external">http://www.xxx.com</a>“</td>
+<td>返回空字符串</td>
+</tr>
+<tr>
+<td>获取网络数据时，网络地址正确</td>
+<td>“<a href="http://book.anddle.com/api/query_weather" target="_blank" rel="external">http://book.anddle.com/api/query_weather</a>“</td>
+<td>返回有内容字符串</td>
+</tr>
+</tbody>
+</table>
+<p><code>parseWeatherInfo()</code>解析数据的函数，可以通过上面的方法进行测试，比如传入格式不正确的json字符串，少一些数据，多一些数据，看看该函数的稳定性。</p>
+<p><em>按理说解析数据的时候，应该是解析出多少正确的就显示多少正确的数据。不过我为了简化，把所有的解析代码都放到了一个异常捕捉块里面了。这样可能会出现下面的情况，有的数据是正确的，被解析了，但是遇到个别数据出了问题，导致整个解析的结果被放弃掉。</em></p>
+<p><em>如果你不能接受这种糟糕的设计，那就请自己将这部分代码做进一步的改造，让它能够尽可能多的将解析出的数据显示出来。</em></p>
+<p><code>Mock</code>框架的功能很多，并不向这里使用的那么少，这里只是一个很简单的应用。它还可以模拟一个对象的行为。例如，有这样一段代码，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function">WeatherParsedData <span class="title">functionA</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line"></div><div class="line">    String data = context.getString(R.string.json_data);</div><div class="line">    <span class="keyword">return</span> parseWeatherInfo(data);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>context</code>应该怎么获取，这是在安卓设备上运行起来才有的对象啊。我们可以这样做，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivityTest</span> </span>&#123;</div><div class="line"></div><div class="line">    Context mContext;</div><div class="line"></div><div class="line">    <span class="meta">@Before</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">//初始化Mockito框架</span></div><div class="line">        MockitoAnnotations.initMocks(<span class="keyword">this</span>);</div><div class="line">        <span class="comment">//给mContext伪装一个getString(R.string.json_data)，当它被调用时返回内容-json data xxxxxxx</span></div><div class="line">        Mockito.when(mContext.getString(R.string.json_data)).thenReturn(<span class="string">"json data xxxxxxx"</span>);</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionATest</span><span class="params">()</span> </span>&#123;</div><div class="line">        WeatherParsedData data = functionA(mContext);</div><div class="line">        </div><div class="line">        ......</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里面把<code>mContext</code>是一个假的对象，不具备真正的<code>getString()</code>功能。但是我们通过<code>Mockito.when().thenReturn()</code>这个方式，给它注入了<code>getString()</code>方法。当<code>getString()</code>被调用时，代码能获取到数据，并顺利的向下执行。</p>
+<h2 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h2><p>前面我们已经看到了好几条测试用例。<br>在着手写单元测试的代码之前，最好先将希望测试的内容梳理一遍，把要测试的对象，测试的参数和期望的结构都整理出来。</p>
+<p>然后再根据整理的结果，一条一条的写测试代码。</p>
+<p>在写的过程当中，你一定会发现很多之前自己没有考虑好的特殊情况，这会帮助你写出更加健壮的代码。</p>
+<p>另外，你也一定会发现自己设计的这个功能怎么那么难测，因此你会不断追求更好的程序设计结构，让你的开发技能大大提高。</p>
+<h2 id="异常情况的提示"><a href="#异常情况的提示" class="headerlink" title="异常情况的提示"></a>异常情况的提示</h2><p>当获取天气数据出现异常的情况的时候，<code>WeatherParsedData</code>的<code>errorCode</code>会不为0，此时，我们可以利用<code>Android SDK</code>自带的<code>Snackbar</code>，给用户一个提示。</p>
+<ol>
+<li><p><code>Snackbar</code>寄居在一个布局之下，告诉系统，要显示在哪个布局的下方，因此首先要给它指定一个显示的相对位置。这里，我们就现在应用最大的布局，给它一个名字<code>@+id/root_view</code>，</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.CoordinatorLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/root_view"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.anddle.weatherapp.MainActivity"</span>&gt;</div><div class="line">   </div><div class="line">   ...... </div><div class="line"><span class="tag">&lt;/<span class="name">android.support.design.widget.CoordinatorLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>当<code>UpdateTask</code>返回到主线程的时候，根据结果选择是否显示错误的提示。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(WeatherParsedData data)</span> </span>&#123;</div><div class="line"></div><div class="line">    Log.d(<span class="string">"TEST"</span>,<span class="string">"UpdateTask onPostExecute - ThreadId = "</span> + Thread.currentThread().getId());</div><div class="line">    </div><div class="line">    <span class="keyword">if</span>(data.errorCode != <span class="number">0</span>) &#123;</div><div class="line">        Snackbar.make(findViewById(R.id.root_view), R.string.load_weather_info_fail, Snackbar.LENGTH_LONG).show();</div><div class="line">     <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    ......</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 这里提示的字符串使用了资源字符串的形式，你可以自己加上中英文对应的内容。</p>
+</li>
+</ol>
+<div align="center"><img src="http://7xrwhw.com1.z0.glb.clouddn.com/weather_app_load_fail_notify.png" width="300" alt=" weather_app_load_fail_notify"></div>
+
+
+<p>Google官网网站上有对使用<code>Local unit test</code>的详细介绍：<a href="https://developer.android.google.cn/training/testing/unit-testing/local-unit-tests.html" target="_blank" rel="external">https://developer.android.google.cn/training/testing/unit-testing/local-unit-tests.html</a>，大家可以进步一对研读，增加对它的认识。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-28T05:14:16.000Z" itemprop="dateUpdated">2017年3月28日 13:14</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://booktest.anddle.com">
+            <img src="/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/5_测试/2_本地单元测试/&title=《2 本地单元测试》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/5_测试/2_本地单元测试/&title=《2 本地单元测试》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/5_测试/1_测试的学问/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">1 测试的学问</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/5_测试/3_设备测试/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">3 设备测试</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/5_测试/2_本地单元测试/&title=《2 本地单元测试》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/5_测试/2_本地单元测试/&title=《2 本地单元测试》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACGElEQVR42u3aW47CMBAEQO5/afYAyGy3nSDFrnwhyDqurDTyPF6v+Hp/XKPvP++Ze8rrjgsDA+OxjGQro2++r5Bv9ILXhIGBcQBj9Mjvn5P7515E/iwMDAyM9p5kQ20ox8DAwFgPoMlxsA27GBgYGHNJbA5o72mDOAYGxmmMvOr++8+39DcwMDAexXiXV9JoTIr7c8nwcFcYGBhbM/IAlx/RcuRKwMXAwDiNkaeU9x03k2Ad7QoDA2NTxpK+/DVfvw7KGBgYWzOSNHJpDCIu27UtzOJ/goGB8XBGu0Q7bJEH1mSdohOLgYGxEeOOsv5KUL4gqcbAwNiIkYfa9TLcSij/Zx0MDIxjGElimQ+55se4CwZnMTAwtmaspKPt37Yvom5FYGBgbMqYGwjL2wltAa5tcGJgYJzAaA9wyaLt6GoOqJsBGBgYWzPm0sg2oZ0DY2BgYKyMTeTUPOwm32BgYJzDWNnKXHugbQZESSwGBsYBjJXxr3ydOwY4MDAwzmFcVYZLkHnKGoVdDAyMYxjJcfA3B8q6DIeBgbEp411e+fExL97lJbnhHjAwMLZmtOni3EjEHCz/jIGBcQIjD7Jzb6Uo7scBd5jEYmBgbM1YbwPkpbqVQ97wuRgYGBgLoxJJypqH8iEYAwMDYyogzj0lSZKH7QEMDIytGW0zoA3Bc+MUBRgDA2NrxlwYvXbYogVPdjkwMDCex/gDOCe8KoVHKLUAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261181710&web_id=1261181710')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>

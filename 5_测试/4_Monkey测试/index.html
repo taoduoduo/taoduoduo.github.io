@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>4 Monkey测试 | 从设计到实现 | 手把手教你做android应用开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Monkey测试从名字来看，这种测试和猴子有关。它会模仿猴子的行为，对应用进行毫无特定目的的操作，东点一下，西按一下，看看程序会不会出问题。
+前面介绍的测试方式都是代码级别的，Monkey测试，就属于用户黑盒操作级别的了。
+为了方便Monkey测试，Android SDK提供了两个工具：
+
+Monkey工具；
+MonkeyRunner工具；
+
+Monkey工具这是Android SDK提供的一种命">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4 Monkey测试">
+<meta property="og:url" content="http://booktest.anddle.com/5_测试/4_Monkey测试/index.html">
+<meta property="og:site_name" content="从设计到实现">
+<meta property="og:description" content="Monkey测试从名字来看，这种测试和猴子有关。它会模仿猴子的行为，对应用进行毫无特定目的的操作，东点一下，西按一下，看看程序会不会出问题。
+前面介绍的测试方式都是代码级别的，Monkey测试，就属于用户黑盒操作级别的了。
+为了方便Monkey测试，Android SDK提供了两个工具：
+
+Monkey工具；
+MonkeyRunner工具；
+
+Monkey工具这是Android SDK提供的一种命">
+<meta property="og:updated_time" content="2017-03-28T05:14:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="4 Monkey测试">
+<meta name="twitter:description" content="Monkey测试从名字来看，这种测试和猴子有关。它会模仿猴子的行为，对应用进行毫无特定目的的操作，东点一下，西按一下，看看程序会不会出问题。
+前面介绍的测试方式都是代码级别的，Monkey测试，就属于用户黑盒操作级别的了。
+为了方便Monkey测试，Android SDK提供了两个工具：
+
+Monkey工具；
+MonkeyRunner工具；
+
+Monkey工具这是Android SDK提供的一种命">
+    
+        <link rel="alternative" href="/atom.xml" title="从设计到实现" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安豆</h5>
+          <a href="mailto:anddlecn@gmail.com" title="anddlecn@gmail.com" class="mail">anddlecn@gmail.com</a>
+          <span class="mail">QQ群：348702074</span><br/>
+          <span class="mail"></span>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                网站首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第1章-创意/"  >
+                <i class="icon icon-lg icon-birthday-cake"></i>
+                第1章 创意
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第2章-设计原理/"  >
+                <i class="icon icon-lg icon-eyedropper"></i>
+                第2章 设计原理
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第3章-产品原型/"  >
+                <i class="icon icon-lg icon-pencil-square-o"></i>
+                第3章 产品原型
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第4章-开发/"  >
+                <i class="icon icon-lg icon-code"></i>
+                第4章 开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第5章-测试/"  >
+                <i class="icon icon-lg icon-flask"></i>
+                第5章 测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/第6章-发布/"  >
+                <i class="icon icon-lg icon-users"></i>
+                第6章 发布
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resources/"  >
+                <i class="icon icon-lg icon-download"></i>
+                资源下载
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://anddle.com" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                安豆主站
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about/index.html"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">4 Monkey测试</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">4 Monkey测试</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-16T01:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-02-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第5章-测试/">第5章-测试</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>本节目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Monkey测试"><span class="post-toc-text">Monkey测试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Monkey工具"><span class="post-toc-text">Monkey工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MonkeyRunner工具"><span class="post-toc-text">MonkeyRunner工具</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-5_测试/4_Monkey测试"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">4 Monkey测试</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月16日 9:00" datetime="2017-02-16T01:00:00.000Z"  itemprop="datePublished">2017-02-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/第5章-测试/">第5章-测试</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Monkey测试"><a href="#Monkey测试" class="headerlink" title="Monkey测试"></a>Monkey测试</h1><p>从名字来看，这种测试和猴子有关。它会模仿猴子的行为，对应用进行毫无特定目的的操作，东点一下，西按一下，看看程序会不会出问题。</p>
+<p>前面介绍的测试方式都是代码级别的，Monkey测试，就属于用户黑盒操作级别的了。</p>
+<p>为了方便Monkey测试，<code>Android SDK</code>提供了两个工具：</p>
+<ul>
+<li>Monkey工具；</li>
+<li>MonkeyRunner工具；</li>
+</ul>
+<h2 id="Monkey工具"><a href="#Monkey工具" class="headerlink" title="Monkey工具"></a>Monkey工具</h2><p>这是Android SDK提供的一种命令行工具，测试者可以通过它向系统发送模拟操作的事件，例如，输入按键、点击、滑动、输入手势。这些操作都是随机的，没有任何章法，就像是一只猴子拿着手机，对着屏幕胡乱操作一样。</p>
+<p>使用的方式也非常的简单：</p>
+<ol>
+<li>用数据线将手机与电脑相连；</li>
+<li>将要测试的应用，安装到设备上；</li>
+<li><p>进入位于<code>Android SDK</code>所在位置下的<code>AndroidSDK/platform-tools/</code>；</p>
+ <figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> AndroidSDK/platform-tools/</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动<code>adb</code>命令行工具，进入到设备的<code>shell</code>控制台</p>
+ <figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">    $ ./adb shell</div><div class="line">    ``` </div><div class="line"><span class="number">5</span>. 启动针对特定程序包进行的Monkey测试，例如这里测试`天气应用`-`com.anddle.weatherapp`，</div><div class="line"></div><div class="line">    ```<span class="built_in">cmd</span></div><div class="line">    $ monkey -p com.anddle.weatherapp -v <span class="number">500</span></div></pre></td></tr></table></figure>
+<p> <em><code>-p</code>之后说明要测试的程序包名字；<code>500</code>表示指定要发送的随机事件个数为500。</em></p>
+</li>
+</ol>
+<p>此时观察手机，就会发现应用被运行起来了，系统会发送500个随机事件对应用进行测试。</p>
+<p>命令行窗口会输出类似这样的内容：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="function">shell@M5Note:/ $ <span class="title">monkey</span> -<span class="title">p</span> <span class="title">com.anddle.weatherapp</span> -<span class="title">v</span> 500                        </span></div><div class="line">:<span class="title">Monkey</span>: <span class="title">seed</span>=1490217374280 <span class="title">count</span>=500</div><div class="line">:<span class="title">AllowPackage</span>: <span class="title">com.anddle.weatherapp</span></div><div class="line">:<span class="title">IncludeCategory</span>: <span class="title">android.intent.category.LAUNCHER</span></div><div class="line">:<span class="title">IncludeCategory</span>: <span class="title">android.intent.category.MONKEY</span></div><div class="line">// <span class="title">Event</span> <span class="title">percentages</span>:</div><div class="line">//   0: 15.0%</div><div class="line">//   1: 10.0%</div><div class="line">//   2: 2.0%</div><div class="line">//   3: 15.0%</div><div class="line">//   4: -0.0%</div><div class="line">//   5: -0.0%</div><div class="line">//   6: 25.0%</div><div class="line">//   7: 15.0%</div><div class="line">//   8: 2.0%</div><div class="line">//   9: 2.0%</div><div class="line">//   10: 1.0%</div><div class="line">//   11: 13.0%</div><div class="line">:<span class="title">Switch</span>: #<span class="title">Intent</span>;<span class="title">action</span>=<span class="title">android.intent.action.MAIN</span>;<span class="title">category</span>=<span class="title">android.intent.category.LAUNCHER</span>;<span class="title">launchFlags</span>=0<span class="title">x10200000</span>;<span class="title">component</span>=<span class="title">com.anddle.weatherapp</span>/.<span class="title">MainActivity</span>;<span class="title">end</span></div><div class="line">    // <span class="title">Allowing</span> <span class="title">start</span> <span class="title">of</span> <span class="title">Intent</span> &#123; <span class="title">act</span>=<span class="title">android.intent.action.MAIN</span> <span class="title">cat</span>=[<span class="title">android.intent.category.LAUNCHER</span>] <span class="title">cmp</span>=<span class="title">com.anddle.weatherapp</span>/.<span class="title">MainActivity</span> &#125; <span class="title">in</span> <span class="title">package</span> <span class="title">com.anddle.weatherapp</span></div><div class="line">:<span class="title">Sending</span> <span class="title">Touch</span> (<span class="title">ACTION_DOWN</span>): 0:(214.0,747.0)</div><div class="line">:<span class="title">Sending</span> <span class="title">Touch</span> (<span class="title">ACTION_UP</span>): 0:(155.0316,684.67413)</div><div class="line">:<span class="title">Sending</span> <span class="title">Trackball</span> (<span class="title">ACTION_MOVE</span>): 0:(-4.0,-3.0)</div><div class="line">:<span class="title">Switch</span>: #<span class="title">Intent</span>;<span class="title">action</span>=<span class="title">android.intent.action.MAIN</span>;<span class="title">category</span>=<span class="title">android.intent.category.LAUNCHER</span>;<span class="title">launchFlags</span>=0<span class="title">x10200000</span>;<span class="title">component</span>=<span class="title">com.anddle.weatherapp</span>/.<span class="title">MainActivity</span>;<span class="title">end</span></div><div class="line">    // <span class="title">Allowing</span> <span class="title">start</span> <span class="title">of</span> <span class="title">Intent</span> &#123; <span class="title">act</span>=<span class="title">android.intent.action.MAIN</span> <span class="title">cat</span>=[<span class="title">android.intent.category.LAUNCHER</span>] <span class="title">cmp</span>=<span class="title">com.anddle.weatherapp</span>/.<span class="title">MainActivity</span> &#125; <span class="title">in</span> <span class="title">package</span> <span class="title">com.anddle.weatherapp</span></div><div class="line">:<span class="title">Sending</span> <span class="title">Touch</span> (<span class="title">ACTION_DOWN</span>): 0:(854.0,1009.0)</div><div class="line">:<span class="title">Sending</span> <span class="title">Touch</span> (<span class="title">ACTION_UP</span>): 0:(864.3399,970.93646)</div><div class="line">:<span class="title">Sending</span> <span class="title">Touch</span> (<span class="title">ACTION_DOWN</span>): 0:(914.0,1137.0)</div><div class="line">:<span class="title">Sending</span> <span class="title">Touch</span> (<span class="title">ACTION_UP</span>): 0:(909.46844,1121.1024)</div><div class="line">:<span class="title">Sending</span> <span class="title">Trackball</span> (<span class="title">ACTION_MOVE</span>): 0:(-1.0,-5.0)</div><div class="line">:<span class="title">Sending</span> <span class="title">Touch</span> (<span class="title">ACTION_DOWN</span>): 0:(936.0,516.0)</div><div class="line">:<span class="title">Sending</span> <span class="title">Touch</span> (<span class="title">ACTION_UP</span>): 0:(938.0193,519.05597)</div><div class="line">:<span class="title">Sending</span> <span class="title">Touch</span> (<span class="title">ACTION_DOWN</span>): 0:(826.0,585.0)</div><div class="line">:<span class="title">Sending</span> <span class="title">Touch</span> (<span class="title">ACTION_UP</span>): 0:(816.97925,576.958)</div><div class="line">:<span class="title">Sending</span> <span class="title">Trackball</span> (<span class="title">ACTION_MOVE</span>): 0:(-4.0,4.0)</div><div class="line">:<span class="title">Sending</span> <span class="title">Touch</span> (<span class="title">ACTION_DOWN</span>): 0:(558.0,404.0)</div><div class="line">:<span class="title">Sending</span> <span class="title">Touch</span> (<span class="title">ACTION_UP</span>): 0:(576.8026,419.7086)</div></pre></td></tr></table></figure>
+<h2 id="MonkeyRunner工具"><a href="#MonkeyRunner工具" class="headerlink" title="MonkeyRunner工具"></a>MonkeyRunner工具</h2><p>MonkeyRunner与Monkey的思路是差不多的，只不过MonkeyRunner的功能要强大些，它需要测试人员自己定义发送给系统打事件，而不再是随机事件了。</p>
+<p>这就相当于让测试着创造出了一个可以进行精确操作的用户，用户的每个行为都是精心编程设计好的。并且这个测试过程是可以多次精确的重复进行的，假如遇到了测试失败的情况，就可以通这些操作中完整的重复失败的经过。</p>
+<ol>
+<li><p>MonkeyRunner工具放在<code>AndroidSDK\tools</code>目录之下，通过命令行工具进入工具所在目录，</p>
+ <figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> AndroidSDK/tools/</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动MonkeyRunner，</p>
+ <figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ./monkeyrunner</div></pre></td></tr></table></figure>
+<p> 可以看到如下结果，说明进入了MonkeyRunner环境，</p>
+ <figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">GymdeMacBook-Pro-<span class="number">7</span>:tools Gym$ ./monkeyrunner</div><div class="line">Jython <span class="number">2</span>.<span class="number">5</span>.<span class="number">3</span> (<span class="number">2</span>.<span class="number">5</span>:c56500f08d34+, Aug <span class="number">13</span> <span class="number">2012</span>, <span class="number">14</span>:<span class="number">54</span>:<span class="number">35</span>) </div><div class="line">[Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (Oracle Corporation)] on java1.<span class="number">8</span>.<span class="number">0</span>_65</div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这时可以输入各种控制命令，模拟各种操作手机的动作，</p>
+ <figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; from com.android.monkeyrunner import MonkeyRunner,MonkeyDevice</div><div class="line">&gt;&gt;&gt; device=MonkeyRunner.waitForConnection()</div><div class="line">&gt;&gt;&gt; device.startActivity(component="com.anddle.weatherapp/.MainActivity")</div><div class="line">&gt;&gt;&gt; MonkeyRunner.sleep(<span class="number">2</span>.<span class="number">0</span>)</div><div class="line">&gt;&gt;&gt; device.press('KEYCODE_HOME',MonkeyDevice.DOWN_AND_UP)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>MonkeyRunner提供的函数的使用方法很多，可以参考Google官方的文档<a href="https://developer.android.com/studio/test/monkeyrunner/index.html" target="_blank" rel="external">https://developer.android.com/studio/test/monkeyrunner/index.html</a>。</p>
+<p>除了进入MonkeyRunner环境进行测试，还可以将要测试的流程写成<code>Python</code>脚本-<code>test.py</code>，然后通过MonkeyRunner运行，</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ./monkeyrunner test.py</div></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-28T05:14:16.000Z" itemprop="dateUpdated">2017年3月28日 13:14</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://booktest.anddle.com">
+            <img src="/img/avatar.png" alt="安豆">
+            安豆
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/5_测试/4_Monkey测试/&title=《4 Monkey测试》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/5_测试/4_Monkey测试/&title=《4 Monkey测试》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/5_测试/3_设备测试/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">3 设备测试</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/5_测试/5_性能调试/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">5 性能调试</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的鼓励！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpeg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span>本站内容均为原创内容，欢迎转载，但请务必注明出处</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>从设计到实现 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://booktest.anddle.com/5_测试/4_Monkey测试/&title=《4 Monkey测试》 — 从设计到实现&pic=http://booktest.anddle.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://booktest.anddle.com/5_测试/4_Monkey测试/&title=《4 Monkey测试》 — 从设计到实现&source=手把手教你做android应用开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3a0W7CMAwFUP7/pztpb1NHuHYKqMnJEwpdm8MkN3b8eMTj+B3nmfP8+Nvz/PFkPN4xMDAwbss4huPMqD4yvyZH/nNPDAyMDRjjxz/7XI1+4/uPf74Xa8bAwMCIA/FMwJ26JwYGBsYTUr5ZTILvF94bGBgYt2IkSWyyyauG1C/k4hgYGDdkVA8GPvn5jecbGBgYN2EcrVE9AJg/eHhxBwwMjKUZSdvEfNyrXjNOlaPHY2BgLMTIi2jVo4Je6a0a3P+8NzAwMDZgjDd5MyX7XpmsEI4xMDC2ZOQBN09Bx8iZQ1MMDIy1GUmgzEPwfLn/grQWAwNjOUY1IPZKb+8O6BgYGDsw8oSzF0CrB5zleQwMjG0YVzVs5UG8mvq+aLPAwMBYlNFbdNJI0ZvP286a/xMMDIwbMnrlrSqvmvSWQz8GBsbSjPHGq9c20QugMyvBwMBYm9FrM002jvNbwMI1GBgYSzPyo8pmyT4OrPM/HwYGxtqM/EZ5WhuV8oshPtrhYmBgLM3IH5yXxvKgnBTXojcGBgbGNoxq2O0tpdrGMXW2gIGBcXNGnrjmHRy97WN1VRgYGDswjuKolvvzv+qV7TAwMHZgzATfXiLaO4TAwMDASIJsXtavJrq9ch4GBsaejJnC2UzSW01fC80WGBgYGK3kttfGEbExMDAw4qX3lpIX7zAwMHZmJElstc0iP2y4IJHGwMBYmtFrcShs2npbvUsTYAwMjNsyfgCtntsZSQhIDQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261181710&web_id=1261181710')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>
